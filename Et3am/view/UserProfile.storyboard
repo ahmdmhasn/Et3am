@@ -67,6 +67,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWa-PV-uFX">
                                                                 <rect key="frame" x="0.0" y="92" width="343" height="30"/>
                                                                 <state key="normal" title="Coupons Received"/>
+                                                                <connections>
+                                                                    <segue destination="pLC-wF-7Tl" kind="push" id="FW4-pd-zCV"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -116,6 +119,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WqG-bH-p7N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="97" y="112"/>
+        </scene>
+        <!--CopounsRecieved-->
+        <scene sceneID="Kuo-ba-l4z">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CopounsRecieved" id="pLC-wF-7Tl" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="z4S-m6-U1w"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6dJ-ae-Scv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="930" y="166"/>
         </scene>
         <!--Donate-->
         <scene sceneID="sFX-qF-8Wg">

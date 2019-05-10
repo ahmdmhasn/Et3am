@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		217AB48C228625020007A2BD /* CopounsRecieved.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217AB48B228625020007A2BD /* CopounsRecieved.storyboard */; };
+		217AB48E228625680007A2BD /* CopounsRecievedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217AB48D228625680007A2BD /* CopounsRecievedViewController.swift */; };
+		217AB490228627EA0007A2BD /* CouponRecievedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217AB48F228627EA0007A2BD /* CouponRecievedTableViewCell.swift */; };
 		E2029CE822836B6D007BA6A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029CE722836B6D007BA6A1 /* AppDelegate.swift */; };
 		E2029CEA22836B6D007BA6A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029CE922836B6D007BA6A1 /* ViewController.swift */; };
 		E2029CED22836B6D007BA6A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2029CEB22836B6D007BA6A1 /* Main.storyboard */; };
@@ -39,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		217AB48B228625020007A2BD /* CopounsRecieved.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CopounsRecieved.storyboard; path = view/CopounsRecieved.storyboard; sourceTree = "<group>"; };
+		217AB48D228625680007A2BD /* CopounsRecievedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CopounsRecievedViewController.swift; path = controller/CopounsRecievedViewController.swift; sourceTree = "<group>"; };
+		217AB48F228627EA0007A2BD /* CouponRecievedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CouponRecievedTableViewCell.swift; path = controller/CouponRecievedTableViewCell.swift; sourceTree = "<group>"; };
 		E2029CE422836B6D007BA6A1 /* Et3am.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Et3am.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2029CE722836B6D007BA6A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2029CE922836B6D007BA6A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				E2512CC72285DAF300D8E0F7 /* DonateViewController.swift */,
+				217AB48D228625680007A2BD /* CopounsRecievedViewController.swift */,
+				217AB48F228627EA0007A2BD /* CouponRecievedTableViewCell.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -160,6 +168,7 @@
 				E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */,
 				E2029CEB22836B6D007BA6A1 /* Main.storyboard */,
 				E2029CF322836B6D007BA6A1 /* LaunchScreen.storyboard */,
+				217AB48B228625020007A2BD /* CopounsRecieved.storyboard */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -271,6 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				217AB48C228625020007A2BD /* CopounsRecieved.storyboard in Resources */,
 				E2029CF522836B6D007BA6A1 /* LaunchScreen.storyboard in Resources */,
 				E2029CF222836B6D007BA6A1 /* Assets.xcassets in Resources */,
 				E2029CED22836B6D007BA6A1 /* Main.storyboard in Resources */,
@@ -302,6 +312,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2029CEA22836B6D007BA6A1 /* ViewController.swift in Sources */,
+				217AB48E228625680007A2BD /* CopounsRecievedViewController.swift in Sources */,
+				217AB490228627EA0007A2BD /* CouponRecievedTableViewCell.swift in Sources */,
 				E2029CF022836B6D007BA6A1 /* Et3am.xcdatamodeld in Sources */,
 				E2029CE822836B6D007BA6A1 /* AppDelegate.swift in Sources */,
 				E2512CC82285DAF300D8E0F7 /* DonateViewController.swift in Sources */,
