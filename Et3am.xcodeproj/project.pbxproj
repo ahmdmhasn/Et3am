@@ -15,7 +15,10 @@
 		E2029CF522836B6D007BA6A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2029CF322836B6D007BA6A1 /* LaunchScreen.storyboard */; };
 		E2029D0022836B6E007BA6A1 /* Et3amTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029CFF22836B6E007BA6A1 /* Et3amTests.swift */; };
 		E2029D0B22836B6E007BA6A1 /* Et3amUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029D0A22836B6E007BA6A1 /* Et3amUITests.swift */; };
-		E2029D1F228382B2007BA6A1 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2029D1E228382B2007BA6A1 /* UserProfile.storyboard */; };
+		E2512CC42285DAD900D8E0F7 /* Donate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2512CC12285DAD900D8E0F7 /* Donate.storyboard */; };
+		E2512CC52285DAD900D8E0F7 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2512CC22285DAD900D8E0F7 /* Register.storyboard */; };
+		E2512CC62285DAD900D8E0F7 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */; };
+		E2512CC82285DAF300D8E0F7 /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2512CC72285DAF300D8E0F7 /* DonateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +53,10 @@
 		E2029D0622836B6E007BA6A1 /* Et3amUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Et3amUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2029D0A22836B6E007BA6A1 /* Et3amUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Et3amUITests.swift; sourceTree = "<group>"; };
 		E2029D0C22836B6E007BA6A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E2029D1E228382B2007BA6A1 /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
+		E2512CC12285DAD900D8E0F7 /* Donate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Donate.storyboard; path = view/Donate.storyboard; sourceTree = "<group>"; };
+		E2512CC22285DAD900D8E0F7 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Register.storyboard; path = view/Register.storyboard; sourceTree = "<group>"; };
+		E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UserProfile.storyboard; path = view/UserProfile.storyboard; sourceTree = "<group>"; };
+		E2512CC72285DAF300D8E0F7 /* DonateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DonateViewController.swift; path = controller/DonateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,10 +108,10 @@
 			isa = PBXGroup;
 			children = (
 				E2029D192283750C007BA6A1 /* model */,
-				E2029D1822837503007BA6A1 /* controllers */,
+				E2029D1822837503007BA6A1 /* controller */,
 				E2029CE722836B6D007BA6A1 /* AppDelegate.swift */,
 				E2029CE922836B6D007BA6A1 /* ViewController.swift */,
-				E2029D1A2283751A007BA6A1 /* views */,
+				E2029D1A2283751A007BA6A1 /* view */,
 				E2029CF122836B6D007BA6A1 /* Assets.xcassets */,
 				E2029CF622836B6D007BA6A1 /* Info.plist */,
 				E2029CEE22836B6D007BA6A1 /* Et3am.xcdatamodeld */,
@@ -131,11 +137,12 @@
 			path = Et3amUITests;
 			sourceTree = "<group>";
 		};
-		E2029D1822837503007BA6A1 /* controllers */ = {
+		E2029D1822837503007BA6A1 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				E2512CC72285DAF300D8E0F7 /* DonateViewController.swift */,
 			);
-			name = controllers;
+			name = controller;
 			sourceTree = "<group>";
 		};
 		E2029D192283750C007BA6A1 /* model */ = {
@@ -145,14 +152,16 @@
 			name = model;
 			sourceTree = "<group>";
 		};
-		E2029D1A2283751A007BA6A1 /* views */ = {
+		E2029D1A2283751A007BA6A1 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				E2512CC12285DAD900D8E0F7 /* Donate.storyboard */,
+				E2512CC22285DAD900D8E0F7 /* Register.storyboard */,
+				E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */,
 				E2029CEB22836B6D007BA6A1 /* Main.storyboard */,
 				E2029CF322836B6D007BA6A1 /* LaunchScreen.storyboard */,
-				E2029D1E228382B2007BA6A1 /* UserProfile.storyboard */,
 			);
-			name = views;
+			name = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,9 +272,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2029CF522836B6D007BA6A1 /* LaunchScreen.storyboard in Resources */,
-				E2029D1F228382B2007BA6A1 /* UserProfile.storyboard in Resources */,
 				E2029CF222836B6D007BA6A1 /* Assets.xcassets in Resources */,
 				E2029CED22836B6D007BA6A1 /* Main.storyboard in Resources */,
+				E2512CC62285DAD900D8E0F7 /* UserProfile.storyboard in Resources */,
+				E2512CC42285DAD900D8E0F7 /* Donate.storyboard in Resources */,
+				E2512CC52285DAD900D8E0F7 /* Register.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +304,7 @@
 				E2029CEA22836B6D007BA6A1 /* ViewController.swift in Sources */,
 				E2029CF022836B6D007BA6A1 /* Et3am.xcdatamodeld in Sources */,
 				E2029CE822836B6D007BA6A1 /* AppDelegate.swift in Sources */,
+				E2512CC82285DAF300D8E0F7 /* DonateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +549,7 @@
 				E2029D1122836B6E007BA6A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E2029D1222836B6E007BA6A1 /* Build configuration list for PBXNativeTarget "Et3amTests" */ = {
 			isa = XCConfigurationList;
@@ -545,6 +558,7 @@
 				E2029D1422836B6E007BA6A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E2029D1522836B6E007BA6A1 /* Build configuration list for PBXNativeTarget "Et3amUITests" */ = {
 			isa = XCConfigurationList;
@@ -553,6 +567,7 @@
 				E2029D1722836B6E007BA6A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
