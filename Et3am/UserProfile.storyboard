@@ -63,6 +63,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QxP-pl-u9N">
                                                                 <rect key="frame" x="0.0" y="46" width="343" height="30"/>
                                                                 <state key="normal" title="Coupons Donated"/>
+                                                                <connections>
+                                                                    <segue destination="F8H-Ae-tpx" kind="push" id="AQD-r1-CBh"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWa-PV-uFX">
                                                                 <rect key="frame" x="0.0" y="92" width="343" height="30"/>
@@ -113,6 +116,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WqG-bH-p7N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="97" y="112"/>
+        </scene>
+        <!--CouponsDonated-->
+        <scene sceneID="7AO-wL-xUV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CouponsDonated" id="F8H-Ae-tpx" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="0KC-tQ-Rvt"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aPP-SP-VRL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="617" y="-20"/>
         </scene>
     </scenes>
     <resources>

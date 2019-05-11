@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		211378A32284B5CA0056E5C7 /* CouponsDonated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 211378A22284B5CA0056E5C7 /* CouponsDonated.storyboard */; };
+		211378A52284F0C70056E5C7 /* AllCouponTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211378A42284F0C70056E5C7 /* AllCouponTableViewController.swift */; };
+		211378A72284F16A0056E5C7 /* AllCouponTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211378A62284F16A0056E5C7 /* AllCouponTableViewCell.swift */; };
+		211378A9228623AC0056E5C7 /* UnpublishCouponTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211378A8228623AA0056E5C7 /* UnpublishCouponTableViewController.swift */; };
+		211378AD228626D70056E5C7 /* UnpublishCouponTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211378AC228626D70056E5C7 /* UnpublishCouponTableViewCell.swift */; };
 		E2029CE822836B6D007BA6A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029CE722836B6D007BA6A1 /* AppDelegate.swift */; };
 		E2029CEA22836B6D007BA6A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029CE922836B6D007BA6A1 /* ViewController.swift */; };
 		E2029CED22836B6D007BA6A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2029CEB22836B6D007BA6A1 /* Main.storyboard */; };
@@ -36,6 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		211378A22284B5CA0056E5C7 /* CouponsDonated.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CouponsDonated.storyboard; sourceTree = "<group>"; };
+		211378A42284F0C70056E5C7 /* AllCouponTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCouponTableViewController.swift; sourceTree = "<group>"; };
+		211378A62284F16A0056E5C7 /* AllCouponTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCouponTableViewCell.swift; sourceTree = "<group>"; };
+		211378A8228623AA0056E5C7 /* UnpublishCouponTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnpublishCouponTableViewController.swift; path = ../UnpublishCouponTableViewController.swift; sourceTree = "<group>"; };
+		211378AC228626D70056E5C7 /* UnpublishCouponTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnpublishCouponTableViewCell.swift; sourceTree = "<group>"; };
 		E2029CE422836B6D007BA6A1 /* Et3am.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Et3am.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2029CE722836B6D007BA6A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2029CE922836B6D007BA6A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +144,10 @@
 		E2029D1822837503007BA6A1 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				211378A8228623AA0056E5C7 /* UnpublishCouponTableViewController.swift */,
+				211378A42284F0C70056E5C7 /* AllCouponTableViewController.swift */,
+				211378A62284F16A0056E5C7 /* AllCouponTableViewCell.swift */,
+				211378AC228626D70056E5C7 /* UnpublishCouponTableViewCell.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -151,6 +165,7 @@
 				E2029CEB22836B6D007BA6A1 /* Main.storyboard */,
 				E2029CF322836B6D007BA6A1 /* LaunchScreen.storyboard */,
 				E2029D1E228382B2007BA6A1 /* UserProfile.storyboard */,
+				211378A22284B5CA0056E5C7 /* CouponsDonated.storyboard */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -264,6 +279,7 @@
 			files = (
 				E2029CF522836B6D007BA6A1 /* LaunchScreen.storyboard in Resources */,
 				E2029D1F228382B2007BA6A1 /* UserProfile.storyboard in Resources */,
+				211378A32284B5CA0056E5C7 /* CouponsDonated.storyboard in Resources */,
 				E2029CF222836B6D007BA6A1 /* Assets.xcassets in Resources */,
 				E2029CED22836B6D007BA6A1 /* Main.storyboard in Resources */,
 			);
@@ -291,7 +307,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2029CEA22836B6D007BA6A1 /* ViewController.swift in Sources */,
+				211378A52284F0C70056E5C7 /* AllCouponTableViewController.swift in Sources */,
+				211378AD228626D70056E5C7 /* UnpublishCouponTableViewCell.swift in Sources */,
 				E2029CF022836B6D007BA6A1 /* Et3am.xcdatamodeld in Sources */,
+				211378A72284F16A0056E5C7 /* AllCouponTableViewCell.swift in Sources */,
+				211378A9228623AC0056E5C7 /* UnpublishCouponTableViewController.swift in Sources */,
 				E2029CE822836B6D007BA6A1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -537,6 +557,7 @@
 				E2029D1122836B6E007BA6A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E2029D1222836B6E007BA6A1 /* Build configuration list for PBXNativeTarget "Et3amTests" */ = {
 			isa = XCConfigurationList;
@@ -545,6 +566,7 @@
 				E2029D1422836B6E007BA6A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E2029D1522836B6E007BA6A1 /* Build configuration list for PBXNativeTarget "Et3amUITests" */ = {
 			isa = XCConfigurationList;
@@ -553,6 +575,7 @@
 				E2029D1722836B6E007BA6A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
