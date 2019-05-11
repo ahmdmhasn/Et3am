@@ -67,6 +67,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWa-PV-uFX">
                                                                 <rect key="frame" x="0.0" y="92" width="382" height="30"/>
                                                                 <state key="normal" title="Coupons Received"/>
+                                                                <connections>
+                                                                    <segue destination="pLC-wF-7Tl" kind="push" id="FW4-pd-zCV"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -95,6 +98,9 @@
                                 <color key="backgroundColor" red="0.1411764771" green="0.21960784489999999" blue="0.32549020649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.96078431369999995" green="0.95686274510000002" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Donate"/>
+                                <connections>
+                                    <segue destination="1m6-GH-ZLf" kind="show" id="woy-nP-Vow"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -113,6 +119,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WqG-bH-p7N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="103" y="-23"/>
+        </scene>
+        <!--CopounsRecieved-->
+        <scene sceneID="Kuo-ba-l4z">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CopounsRecieved" id="pLC-wF-7Tl" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="z4S-m6-U1w"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6dJ-ae-Scv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="930" y="166"/>
+        </scene>
+        <!--Donate-->
+        <scene sceneID="sFX-qF-8Wg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Donate" id="1m6-GH-ZLf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RmW-HY-WqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="879" y="48"/>
         </scene>
     </scenes>
     <resources>
