@@ -59,6 +59,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2du-R7-RA2">
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="30"/>
                                                                 <state key="normal" title="Settings"/>
+                                                                <connections>
+                                                                    <segue destination="2Es-I4-Ft0" kind="push" id="p7J-wC-O2v"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QxP-pl-u9N">
                                                                 <rect key="frame" x="0.0" y="46" width="382" height="30"/>
@@ -129,6 +132,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6dJ-ae-Scv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="930" y="166"/>
+        </scene>
+        <!--settings-->
+        <scene sceneID="RQY-7N-w1j">
+            <objects>
+                <viewControllerPlaceholder storyboardName="settings" id="2Es-I4-Ft0" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="6oW-98-sQL"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QhE-D4-pEw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="630" y="-203"/>
         </scene>
         <!--Donate-->
         <scene sceneID="sFX-qF-8Wg">

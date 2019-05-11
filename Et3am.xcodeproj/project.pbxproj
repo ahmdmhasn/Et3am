@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21D67A9522871812006B1315 /* settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D67A9422871812006B1315 /* settings.storyboard */; };
+		21D67A982287188D006B1315 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D67A962287188D006B1315 /* Register.storyboard */; };
 		CC0FB61A228508840008CC6C /* RestaurantInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0FB619228508840008CC6C /* RestaurantInfoViewController.swift */; };
 		CC7A84DD2286C0B300D28483 /* RestaurantInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC7A84DC2286C0B300D28483 /* RestaurantInfo.storyboard */; };
 		E2029CE822836B6D007BA6A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029CE722836B6D007BA6A1 /* AppDelegate.swift */; };
@@ -20,7 +22,6 @@
 		E2512CC42285DAD900D8E0F7 /* Donate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2512CC12285DAD900D8E0F7 /* Donate.storyboard */; };
 		E2512CC52285DAD900D8E0F7 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2512CC22285DAD900D8E0F7 /* Register.storyboard */; };
 		E2512CC62285DAD900D8E0F7 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */; };
-		E2512CC82285DAF300D8E0F7 /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2512CC72285DAF300D8E0F7 /* DonateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		21D67A9422871812006B1315 /* settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = settings.storyboard; path = ../../photorama/photorama/settings.storyboard; sourceTree = "<group>"; };
+		21D67A972287188D006B1315 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../photorama/photorama/Base.lproj/Register.storyboard; sourceTree = "<group>"; };
 		CC0FB619228508840008CC6C /* RestaurantInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantInfoViewController.swift; sourceTree = "<group>"; };
 		CC7A84DC2286C0B300D28483 /* RestaurantInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RestaurantInfo.storyboard; sourceTree = "<group>"; };
 		E2029CE422836B6D007BA6A1 /* Et3am.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Et3am.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,7 +63,6 @@
 		E2512CC12285DAD900D8E0F7 /* Donate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Donate.storyboard; path = view/Donate.storyboard; sourceTree = "<group>"; };
 		E2512CC22285DAD900D8E0F7 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Register.storyboard; path = view/Register.storyboard; sourceTree = "<group>"; };
 		E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UserProfile.storyboard; path = view/UserProfile.storyboard; sourceTree = "<group>"; };
-		E2512CC72285DAF300D8E0F7 /* DonateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DonateViewController.swift; path = controller/DonateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,9 +164,10 @@
 				E2512CC12285DAD900D8E0F7 /* Donate.storyboard */,
 				E2512CC22285DAD900D8E0F7 /* Register.storyboard */,
 				E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */,
+				21D67A962287188D006B1315 /* Register.storyboard */,
 				E2029CEB22836B6D007BA6A1 /* Main.storyboard */,
+				21D67A9422871812006B1315 /* settings.storyboard */,
 				E2029CF322836B6D007BA6A1 /* LaunchScreen.storyboard */,
-				E2029D1E228382B2007BA6A1 /* UserProfile.storyboard */,
 				CC7A84DC2286C0B300D28483 /* RestaurantInfo.storyboard */,
 			);
 			name = view;
@@ -277,11 +280,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				217AB48C228625020007A2BD /* CopounsRecieved.storyboard in Resources */,
 				E2029CF522836B6D007BA6A1 /* LaunchScreen.storyboard in Resources */,
 				E2029CF222836B6D007BA6A1 /* Assets.xcassets in Resources */,
 				CC7A84DD2286C0B300D28483 /* RestaurantInfo.storyboard in Resources */,
+				21D67A9522871812006B1315 /* settings.storyboard in Resources */,
 				E2029CED22836B6D007BA6A1 /* Main.storyboard in Resources */,
+				21D67A982287188D006B1315 /* Register.storyboard in Resources */,
 				E2512CC62285DAD900D8E0F7 /* UserProfile.storyboard in Resources */,
 				E2512CC42285DAD900D8E0F7 /* Donate.storyboard in Resources */,
 				E2512CC52285DAD900D8E0F7 /* Register.storyboard in Resources */,
@@ -310,8 +314,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2029CEA22836B6D007BA6A1 /* ViewController.swift in Sources */,
-				217AB48E228625680007A2BD /* CopounsRecievedViewController.swift in Sources */,
-				217AB490228627EA0007A2BD /* CouponRecievedTableViewCell.swift in Sources */,
 				E2029CF022836B6D007BA6A1 /* Et3am.xcdatamodeld in Sources */,
 				E2029CE822836B6D007BA6A1 /* AppDelegate.swift in Sources */,
 				CC0FB61A228508840008CC6C /* RestaurantInfoViewController.swift in Sources */,
@@ -350,6 +352,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		21D67A962287188D006B1315 /* Register.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				21D67A972287188D006B1315 /* Base */,
+			);
+			name = Register.storyboard;
+			sourceTree = "<group>";
+		};
 		E2029CEB22836B6D007BA6A1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
