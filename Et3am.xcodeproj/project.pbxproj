@@ -20,7 +20,9 @@
 		E2029CF522836B6D007BA6A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2029CF322836B6D007BA6A1 /* LaunchScreen.storyboard */; };
 		E2029D0022836B6E007BA6A1 /* Et3amTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029CFF22836B6E007BA6A1 /* Et3amTests.swift */; };
 		E2029D0B22836B6E007BA6A1 /* Et3amUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029D0A22836B6E007BA6A1 /* Et3amUITests.swift */; };
-		E2029D1F228382B2007BA6A1 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2029D1E228382B2007BA6A1 /* UserProfile.storyboard */; };
+		E2512CC42285DAD900D8E0F7 /* Donate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2512CC12285DAD900D8E0F7 /* Donate.storyboard */; };
+		E2512CC52285DAD900D8E0F7 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2512CC22285DAD900D8E0F7 /* Register.storyboard */; };
+		E2512CC62285DAD900D8E0F7 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +62,9 @@
 		E2029D0622836B6E007BA6A1 /* Et3amUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Et3amUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2029D0A22836B6E007BA6A1 /* Et3amUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Et3amUITests.swift; sourceTree = "<group>"; };
 		E2029D0C22836B6E007BA6A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E2029D1E228382B2007BA6A1 /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
+		E2512CC12285DAD900D8E0F7 /* Donate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Donate.storyboard; path = view/Donate.storyboard; sourceTree = "<group>"; };
+		E2512CC22285DAD900D8E0F7 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Register.storyboard; path = view/Register.storyboard; sourceTree = "<group>"; };
+		E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UserProfile.storyboard; path = view/UserProfile.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,10 +116,10 @@
 			isa = PBXGroup;
 			children = (
 				E2029D192283750C007BA6A1 /* model */,
-				E2029D1822837503007BA6A1 /* controllers */,
+				E2029D1822837503007BA6A1 /* controller */,
 				E2029CE722836B6D007BA6A1 /* AppDelegate.swift */,
 				E2029CE922836B6D007BA6A1 /* ViewController.swift */,
-				E2029D1A2283751A007BA6A1 /* views */,
+				E2029D1A2283751A007BA6A1 /* view */,
 				E2029CF122836B6D007BA6A1 /* Assets.xcassets */,
 				E2029CF622836B6D007BA6A1 /* Info.plist */,
 				E2029CEE22836B6D007BA6A1 /* Et3am.xcdatamodeld */,
@@ -141,7 +145,7 @@
 			path = Et3amUITests;
 			sourceTree = "<group>";
 		};
-		E2029D1822837503007BA6A1 /* controllers */ = {
+		E2029D1822837503007BA6A1 /* controller */ = {
 			isa = PBXGroup;
 			children = (
 				211378A8228623AA0056E5C7 /* UnpublishCouponTableViewController.swift */,
@@ -149,7 +153,7 @@
 				211378A62284F16A0056E5C7 /* AllCouponTableViewCell.swift */,
 				211378AC228626D70056E5C7 /* UnpublishCouponTableViewCell.swift */,
 			);
-			name = controllers;
+			name = controller;
 			sourceTree = "<group>";
 		};
 		E2029D192283750C007BA6A1 /* model */ = {
@@ -159,15 +163,20 @@
 			name = model;
 			sourceTree = "<group>";
 		};
-		E2029D1A2283751A007BA6A1 /* views */ = {
+		E2029D1A2283751A007BA6A1 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				E2512CC12285DAD900D8E0F7 /* Donate.storyboard */,
+				E2512CC22285DAD900D8E0F7 /* Register.storyboard */,
+				E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */,
+				21D67A962287188D006B1315 /* Register.storyboard */,
 				E2029CEB22836B6D007BA6A1 /* Main.storyboard */,
+				21D67A9422871812006B1315 /* settings.storyboard */,
 				E2029CF322836B6D007BA6A1 /* LaunchScreen.storyboard */,
 				E2029D1E228382B2007BA6A1 /* UserProfile.storyboard */,
 				211378A22284B5CA0056E5C7 /* CouponsDonated.storyboard */,
 			);
-			name = views;
+			name = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,7 +290,13 @@
 				E2029D1F228382B2007BA6A1 /* UserProfile.storyboard in Resources */,
 				211378A32284B5CA0056E5C7 /* CouponsDonated.storyboard in Resources */,
 				E2029CF222836B6D007BA6A1 /* Assets.xcassets in Resources */,
+				CC7A84DD2286C0B300D28483 /* RestaurantInfo.storyboard in Resources */,
+				21D67A9522871812006B1315 /* settings.storyboard in Resources */,
 				E2029CED22836B6D007BA6A1 /* Main.storyboard in Resources */,
+				21D67A982287188D006B1315 /* Register.storyboard in Resources */,
+				E2512CC62285DAD900D8E0F7 /* UserProfile.storyboard in Resources */,
+				E2512CC42285DAD900D8E0F7 /* Donate.storyboard in Resources */,
+				E2512CC52285DAD900D8E0F7 /* Register.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +328,7 @@
 				211378A72284F16A0056E5C7 /* AllCouponTableViewCell.swift in Sources */,
 				211378A9228623AC0056E5C7 /* UnpublishCouponTableViewController.swift in Sources */,
 				E2029CE822836B6D007BA6A1 /* AppDelegate.swift in Sources */,
+				CC0FB61A228508840008CC6C /* RestaurantInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +364,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		21D67A962287188D006B1315 /* Register.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				21D67A972287188D006B1315 /* Base */,
+			);
+			name = Register.storyboard;
+			sourceTree = "<group>";
+		};
 		E2029CEB22836B6D007BA6A1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
