@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC0FB61A228508840008CC6C /* RestaurantInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0FB619228508840008CC6C /* RestaurantInfoViewController.swift */; };
+		CC7A84DD2286C0B300D28483 /* RestaurantInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC7A84DC2286C0B300D28483 /* RestaurantInfo.storyboard */; };
 		E2029CE822836B6D007BA6A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029CE722836B6D007BA6A1 /* AppDelegate.swift */; };
 		E2029CEA22836B6D007BA6A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029CE922836B6D007BA6A1 /* ViewController.swift */; };
 		E2029CED22836B6D007BA6A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2029CEB22836B6D007BA6A1 /* Main.storyboard */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CC0FB619228508840008CC6C /* RestaurantInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantInfoViewController.swift; sourceTree = "<group>"; };
+		CC7A84DC2286C0B300D28483 /* RestaurantInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RestaurantInfo.storyboard; sourceTree = "<group>"; };
 		E2029CE422836B6D007BA6A1 /* Et3am.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Et3am.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2029CE722836B6D007BA6A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2029CE922836B6D007BA6A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 		E2029D1822837503007BA6A1 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CC0FB619228508840008CC6C /* RestaurantInfoViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 				E2029CEB22836B6D007BA6A1 /* Main.storyboard */,
 				E2029CF322836B6D007BA6A1 /* LaunchScreen.storyboard */,
 				E2029D1E228382B2007BA6A1 /* UserProfile.storyboard */,
+				CC7A84DC2286C0B300D28483 /* RestaurantInfo.storyboard */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -265,6 +271,7 @@
 				E2029CF522836B6D007BA6A1 /* LaunchScreen.storyboard in Resources */,
 				E2029D1F228382B2007BA6A1 /* UserProfile.storyboard in Resources */,
 				E2029CF222836B6D007BA6A1 /* Assets.xcassets in Resources */,
+				CC7A84DD2286C0B300D28483 /* RestaurantInfo.storyboard in Resources */,
 				E2029CED22836B6D007BA6A1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,6 +300,7 @@
 				E2029CEA22836B6D007BA6A1 /* ViewController.swift in Sources */,
 				E2029CF022836B6D007BA6A1 /* Et3am.xcdatamodeld in Sources */,
 				E2029CE822836B6D007BA6A1 /* AppDelegate.swift in Sources */,
+				CC0FB61A228508840008CC6C /* RestaurantInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +545,7 @@
 				E2029D1122836B6E007BA6A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E2029D1222836B6E007BA6A1 /* Build configuration list for PBXNativeTarget "Et3amTests" */ = {
 			isa = XCConfigurationList;
@@ -545,6 +554,7 @@
 				E2029D1422836B6E007BA6A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E2029D1522836B6E007BA6A1 /* Build configuration list for PBXNativeTarget "Et3amUITests" */ = {
 			isa = XCConfigurationList;
@@ -553,6 +563,7 @@
 				E2029D1722836B6E007BA6A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
