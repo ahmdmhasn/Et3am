@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		211378A32284B5CA0056E5C7 /* CouponsDonated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 211378A22284B5CA0056E5C7 /* CouponsDonated.storyboard */; };
+		21110BC7228843DF00D982E5 /* CopounsRecieved.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21110BC6228843DF00D982E5 /* CopounsRecieved.storyboard */; };
+		21110BC92288442F00D982E5 /* RestaurantInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21110BC82288442F00D982E5 /* RestaurantInfo.storyboard */; };
+		21110BCB2288444500D982E5 /* CouponsDonated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21110BCA2288444500D982E5 /* CouponsDonated.storyboard */; };
 		211378A52284F0C70056E5C7 /* AllCouponTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211378A42284F0C70056E5C7 /* AllCouponTableViewController.swift */; };
 		211378A72284F16A0056E5C7 /* AllCouponTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211378A62284F16A0056E5C7 /* AllCouponTableViewCell.swift */; };
 		211378A9228623AC0056E5C7 /* UnpublishCouponTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211378A8228623AA0056E5C7 /* UnpublishCouponTableViewController.swift */; };
@@ -43,7 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		211378A22284B5CA0056E5C7 /* CouponsDonated.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CouponsDonated.storyboard; sourceTree = "<group>"; };
+		21110BC6228843DF00D982E5 /* CopounsRecieved.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CopounsRecieved.storyboard; path = view/CopounsRecieved.storyboard; sourceTree = "<group>"; };
+		21110BC82288442F00D982E5 /* RestaurantInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RestaurantInfo.storyboard; path = view/RestaurantInfo.storyboard; sourceTree = "<group>"; };
+		21110BCA2288444500D982E5 /* CouponsDonated.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CouponsDonated.storyboard; path = view/CouponsDonated.storyboard; sourceTree = "<group>"; };
 		211378A42284F0C70056E5C7 /* AllCouponTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCouponTableViewController.swift; sourceTree = "<group>"; };
 		211378A62284F16A0056E5C7 /* AllCouponTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCouponTableViewCell.swift; sourceTree = "<group>"; };
 		211378A8228623AA0056E5C7 /* UnpublishCouponTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnpublishCouponTableViewController.swift; path = ../UnpublishCouponTableViewController.swift; sourceTree = "<group>"; };
@@ -121,8 +125,8 @@
 				E2029CE922836B6D007BA6A1 /* ViewController.swift */,
 				E2029D1A2283751A007BA6A1 /* view */,
 				E2029CF122836B6D007BA6A1 /* Assets.xcassets */,
-				E2029CF622836B6D007BA6A1 /* Info.plist */,
 				E2029CEE22836B6D007BA6A1 /* Et3am.xcdatamodeld */,
+				E2029CF622836B6D007BA6A1 /* Info.plist */,
 			);
 			path = Et3am;
 			sourceTree = "<group>";
@@ -166,15 +170,15 @@
 		E2029D1A2283751A007BA6A1 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				21110BCA2288444500D982E5 /* CouponsDonated.storyboard */,
+				21110BC82288442F00D982E5 /* RestaurantInfo.storyboard */,
+				21110BC6228843DF00D982E5 /* CopounsRecieved.storyboard */,
 				E2512CC12285DAD900D8E0F7 /* Donate.storyboard */,
 				E2512CC22285DAD900D8E0F7 /* Register.storyboard */,
 				E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */,
 				21D67A962287188D006B1315 /* Register.storyboard */,
 				E2029CEB22836B6D007BA6A1 /* Main.storyboard */,
-				21D67A9422871812006B1315 /* settings.storyboard */,
 				E2029CF322836B6D007BA6A1 /* LaunchScreen.storyboard */,
-				E2029D1E228382B2007BA6A1 /* UserProfile.storyboard */,
-				211378A22284B5CA0056E5C7 /* CouponsDonated.storyboard */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -286,17 +290,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21110BC92288442F00D982E5 /* RestaurantInfo.storyboard in Resources */,
 				E2029CF522836B6D007BA6A1 /* LaunchScreen.storyboard in Resources */,
-				E2029D1F228382B2007BA6A1 /* UserProfile.storyboard in Resources */,
-				211378A32284B5CA0056E5C7 /* CouponsDonated.storyboard in Resources */,
 				E2029CF222836B6D007BA6A1 /* Assets.xcassets in Resources */,
-				CC7A84DD2286C0B300D28483 /* RestaurantInfo.storyboard in Resources */,
-				21D67A9522871812006B1315 /* settings.storyboard in Resources */,
+				21110BCB2288444500D982E5 /* CouponsDonated.storyboard in Resources */,
 				E2029CED22836B6D007BA6A1 /* Main.storyboard in Resources */,
-				21D67A982287188D006B1315 /* Register.storyboard in Resources */,
 				E2512CC62285DAD900D8E0F7 /* UserProfile.storyboard in Resources */,
 				E2512CC42285DAD900D8E0F7 /* Donate.storyboard in Resources */,
 				E2512CC52285DAD900D8E0F7 /* Register.storyboard in Resources */,
+				21110BC7228843DF00D982E5 /* CopounsRecieved.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,7 +330,6 @@
 				211378A72284F16A0056E5C7 /* AllCouponTableViewCell.swift in Sources */,
 				211378A9228623AC0056E5C7 /* UnpublishCouponTableViewController.swift in Sources */,
 				E2029CE822836B6D007BA6A1 /* AppDelegate.swift in Sources */,
-				CC0FB61A228508840008CC6C /* RestaurantInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +368,6 @@
 		21D67A962287188D006B1315 /* Register.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				21D67A972287188D006B1315 /* Base */,
 			);
 			name = Register.storyboard;
 			sourceTree = "<group>";

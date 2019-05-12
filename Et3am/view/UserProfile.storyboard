@@ -136,10 +136,10 @@
             </objects>
             <point key="canvasLocation" x="930" y="166"/>
         </scene>
-        <!--settings-->
+        <!--Storyboard Reference-->
         <scene sceneID="RQY-7N-w1j">
             <objects>
-                <viewControllerPlaceholder storyboardName="settings" id="2Es-I4-Ft0" sceneMemberID="viewController">
+                <viewControllerPlaceholder id="2Es-I4-Ft0" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="6oW-98-sQL"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QhE-D4-pEw" userLabel="First Responder" sceneMemberID="firstResponder"/>
