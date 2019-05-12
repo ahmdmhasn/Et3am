@@ -186,7 +186,9 @@
 				E2512CC12285DAD900D8E0F7 /* Donate.storyboard */,
 				E2512CC22285DAD900D8E0F7 /* Register.storyboard */,
 				E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */,
+				21D67A962287188D006B1315 /* Register.storyboard */,
 				E2029CEB22836B6D007BA6A1 /* Main.storyboard */,
+				21D67A9422871812006B1315 /* settings.storyboard */,
 				E2029CF322836B6D007BA6A1 /* LaunchScreen.storyboard */,
 				CC7A84DC2286C0B300D28483 /* RestaurantInfo.storyboard */,
 			);
@@ -303,7 +305,9 @@
 				E2029CF522836B6D007BA6A1 /* LaunchScreen.storyboard in Resources */,
 				E2029CF222836B6D007BA6A1 /* Assets.xcassets in Resources */,
 				CC7A84DD2286C0B300D28483 /* RestaurantInfo.storyboard in Resources */,
+				21D67A9522871812006B1315 /* settings.storyboard in Resources */,
 				E2029CED22836B6D007BA6A1 /* Main.storyboard in Resources */,
+				21D67A982287188D006B1315 /* Register.storyboard in Resources */,
 				E2512CC62285DAD900D8E0F7 /* UserProfile.storyboard in Resources */,
 				E2512CC42285DAD900D8E0F7 /* Donate.storyboard in Resources */,
 				E2512CC52285DAD900D8E0F7 /* Register.storyboard in Resources */,
@@ -376,6 +380,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		21D67A962287188D006B1315 /* Register.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				21D67A972287188D006B1315 /* Base */,
+			);
+			name = Register.storyboard;
+			sourceTree = "<group>";
+		};
 		E2029CEB22836B6D007BA6A1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
