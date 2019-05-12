@@ -96,6 +96,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A24FE2AB2287691B00E7C03A /* pojos */ = {
+			isa = PBXGroup;
+			children = (
+				A24FE2AC2287698D00E7C03A /* Coupon.swift */,
+				A24FE2AE22876AA400E7C03A /* User.swift */,
+				A24FE2B022876B8B00E7C03A /* Restaurant.swift */,
+				A24FE2B222876FD500E7C03A /* Fakka.swift */,
+				A24FE2B42287709800E7C03A /* Admin.swift */,
+				A24FE2B62287719800E7C03A /* Meal.swift */,
+			);
+			name = pojos;
+			sourceTree = "<group>";
+		};
 		E2029CDB22836B6C007BA6A1 = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +176,7 @@
 		E2029D192283750C007BA6A1 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A24FE2AB2287691B00E7C03A /* pojos */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -323,6 +337,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A24FE2B72287719800E7C03A /* Meal.swift in Sources */,
+				A24FE2AD2287698D00E7C03A /* Coupon.swift in Sources */,
+				A24FE2B52287709800E7C03A /* Admin.swift in Sources */,
 				E2029CEA22836B6D007BA6A1 /* ViewController.swift in Sources */,
 				211378A52284F0C70056E5C7 /* AllCouponTableViewController.swift in Sources */,
 				211378AD228626D70056E5C7 /* UnpublishCouponTableViewCell.swift in Sources */,
