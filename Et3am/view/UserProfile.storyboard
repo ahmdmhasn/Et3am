@@ -59,15 +59,12 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2du-R7-RA2">
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="30"/>
                                                                 <state key="normal" title="Settings"/>
-                                                                <connections>
-                                                                    <segue destination="2Es-I4-Ft0" kind="push" id="p7J-wC-O2v"/>
-                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QxP-pl-u9N">
                                                                 <rect key="frame" x="0.0" y="46" width="382" height="30"/>
                                                                 <state key="normal" title="Coupons Donated"/>
                                                                 <connections>
-                                                                    <segue destination="F8H-Ae-tpx" kind="push" id="AQD-r1-CBh"/>
+                                                                    <segue destination="F8H-Ae-tpx" kind="show" id="AQD-r1-CBh"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWa-PV-uFX">
@@ -134,17 +131,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6dJ-ae-Scv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="930" y="166"/>
-        </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="RQY-7N-w1j">
-            <objects>
-                <viewControllerPlaceholder id="2Es-I4-Ft0" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="6oW-98-sQL"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QhE-D4-pEw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="630" y="-203"/>
+            <point key="canvasLocation" x="763" y="34"/>
         </scene>
         <!--Donate-->
         <scene sceneID="sFX-qF-8Wg">
@@ -152,7 +139,7 @@
                 <viewControllerPlaceholder storyboardName="Donate" id="1m6-GH-ZLf" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RmW-HY-WqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="879" y="48"/>
+            <point key="canvasLocation" x="790" y="227"/>
         </scene>
         <!--CouponsDonated-->
         <scene sceneID="7AO-wL-xUV">
@@ -162,7 +149,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aPP-SP-VRL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="617" y="-20"/>
+            <point key="canvasLocation" x="746" y="-136"/>
         </scene>
     </scenes>
     <resources>

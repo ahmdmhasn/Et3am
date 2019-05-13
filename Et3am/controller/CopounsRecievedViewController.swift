@@ -12,6 +12,7 @@ class CopounsRecievedViewController: UIViewController, UITableViewDelegate, UITa
     
     
     @IBOutlet weak var CopounRecievedTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,10 +21,6 @@ class CopounsRecievedViewController: UIViewController, UITableViewDelegate, UITa
         CopounRecievedTableView.delegate=self
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
