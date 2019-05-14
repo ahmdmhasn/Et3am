@@ -12,10 +12,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Resturant Details-->
+        <!--Restaurant Info View Controller-->
         <scene sceneID="oAj-qR-vm3">
             <objects>
-                <viewController id="3cJ-nE-JAm" customClass="ResturantDetails" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3cJ-nE-JAm" customClass="RestaurantInfoViewController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z66-nx-pFT"/>
                         <viewControllerLayoutGuide type="bottom" id="2dM-RF-s5R"/>
@@ -75,7 +75,7 @@
                                                     <constraint firstAttribute="height" constant="260" id="rdQ-cf-ihH"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MealCell" rowHeight="120" id="cDj-Oe-Ihh" customClass="MealCell" customModule="Et3am" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mealCell" rowHeight="120" id="cDj-Oe-Ihh" customClass="MealCell" customModule="Et3am" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="414" height="120"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cDj-Oe-Ihh" id="5Hf-y0-2Qc">
@@ -113,6 +113,10 @@
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="3cJ-nE-JAm" id="wzI-dF-1sf"/>
+                                                    <outlet property="delegate" destination="3cJ-nE-JAm" id="0wZ-Eu-9e8"/>
+                                                </connections>
                                             </tableView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -137,13 +141,19 @@
                                     <constraint firstAttribute="bottom" secondItem="gCE-Ug-CI6" secondAttribute="bottom" id="kOM-w4-KcN"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJ8-ms-9xa">
-                                <rect key="frame" x="162.66666666666666" y="644" width="89" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJ8-ms-9xa">
+                                <rect key="frame" x="169.66666666666666" y="644" width="89" height="30"/>
                                 <state key="normal" title="invite friends"/>
+                                <connections>
+                                    <action selector="inviteFriendButton:" destination="3cJ-nE-JAm" eventType="touchUpInside" id="UIY-AW-U4p"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qD-Ba-uM2">
-                                <rect key="frame" x="152.66666666666669" y="690" width="109.00000000000006" height="30"/>
+                                <rect key="frame" x="153" y="690" width="109" height="30"/>
                                 <state key="normal" title="get free coupon"/>
+                                <connections>
+                                    <action selector="getFreeCouponButton:" destination="3cJ-nE-JAm" eventType="touchUpInside" id="KAp-k0-stw"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -159,6 +169,12 @@
                             <constraint firstItem="jiu-BF-ynf" firstAttribute="leading" secondItem="hxH-E0-52k" secondAttribute="leading" id="mCI-g6-mSN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="CountryCityLable" destination="PHI-eh-Zqh" id="qeL-SW-0X3"/>
+                        <outlet property="MealsTableView" destination="z2B-2Y-1W7" id="aUZ-hw-uyc"/>
+                        <outlet property="restaurantImage" destination="gzX-e8-M99" id="VSK-PK-YwQ"/>
+                        <outlet property="restaurantNameLable" destination="Ygv-AB-ByF" id="NDT-jL-pJ6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGR-y0-tzC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
