@@ -16,8 +16,14 @@
 		A24FE2B72287719800E7C03A /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24FE2B62287719800E7C03A /* Meal.swift */; };
 		CC0FB61A228508840008CC6C /* RestaurantInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0FB619228508840008CC6C /* RestaurantInfoViewController.swift */; };
 		CC7A84DD2286C0B300D28483 /* RestaurantInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC7A84DC2286C0B300D28483 /* RestaurantInfo.storyboard */; };
+		21110BC7228843DF00D982E5 /* CopounsRecieved.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21110BC6228843DF00D982E5 /* CopounsRecieved.storyboard */; };
+		21110BC92288442F00D982E5 /* RestaurantInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21110BC82288442F00D982E5 /* RestaurantInfo.storyboard */; };
+		21110BCB2288444500D982E5 /* CouponsDonated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21110BCA2288444500D982E5 /* CouponsDonated.storyboard */; };
+		211378A52284F0C70056E5C7 /* AllCouponTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211378A42284F0C70056E5C7 /* AllCouponTableViewController.swift */; };
+		211378A72284F16A0056E5C7 /* AllCouponTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211378A62284F16A0056E5C7 /* AllCouponTableViewCell.swift */; };
+		211378A9228623AC0056E5C7 /* UnpublishCouponTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211378A8228623AA0056E5C7 /* UnpublishCouponTableViewController.swift */; };
+		211378AD228626D70056E5C7 /* UnpublishCouponTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211378AC228626D70056E5C7 /* UnpublishCouponTableViewCell.swift */; };
 		E2029CE822836B6D007BA6A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029CE722836B6D007BA6A1 /* AppDelegate.swift */; };
-		E2029CEA22836B6D007BA6A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029CE922836B6D007BA6A1 /* ViewController.swift */; };
 		E2029CED22836B6D007BA6A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2029CEB22836B6D007BA6A1 /* Main.storyboard */; };
 		E2029CF022836B6D007BA6A1 /* Et3am.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2029CEE22836B6D007BA6A1 /* Et3am.xcdatamodeld */; };
 		E2029CF222836B6D007BA6A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2029CF122836B6D007BA6A1 /* Assets.xcassets */; };
@@ -27,6 +33,16 @@
 		E2512CC42285DAD900D8E0F7 /* Donate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2512CC12285DAD900D8E0F7 /* Donate.storyboard */; };
 		E2512CC52285DAD900D8E0F7 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2512CC22285DAD900D8E0F7 /* Register.storyboard */; };
 		E2512CC62285DAD900D8E0F7 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */; };
+		E2F11B9D2288D49D0031ABCC /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11B972288D49C0031ABCC /* Admin.swift */; };
+		E2F11B9E2288D49D0031ABCC /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11B982288D49C0031ABCC /* Coupon.swift */; };
+		E2F11B9F2288D49D0031ABCC /* Fakka.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11B992288D49C0031ABCC /* Fakka.swift */; };
+		E2F11BA02288D49D0031ABCC /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11B9A2288D49C0031ABCC /* Meal.swift */; };
+		E2F11BA12288D49D0031ABCC /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11B9B2288D49C0031ABCC /* Restaurant.swift */; };
+		E2F11BA22288D49D0031ABCC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11B9C2288D49D0031ABCC /* User.swift */; };
+		E2F11BA72288E5A50031ABCC /* CopounsRecievedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11BA32288E5A50031ABCC /* CopounsRecievedViewController.swift */; };
+		E2F11BA82288E5A50031ABCC /* CouponRecievedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11BA42288E5A50031ABCC /* CouponRecievedTableViewCell.swift */; };
+		E2F11BA92288E5A50031ABCC /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11BA52288E5A50031ABCC /* DonateViewController.swift */; };
+		E2F11BAA2288E5A50031ABCC /* RestaurantInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11BA62288E5A50031ABCC /* RestaurantInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,9 +72,15 @@
 		A24FE2B62287719800E7C03A /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		CC0FB619228508840008CC6C /* RestaurantInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantInfoViewController.swift; sourceTree = "<group>"; };
 		CC7A84DC2286C0B300D28483 /* RestaurantInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RestaurantInfo.storyboard; sourceTree = "<group>"; };
+		21110BC6228843DF00D982E5 /* CopounsRecieved.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CopounsRecieved.storyboard; path = view/CopounsRecieved.storyboard; sourceTree = "<group>"; };
+		21110BC82288442F00D982E5 /* RestaurantInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RestaurantInfo.storyboard; path = view/RestaurantInfo.storyboard; sourceTree = "<group>"; };
+		21110BCA2288444500D982E5 /* CouponsDonated.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CouponsDonated.storyboard; path = view/CouponsDonated.storyboard; sourceTree = "<group>"; };
+		211378A42284F0C70056E5C7 /* AllCouponTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllCouponTableViewController.swift; path = controller/AllCouponTableViewController.swift; sourceTree = "<group>"; };
+		211378A62284F16A0056E5C7 /* AllCouponTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllCouponTableViewCell.swift; path = controller/AllCouponTableViewCell.swift; sourceTree = "<group>"; };
+		211378A8228623AA0056E5C7 /* UnpublishCouponTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnpublishCouponTableViewController.swift; path = controller/UnpublishCouponTableViewController.swift; sourceTree = "<group>"; };
+		211378AC228626D70056E5C7 /* UnpublishCouponTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnpublishCouponTableViewCell.swift; path = controller/UnpublishCouponTableViewCell.swift; sourceTree = "<group>"; };
 		E2029CE422836B6D007BA6A1 /* Et3am.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Et3am.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2029CE722836B6D007BA6A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E2029CE922836B6D007BA6A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E2029CEC22836B6D007BA6A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2029CEF22836B6D007BA6A1 /* Et3am.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Et3am.xcdatamodel; sourceTree = "<group>"; };
 		E2029CF122836B6D007BA6A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -73,6 +95,16 @@
 		E2512CC12285DAD900D8E0F7 /* Donate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Donate.storyboard; path = view/Donate.storyboard; sourceTree = "<group>"; };
 		E2512CC22285DAD900D8E0F7 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Register.storyboard; path = view/Register.storyboard; sourceTree = "<group>"; };
 		E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UserProfile.storyboard; path = view/UserProfile.storyboard; sourceTree = "<group>"; };
+		E2F11B972288D49C0031ABCC /* Admin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Admin.swift; path = model/Admin.swift; sourceTree = "<group>"; };
+		E2F11B982288D49C0031ABCC /* Coupon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coupon.swift; path = model/Coupon.swift; sourceTree = "<group>"; };
+		E2F11B992288D49C0031ABCC /* Fakka.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Fakka.swift; path = model/Fakka.swift; sourceTree = "<group>"; };
+		E2F11B9A2288D49C0031ABCC /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Meal.swift; path = model/Meal.swift; sourceTree = "<group>"; };
+		E2F11B9B2288D49C0031ABCC /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Restaurant.swift; path = model/Restaurant.swift; sourceTree = "<group>"; };
+		E2F11B9C2288D49D0031ABCC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = model/User.swift; sourceTree = "<group>"; };
+		E2F11BA32288E5A50031ABCC /* CopounsRecievedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CopounsRecievedViewController.swift; path = controller/CopounsRecievedViewController.swift; sourceTree = "<group>"; };
+		E2F11BA42288E5A50031ABCC /* CouponRecievedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CouponRecievedTableViewCell.swift; path = controller/CouponRecievedTableViewCell.swift; sourceTree = "<group>"; };
+		E2F11BA52288E5A50031ABCC /* DonateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DonateViewController.swift; path = controller/DonateViewController.swift; sourceTree = "<group>"; };
+		E2F11BA62288E5A50031ABCC /* RestaurantInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantInfoViewController.swift; path = controller/RestaurantInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,12 +135,12 @@
 		A24FE2AB2287691B00E7C03A /* pojos */ = {
 			isa = PBXGroup;
 			children = (
-				A24FE2AC2287698D00E7C03A /* Coupon.swift */,
-				A24FE2AE22876AA400E7C03A /* User.swift */,
-				A24FE2B022876B8B00E7C03A /* Restaurant.swift */,
-				A24FE2B222876FD500E7C03A /* Fakka.swift */,
-				A24FE2B42287709800E7C03A /* Admin.swift */,
-				A24FE2B62287719800E7C03A /* Meal.swift */,
+				E2F11B972288D49C0031ABCC /* Admin.swift */,
+				E2F11B982288D49C0031ABCC /* Coupon.swift */,
+				E2F11B992288D49C0031ABCC /* Fakka.swift */,
+				E2F11B9A2288D49C0031ABCC /* Meal.swift */,
+				E2F11B9B2288D49C0031ABCC /* Restaurant.swift */,
+				E2F11B9C2288D49D0031ABCC /* User.swift */,
 			);
 			name = pojos;
 			sourceTree = "<group>";
@@ -139,11 +171,10 @@
 				E2029D192283750C007BA6A1 /* model */,
 				E2029D1822837503007BA6A1 /* controller */,
 				E2029CE722836B6D007BA6A1 /* AppDelegate.swift */,
-				E2029CE922836B6D007BA6A1 /* ViewController.swift */,
 				E2029D1A2283751A007BA6A1 /* view */,
 				E2029CF122836B6D007BA6A1 /* Assets.xcassets */,
-				E2029CF622836B6D007BA6A1 /* Info.plist */,
 				E2029CEE22836B6D007BA6A1 /* Et3am.xcdatamodeld */,
+				E2029CF622836B6D007BA6A1 /* Info.plist */,
 			);
 			path = Et3am;
 			sourceTree = "<group>";
@@ -169,7 +200,14 @@
 		E2029D1822837503007BA6A1 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				CC0FB619228508840008CC6C /* RestaurantInfoViewController.swift */,
+				E2F11BA32288E5A50031ABCC /* CopounsRecievedViewController.swift */,
+				E2F11BA42288E5A50031ABCC /* CouponRecievedTableViewCell.swift */,
+				E2F11BA52288E5A50031ABCC /* DonateViewController.swift */,
+				E2F11BA62288E5A50031ABCC /* RestaurantInfoViewController.swift */,
+				211378A8228623AA0056E5C7 /* UnpublishCouponTableViewController.swift */,
+				211378A42284F0C70056E5C7 /* AllCouponTableViewController.swift */,
+				211378A62284F16A0056E5C7 /* AllCouponTableViewCell.swift */,
+				211378AC228626D70056E5C7 /* UnpublishCouponTableViewCell.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -185,6 +223,9 @@
 		E2029D1A2283751A007BA6A1 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				21110BCA2288444500D982E5 /* CouponsDonated.storyboard */,
+				21110BC82288442F00D982E5 /* RestaurantInfo.storyboard */,
+				21110BC6228843DF00D982E5 /* CopounsRecieved.storyboard */,
 				E2512CC12285DAD900D8E0F7 /* Donate.storyboard */,
 				E2512CC22285DAD900D8E0F7 /* Register.storyboard */,
 				E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */,
@@ -304,13 +345,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21110BC92288442F00D982E5 /* RestaurantInfo.storyboard in Resources */,
 				E2029CF522836B6D007BA6A1 /* LaunchScreen.storyboard in Resources */,
 				E2029CF222836B6D007BA6A1 /* Assets.xcassets in Resources */,
 				CC7A84DD2286C0B300D28483 /* RestaurantInfo.storyboard in Resources */,
+				21110BCB2288444500D982E5 /* CouponsDonated.storyboard in Resources */,
 				E2029CED22836B6D007BA6A1 /* Main.storyboard in Resources */,
 				E2512CC62285DAD900D8E0F7 /* UserProfile.storyboard in Resources */,
 				E2512CC42285DAD900D8E0F7 /* Donate.storyboard in Resources */,
 				E2512CC52285DAD900D8E0F7 /* Register.storyboard in Resources */,
+				21110BC7228843DF00D982E5 /* CopounsRecieved.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,9 +387,22 @@
 				A21013B1228AE96E001D9CA4 /* MealCell.swift in Sources */,
 				A24FE2B122876B8B00E7C03A /* Restaurant.swift in Sources */,
 				A24FE2B322876FD500E7C03A /* Fakka.swift in Sources */,
+				E2F11BA22288D49D0031ABCC /* User.swift in Sources */,
+				211378A52284F0C70056E5C7 /* AllCouponTableViewController.swift in Sources */,
+				211378AD228626D70056E5C7 /* UnpublishCouponTableViewCell.swift in Sources */,
+				E2F11B9E2288D49D0031ABCC /* Coupon.swift in Sources */,
+				E2F11BA02288D49D0031ABCC /* Meal.swift in Sources */,
 				E2029CF022836B6D007BA6A1 /* Et3am.xcdatamodeld in Sources */,
+				211378A72284F16A0056E5C7 /* AllCouponTableViewCell.swift in Sources */,
+				211378A9228623AC0056E5C7 /* UnpublishCouponTableViewController.swift in Sources */,
+				E2F11BA12288D49D0031ABCC /* Restaurant.swift in Sources */,
 				E2029CE822836B6D007BA6A1 /* AppDelegate.swift in Sources */,
-				CC0FB61A228508840008CC6C /* RestaurantInfoViewController.swift in Sources */,
+				E2F11BA72288E5A50031ABCC /* CopounsRecievedViewController.swift in Sources */,
+				E2F11B9F2288D49D0031ABCC /* Fakka.swift in Sources */,
+				E2F11B9D2288D49D0031ABCC /* Admin.swift in Sources */,
+				E2F11BAA2288E5A50031ABCC /* RestaurantInfoViewController.swift in Sources */,
+				E2F11BA82288E5A50031ABCC /* CouponRecievedTableViewCell.swift in Sources */,
+				E2F11BA92288E5A50031ABCC /* DonateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
