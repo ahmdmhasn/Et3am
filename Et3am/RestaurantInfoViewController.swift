@@ -34,7 +34,7 @@ class RestaurantInfoViewController: UIViewController,UITableViewDelegate,UITable
     @IBOutlet weak var CountryCityLable: UILabel!
     
     
-    @IBOutlet weak var MealsTableView: UITableView!
+    @IBOutlet weak var mealsTableView: UITableView!
     @IBAction func inviteFriendButton(_ sender: Any) {
     }
     
@@ -57,7 +57,7 @@ class RestaurantInfoViewController: UIViewController,UITableViewDelegate,UITable
         meal1.mealImage="food"
         
         let meal2 = Meal()
-        meal2.mealName="Shawrma"
+        meal2.mealName="Kabab"
         meal2.mealImage="food"
         
         
@@ -68,7 +68,7 @@ class RestaurantInfoViewController: UIViewController,UITableViewDelegate,UITable
         
         
         
-        MealsTableView.reloadData()
+        mealsTableView.reloadData()
         
         
         
