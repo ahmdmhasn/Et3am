@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210B4D81228B5341002EB218 /* RegisterandLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210B4D80228B5341002EB218 /* RegisterandLoginViewController.swift */; };
+		210B4D83228B5406002EB218 /* signInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210B4D82228B5406002EB218 /* signInView.swift */; };
+		210B4D85228B541C002EB218 /* signUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210B4D84228B541C002EB218 /* signUpView.swift */; };
+		210B4D87228B560B002EB218 /* RegisterAndLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 210B4D86228B560B002EB218 /* RegisterAndLogin.storyboard */; };
 		21110BC7228843DF00D982E5 /* CopounsRecieved.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21110BC6228843DF00D982E5 /* CopounsRecieved.storyboard */; };
 		21110BC92288442F00D982E5 /* RestaurantInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21110BC82288442F00D982E5 /* RestaurantInfo.storyboard */; };
 		21110BCB2288444500D982E5 /* CouponsDonated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21110BCA2288444500D982E5 /* CouponsDonated.storyboard */; };
@@ -22,7 +26,6 @@
 		E2029D0022836B6E007BA6A1 /* Et3amTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029CFF22836B6E007BA6A1 /* Et3amTests.swift */; };
 		E2029D0B22836B6E007BA6A1 /* Et3amUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029D0A22836B6E007BA6A1 /* Et3amUITests.swift */; };
 		E2512CC42285DAD900D8E0F7 /* Donate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2512CC12285DAD900D8E0F7 /* Donate.storyboard */; };
-		E2512CC52285DAD900D8E0F7 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2512CC22285DAD900D8E0F7 /* Register.storyboard */; };
 		E2512CC62285DAD900D8E0F7 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */; };
 		E2F11B9D2288D49D0031ABCC /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11B972288D49C0031ABCC /* Admin.swift */; };
 		E2F11B9E2288D49D0031ABCC /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11B982288D49C0031ABCC /* Coupon.swift */; };
@@ -54,6 +57,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		210B4D80228B5341002EB218 /* RegisterandLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterandLoginViewController.swift; sourceTree = "<group>"; };
+		210B4D82228B5406002EB218 /* signInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signInView.swift; sourceTree = "<group>"; };
+		210B4D84228B541C002EB218 /* signUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signUpView.swift; sourceTree = "<group>"; };
+		210B4D86228B560B002EB218 /* RegisterAndLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegisterAndLogin.storyboard; sourceTree = "<group>"; };
 		21110BC6228843DF00D982E5 /* CopounsRecieved.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CopounsRecieved.storyboard; path = view/CopounsRecieved.storyboard; sourceTree = "<group>"; };
 		21110BC82288442F00D982E5 /* RestaurantInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RestaurantInfo.storyboard; path = view/RestaurantInfo.storyboard; sourceTree = "<group>"; };
 		21110BCA2288444500D982E5 /* CouponsDonated.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CouponsDonated.storyboard; path = view/CouponsDonated.storyboard; sourceTree = "<group>"; };
@@ -75,7 +82,6 @@
 		E2029D0A22836B6E007BA6A1 /* Et3amUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Et3amUITests.swift; sourceTree = "<group>"; };
 		E2029D0C22836B6E007BA6A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2512CC12285DAD900D8E0F7 /* Donate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Donate.storyboard; path = view/Donate.storyboard; sourceTree = "<group>"; };
-		E2512CC22285DAD900D8E0F7 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Register.storyboard; path = view/Register.storyboard; sourceTree = "<group>"; };
 		E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UserProfile.storyboard; path = view/UserProfile.storyboard; sourceTree = "<group>"; };
 		E2F11B972288D49C0031ABCC /* Admin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Admin.swift; path = model/Admin.swift; sourceTree = "<group>"; };
 		E2F11B982288D49C0031ABCC /* Coupon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coupon.swift; path = model/Coupon.swift; sourceTree = "<group>"; };
@@ -190,6 +196,9 @@
 				211378A42284F0C70056E5C7 /* AllCouponTableViewController.swift */,
 				211378A62284F16A0056E5C7 /* AllCouponTableViewCell.swift */,
 				211378AC228626D70056E5C7 /* UnpublishCouponTableViewCell.swift */,
+				210B4D80228B5341002EB218 /* RegisterandLoginViewController.swift */,
+				210B4D82228B5406002EB218 /* signInView.swift */,
+				210B4D84228B541C002EB218 /* signUpView.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -209,11 +218,10 @@
 				21110BC82288442F00D982E5 /* RestaurantInfo.storyboard */,
 				21110BC6228843DF00D982E5 /* CopounsRecieved.storyboard */,
 				E2512CC12285DAD900D8E0F7 /* Donate.storyboard */,
-				E2512CC22285DAD900D8E0F7 /* Register.storyboard */,
 				E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */,
-				21D67A962287188D006B1315 /* Register.storyboard */,
 				E2029CEB22836B6D007BA6A1 /* Main.storyboard */,
 				E2029CF322836B6D007BA6A1 /* LaunchScreen.storyboard */,
+				210B4D86228B560B002EB218 /* RegisterAndLogin.storyboard */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -330,9 +338,9 @@
 				E2029CF222836B6D007BA6A1 /* Assets.xcassets in Resources */,
 				21110BCB2288444500D982E5 /* CouponsDonated.storyboard in Resources */,
 				E2029CED22836B6D007BA6A1 /* Main.storyboard in Resources */,
+				210B4D87228B560B002EB218 /* RegisterAndLogin.storyboard in Resources */,
 				E2512CC62285DAD900D8E0F7 /* UserProfile.storyboard in Resources */,
 				E2512CC42285DAD900D8E0F7 /* Donate.storyboard in Resources */,
-				E2512CC52285DAD900D8E0F7 /* Register.storyboard in Resources */,
 				21110BC7228843DF00D982E5 /* CopounsRecieved.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,10 +370,13 @@
 				211378A52284F0C70056E5C7 /* AllCouponTableViewController.swift in Sources */,
 				211378AD228626D70056E5C7 /* UnpublishCouponTableViewCell.swift in Sources */,
 				E2F11B9E2288D49D0031ABCC /* Coupon.swift in Sources */,
+				210B4D85228B541C002EB218 /* signUpView.swift in Sources */,
+				210B4D83228B5406002EB218 /* signInView.swift in Sources */,
 				E2F11BA02288D49D0031ABCC /* Meal.swift in Sources */,
 				E2029CF022836B6D007BA6A1 /* Et3am.xcdatamodeld in Sources */,
 				211378A72284F16A0056E5C7 /* AllCouponTableViewCell.swift in Sources */,
 				211378A9228623AC0056E5C7 /* UnpublishCouponTableViewController.swift in Sources */,
+				210B4D81228B5341002EB218 /* RegisterandLoginViewController.swift in Sources */,
 				E2F11BA12288D49D0031ABCC /* Restaurant.swift in Sources */,
 				E2029CE822836B6D007BA6A1 /* AppDelegate.swift in Sources */,
 				E2F11BA72288E5A50031ABCC /* CopounsRecievedViewController.swift in Sources */,
@@ -409,13 +420,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		21D67A962287188D006B1315 /* Register.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-			);
-			name = Register.storyboard;
-			sourceTree = "<group>";
-		};
 		E2029CEB22836B6D007BA6A1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

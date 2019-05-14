@@ -158,7 +158,7 @@
                     <navigationItem key="navigationItem" id="byE-Vy-LJc">
                         <barButtonItem key="rightBarButtonItem" title="Profile" id="XY0-TX-jZZ">
                             <connections>
-                                <segue destination="045-5V-Eyw" kind="show" identifier="showUserProfile" id="h0L-vL-w4t"/>
+                                <segue destination="xHd-0o-gbz" kind="push" id="kSx-1n-PhV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -166,6 +166,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="949.60000000000002" y="-646.32683658170924"/>
+        </scene>
+        <!--RegisterAndLogin-->
+        <scene sceneID="vbY-dE-c3v">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RegisterAndLogin" id="xHd-0o-gbz" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="tpg-pz-xGn"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xpg-lB-L8g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1502" y="-987"/>
         </scene>
         <!--UserProfile-->
         <scene sceneID="gAD-hC-iqQ">
