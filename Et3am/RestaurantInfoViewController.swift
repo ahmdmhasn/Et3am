@@ -49,7 +49,7 @@ class RestaurantInfoViewController: UIViewController,UITableViewDelegate,UITable
 
         restaurantNameLable.text = restuarantObj.restaurantName
         CountryCityLable.text = restuarantObj.country! + ", " + restuarantObj.city!
-        var restuarantImg: UIImage = UIImage(named: restuarantObj.image!)!
+        let restuarantImg: UIImage = UIImage(named: restuarantObj.image!)!
         restaurantImage.image = restuarantImg
         
         let meal1 = Meal()
@@ -62,8 +62,20 @@ class RestaurantInfoViewController: UIViewController,UITableViewDelegate,UITable
         
         
         
+        let meal3 = Meal()
+        meal3.mealName="Shawrma"
+        meal3.mealImage="food"
+        
+        let meal4 = Meal()
+        meal4.mealName="Kabab"
+        meal4.mealImage="food"
+        
+        
+        
         mealsArray.append(meal1)
         mealsArray.append(meal2)
+        mealsArray.append(meal3)
+        mealsArray.append(meal4)
         
         
         
