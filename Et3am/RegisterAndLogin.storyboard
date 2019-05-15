@@ -31,11 +31,11 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4rI-9v-ZP0" customClass="signInView" customModule="Et3am" customModuleProvider="target">
                                                 <rect key="frame" x="16" y="226" width="343" height="441"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="Ysg-Kd-GPp">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Ysg-Kd-GPp">
                                                         <rect key="frame" x="0.0" y="70" width="343" height="321"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9DE-6D-OCo">
-                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="75"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="96.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nQ-pW-cZj">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
@@ -50,7 +50,7 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26F-5X-odK" userLabel="EmailValid">
-                                                                        <rect key="frame" x="0.0" y="66.5" width="343" height="8.5"/>
+                                                                        <rect key="frame" x="0.0" y="66.5" width="343" height="30"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -58,7 +58,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4Pn-C3-QWa">
-                                                                <rect key="frame" x="0.0" y="123" width="343" height="75"/>
+                                                                <rect key="frame" x="0.0" y="112.5" width="343" height="96"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n14-Kv-gem">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
@@ -73,7 +73,7 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgE-Ha-cNl" userLabel="PasswordValid">
-                                                                        <rect key="frame" x="0.0" y="66.5" width="343" height="8.5"/>
+                                                                        <rect key="frame" x="0.0" y="66.5" width="343" height="29.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -81,17 +81,23 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9c4-M7-1r9">
-                                                                <rect key="frame" x="0.0" y="246" width="343" height="75"/>
+                                                                <rect key="frame" x="0.0" y="224.5" width="343" height="96.5"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EiU-VX-ukd">
-                                                                        <rect key="frame" x="145.5" y="0.0" width="52" height="33.5"/>
+                                                                        <rect key="frame" x="145.5" y="0.0" width="52" height="44.5"/>
+                                                                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <state key="normal" title="SIGN In"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                <integer key="value" value="5"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="signInButton:" destination="0ym-WC-wBs" eventType="touchUpInside" id="NYB-Nd-vyr"/>
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forget Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qsu-ff-Wub">
-                                                                        <rect key="frame" x="107.5" y="41.5" width="128" height="33.5"/>
+                                                                        <rect key="frame" x="107.5" y="52.5" width="128" height="44"/>
                                                                         <accessibility key="accessibilityConfiguration">
                                                                             <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                                                         </accessibility>
@@ -264,6 +270,11 @@
                                                                         <rect key="frame" x="141.5" y="0.0" width="60" height="39"/>
                                                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <state key="normal" title="SIGN UP"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                <integer key="value" value="5"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="signUpButton:" destination="0ym-WC-wBs" eventType="touchUpInside" id="hhz-9I-qdt"/>
                                                                         </connections>
@@ -272,6 +283,11 @@
                                                                         <rect key="frame" x="92.5" y="55" width="158" height="30"/>
                                                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <state key="normal" title="Sign Up with Facebook"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                <integer key="value" value="5"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="signUpWithFacebookButton:" destination="0ym-WC-wBs" eventType="touchUpInside" id="jhC-v4-zaV"/>
                                                                         </connections>
