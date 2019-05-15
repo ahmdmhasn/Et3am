@@ -11,7 +11,7 @@ import UIKit
 class RestaurantInfoViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
     
-    
+    var maxHeight: CGFloat = UIScreen.main.bounds.size.height
     
     
     
