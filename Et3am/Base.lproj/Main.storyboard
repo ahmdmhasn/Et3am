@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="113"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iVF-Er-TwR" id="BoT-io-w3t">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="112"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="113"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ElBaraka" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HnT-F9-Faq">
@@ -71,7 +71,7 @@
                                         <rect key="frame" x="0.0" y="141" width="343" height="113"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bv0-e8-Lwm" id="WDN-Yc-Kwh">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="112"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="113"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ElBaraka" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3UQ-F9-xaL">
@@ -109,7 +109,7 @@
                                         <rect key="frame" x="0.0" y="254" width="343" height="113"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Qb-mG-OFG" id="usf-vt-uth">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="112"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="113"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ElBaraka" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCM-B6-Z9N">
@@ -158,7 +158,7 @@
                     <navigationItem key="navigationItem" id="byE-Vy-LJc">
                         <barButtonItem key="rightBarButtonItem" title="Profile" id="XY0-TX-jZZ">
                             <connections>
-                                <segue destination="xHd-0o-gbz" kind="push" id="kSx-1n-PhV"/>
+                                <segue destination="xHd-0o-gbz" kind="show" id="kSx-1n-PhV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

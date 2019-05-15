@@ -17,6 +17,6 @@ target 'Et3am' do
     # Pods for testing
   end
 
-pod ‘alamofire’ ,’~> 4.0’
+pod 'Alamofire', '~> 4.0'
 
 end

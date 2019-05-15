@@ -71,7 +71,7 @@
                                                                 <rect key="frame" x="0.0" y="92" width="382" height="30"/>
                                                                 <state key="normal" title="Coupons Received"/>
                                                                 <connections>
-                                                                    <segue destination="pLC-wF-7Tl" kind="push" id="FW4-pd-zCV"/>
+                                                                    <segue destination="pLC-wF-7Tl" kind="show" id="FW4-pd-zCV"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>

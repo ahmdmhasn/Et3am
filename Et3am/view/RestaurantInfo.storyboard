@@ -79,7 +79,7 @@
                                                         <rect key="frame" x="0.0" y="28" width="414" height="120"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cDj-Oe-Ihh" id="5Hf-y0-2Qc">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="119"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="50P-Ik-IF9">
@@ -141,8 +141,8 @@
                                     <constraint firstAttribute="bottom" secondItem="gCE-Ug-CI6" secondAttribute="bottom" id="kOM-w4-KcN"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJ8-ms-9xa">
-                                <rect key="frame" x="169.66666666666666" y="644" width="89" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJ8-ms-9xa">
+                                <rect key="frame" x="163" y="644" width="89" height="30"/>
                                 <state key="normal" title="invite friends"/>
                                 <connections>
                                     <action selector="inviteFriendButton:" destination="3cJ-nE-JAm" eventType="touchUpInside" id="UIY-AW-U4p"/>
