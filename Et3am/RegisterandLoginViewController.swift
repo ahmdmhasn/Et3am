@@ -8,8 +8,13 @@
 
 import UIKit
 
+
 class RegisterandLoginViewController: UIViewController {
     
+    var userName:String?
+    var userEmail:String?
+    var userPassword:String?
+    var userRepeatPassword:String?
    
   
     @IBAction func signUpButton(_ sender: Any) {
@@ -17,6 +22,10 @@ class RegisterandLoginViewController: UIViewController {
 
   
     @IBAction func signUpWithFacebookButton(_ sender: Any) {
+        userName = signUpView.userNameTxtField.text
+        userEmail = signUpView.emailTxtField.text
+        userPassword = signUpView.passTxtField.text
+        userRepeatPassword = signUpView.repeatedPassTxtField.text
     }
     
     @IBAction func signInButton(_ sender: Any) {
@@ -49,10 +58,7 @@ class RegisterandLoginViewController: UIViewController {
             break;
         }
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+   
     
     
 }

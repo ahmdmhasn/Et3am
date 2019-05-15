@@ -19,6 +19,8 @@
 		211378A72284F16A0056E5C7 /* AllCouponTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211378A62284F16A0056E5C7 /* AllCouponTableViewCell.swift */; };
 		211378A9228623AC0056E5C7 /* UnpublishCouponTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211378A8228623AA0056E5C7 /* UnpublishCouponTableViewController.swift */; };
 		211378AD228626D70056E5C7 /* UnpublishCouponTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211378AC228626D70056E5C7 /* UnpublishCouponTableViewCell.swift */; };
+		211644A9228C49E5009AA2BB /* UserDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211644A8228C49E5009AA2BB /* UserDao.swift */; };
+		211644AB228C4A6C009AA2BB /* Et3amAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211644AA228C4A6C009AA2BB /* Et3amAPI.swift */; };
 		24E0A1347AE2F14924A41305 /* Pods_Et3am.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB17DF378AD4318736BDF22 /* Pods_Et3am.framework */; };
 		2646F61038BB8811002EFE4C /* Pods_Et3amUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68AEFBEB3E411351EE123772 /* Pods_Et3amUITests.framework */; };
 		A21013B1228AE96E001D9CA4 /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21013B0228AE96E001D9CA4 /* MealCell.swift */; };
@@ -74,6 +76,8 @@
 		211378A62284F16A0056E5C7 /* AllCouponTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllCouponTableViewCell.swift; path = controller/AllCouponTableViewCell.swift; sourceTree = "<group>"; };
 		211378A8228623AA0056E5C7 /* UnpublishCouponTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnpublishCouponTableViewController.swift; path = controller/UnpublishCouponTableViewController.swift; sourceTree = "<group>"; };
 		211378AC228626D70056E5C7 /* UnpublishCouponTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnpublishCouponTableViewCell.swift; path = controller/UnpublishCouponTableViewCell.swift; sourceTree = "<group>"; };
+		211644A8228C49E5009AA2BB /* UserDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDao.swift; sourceTree = "<group>"; };
+		211644AA228C4A6C009AA2BB /* Et3amAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Et3amAPI.swift; sourceTree = "<group>"; };
 		2A403DAE35DCBDB9290AFF0C /* Pods-Et3amTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Et3amTests.release.xcconfig"; path = "Target Support Files/Pods-Et3amTests/Pods-Et3amTests.release.xcconfig"; sourceTree = "<group>"; };
 		68AEFBEB3E411351EE123772 /* Pods_Et3amUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Et3amUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AFC678D0F6CE910E219E195 /* Pods-Et3amTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Et3amTests.debug.xcconfig"; path = "Target Support Files/Pods-Et3amTests/Pods-Et3amTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -137,6 +141,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		211644A7228C490C009AA2BB /* networkDao */ = {
+			isa = PBXGroup;
+			children = (
+				211644A8228C49E5009AA2BB /* UserDao.swift */,
+			);
+			name = networkDao;
+			sourceTree = "<group>";
+		};
 		44B6F25BBA14F8E184940AFD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,7 +159,6 @@
 				1184E8DBC062F3C5D5BE683F /* Pods-Et3amUITests.debug.xcconfig */,
 				F22042228917262B391D9C6C /* Pods-Et3amUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -242,6 +253,7 @@
 				210B4D82228B5406002EB218 /* signInView.swift */,
 				210B4D84228B541C002EB218 /* signUpView.swift */,
 				A21013B2228AF2CA001D9CA4 /* RestaurantInfoViewController.swift */,
+				211644AA228C4A6C009AA2BB /* Et3amAPI.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -249,6 +261,7 @@
 		E2029D192283750C007BA6A1 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				211644A7228C490C009AA2BB /* networkDao */,
 				A24FE2AB2287691B00E7C03A /* pojos */,
 			);
 			name = model;
@@ -415,15 +428,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Et3am/Pods-Et3am-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 			);
@@ -437,15 +446,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Et3am-checkManifestLockResult.txt",
 			);
@@ -459,15 +464,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Et3amUITests-checkManifestLockResult.txt",
 			);
@@ -481,15 +482,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Et3amTests-checkManifestLockResult.txt",
 			);
@@ -508,9 +505,11 @@
 				A21013B1228AE96E001D9CA4 /* MealCell.swift in Sources */,
 				E2F11BA22288D49D0031ABCC /* User.swift in Sources */,
 				211378A52284F0C70056E5C7 /* AllCouponTableViewController.swift in Sources */,
+				211644A9228C49E5009AA2BB /* UserDao.swift in Sources */,
 				211378AD228626D70056E5C7 /* UnpublishCouponTableViewCell.swift in Sources */,
 				E2F11B9E2288D49D0031ABCC /* Coupon.swift in Sources */,
 				210B4D85228B541C002EB218 /* signUpView.swift in Sources */,
+				211644AB228C4A6C009AA2BB /* Et3amAPI.swift in Sources */,
 				210B4D83228B5406002EB218 /* signInView.swift in Sources */,
 				E2F11BA02288D49D0031ABCC /* Meal.swift in Sources */,
 				E2029CF022836B6D007BA6A1 /* Et3am.xcdatamodeld in Sources */,
