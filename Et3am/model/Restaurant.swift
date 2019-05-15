@@ -16,4 +16,5 @@ class Restaurant {
     var country:String?
     var latitude:Float?
     var longitude:Float?
+    var image:String?
 }
