@@ -36,7 +36,6 @@
 		E2F11BA72288E5A50031ABCC /* CopounsRecievedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11BA32288E5A50031ABCC /* CopounsRecievedViewController.swift */; };
 		E2F11BA82288E5A50031ABCC /* CouponRecievedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11BA42288E5A50031ABCC /* CouponRecievedTableViewCell.swift */; };
 		E2F11BA92288E5A50031ABCC /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11BA52288E5A50031ABCC /* DonateViewController.swift */; };
-		E2F11BAA2288E5A50031ABCC /* RestaurantInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11BA62288E5A50031ABCC /* RestaurantInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,7 +91,6 @@
 		E2F11BA32288E5A50031ABCC /* CopounsRecievedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CopounsRecievedViewController.swift; path = controller/CopounsRecievedViewController.swift; sourceTree = "<group>"; };
 		E2F11BA42288E5A50031ABCC /* CouponRecievedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CouponRecievedTableViewCell.swift; path = controller/CouponRecievedTableViewCell.swift; sourceTree = "<group>"; };
 		E2F11BA52288E5A50031ABCC /* DonateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DonateViewController.swift; path = controller/DonateViewController.swift; sourceTree = "<group>"; };
-		E2F11BA62288E5A50031ABCC /* RestaurantInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantInfoViewController.swift; path = controller/RestaurantInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,7 +189,6 @@
 				E2F11BA32288E5A50031ABCC /* CopounsRecievedViewController.swift */,
 				E2F11BA42288E5A50031ABCC /* CouponRecievedTableViewCell.swift */,
 				E2F11BA52288E5A50031ABCC /* DonateViewController.swift */,
-				E2F11BA62288E5A50031ABCC /* RestaurantInfoViewController.swift */,
 				211378A8228623AA0056E5C7 /* UnpublishCouponTableViewController.swift */,
 				211378A42284F0C70056E5C7 /* AllCouponTableViewController.swift */,
 				211378A62284F16A0056E5C7 /* AllCouponTableViewCell.swift */,
@@ -382,7 +379,6 @@
 				E2F11BA72288E5A50031ABCC /* CopounsRecievedViewController.swift in Sources */,
 				E2F11B9F2288D49D0031ABCC /* Fakka.swift in Sources */,
 				E2F11B9D2288D49D0031ABCC /* Admin.swift in Sources */,
-				E2F11BAA2288E5A50031ABCC /* RestaurantInfoViewController.swift in Sources */,
 				E2F11BA82288E5A50031ABCC /* CouponRecievedTableViewCell.swift in Sources */,
 				E2F11BA92288E5A50031ABCC /* DonateViewController.swift in Sources */,
 			);
