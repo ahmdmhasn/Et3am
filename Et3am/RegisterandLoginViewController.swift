@@ -8,24 +8,39 @@
 
 import UIKit
 
-
 class RegisterandLoginViewController: UIViewController {
     
     var userName:String?
     var userEmail:String?
     var userPassword:String?
     var userRepeatPassword:String?
+    let userDao = UserDao()
    
   
+    
     @IBAction func signUpButton(_ sender: Any) {
-    }
-
-  
-    @IBAction func signUpWithFacebookButton(_ sender: Any) {
         userName = signUpView.userNameTxtField.text
         userEmail = signUpView.emailTxtField.text
         userPassword = signUpView.passTxtField.text
         userRepeatPassword = signUpView.repeatedPassTxtField.text
+        let parameters : [String:String] = [
+            
+            "userName" : userName! ,
+            "userEmail" : userEmail! ,
+            "password" : userPassword!
+        ]
+       
+        userDao.addUser(parameters: parameters)
+
+    }
+    @IBAction func userNameEditingChange(_ sender: UITextField) {
+        print(sender.text!)
+        userDao.validateEmail(email: sender.text!)
+    }
+  
+    @IBAction func signUpWithFacebookButton(_ sender: Any) {
+        
+        
     }
     
     @IBAction func signInButton(_ sender: Any) {

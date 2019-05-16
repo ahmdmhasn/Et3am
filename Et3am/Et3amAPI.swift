@@ -11,3 +11,9 @@ struct Et3amAPI
 {
     static let baseUrlString = "https://et3am.herokuoapp.com/user"
 }
+enum UserURLQueries:String
+{
+    case add = "/add"
+    case list = "/list"
+    case validateEmail="/validate/email/"
+}

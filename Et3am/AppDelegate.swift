@@ -14,9 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+// check for user default
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let initialViewController = storyboard.instantiateViewController(withIdentifier: "restaurantID")
+//        let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+//       
+//        navigationController.viewControllers = [initialViewController]
+//        self.window?.rootViewController = navigationController
         return true
     }
 

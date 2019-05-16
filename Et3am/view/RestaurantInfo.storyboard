@@ -79,17 +79,17 @@
                                                         <rect key="frame" x="0.0" y="28" width="414" height="120"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cDj-Oe-Ihh" id="5Hf-y0-2Qc">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="119"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="50P-Ik-IF9">
-                                                                    <rect key="frame" x="4" y="4" width="111.66666666666667" height="111.66666666666667"/>
+                                                                    <rect key="frame" x="4" y="4" width="112" height="112"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="50P-Ik-IF9" secondAttribute="height" multiplier="1:1" id="Zzf-3H-Ex4"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSa-Pn-xWO">
-                                                                    <rect key="frame" x="119.66666666666666" y="49" width="282.33333333333337" height="32"/>
+                                                                    <rect key="frame" x="120" y="49" width="282" height="31"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                     <color key="textColor" red="0.86666666670000003" green="0.32009467798660735" blue="0.032570746742829934" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -169,6 +169,7 @@
                             <constraint firstItem="jiu-BF-ynf" firstAttribute="leading" secondItem="hxH-E0-52k" secondAttribute="leading" id="mCI-g6-mSN"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="OTz-mn-fXc"/>
                     <connections>
                         <outlet property="CountryCityLable" destination="PHI-eh-Zqh" id="qeL-SW-0X3"/>
                         <outlet property="MealsTableView" destination="z2B-2Y-1W7" id="aUZ-hw-uyc"/>
@@ -178,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGR-y0-tzC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-694" y="-397"/>
+            <point key="canvasLocation" x="213.04347826086959" y="-397.01086956521743"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="RYk-XZ-VKK">
@@ -205,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bI0-Fi-MW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24.637681159420293" y="-419.02173913043481"/>
+            <point key="canvasLocation" x="931.88405797101461" y="-419.02173913043481"/>
         </scene>
     </scenes>
 </document>

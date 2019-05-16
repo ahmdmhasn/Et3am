@@ -144,6 +144,7 @@
 		211644A7228C490C009AA2BB /* NetworkDao */ = {
 			isa = PBXGroup;
 			children = (
+				211644AA228C4A6C009AA2BB /* Et3amAPI.swift */,
 				211644A8228C49E5009AA2BB /* UserDao.swift */,
 			);
 			name = NetworkDao;
@@ -250,7 +251,6 @@
 				210B4D82228B5406002EB218 /* signInView.swift */,
 				210B4D84228B541C002EB218 /* signUpView.swift */,
 				A21013B2228AF2CA001D9CA4 /* RestaurantInfoViewController.swift */,
-				211644AA228C4A6C009AA2BB /* Et3amAPI.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -437,15 +437,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Et3amTests-checkManifestLockResult.txt",
 			);
@@ -459,15 +455,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Et3am-checkManifestLockResult.txt",
 			);
@@ -481,15 +473,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Et3amUITests-checkManifestLockResult.txt",
 			);
@@ -503,15 +491,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Et3am/Pods-Et3am-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 			);

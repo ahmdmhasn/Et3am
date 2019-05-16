@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class CopounsRecievedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
