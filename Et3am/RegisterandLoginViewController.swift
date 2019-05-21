@@ -17,7 +17,6 @@ class RegisterandLoginViewController: UIViewController {
     let userDao = UserDao()
    
   
-    
     @IBAction func signUpButton(_ sender: Any) {
         userName = signUpView.userNameTxtField.text
         userEmail = signUpView.emailTxtField.text
@@ -29,28 +28,31 @@ class RegisterandLoginViewController: UIViewController {
             "userEmail" : userEmail! ,
             "password" : userPassword!
         ]
-       
+        
         userDao.addUser(parameters: parameters)
-
     }
     @IBAction func userNameEditingChange(_ sender: UITextField) {
+    
+  
         print(sender.text!)
         userDao.validateEmail(email: sender.text!)
     }
   
+
     @IBAction func signUpWithFacebookButton(_ sender: Any) {
-        
-        
     }
-    
+ 
     @IBAction func signInButton(_ sender: Any) {
     }
    
+ 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
    
     
     @IBOutlet weak var signInView: signInView!
+
     @IBOutlet weak var signUpView: signUpView!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,6 +60,8 @@ class RegisterandLoginViewController: UIViewController {
         //    }
     }
   
+   
+    
     @IBAction func segmenetdControlAction(_ sender: Any) {
     
         switch segmentedControl.selectedSegmentIndex {
