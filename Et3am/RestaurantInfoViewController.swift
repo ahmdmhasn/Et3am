@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class RestaurantInfoViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
@@ -14,15 +15,10 @@ class RestaurantInfoViewController: UIViewController,UITableViewDelegate,UITable
     var maxHeight: CGFloat = UIScreen.main.bounds.size.height
     
 
-    
+    var responseJson:[[String: Any]]=[]
     
     var restuarantObj = Restaurant()
-    
-    
-    
 
-
-    
     var mealsArray:Array<Meal> = []
     
     
@@ -31,6 +27,7 @@ class RestaurantInfoViewController: UIViewController,UITableViewDelegate,UITable
     
     @IBOutlet weak var CountryCityLable: UILabel!
     
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var mealsTableView: UITableView!
     @IBAction func inviteFriendButton(_ sender: Any) {
@@ -38,80 +35,123 @@ class RestaurantInfoViewController: UIViewController,UITableViewDelegate,UITable
     
     @IBAction func getFreeCouponButton(_ sender: Any) {
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        mealsTableView.reloadData()
+    }
+    
+    func reloadTableviewDataWithHeight() {
+        let totalHeight = mealsTableView.rowHeight * CGFloat(mealsArray.count)
+        mealsTableView.frame = CGRect(x: mealsTableView.frame.origin.x, y: mealsTableView.frame.origin.y, width: mealsTableView.frame.size.width, height: totalHeight)
+        self.mealsTableView.reloadSections(IndexSet(integer: 0), with: .fade)
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        restuarantObj.city = "cairo"
-        restuarantObj.country = "Egypt"
-        restuarantObj.restaurantName = "El Shabrawy"
+        restuarantObj.city = ""
+        restuarantObj.country = ""
+        restuarantObj.restaurantName = ""
         restuarantObj.image = "restaurant"
+        
+        mealsTableView.delegate = self
+        mealsTableView.dataSource = self
 
-        restaurantNameLable.text = restuarantObj.restaurantName
-        CountryCityLable.text = restuarantObj.country! + ", " + restuarantObj.city!
+     
         let restuarantImg: UIImage = UIImage(named: restuarantObj.image!)!
         restaurantImage.image = restuarantImg
         
-        let meal1 = Meal()
-        meal1.mealName="Shawrma"
-        meal1.mealImage="food"
+//        let meal1 = Meal()
+//        meal1.mealName="Shawrma"
+//        meal1.mealImage="food"
+//        
+//        let meal2 = Meal()
+//        meal2.mealName="Kabab"
+//        meal2.mealImage="food"
+//        
+//        let meal3 = Meal()
+//        meal3.mealName="Shawrma"
+//        meal3.mealImage="food"
+//        
+//        let meal4 = Meal()
+//        meal4.mealName="Kabab"
+//        meal4.mealImage="food"
+//
+//        
         
-        let meal2 = Meal()
-        meal2.mealName="Kabab"
-        meal2.mealImage="food"
+//        mealsArray.append(meal1)
+//        mealsArray.append(meal2)
+//        mealsArray.append(meal3)
+//        mealsArray.append(meal4)
+//        mealsArray.append(meal4)
+//        mealsArray.append(meal4)
+//        mealsArray.append(meal4)
         
+        fetchJsonForRestaurant(typeURL: "https://et3am.herokuapp.com/restaurant/rest/1")
+        fetchJsonForMeals(typeURL: "https://et3am.herokuapp.com/restaurant/1/meals")
         
-        
-        let meal3 = Meal()
-        meal3.mealName="Shawrma"
-        meal3.mealImage="food"
-        
-        let meal4 = Meal()
-        meal4.mealName="Kabab"
-        meal4.mealImage="food"
-        
-        
-        
-        mealsArray.append(meal1)
-        mealsArray.append(meal2)
-        mealsArray.append(meal3)
-        mealsArray.append(meal4)
-        
-        
-        
-        
-        mealsTableView.reloadData()
-        
-        
-        
+        self.mealsTableView.reloadData()
     }
-
     
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mealCell", for: indexPath) as! MealCell
-        cell.mealNameLabel.text = mealsArray[indexPath.row].mealName
+        cell.mealNameLabel.text = mealsArray[indexPath.row].mealName!
+        print(mealsArray[indexPath.row].mealName!)
         let image : UIImage = UIImage(named: "food")!
         cell.mealPhotoImage.image = image
         return cell
-        
     }
-    
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return mealsArray.count
-        
+        print(mealsArray.count)
+        return self.mealsArray.count
     }
-
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+
+extension RestaurantInfoViewController{
+    
+    func fetchJsonForRestaurant(typeURL:String){
+        
+        DispatchQueue.main.async {
+            Alamofire.request(typeURL).responseJSON { (response) in
+                if let responseValue = response.result.value as! [String: Any]? {
+                    
+                    // let fetchedRestaurant:Restaurant! = Restaurant()
+                    
+                    self.restuarantObj.restaurantName = responseValue["restaurantName"] as! String?
+                    self.restuarantObj.city = responseValue["city"] as! String?
+                    self.restuarantObj.country = responseValue["country"] as! String?
+                    
+                    self.restaurantNameLable.text = self.restuarantObj.restaurantName
+                    self.CountryCityLable.text = self.restuarantObj.country! + ", " + self.restuarantObj.city!
+                }
+            }
+        }
+        
+    }
+    
+    
+    func fetchJsonForMeals(typeURL:String){
+        Alamofire.request(typeURL).responseJSON { (response) in
+            if let responseValue = response.result.value as! [Dictionary<String, Any>]? {
+                // self.responseJson = responseValue as! [[String: Any]]
+                for item in responseValue{
+                    var meal = Meal()
+                    //    print(item["mealName"] as! String)
+                    meal.mealName = item["mealName"] as? String
+                    // print(meal.mealName)
+                    meal.mealID = item["mealId"] as? String
+                    meal.mealImage="food"
+                    self.mealsArray.append(meal)
+                }
+               //self.mealsTableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+//                self.mealsTableView.reloadData()
+                self.reloadTableviewDataWithHeight()
+            }
+            
+        }
+    }
+}
+

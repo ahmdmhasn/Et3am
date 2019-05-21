@@ -269,10 +269,10 @@
 			children = (
 				21110BCA2288444500D982E5 /* CouponsDonated.storyboard */,
 				21110BC82288442F00D982E5 /* RestaurantInfo.storyboard */,
+				E2029CEB22836B6D007BA6A1 /* Main.storyboard */,
 				21110BC6228843DF00D982E5 /* CopounsRecieved.storyboard */,
 				E2512CC12285DAD900D8E0F7 /* Donate.storyboard */,
 				E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */,
-				E2029CEB22836B6D007BA6A1 /* Main.storyboard */,
 				E2029CF322836B6D007BA6A1 /* LaunchScreen.storyboard */,
 				210B4D86228B560B002EB218 /* RegisterAndLogin.storyboard */,
 				A21013B0228AE96E001D9CA4 /* MealCell.swift */,
@@ -363,7 +363,6 @@
 				TargetAttributes = {
 					E2029CE322836B6C007BA6A1 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = JUUZV79G5F;
 						ProvisioningStyle = Automatic;
 					};
 					E2029CFA22836B6E007BA6A1 = {
@@ -685,7 +684,7 @@
 			baseConfigurationReference = D0408BBCF587B0F4830C0B02 /* Pods-Et3am.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JUUZV79G5F;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Et3am/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eg.com.iti.Et3am;
@@ -699,7 +698,7 @@
 			baseConfigurationReference = 594CCC07588F84D16ABEFC13 /* Pods-Et3am.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JUUZV79G5F;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Et3am/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eg.com.iti.Et3am;
