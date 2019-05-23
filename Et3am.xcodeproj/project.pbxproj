@@ -144,6 +144,7 @@
 		211644A7228C490C009AA2BB /* NetworkDao */ = {
 			isa = PBXGroup;
 			children = (
+				211644AA228C4A6C009AA2BB /* Et3amAPI.swift */,
 				211644A8228C49E5009AA2BB /* UserDao.swift */,
 			);
 			name = NetworkDao;
@@ -250,7 +251,6 @@
 				210B4D82228B5406002EB218 /* signInView.swift */,
 				210B4D84228B541C002EB218 /* signUpView.swift */,
 				A21013B2228AF2CA001D9CA4 /* RestaurantInfoViewController.swift */,
-				211644AA228C4A6C009AA2BB /* Et3amAPI.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -686,6 +686,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = JUUZV79G5F;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Et3am/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eg.com.iti.Et3am;
@@ -700,6 +704,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = JUUZV79G5F;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Et3am/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eg.com.iti.Et3am;

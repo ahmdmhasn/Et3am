@@ -14,7 +14,8 @@ class signInView: UIView {
     @IBOutlet weak var emailTxtField :UITextField!
     
     @IBOutlet weak var passTxtField :UITextField!
-    
+     @IBOutlet weak var valdiatelabel:UILabel!
+  
     /*
      // Only override draw() if you perform custom drawing.
      // An empty implementation adversely affects performance during animation.

@@ -11,7 +11,7 @@ import Foundation
 
 class User {
     
-    var userID:Int?
+    var userID:String?
     var userName:String?
     var email:String?
     var password:String?

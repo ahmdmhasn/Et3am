@@ -9,5 +9,14 @@
 import Foundation
 struct Et3amAPI
 {
-    static let baseUrlString = "https://et3am.herokuoapp.com/user"
+    static let baseUrlString = "https://et3am.herokuapp.com/user"
+}
+enum UserURLQueries:String
+{
+    case add = "/add"
+    case list = "/list"
+    case validateEmail="/validate/email/"
+    case loginValidation = "/validate/login"
+    case emailQuery = "email"
+    case passwordQuery = "password"
 }

@@ -13,12 +13,10 @@ class RestaurantInfoViewController: UIViewController,UITableViewDelegate,UITable
     
     var maxHeight: CGFloat = UIScreen.main.bounds.size.height
     
-    
+
     
     
     var restuarantObj = Restaurant()
-    
-    
     
     
     
