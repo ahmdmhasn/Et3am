@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,14 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 // check for user default
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let initialViewController = storyboard.instantiateViewController(withIdentifier: "restaurantID")
-//        let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
-//       
-//        navigationController.viewControllers = [initialViewController]
-//        self.window?.rootViewController = navigationController
-        return true
+        if((UserDefaults.standard.string(forKey: "userEmail") != nil)){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "restaurantID")
+        let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+       
+        navigationController.viewControllers = [initialViewController]
+        self.window?.rootViewController = navigationController
+            
+        
+        }
+       return true
     }
+ 
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

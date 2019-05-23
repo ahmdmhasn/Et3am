@@ -15,7 +15,7 @@
         <!--Restaurant Info View Controller-->
         <scene sceneID="oAj-qR-vm3">
             <objects>
-                <viewController id="3cJ-nE-JAm" customClass="RestaurantInfoViewController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="restaurantID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3cJ-nE-JAm" customClass="RestaurantInfoViewController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z66-nx-pFT"/>
                         <viewControllerLayoutGuide type="bottom" id="2dM-RF-s5R"/>
