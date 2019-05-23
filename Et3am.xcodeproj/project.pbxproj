@@ -366,6 +366,7 @@
 				TargetAttributes = {
 					E2029CE322836B6C007BA6A1 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = JUUZV79G5F;
 						ProvisioningStyle = Automatic;
 					};
 					E2029CFA22836B6E007BA6A1 = {
@@ -688,7 +689,6 @@
 			baseConfigurationReference = D0408BBCF587B0F4830C0B02 /* Pods-Et3am.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
 				DEVELOPMENT_TEAM = JUUZV79G5F;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -707,7 +707,6 @@
 			baseConfigurationReference = 594CCC07588F84D16ABEFC13 /* Pods-Et3am.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
 				DEVELOPMENT_TEAM = JUUZV79G5F;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
