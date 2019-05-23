@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class RegisterandLoginViewController: UIViewController {
     
     var userName:String?
@@ -16,7 +17,7 @@ class RegisterandLoginViewController: UIViewController {
     var userRepeatPassword:String?
     let userDao = UserDao()
    
-  
+    
     @IBAction func signUpButton(_ sender: Any) {
         userName = signUpView.userNameTxtField.text
         userEmail = signUpView.emailTxtField.text
@@ -31,18 +32,36 @@ class RegisterandLoginViewController: UIViewController {
         
         userDao.addUser(parameters: parameters)
     }
+   
     @IBAction func userNameEditingChange(_ sender: UITextField) {
     
   
         print(sender.text!)
-        userDao.validateEmail(email: sender.text!)
+       // userDao.validateEmail(email: sender.text!)
     }
   
 
     @IBAction func signUpWithFacebookButton(_ sender: Any) {
+      
     }
  
     @IBAction func signInButton(_ sender: Any) {
+
+        userEmail = signInView.emailTxtField.text
+        userPassword = signInView.passTxtField.text
+        userDao.validateLogin(userEmail: userEmail!, password: userPassword!) {userFound in
+            print(self.userEmail!)
+            print(userFound!)
+            if userFound! == "user is found"
+            {
+                   let storyboard = UIStoryboard(name: "RestaurantInfo", bundle: nil)
+               let HomeViewController = storyboard.instantiateViewController(withIdentifier: "restaurantID") as! RestaurantInfoViewController
+               self.navigationController?.pushViewController(HomeViewController, animated: false)
+            }
+            else{
+                self.signInView.valdiatelabel.text = "email or password is wrong"
+            }
+        }
     }
    
  
@@ -55,15 +74,11 @@ class RegisterandLoginViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //        signUpView.userNameTxtField.addTarget(self, action: #selector(), for: .editingChanged)
-        //    }
+       
     }
   
-   
-    
     @IBAction func segmenetdControlAction(_ sender: Any) {
-    
+
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             signInView.isHidden = true
