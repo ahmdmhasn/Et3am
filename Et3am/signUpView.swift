@@ -19,6 +19,8 @@ class signUpView: UIView {
     @IBOutlet weak var userNameValidLabel : UILabel!
     
     @IBOutlet weak var emailLabel : UILabel!
+    @IBOutlet weak var passwordLabel : UILabel!
+    @IBOutlet weak var repeatPassLabel : UILabel!
     
     //    @IBAction func signUpButton(_ sender:Any){
     //

@@ -130,7 +130,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Vno-30-OKf">
                                                         <rect key="frame" x="54" y="0.0" width="251" height="157"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="558C3BA4-C314-4A6B-BDEB-3DFFD3743FEA" translatesAutoresizingMaskIntoConstraints="NO" id="YhV-pp-wGe">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="D7089DF1-37A0-42F8-A84F-9CA2E84C35E9" translatesAutoresizingMaskIntoConstraints="NO" id="YhV-pp-wGe">
                                                                 <rect key="frame" x="75.5" y="0.0" width="100" height="100"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="YhV-pp-wGe" secondAttribute="height" multiplier="1:1" id="Iaa-fv-xA1"/>
@@ -182,6 +182,9 @@
                                                                                                 <nil key="textColor"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                 <textInputTraits key="textInputTraits"/>
+                                                                                                <connections>
+                                                                                                    <action selector="userNameEditingChange:" destination="IGS-5P-0mx" eventType="editingChanged" id="MoK-4f-VNv"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zT-Xq-Xvz">
                                                                                                 <rect key="frame" x="0.0" y="70.5" width="359" height="21"/>
@@ -190,8 +193,8 @@
                                                                                                     <constraint firstAttribute="width" constant="359" id="Ywz-Bo-Gua"/>
                                                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="359" id="qln-R4-dQW"/>
                                                                                                 </constraints>
-                                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                                <nil key="textColor"/>
+                                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                         </subviews>
@@ -210,6 +213,9 @@
                                                                                                 <nil key="textColor"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                 <textInputTraits key="textInputTraits"/>
+                                                                                                <connections>
+                                                                                                    <action selector="emailEditingEndAction:" destination="IGS-5P-0mx" eventType="editingDidEnd" id="DfJ-k3-aU8"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikB-uP-XHI">
                                                                                                 <rect key="frame" x="0.0" y="66.5" width="359" height="20"/>
@@ -217,8 +223,8 @@
                                                                                                     <constraint firstAttribute="height" constant="20.5" id="zGs-Mj-wbD"/>
                                                                                                     <constraint firstAttribute="width" constant="359" id="zf0-IA-a1W"/>
                                                                                                 </constraints>
-                                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                                <nil key="textColor"/>
+                                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                         </subviews>
@@ -237,6 +243,9 @@
                                                                                                 <nil key="textColor"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                 <textInputTraits key="textInputTraits"/>
+                                                                                                <connections>
+                                                                                                    <action selector="passEditingChangeAction:" destination="IGS-5P-0mx" eventType="editingChanged" id="Ebr-7p-dlf"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKW-bV-uwf">
                                                                                                 <rect key="frame" x="0.0" y="66.5" width="359" height="21"/>
@@ -244,8 +253,8 @@
                                                                                                     <constraint firstAttribute="width" constant="359" id="INI-wu-omq"/>
                                                                                                     <constraint firstAttribute="height" constant="20.5" id="fbL-MF-uId"/>
                                                                                                 </constraints>
-                                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                                <nil key="textColor"/>
+                                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                         </subviews>
@@ -264,6 +273,9 @@
                                                                                                 <nil key="textColor"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                 <textInputTraits key="textInputTraits"/>
+                                                                                                <connections>
+                                                                                                    <action selector="repeatedPassEditingChangeAction:" destination="IGS-5P-0mx" eventType="editingChanged" id="OpN-vT-V18"/>
+                                                                                                </connections>
                                                                                             </textField>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYw-jI-Z85">
                                                                                                 <rect key="frame" x="0.0" y="66.5" width="359" height="20"/>
@@ -271,8 +283,8 @@
                                                                                                     <constraint firstAttribute="width" constant="359" id="KiL-LK-5CX"/>
                                                                                                     <constraint firstAttribute="height" constant="20.5" id="TZ5-pj-his"/>
                                                                                                 </constraints>
-                                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                                <nil key="textColor"/>
+                                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                         </subviews>
@@ -315,8 +327,11 @@
                                                                     <constraint firstItem="koL-6o-p1l" firstAttribute="leading" secondItem="0WV-OH-Jrf" secondAttribute="leading" id="syF-JU-OrV"/>
                                                                 </constraints>
                                                                 <connections>
+                                                                    <outlet property="emailLabel" destination="ikB-uP-XHI" id="HuI-dC-lmf"/>
                                                                     <outlet property="emailTxtField" destination="lbG-1M-mJj" id="IVG-MJ-5rj"/>
                                                                     <outlet property="passTxtField" destination="p3b-Kh-H1s" id="pOm-sT-98H"/>
+                                                                    <outlet property="passwordLabel" destination="XKW-bV-uwf" id="oRk-Zy-o04"/>
+                                                                    <outlet property="repeatPassLabel" destination="AYw-jI-Z85" id="XZ5-do-2g7"/>
                                                                     <outlet property="repeatedPassTxtField" destination="5Dr-vw-1kB" id="SDu-6z-fgE"/>
                                                                     <outlet property="userNameTxtField" destination="TMI-nF-3UW" id="bI2-cf-YWV"/>
                                                                     <outlet property="userNameValidLabel" destination="1zT-Xq-Xvz" id="fJR-4j-RBm"/>
@@ -366,6 +381,7 @@
                     <connections>
                         <outlet property="segmentedControl" destination="sSx-y6-Sko" id="oz4-KX-wg8"/>
                         <outlet property="signInView" destination="7My-Ty-Lhv" id="QCu-kd-H1f"/>
+                        <outlet property="signUpBtn" destination="vPC-U9-p49" id="PCo-xw-86x"/>
                         <outlet property="signUpView" destination="0WV-OH-Jrf" id="5L3-TT-2Td"/>
                     </connections>
                 </viewController>
@@ -403,7 +419,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="558C3BA4-C314-4A6B-BDEB-3DFFD3743FEA" width="256" height="256">
+        <image name="D7089DF1-37A0-42F8-A84F-9CA2E84C35E9" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

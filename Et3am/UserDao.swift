@@ -11,10 +11,12 @@ import Alamofire
 
 class UserDao{
   var user = User()
-    var status:String = ""
-    public  func addUser(parameters : [String:String]) -> String
+   
+    public  func addUser(parameters : [String:String],completionHandler:@escaping (Bool)->Void)
     
     {
+        
+         var isRegistered:Bool = false
          Alamofire.request(Et3amAPI.baseUrlString+UserURLQueries.add.rawValue,
                       method: .post,
                       parameters: parameters,
@@ -32,18 +34,22 @@ class UserDao{
                           self.user.email=userDataDictionary.value(forKey: "userEmail") as! String?
                           self.user.password=userDataDictionary.value(forKey: "password") as! String?
                           self.user.verified=false
-                          self.status = "sucess"
+                          isRegistered = true
                           
                           self.addUserObjectIntoUserDefault(userObject: self.user)
+                          completionHandler(isRegistered)
+
                           
                             break
                         case .failure(let error):
                             print(error)
-                            self.status="failure"
+                            isRegistered = false
+                             completionHandler(isRegistered)
+                            
                         }
                         
         }
-     return status
+       
         
         
 }
@@ -55,25 +61,42 @@ class UserDao{
          UserDefaults.standard.set(userObject.verified, forKey: "verified")
     }
     
-    func validateEmail(email:String)->String
+    func validateEmail(email:String,completionHandler:@escaping (Bool)->Void)
     {
-        var emailFound : String!
+        var isEmailFound : Bool!
         
         Alamofire.request(Et3amAPI.baseUrlString+UserURLQueries.validateEmail.rawValue+email).validate().responseJSON{
             response in
             switch response.result {
             case .success:
-                emailFound="Email Alrady Exist"
+                
+                let sucessDataValue = response.result.value
+                let returnedData = sucessDataValue as! NSDictionary
+                let code = returnedData.value(forKey: "code")! as! Int
+                if(code == 0){
+                isEmailFound = false
+                }
+                else {
+                isEmailFound = true
+                }
+                completionHandler(isEmailFound)
+                
                 break;
             case .failure:
-                emailFound = ""
+                
+                isEmailFound = false
+                
+            completionHandler(isEmailFound)
+            
+                break
+
             }
             
         }
         
-    return emailFound
+   
     }
-    func validateLogin(userEmail:String,password:String,completionHandler:@escaping (String?)->Void)->Void
+    func validateLogin(userEmail:String,password:String,completionHandler:@escaping (String?)->Void)
     {
         
         var userFound : String!
