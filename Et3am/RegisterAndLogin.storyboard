@@ -388,10 +388,10 @@
         <!--RestaurantInfo-->
         <scene sceneID="OOf-Sv-60y">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TWF-ib-oNL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="RestaurantInfo" id="0Q3-S0-gUK" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="e1i-Zh-6hM"/>
                 </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TWF-ib-oNL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="487" y="244"/>
         </scene>
