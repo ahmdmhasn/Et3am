@@ -33,6 +33,8 @@
 		E2029CF522836B6D007BA6A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2029CF322836B6D007BA6A1 /* LaunchScreen.storyboard */; };
 		E2029D0022836B6E007BA6A1 /* Et3amTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029CFF22836B6E007BA6A1 /* Et3amTests.swift */; };
 		E2029D0B22836B6E007BA6A1 /* Et3amUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029D0A22836B6E007BA6A1 /* Et3amUITests.swift */; };
+		E20E07262299DEA300FEC852 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20E07252299DEA300FEC852 /* UserProfileViewController.swift */; };
+		E22585D72298BD4E006D7A08 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22585D62298BD4E006D7A08 /* ImageStore.swift */; };
 		E2512CC42285DAD900D8E0F7 /* Donate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2512CC12285DAD900D8E0F7 /* Donate.storyboard */; };
 		E2512CC62285DAD900D8E0F7 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */; };
 		E2F11B9D2288D49D0031ABCC /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11B972288D49C0031ABCC /* Admin.swift */; };
@@ -102,6 +104,8 @@
 		E2029D0622836B6E007BA6A1 /* Et3amUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Et3amUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2029D0A22836B6E007BA6A1 /* Et3amUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Et3amUITests.swift; sourceTree = "<group>"; };
 		E2029D0C22836B6E007BA6A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E20E07252299DEA300FEC852 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileViewController.swift; path = controller/UserProfileViewController.swift; sourceTree = "<group>"; };
+		E22585D62298BD4E006D7A08 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		E2512CC12285DAD900D8E0F7 /* Donate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Donate.storyboard; path = view/Donate.storyboard; sourceTree = "<group>"; };
 		E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UserProfile.storyboard; path = view/UserProfile.storyboard; sourceTree = "<group>"; };
 		E2F11B972288D49C0031ABCC /* Admin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Admin.swift; path = model/Admin.swift; sourceTree = "<group>"; };
@@ -143,14 +147,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		211644A7228C490C009AA2BB /* NetworkDao */ = {
+		211644A7228C490C009AA2BB /* Network Layer */ = {
 			isa = PBXGroup;
 			children = (
 				211644AA228C4A6C009AA2BB /* Et3amAPI.swift */,
 				211644A8228C49E5009AA2BB /* UserDao.swift */,
 				CC06D76A229553E30072D3C8 /* RestaurantDao.swift */,
 			);
-			name = NetworkDao;
+			name = "Network Layer";
 			sourceTree = "<group>";
 		};
 		44B6F25BBA14F8E184940AFD /* Pods */ = {
@@ -216,8 +220,8 @@
 			children = (
 				E2029D192283750C007BA6A1 /* Model */,
 				E2029D1822837503007BA6A1 /* Controller */,
-				E27E3B42228C877200BF5DC2 /* SupportingFiles */,
 				E2029D1A2283751A007BA6A1 /* View */,
+				E27E3B42228C877200BF5DC2 /* SupportingFiles */,
 			);
 			path = Et3am;
 			sourceTree = "<group>";
@@ -243,6 +247,7 @@
 		E2029D1822837503007BA6A1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E20E07272299DEB300FEC852 /* User Profile */,
 				E2F11BA32288E5A50031ABCC /* CopounsRecievedViewController.swift */,
 				E2F11BA42288E5A50031ABCC /* CouponRecievedTableViewCell.swift */,
 				E2F11BA52288E5A50031ABCC /* DonateViewController.swift */,
@@ -254,6 +259,7 @@
 				210B4D82228B5406002EB218 /* signInView.swift */,
 				210B4D84228B541C002EB218 /* signUpView.swift */,
 				A21013B2228AF2CA001D9CA4 /* RestaurantInfoViewController.swift */,
+				A21013B0228AE96E001D9CA4 /* MealCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -261,7 +267,8 @@
 		E2029D192283750C007BA6A1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				211644A7228C490C009AA2BB /* NetworkDao */,
+				E22585D52298BD27006D7A08 /* Data Layer */,
+				211644A7228C490C009AA2BB /* Network Layer */,
 				A24FE2AB2287691B00E7C03A /* Pojos */,
 			);
 			name = Model;
@@ -275,12 +282,27 @@
 				E2029CEB22836B6D007BA6A1 /* Main.storyboard */,
 				21110BC6228843DF00D982E5 /* CopounsRecieved.storyboard */,
 				E2512CC12285DAD900D8E0F7 /* Donate.storyboard */,
-				E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */,
 				E2029CF322836B6D007BA6A1 /* LaunchScreen.storyboard */,
 				210B4D86228B560B002EB218 /* RegisterAndLogin.storyboard */,
-				A21013B0228AE96E001D9CA4 /* MealCell.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		E20E07272299DEB300FEC852 /* User Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */,
+				E20E07252299DEA300FEC852 /* UserProfileViewController.swift */,
+			);
+			name = "User Profile";
+			sourceTree = "<group>";
+		};
+		E22585D52298BD27006D7A08 /* Data Layer */ = {
+			isa = PBXGroup;
+			children = (
+				E22585D62298BD4E006D7A08 /* ImageStore.swift */,
+			);
+			name = "Data Layer";
 			sourceTree = "<group>";
 		};
 		E27E3B42228C877200BF5DC2 /* SupportingFiles */ = {
@@ -515,6 +537,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A21013B1228AE96E001D9CA4 /* MealCell.swift in Sources */,
+				E20E07262299DEA300FEC852 /* UserProfileViewController.swift in Sources */,
 				E2F11BA22288D49D0031ABCC /* User.swift in Sources */,
 				211378A52284F0C70056E5C7 /* AllCouponTableViewController.swift in Sources */,
 				211644A9228C49E5009AA2BB /* UserDao.swift in Sources */,
@@ -525,6 +548,7 @@
 				210B4D83228B5406002EB218 /* signInView.swift in Sources */,
 				E2F11BA02288D49D0031ABCC /* Meal.swift in Sources */,
 				E2029CF022836B6D007BA6A1 /* Et3am.xcdatamodeld in Sources */,
+				E22585D72298BD4E006D7A08 /* ImageStore.swift in Sources */,
 				211378A72284F16A0056E5C7 /* AllCouponTableViewCell.swift in Sources */,
 				211378A9228623AC0056E5C7 /* UnpublishCouponTableViewController.swift in Sources */,
 				210B4D81228B5341002EB218 /* RegisterandLoginViewController.swift in Sources */,
