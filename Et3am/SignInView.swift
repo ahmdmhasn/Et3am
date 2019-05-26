@@ -8,7 +8,7 @@
 
 import UIKit
 
-class signInView: UIView {
+class SignInView: UIStackView {
     
     
     @IBOutlet weak var emailTxtField :UITextField!

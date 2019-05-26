@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		210B4D81228B5341002EB218 /* RegisterandLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210B4D80228B5341002EB218 /* RegisterandLoginViewController.swift */; };
-		210B4D83228B5406002EB218 /* signInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210B4D82228B5406002EB218 /* signInView.swift */; };
-		210B4D85228B541C002EB218 /* signUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210B4D84228B541C002EB218 /* signUpView.swift */; };
+		210B4D83228B5406002EB218 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210B4D82228B5406002EB218 /* SignInView.swift */; };
+		210B4D85228B541C002EB218 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210B4D84228B541C002EB218 /* SignUpView.swift */; };
 		210B4D87228B560B002EB218 /* RegisterAndLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 210B4D86228B560B002EB218 /* RegisterAndLogin.storyboard */; };
 		21110BC7228843DF00D982E5 /* CopounsRecieved.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21110BC6228843DF00D982E5 /* CopounsRecieved.storyboard */; };
 		21110BC92288442F00D982E5 /* RestaurantInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21110BC82288442F00D982E5 /* RestaurantInfo.storyboard */; };
@@ -68,8 +68,8 @@
 /* Begin PBXFileReference section */
 		03C870E401F2CB162131A79B /* Pods_Et3amUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Et3amUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		210B4D80228B5341002EB218 /* RegisterandLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterandLoginViewController.swift; sourceTree = "<group>"; };
-		210B4D82228B5406002EB218 /* signInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signInView.swift; sourceTree = "<group>"; };
-		210B4D84228B541C002EB218 /* signUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signUpView.swift; sourceTree = "<group>"; };
+		210B4D82228B5406002EB218 /* SignInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		210B4D84228B541C002EB218 /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		210B4D86228B560B002EB218 /* RegisterAndLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegisterAndLogin.storyboard; sourceTree = "<group>"; };
 		21110BC6228843DF00D982E5 /* CopounsRecieved.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CopounsRecieved.storyboard; path = view/CopounsRecieved.storyboard; sourceTree = "<group>"; };
 		21110BC82288442F00D982E5 /* RestaurantInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RestaurantInfo.storyboard; path = view/RestaurantInfo.storyboard; sourceTree = "<group>"; };
@@ -294,8 +294,8 @@
 		E2680028229AB8A2003EF0CC /* Register/ Login Screen */ = {
 			isa = PBXGroup;
 			children = (
-				210B4D82228B5406002EB218 /* signInView.swift */,
-				210B4D84228B541C002EB218 /* signUpView.swift */,
+				210B4D82228B5406002EB218 /* SignInView.swift */,
+				210B4D84228B541C002EB218 /* SignUpView.swift */,
 				210B4D86228B560B002EB218 /* RegisterAndLogin.storyboard */,
 				210B4D80228B5341002EB218 /* RegisterandLoginViewController.swift */,
 			);
@@ -559,9 +559,9 @@
 				211644A9228C49E5009AA2BB /* UserDao.swift in Sources */,
 				211378AD228626D70056E5C7 /* UnpublishCouponTableViewCell.swift in Sources */,
 				E2F11B9E2288D49D0031ABCC /* Coupon.swift in Sources */,
-				210B4D85228B541C002EB218 /* signUpView.swift in Sources */,
+				210B4D85228B541C002EB218 /* SignUpView.swift in Sources */,
 				211644AB228C4A6C009AA2BB /* Et3amAPI.swift in Sources */,
-				210B4D83228B5406002EB218 /* signInView.swift in Sources */,
+				210B4D83228B5406002EB218 /* SignInView.swift in Sources */,
 				E2F11BA02288D49D0031ABCC /* Meal.swift in Sources */,
 				E2029CF022836B6D007BA6A1 /* Et3am.xcdatamodeld in Sources */,
 				E22585D72298BD4E006D7A08 /* ImageStore.swift in Sources */,

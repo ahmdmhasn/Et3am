@@ -18,11 +18,9 @@ class RegisterandLoginViewController: UIViewController {
     let userDao = UserDao.shared
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var signUpView: SignUpView!
+    @IBOutlet weak var signInView: SignInView!
     
-    
-    @IBOutlet weak var signInView: signInView!
-    
-    @IBOutlet weak var signUpView: signUpView!
     var emailValid,userNameValid,passValid,repeatPassValid,emailValidForSignIn,passValidForSignIn: Bool!
    
     

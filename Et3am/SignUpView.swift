@@ -8,35 +8,15 @@
 
 import UIKit
 
-class signUpView: UIView {
+class SignUpView: UIStackView {
     
     @IBOutlet weak var userNameTxtField :UITextField!
-    
     @IBOutlet weak var emailTxtField :UITextField!
-    
     @IBOutlet weak var passTxtField :UITextField!
     @IBOutlet weak var repeatedPassTxtField :UITextField!
     @IBOutlet weak var userNameValidLabel : UILabel!
-    
     @IBOutlet weak var emailLabel : UILabel!
     @IBOutlet weak var passwordLabel : UILabel!
     @IBOutlet weak var repeatPassLabel : UILabel!
-    
-    //    @IBAction func signUpButton(_ sender:Any){
-    //
-    //    print("fhjhjjhjk")
-    //    }
-    //    @IBAction func signUpWithFacebookButton(_ sender:Any)
-    //    {
-    //
-    //    }
-    
-    /*
-     // Only override draw() if you perform custom drawing.
-     // An empty implementation adversely affects performance during animation.
-     override func draw(_ rect: CGRect) {
-     // Drawing code
-     }
-     */
     
 }
