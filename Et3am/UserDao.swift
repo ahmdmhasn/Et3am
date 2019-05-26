@@ -10,6 +10,12 @@ import Foundation
 import Alamofire
 
 class UserDao{
+    
+    public static let shared = UserDao()
+    private init() {
+        
+    }
+    
     var user = User()
     
     public  func addUser(parameters : [String:String],completionHandler:@escaping (Bool)->Void) {
@@ -52,7 +58,7 @@ class UserDao{
         UserDefaults.standard.set(userObject.email, forKey: "userEmail")
         UserDefaults.standard.set(userObject.password, forKey: "password")
         UserDefaults.standard.set(userObject.verified, forKey: "verified")
-        
+                
     }
     
     func validateEmail(email:String,completionHandler:@escaping (Bool)->Void) {

@@ -220,7 +220,6 @@
 			children = (
 				E2029D192283750C007BA6A1 /* Model */,
 				E2029D1822837503007BA6A1 /* Controller */,
-				E2029D1A2283751A007BA6A1 /* View */,
 				E27E3B42228C877200BF5DC2 /* SupportingFiles */,
 			);
 			path = Et3am;
@@ -247,19 +246,20 @@
 		E2029D1822837503007BA6A1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E2029CF322836B6D007BA6A1 /* LaunchScreen.storyboard */,
+				E2680028229AB8A2003EF0CC /* Register/ Login Screen */,
 				E20E07272299DEB300FEC852 /* User Profile */,
-				E2F11BA32288E5A50031ABCC /* CopounsRecievedViewController.swift */,
-				E2F11BA42288E5A50031ABCC /* CouponRecievedTableViewCell.swift */,
-				E2F11BA52288E5A50031ABCC /* DonateViewController.swift */,
+				E2680029229AB8FC003EF0CC /* Coupons Received */,
+				E268002A229AB939003EF0CC /* Donate */,
 				211378A8228623AA0056E5C7 /* UnpublishCouponTableViewController.swift */,
 				211378A42284F0C70056E5C7 /* AllCouponTableViewController.swift */,
 				211378A62284F16A0056E5C7 /* AllCouponTableViewCell.swift */,
 				211378AC228626D70056E5C7 /* UnpublishCouponTableViewCell.swift */,
-				210B4D80228B5341002EB218 /* RegisterandLoginViewController.swift */,
-				210B4D82228B5406002EB218 /* signInView.swift */,
-				210B4D84228B541C002EB218 /* signUpView.swift */,
 				A21013B2228AF2CA001D9CA4 /* RestaurantInfoViewController.swift */,
 				A21013B0228AE96E001D9CA4 /* MealCell.swift */,
+				21110BCA2288444500D982E5 /* CouponsDonated.storyboard */,
+				21110BC82288442F00D982E5 /* RestaurantInfo.storyboard */,
+				E2029CEB22836B6D007BA6A1 /* Main.storyboard */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -272,20 +272,6 @@
 				A24FE2AB2287691B00E7C03A /* Pojos */,
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		E2029D1A2283751A007BA6A1 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				21110BCA2288444500D982E5 /* CouponsDonated.storyboard */,
-				21110BC82288442F00D982E5 /* RestaurantInfo.storyboard */,
-				E2029CEB22836B6D007BA6A1 /* Main.storyboard */,
-				21110BC6228843DF00D982E5 /* CopounsRecieved.storyboard */,
-				E2512CC12285DAD900D8E0F7 /* Donate.storyboard */,
-				E2029CF322836B6D007BA6A1 /* LaunchScreen.storyboard */,
-				210B4D86228B560B002EB218 /* RegisterAndLogin.storyboard */,
-			);
-			name = View;
 			sourceTree = "<group>";
 		};
 		E20E07272299DEB300FEC852 /* User Profile */ = {
@@ -303,6 +289,36 @@
 				E22585D62298BD4E006D7A08 /* ImageStore.swift */,
 			);
 			name = "Data Layer";
+			sourceTree = "<group>";
+		};
+		E2680028229AB8A2003EF0CC /* Register/ Login Screen */ = {
+			isa = PBXGroup;
+			children = (
+				210B4D82228B5406002EB218 /* signInView.swift */,
+				210B4D84228B541C002EB218 /* signUpView.swift */,
+				210B4D86228B560B002EB218 /* RegisterAndLogin.storyboard */,
+				210B4D80228B5341002EB218 /* RegisterandLoginViewController.swift */,
+			);
+			name = "Register/ Login Screen";
+			sourceTree = "<group>";
+		};
+		E2680029229AB8FC003EF0CC /* Coupons Received */ = {
+			isa = PBXGroup;
+			children = (
+				E2F11BA32288E5A50031ABCC /* CopounsRecievedViewController.swift */,
+				E2F11BA42288E5A50031ABCC /* CouponRecievedTableViewCell.swift */,
+				21110BC6228843DF00D982E5 /* CopounsRecieved.storyboard */,
+			);
+			name = "Coupons Received";
+			sourceTree = "<group>";
+		};
+		E268002A229AB939003EF0CC /* Donate */ = {
+			isa = PBXGroup;
+			children = (
+				E2F11BA52288E5A50031ABCC /* DonateViewController.swift */,
+				E2512CC12285DAD900D8E0F7 /* Donate.storyboard */,
+			);
+			name = Donate;
 			sourceTree = "<group>";
 		};
 		E27E3B42228C877200BF5DC2 /* SupportingFiles */ = {

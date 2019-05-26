@@ -15,7 +15,7 @@ class RegisterandLoginViewController: UIViewController {
     var userEmail:String?
     var userPassword:String?
     var userRepeatPassword:String?
-    let userDao = UserDao()
+    let userDao = UserDao.shared
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
