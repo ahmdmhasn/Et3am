@@ -247,19 +247,13 @@
 			isa = PBXGroup;
 			children = (
 				E2029CF322836B6D007BA6A1 /* LaunchScreen.storyboard */,
+				E2029CEB22836B6D007BA6A1 /* Main.storyboard */,
 				E2680028229AB8A2003EF0CC /* Register/ Login Screen */,
 				E20E07272299DEB300FEC852 /* User Profile */,
 				E2680029229AB8FC003EF0CC /* Coupons Received */,
 				E268002A229AB939003EF0CC /* Donate */,
-				211378A8228623AA0056E5C7 /* UnpublishCouponTableViewController.swift */,
-				211378A42284F0C70056E5C7 /* AllCouponTableViewController.swift */,
-				211378A62284F16A0056E5C7 /* AllCouponTableViewCell.swift */,
-				211378AC228626D70056E5C7 /* UnpublishCouponTableViewCell.swift */,
-				A21013B2228AF2CA001D9CA4 /* RestaurantInfoViewController.swift */,
-				A21013B0228AE96E001D9CA4 /* MealCell.swift */,
-				21110BCA2288444500D982E5 /* CouponsDonated.storyboard */,
-				21110BC82288442F00D982E5 /* RestaurantInfo.storyboard */,
-				E2029CEB22836B6D007BA6A1 /* Main.storyboard */,
+				E20EF90B229B410D0093970D /* Coupons Donated/ Received */,
+				E20EF90A229B40F50093970D /* Restaurant Info */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -281,6 +275,28 @@
 				E20E07252299DEA300FEC852 /* UserProfileViewController.swift */,
 			);
 			name = "User Profile";
+			sourceTree = "<group>";
+		};
+		E20EF90A229B40F50093970D /* Restaurant Info */ = {
+			isa = PBXGroup;
+			children = (
+				A21013B2228AF2CA001D9CA4 /* RestaurantInfoViewController.swift */,
+				A21013B0228AE96E001D9CA4 /* MealCell.swift */,
+				21110BC82288442F00D982E5 /* RestaurantInfo.storyboard */,
+			);
+			name = "Restaurant Info";
+			sourceTree = "<group>";
+		};
+		E20EF90B229B410D0093970D /* Coupons Donated/ Received */ = {
+			isa = PBXGroup;
+			children = (
+				211378A8228623AA0056E5C7 /* UnpublishCouponTableViewController.swift */,
+				211378A42284F0C70056E5C7 /* AllCouponTableViewController.swift */,
+				211378A62284F16A0056E5C7 /* AllCouponTableViewCell.swift */,
+				211378AC228626D70056E5C7 /* UnpublishCouponTableViewCell.swift */,
+				21110BCA2288444500D982E5 /* CouponsDonated.storyboard */,
+			);
+			name = "Coupons Donated/ Received";
 			sourceTree = "<group>";
 		};
 		E22585D52298BD27006D7A08 /* Data Layer */ = {

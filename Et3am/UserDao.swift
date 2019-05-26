@@ -30,7 +30,7 @@ class UserDao{
                             case .success:
                                 let sucessDataValue = response.result.value
                                 let returnedData = sucessDataValue as! NSDictionary
-                                let userDataDictionary:NSDictionary =  returnedData.value(forKey: "user")! as! NSDictionary
+                                let userDataDictionary:NSDictionary =  returnedData.value(forKey: "user") as! NSDictionary
                                 
                                 self.user.userID=userDataDictionary.value(forKey: "userId") as! String?
                                 self.user.userName=userDataDictionary.value(forKey: "userName") as! String?
@@ -42,8 +42,6 @@ class UserDao{
                                 self.addUserObjectIntoUserDefault(userObject: self.user)
                                 completionHandler(isRegistered)
                                 
-                                
-                                break
                             case .failure(let error):
                                 print(error)
                                 isRegistered = false
