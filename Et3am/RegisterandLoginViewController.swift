@@ -15,16 +15,31 @@ class RegisterandLoginViewController: UIViewController {
     var userEmail:String?
     var userPassword:String?
     var userRepeatPassword:String?
-    let userDao = UserDao()
+    let userDao = UserDao.shared
+    var emailValid, userNameValid, passValid, repeatPassValid, emailValidForSignIn, passValidForSignIn: Bool!
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var signUpView: SignUpView!
+    @IBOutlet weak var signInView: SignInView!
+    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
     
-    
-    @IBOutlet weak var signInView: signInView!
-    
-    @IBOutlet weak var signUpView: signUpView!
-    var emailValid,userNameValid,passValid,repeatPassValid,emailValidForSignIn,passValidForSignIn: Bool!
-   
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        showSigninView()
+        
+        signInButton.layer.cornerRadius = signInButton.frame.height / 2
+        signInButton.layer.masksToBounds = true
+        
+        signUpButton.layer.cornerRadius = signUpButton.frame.height / 2
+        signUpButton.layer.masksToBounds = true
+        
+        userNameValid = false
+        emailValid = false
+        passValid = false
+        repeatPassValid = false
+    }
     
     @IBAction func signUpButton(_ sender: Any) {
         userName = signUpView.userNameTxtField.text
@@ -45,115 +60,74 @@ class RegisterandLoginViewController: UIViewController {
                     let HomeViewController = storyboard.instantiateViewController(withIdentifier: "restaurantID") as! RestaurantInfoViewController
                     self.navigationController?.pushViewController(HomeViewController, animated: false)
                 }
-               
-            
             }
             else {
-            
-            // add alert
                 
+                // add alert
                 let alert = UIAlertController(title: "", message: "Error In Register,Try Again", preferredStyle: .alert)
-                
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                
                 self.present(alert, animated: true)
             }
-        
         })
     }
-   
-   
+    
     @IBAction func userNameEditingChange(_ sender: UITextField) {
         
-    print(sender.text!)
-    if(sender.text?.isEmpty)!{
-    userNameValid = false;
-    signUpView.userNameValidLabel.text = "Enter Valid Name"
-    
+        print(sender.text!)
+        if(sender.text?.isEmpty)!{
+            userNameValid = false;
+            signUpView.userNameValidLabel.text = "Enter Valid Name"
+        } else {
+            userNameValid = true
+            signUpView.userNameValidLabel.text = ""
+        }
+        enableSignUpBtn()
     }
-    else{
-    userNameValid = true
-    signUpView.userNameValidLabel.text = ""
     
-    
-    }
-    enableSignUpBtn()
-
-    }
-  
     @IBAction func emailEditingEndAction(_ sender: UITextField) {
         
         if(sender.text?.isEmpty)!{
             emailValid = false;
             signUpView.emailLabel.text = "Enter Your Email"
-            
-        }
-        else{
-            
+        } else {
             signUpView.emailLabel.text = ""
             if isValidEmailAddress(emailAddressString: sender.text!){
                 userDao.validateEmail(email: sender.text!, completionHandler: {(isEmailValid) in
                     DispatchQueue.main.async {
                         
                         if isEmailValid {
-                            
-                            
                             self.signUpView.emailLabel.text = "Email is Valid"
                             self.emailValid = true
-                        }
-                            
-                            
-                            
-                        else
-                        {
+                        } else {
                             self.signUpView.emailLabel.text = "Email is not Valid"
                             self.emailValid = false
                         }
                     }
-                    
                 })
-                
             }
             else{
-            
+                
                 self.signUpView.emailLabel.text = "Enter a valid email"
                 self.emailValid = false
-            
             }
-            
-            
-            
-            
         }
-        
         enableSignUpBtn()
     }
     
-
     @IBAction func passEditingChangeAction(_ sender: UITextField) {
         if(sender.text?.isEmpty)!{
-            
             passValid = false;
             signUpView.passwordLabel.text = "Enter Your Password"
-            
-        }
-        else{
-            
-           
+        } else {
             if isPasswordValid(sender.text!){
-            signUpView.passwordLabel.text = ""
+                signUpView.passwordLabel.text = ""
                 passValid = true
-
-            }
-            else{
+            } else {
                 signUpView.passwordLabel.text = "Enter A Valid Password"
                 passValid = false
             }
-            
         }
         enableSignUpBtn()
-        
-        
     }
     
     @IBAction func repeatedPassEditingChangeAction(_ sender: UITextField) {
@@ -161,22 +135,18 @@ class RegisterandLoginViewController: UIViewController {
         if(sender.text?.isEmpty)!{
             repeatPassValid = false;
             signUpView.repeatPassLabel.text = "Enter Your Password"
-            
-        }
-        else{
+        } else {
             repeatPassValid = true
             signUpView.repeatPassLabel.text = ""
-            
         }
         enableSignUpBtn()
+    }
+    
+    @IBAction func signUpWithFacebookButton(_ sender: Any) {
         
     }
-    @IBAction func signUpWithFacebookButton(_ sender: Any) {
-      
-    }
- 
-    @IBAction func signInButton(_ sender: Any) {
-
+    
+    @IBAction func signInUser(_ sender: Any) {
         userEmail = signInView.emailTxtField.text
         userPassword = signInView.passTxtField.text
         userDao.validateLogin(userEmail: userEmail!, password: userPassword!) {userFound in
@@ -184,62 +154,54 @@ class RegisterandLoginViewController: UIViewController {
             print(userFound!)
             if userFound! == "user is found"
             {
-                   let storyboard = UIStoryboard(name: "RestaurantInfo", bundle: nil)
-               let HomeViewController = storyboard.instantiateViewController(withIdentifier: "restaurantID") as! RestaurantInfoViewController
-               self.navigationController?.pushViewController(HomeViewController, animated: false)
+                let storyboard = UIStoryboard(name: "RestaurantInfo", bundle: nil)
+                let HomeViewController = storyboard.instantiateViewController(withIdentifier: "restaurantID") as! RestaurantInfoViewController
+                self.navigationController?.pushViewController(HomeViewController, animated: false)
             }
             else{
                 self.signInView.valdiatelabel.text = "email or password is wrong"
             }
         }
     }
-   
- 
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        userNameValid = false
-        emailValid = false
-        passValid = false
-        repeatPassValid = false
-        
-       
-    }
-  
-    @IBOutlet weak var signUpBtn: UIButton!
+    
     @IBAction func segmenetdControlAction(_ sender: Any) {
-
+        
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            signInView.isHidden = true
-            signUpView.isHidden = false
+            showSigninView()
         case 1:
-            signInView.isHidden = false
-            signUpView.isHidden = true
-            break
-            
+            showSignupView()
         default:
-            break;
+            break
         }
     }
+    
+    @IBAction func forgetUserPassword(_ sender: Any) {
+    }
+    
+    func showSignupView() {
+        signInView.isHidden = true
+        signUpView.isHidden = false
+    }
+    
+    func showSigninView() {
+        signInView.isHidden = false
+        signUpView.isHidden = true
+    }
+    
     func enableSignUpBtn(){
-    
+        
         if emailValid && passValid && repeatPassValid && userNameValid {
-        signUpBtn.isEnabled = true
-
-        
+            signUpButton.isEnabled = true
+        } else {
+            signUpButton.isEnabled = false
         }
-        else {
-        signUpBtn.isEnabled = false
-        
-        }
-        
     }
+    
     func enableSignInBtn(){
-    
-    
-    
+        
     }
+    
     func isValidEmailAddress(emailAddressString: String) -> Bool {
         
         var returnValue = true
@@ -267,8 +229,5 @@ class RegisterandLoginViewController: UIViewController {
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,}$")
         return passwordTest.evaluate(with: password)
     }
-    
-    
-    
 }
 

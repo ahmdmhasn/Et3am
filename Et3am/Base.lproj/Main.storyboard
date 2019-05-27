@@ -156,7 +156,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="byE-Vy-LJc">
-                        <barButtonItem key="rightBarButtonItem" title="Profile" id="XY0-TX-jZZ"/>
+                        <barButtonItem key="rightBarButtonItem" title="Profile" id="XY0-TX-jZZ">
+                            <connections>
+                                <segue destination="045-5V-Eyw" kind="show" id="NMb-sI-KI4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -169,7 +173,7 @@
                 <viewControllerPlaceholder storyboardName="UserProfile" id="045-5V-Eyw" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wFS-b1-8rJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1553" y="-909"/>
+            <point key="canvasLocation" x="1510" y="-911"/>
         </scene>
         <!--RestaurantInfo-->
         <scene sceneID="yHZ-35-P83">
