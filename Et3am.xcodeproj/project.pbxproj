@@ -20,6 +20,8 @@
 		211378AD228626D70056E5C7 /* UnpublishCouponTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211378AC228626D70056E5C7 /* UnpublishCouponTableViewCell.swift */; };
 		211644A9228C49E5009AA2BB /* UserDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211644A8228C49E5009AA2BB /* UserDao.swift */; };
 		211644AB228C4A6C009AA2BB /* Et3amAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211644AA228C4A6C009AA2BB /* Et3amAPI.swift */; };
+		83517C4F229A954A009DD6C3 /* RestaurantDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83517C4E229A954A009DD6C3 /* RestaurantDetailsCell.swift */; };
+		838DE133229AB3A2001C001B /* RestaurantDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838DE132229AB3A2001C001B /* RestaurantDetailsViewController.swift */; };
 		8F97F34A28B2889B14749CDF /* Pods_Et3amTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2B04E14B268BE19AA18B5F /* Pods_Et3amTests.framework */; };
 		A21013B1228AE96E001D9CA4 /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21013B0228AE96E001D9CA4 /* MealCell.swift */; };
 		A21013B3228AF2CA001D9CA4 /* RestaurantInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21013B2228AF2CA001D9CA4 /* RestaurantInfoViewController.swift */; };
@@ -82,6 +84,8 @@
 		594CCC07588F84D16ABEFC13 /* Pods-Et3am.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Et3am.release.xcconfig"; path = "Target Support Files/Pods-Et3am/Pods-Et3am.release.xcconfig"; sourceTree = "<group>"; };
 		5B2B04E14B268BE19AA18B5F /* Pods_Et3amTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Et3amTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		693E598950506D287CF64D8D /* Pods_Et3am.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Et3am.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		83517C4E229A954A009DD6C3 /* RestaurantDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsCell.swift; sourceTree = "<group>"; };
+		838DE132229AB3A2001C001B /* RestaurantDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewController.swift; sourceTree = "<group>"; };
 		9BE64D471C0E7CBFCB70569C /* Pods-Et3amTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Et3amTests.debug.xcconfig"; path = "Target Support Files/Pods-Et3amTests/Pods-Et3amTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A21013B0228AE96E001D9CA4 /* MealCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealCell.swift; sourceTree = "<group>"; };
 		A21013B2228AF2CA001D9CA4 /* RestaurantInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantInfoViewController.swift; sourceTree = "<group>"; };
@@ -254,6 +258,7 @@
 				210B4D82228B5406002EB218 /* signInView.swift */,
 				210B4D84228B541C002EB218 /* signUpView.swift */,
 				A21013B2228AF2CA001D9CA4 /* RestaurantInfoViewController.swift */,
+				838DE132229AB3A2001C001B /* RestaurantDetailsViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 				E2029CF322836B6D007BA6A1 /* LaunchScreen.storyboard */,
 				210B4D86228B560B002EB218 /* RegisterAndLogin.storyboard */,
 				A21013B0228AE96E001D9CA4 /* MealCell.swift */,
+				83517C4E229A954A009DD6C3 /* RestaurantDetailsCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -366,6 +372,7 @@
 				TargetAttributes = {
 					E2029CE322836B6C007BA6A1 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = JUUZV79G5F;
 						ProvisioningStyle = Automatic;
 					};
 					E2029CFA22836B6E007BA6A1 = {
@@ -522,6 +529,7 @@
 				210B4D85228B541C002EB218 /* signUpView.swift in Sources */,
 				211644AB228C4A6C009AA2BB /* Et3amAPI.swift in Sources */,
 				210B4D83228B5406002EB218 /* signInView.swift in Sources */,
+				83517C4F229A954A009DD6C3 /* RestaurantDetailsCell.swift in Sources */,
 				E2F11BA02288D49D0031ABCC /* Meal.swift in Sources */,
 				E2029CF022836B6D007BA6A1 /* Et3am.xcdatamodeld in Sources */,
 				211378A72284F16A0056E5C7 /* AllCouponTableViewCell.swift in Sources */,
@@ -529,6 +537,7 @@
 				210B4D81228B5341002EB218 /* RegisterandLoginViewController.swift in Sources */,
 				E2F11BA12288D49D0031ABCC /* Restaurant.swift in Sources */,
 				E2029CE822836B6D007BA6A1 /* AppDelegate.swift in Sources */,
+				838DE133229AB3A2001C001B /* RestaurantDetailsViewController.swift in Sources */,
 				E2F11BA72288E5A50031ABCC /* CopounsRecievedViewController.swift in Sources */,
 				E2F11B9F2288D49D0031ABCC /* Fakka.swift in Sources */,
 				E2F11B9D2288D49D0031ABCC /* Admin.swift in Sources */,
@@ -688,7 +697,6 @@
 			baseConfigurationReference = D0408BBCF587B0F4830C0B02 /* Pods-Et3am.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
 				DEVELOPMENT_TEAM = JUUZV79G5F;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -707,7 +715,6 @@
 			baseConfigurationReference = 594CCC07588F84D16ABEFC13 /* Pods-Et3am.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
 				DEVELOPMENT_TEAM = JUUZV79G5F;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

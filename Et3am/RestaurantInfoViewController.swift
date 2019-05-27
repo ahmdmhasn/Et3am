@@ -32,21 +32,27 @@
             
             
             func reloadDataWithHeight() {
+                
+                
+                
                 let totalHeight = mealsTableView.rowHeight * CGFloat(mealsArray.count)
                 mealsTableView.frame = CGRect(x: mealsTableView.frame.origin.x, y: mealsTableView.frame.origin.y, width: mealsTableView.frame.size.width, height: totalHeight)
                 self.mealsTableView.reloadSections(IndexSet(integer: 0), with: .fade)
-                containerHight.constant += (totalHeight - (mealsTableView.rowHeight*3-50))
+
+                
+                containerHight.constant += (totalHeight - (mealsTableView.rowHeight)*3)
+                
+                
                 self.view.layoutIfNeeded()
             }
             
             
             override func viewDidLoad() {
                 super.viewDidLoad()
-                restuarantObj.city = ""
-                restuarantObj.country = ""
-                restuarantObj.restaurantID=1
-                restuarantObj.restaurantName = ""
-                restuarantObj.image = "restaurant"
+                
+
+                
+            
                 mealsTableView.delegate = self
                 mealsTableView.dataSource = self
                 let restaurantDao:RestaurantDao = RestaurantDao()
@@ -75,9 +81,9 @@
             
             func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "mealCell", for: indexPath) as! MealCell
-                cell.mealNameLabel.text = mealsArray[indexPath.row].mealName!
+               // cell.mealNameLabel.text = mealsArray[indexPath.row].mealName!
                 let image : UIImage = UIImage(named: "food")!
-                cell.mealPhotoImage.image = image
+               // cell.mealPhotoImage.image = image
                 return cell
             }
             
