@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		210B4D81228B5341002EB218 /* RegisterandLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210B4D80228B5341002EB218 /* RegisterandLoginViewController.swift */; };
-		210B4D83228B5406002EB218 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210B4D82228B5406002EB218 /* SignInView.swift */; };
 		210B4D85228B541C002EB218 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210B4D84228B541C002EB218 /* SignUpView.swift */; };
 		210B4D87228B560B002EB218 /* RegisterAndLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 210B4D86228B560B002EB218 /* RegisterAndLogin.storyboard */; };
 		21110BC7228843DF00D982E5 /* CopounsRecieved.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21110BC6228843DF00D982E5 /* CopounsRecieved.storyboard */; };
@@ -35,6 +34,7 @@
 		E2029D0022836B6E007BA6A1 /* Et3amTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029CFF22836B6E007BA6A1 /* Et3amTests.swift */; };
 		E2029D0B22836B6E007BA6A1 /* Et3amUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029D0A22836B6E007BA6A1 /* Et3amUITests.swift */; };
 		E20E07262299DEA300FEC852 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20E07252299DEA300FEC852 /* UserProfileViewController.swift */; };
+		E21DAF9D229BE8EC00129F7D /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210B4D82228B5406002EB218 /* SignInView.swift */; };
 		E22585D72298BD4E006D7A08 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22585D62298BD4E006D7A08 /* ImageStore.swift */; };
 		E2512CC42285DAD900D8E0F7 /* Donate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2512CC12285DAD900D8E0F7 /* Donate.storyboard */; };
 		E2512CC62285DAD900D8E0F7 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */; };
@@ -248,25 +248,14 @@
 		E2029D1822837503007BA6A1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E2F11BA32288E5A50031ABCC /* CopounsRecievedViewController.swift */,
-				E2F11BA42288E5A50031ABCC /* CouponRecievedTableViewCell.swift */,
-				E2F11BA52288E5A50031ABCC /* DonateViewController.swift */,
-				211378A8228623AA0056E5C7 /* UnpublishCouponTableViewController.swift */,
-				211378A42284F0C70056E5C7 /* AllCouponTableViewController.swift */,
-				211378A62284F16A0056E5C7 /* AllCouponTableViewCell.swift */,
-				211378AC228626D70056E5C7 /* UnpublishCouponTableViewCell.swift */,
-				210B4D80228B5341002EB218 /* RegisterandLoginViewController.swift */,
-				210B4D82228B5406002EB218 /* signInView.swift */,
-				210B4D84228B541C002EB218 /* signUpView.swift */,
-				838DE132229AB3A2001C001B /* RestaurantDetailsViewController.swift */,
-				E2029CF322836B6D007BA6A1 /* LaunchScreen.storyboard */,
-				E2029CEB22836B6D007BA6A1 /* Main.storyboard */,
-				E2680028229AB8A2003EF0CC /* Register/ Login Screen */,
-				E20E07272299DEB300FEC852 /* User Profile */,
-				E2680029229AB8FC003EF0CC /* Coupons Received */,
+				E21DAF9F229BEBFE00129F7D /* LaunchScreen */,
+				E21DAF9E229BEA1000129F7D /* RestaurantList */,
+				E2680028229AB8A2003EF0CC /* RegisterLoginScreen */,
+				E20E07272299DEB300FEC852 /* UserProfile */,
 				E268002A229AB939003EF0CC /* Donate */,
-				E20EF90B229B410D0093970D /* Coupons Donated/ Received */,
-				E20EF90A229B40F50093970D /* Restaurant Info */,
+				E2680029229AB8FC003EF0CC /* CouponsReceived */,
+				E20EF90B229B410D0093970D /* CouponsDonated */,
+				E20EF90A229B40F50093970D /* RestaurantDetails */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -281,35 +270,52 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		E20E07272299DEB300FEC852 /* User Profile */ = {
+		E20E07272299DEB300FEC852 /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
-				E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */,
 				E20E07252299DEA300FEC852 /* UserProfileViewController.swift */,
+				E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */,
 			);
-			name = "User Profile";
+			name = UserProfile;
 			sourceTree = "<group>";
 		};
-		E20EF90A229B40F50093970D /* Restaurant Info */ = {
+		E20EF90A229B40F50093970D /* RestaurantDetails */ = {
 			isa = PBXGroup;
 			children = (
-				A21013B2228AF2CA001D9CA4 /* RestaurantInfoViewController.swift */,
+				838DE132229AB3A2001C001B /* RestaurantDetailsViewController.swift */,
 				A21013B0228AE96E001D9CA4 /* MealCell.swift */,
+				83517C4E229A954A009DD6C3 /* RestaurantDetailsCell.swift */,
 				21110BC82288442F00D982E5 /* RestaurantInfo.storyboard */,
 			);
-			name = "Restaurant Info";
+			name = RestaurantDetails;
 			sourceTree = "<group>";
 		};
-		E20EF90B229B410D0093970D /* Coupons Donated/ Received */ = {
+		E20EF90B229B410D0093970D /* CouponsDonated */ = {
 			isa = PBXGroup;
 			children = (
 				211378A8228623AA0056E5C7 /* UnpublishCouponTableViewController.swift */,
+				211378AC228626D70056E5C7 /* UnpublishCouponTableViewCell.swift */,
 				211378A42284F0C70056E5C7 /* AllCouponTableViewController.swift */,
 				211378A62284F16A0056E5C7 /* AllCouponTableViewCell.swift */,
-				211378AC228626D70056E5C7 /* UnpublishCouponTableViewCell.swift */,
 				21110BCA2288444500D982E5 /* CouponsDonated.storyboard */,
 			);
-			name = "Coupons Donated/ Received";
+			name = CouponsDonated;
+			sourceTree = "<group>";
+		};
+		E21DAF9E229BEA1000129F7D /* RestaurantList */ = {
+			isa = PBXGroup;
+			children = (
+				E2029CEB22836B6D007BA6A1 /* Main.storyboard */,
+			);
+			name = RestaurantList;
+			sourceTree = "<group>";
+		};
+		E21DAF9F229BEBFE00129F7D /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E2029CF322836B6D007BA6A1 /* LaunchScreen.storyboard */,
+			);
+			name = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		E22585D52298BD27006D7A08 /* Data Layer */ = {
@@ -320,25 +326,25 @@
 			name = "Data Layer";
 			sourceTree = "<group>";
 		};
-		E2680028229AB8A2003EF0CC /* Register/ Login Screen */ = {
+		E2680028229AB8A2003EF0CC /* RegisterLoginScreen */ = {
 			isa = PBXGroup;
 			children = (
+				210B4D80228B5341002EB218 /* RegisterandLoginViewController.swift */,
 				210B4D82228B5406002EB218 /* SignInView.swift */,
 				210B4D84228B541C002EB218 /* SignUpView.swift */,
 				210B4D86228B560B002EB218 /* RegisterAndLogin.storyboard */,
-				210B4D80228B5341002EB218 /* RegisterandLoginViewController.swift */,
 			);
-			name = "Register/ Login Screen";
+			name = RegisterLoginScreen;
 			sourceTree = "<group>";
 		};
-		E2680029229AB8FC003EF0CC /* Coupons Received */ = {
+		E2680029229AB8FC003EF0CC /* CouponsReceived */ = {
 			isa = PBXGroup;
 			children = (
 				E2F11BA32288E5A50031ABCC /* CopounsRecievedViewController.swift */,
 				E2F11BA42288E5A50031ABCC /* CouponRecievedTableViewCell.swift */,
 				21110BC6228843DF00D982E5 /* CopounsRecieved.storyboard */,
 			);
-			name = "Coupons Received";
+			name = CouponsReceived;
 			sourceTree = "<group>";
 		};
 		E268002A229AB939003EF0CC /* Donate */ = {
@@ -346,11 +352,6 @@
 			children = (
 				E2F11BA52288E5A50031ABCC /* DonateViewController.swift */,
 				E2512CC12285DAD900D8E0F7 /* Donate.storyboard */,
-				E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */,
-				E2029CF322836B6D007BA6A1 /* LaunchScreen.storyboard */,
-				210B4D86228B560B002EB218 /* RegisterAndLogin.storyboard */,
-				A21013B0228AE96E001D9CA4 /* MealCell.swift */,
-				83517C4E229A954A009DD6C3 /* RestaurantDetailsCell.swift */,
 			);
 			name = Donate;
 			sourceTree = "<group>";
@@ -586,6 +587,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E21DAF9D229BE8EC00129F7D /* SignInView.swift in Sources */,
 				A21013B1228AE96E001D9CA4 /* MealCell.swift in Sources */,
 				E20E07262299DEA300FEC852 /* UserProfileViewController.swift in Sources */,
 				E2F11BA22288D49D0031ABCC /* User.swift in Sources */,
@@ -595,9 +597,7 @@
 				E2F11B9E2288D49D0031ABCC /* Coupon.swift in Sources */,
 				210B4D85228B541C002EB218 /* SignUpView.swift in Sources */,
 				211644AB228C4A6C009AA2BB /* Et3amAPI.swift in Sources */,
-				210B4D83228B5406002EB218 /* signInView.swift in Sources */,
 				83517C4F229A954A009DD6C3 /* RestaurantDetailsCell.swift in Sources */,
-				210B4D83228B5406002EB218 /* SignInView.swift in Sources */,
 				E2F11BA02288D49D0031ABCC /* Meal.swift in Sources */,
 				E2029CF022836B6D007BA6A1 /* Et3am.xcdatamodeld in Sources */,
 				E22585D72298BD4E006D7A08 /* ImageStore.swift in Sources */,

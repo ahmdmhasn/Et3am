@@ -57,7 +57,7 @@ class RegisterandLoginViewController: UIViewController {
             if isRegistered {
                 DispatchQueue.main.async {
                     let storyboard = UIStoryboard(name:"RestaurantInfo", bundle:nil)
-                    let HomeViewController = storyboard.instantiateViewController(withIdentifier: "restaurantID") as! RestaurantInfoViewController
+                    let HomeViewController = storyboard.instantiateViewController(withIdentifier: "restaurantID") as! RestaurantDetailsViewController
                     self.navigationController?.pushViewController(HomeViewController, animated: false)
                 }
             }
@@ -155,7 +155,7 @@ class RegisterandLoginViewController: UIViewController {
             if userFound! == "user is found"
             {
                 let storyboard = UIStoryboard(name: "RestaurantInfo", bundle: nil)
-                let HomeViewController = storyboard.instantiateViewController(withIdentifier: "restaurantID") as! RestaurantInfoViewController
+                let HomeViewController = storyboard.instantiateViewController(withIdentifier: "restaurantID") as! RestaurantDetailsViewController
                 self.navigationController?.pushViewController(HomeViewController, animated: false)
             }
             else{

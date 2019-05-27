@@ -9,10 +9,9 @@
 import UIKit
 
 class RestaurantDetailsCell: UITableViewCell {
-
     
     @IBOutlet weak var restaurantImage: UIImageView!
-   
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var restaurantCountyCity: UILabel!
+
 }
