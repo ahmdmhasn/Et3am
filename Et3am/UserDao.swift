@@ -18,46 +18,41 @@ class UserDao{
     
     var user = User()
     
-    public  func addUser(parameters : [String:String],completionHandler:@escaping (Bool)->Void) {
-        var isRegistered:Bool = false
-        Alamofire.request(Et3amAPI.baseUserUrlString+UserURLQueries.add.rawValue,
-                          method: .post,
-                          parameters: parameters,
-                          encoding: JSONEncoding.default,
-                          headers: nil).responseJSON {
-                            response in
-                            switch response.result {
-                            case .success:
-                                let sucessDataValue = response.result.value
-                                let returnedData = sucessDataValue as! NSDictionary
-                                let userDataDictionary:NSDictionary =  returnedData.value(forKey: "user") as! NSDictionary
-                                
-                                self.user.userID=userDataDictionary.value(forKey: "userId") as! String?
-                                self.user.userName=userDataDictionary.value(forKey: "userName") as! String?
-                                self.user.email=userDataDictionary.value(forKey: "userEmail") as! String?
-                                self.user.password=userDataDictionary.value(forKey: "password") as! String?
-                                self.user.verified=false
-                                isRegistered = true
-                                
-                                self.addUserObjectIntoUserDefault(userObject: self.user)
-                                completionHandler(isRegistered)
-                                
-                            case .failure(let error):
-                                print(error)
-                                isRegistered = false
-                                completionHandler(isRegistered)
-                                
-                            }
-        }
-    }
+//    public  func addUser(parameters : [String:String],completionHandler:@escaping (Bool)->Void) {
+//        var isRegistered:Bool = false
+//        Alamofire.request(Et3amAPI.baseUserUrlString+UserURLQueries.add.rawValue,
+//                          method: .post,
+//                          parameters: parameters,
+//                          encoding: JSONEncoding.default,
+//                          headers: nil).responseJSON {
+//                            response in
+//                            switch response.result {
+//                            case .success:
+//                                let sucessDataValue = response.result.value
+//                                let returnedData = sucessDataValue as! NSDictionary
+//                                let userDataDictionary:NSDictionary =  returnedData.value(forKey: "user") as! NSDictionary
+//                                
+//                                self.user.userID=userDataDictionary.value(forKey: "userId") as! String?
+//                                self.user.userName=userDataDictionary.value(forKey: "userName") as! String?
+//                                self.user.email=userDataDictionary.value(forKey: "userEmail") as! String?
+//                                self.user.password=userDataDictionary.value(forKey: "password") as! String?
+//                                self.user.verified=false
+//                                isRegistered = true
+//                                
+//                                helper.addUserObjectIntoUserDefault(userObject: self.user)
+//                                completionHandler(isRegistered)
+//                                
+//                            case .failure(let error):
+//                                print(error)
+//                                isRegistered = false
+//                                completionHandler(isRegistered)
+//                                
+//                            }
+//     
+//}
+  // }
     
-    func addUserObjectIntoUserDefault(userObject : User) ->Void {
-        UserDefaults.standard.set(userObject.userName, forKey: "userName")
-        UserDefaults.standard.set(userObject.email, forKey: "userEmail")
-        UserDefaults.standard.set(userObject.password, forKey: "password")
-        UserDefaults.standard.set(userObject.verified, forKey: "verified")
-                
-    }
+
     
     func validateEmail(email:String,completionHandler:@escaping (Bool)->Void) {
         
@@ -99,6 +94,7 @@ class UserDao{
             
             switch response.result {
             case .success:
+                
                 let sucessDataValue = response.result.value
                 let returnedData = sucessDataValue as! NSDictionary
                 let codeDataDictionary:Int =  returnedData.value(forKey: "code")! as! Int
@@ -116,7 +112,7 @@ class UserDao{
                     self.user.verified=false
                     
                     if((UserDefaults.standard.string(forKey: "userEmail") == nil)){
-                        self.addUserObjectIntoUserDefault(userObject: self.user)
+                        UserHelper.addUserObjectIntoUserDefault(userObject: self.user)
                         
                     }
                     

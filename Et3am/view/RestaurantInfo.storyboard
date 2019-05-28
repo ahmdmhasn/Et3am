@@ -13,7 +13,7 @@
         <!--Restaurant Details View Controller-->
         <scene sceneID="zIe-FD-kMe">
             <objects>
-                <viewController id="mB2-OW-n1O" customClass="RestaurantDetailsViewController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="restaurantID" id="mB2-OW-n1O" customClass="RestaurantDetailsViewController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Se4-C5-83d"/>
                         <viewControllerLayoutGuide type="bottom" id="bxi-kd-t4r"/>

@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JSe-0u-XPI" id="a9j-5B-Vwo">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="available on app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdq-h1-rkX">
@@ -75,7 +75,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="d0T-vY-q6W">
             <objects>
-                <tabBarController id="YL8-c9-Miw" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="CouponsDonated" id="YL8-c9-Miw" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="a4V-Ye-a1T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -83,44 +83,44 @@
                     </tabBar>
                     <connections>
                         <segue destination="tJ0-04-Hok" kind="relationship" relationship="viewControllers" id="Wer-AE-MvJ"/>
-                        <segue destination="IqA-nd-HcT" kind="relationship" relationship="viewControllers" id="spT-OM-enX"/>
+                        <segue destination="IqA-nd-HcT" kind="relationship" relationship="viewControllers" id="ETM-Ze-4Sw"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TM5-tF-YFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-724" y="27"/>
         </scene>
-        <!--Unpublish-->
+        <!--unpublish-->
         <scene sceneID="MgW-Oj-I3w">
             <objects>
-                <tableViewController id="IqA-nd-HcT" customClass="UnpublishCouponTableViewController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="unpublishCouponsId" clearsSelectionOnViewWillAppear="NO" id="IqA-nd-HcT" customClass="UnpublishCouponTableViewController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="107" sectionHeaderHeight="28" sectionFooterHeight="28" id="PFK-op-xQo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.92156863212585449" green="0.92156863212585449" blue="0.92156863212585449" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell2" rowHeight="107" id="H6M-VC-FsO" customClass="UnpublishCouponTableViewCell" customModule="Et3am" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="donatedcoupon" rowHeight="107" id="H6M-VC-FsO" customClass="UnpublishCouponTableViewCell" customModule="Et3am" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="107"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H6M-VC-FsO" id="cDN-Oh-Oog">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="107"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="106"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ftr-bB-yuU">
                                             <rect key="frame" x="0.0" y="19" width="319" height="67"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Q0y-Nk-omz">
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0y-Nk-omz">
                                                     <rect key="frame" x="0.0" y="0.0" width="319" height="33.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="15*********" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txg-y9-cX6">
-                                                            <rect key="frame" x="0.0" y="0.0" width="154.5" height="33.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 15*********" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txg-y9-cX6">
+                                                            <rect key="frame" x="0.0" y="0.0" width="161.5" height="33.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50LE" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSR-t2-7vU">
-                                                            <rect key="frame" x="164.5" y="0.0" width="154.5" height="33.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="50LE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSR-t2-7vU">
+                                                            <rect key="frame" x="161.5" y="0.0" width="157.5" height="33.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -168,11 +168,11 @@
                             <outlet property="delegate" destination="IqA-nd-HcT" id="4d0-bC-Bjq"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Unpublish" id="H9y-fI-4VO"/>
+                    <tabBarItem key="tabBarItem" title="unpublish" id="9MB-3x-jkC"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="921-Bk-ex7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="227" y="371"/>
+            <point key="canvasLocation" x="373" y="393"/>
         </scene>
     </scenes>
 </document>

@@ -17,9 +17,16 @@ enum UserURLQueries:String {
     case emailQuery = "email"
     case passwordQuery = "password"
 }
-
+enum CouponURLQueries:String {
+    case add = "/add"
+    case user_idQuery = "user_id"
+    case value_50Query = "value_50"
+    case value_100Query = "value_100"
+    case value_200Query = "value_200"
+}
 struct Et3amAPI {
     private static let baseUrlString = "https://et3am.herokuapp.com"
     static let baseUserUrlString = "\(baseUrlString)/user"
+    static let baseCouponUrlString = "\(baseUrlString)/coupon"
 }
 
