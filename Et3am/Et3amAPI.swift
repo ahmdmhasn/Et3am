@@ -7,7 +7,6 @@
 //
 
 import Foundation
-
 enum UserURLQueries:String {
     case add = "/add"
     case list = "/list"
@@ -24,9 +23,17 @@ enum CouponURLQueries:String {
     case value_100Query = "value_100"
     case value_200Query = "value_200"
 }
+
+enum RestaurantQueries:String {
+    
+    case rest = "/rest"
+    case meals = "/meals"
+    
+}
+
 struct Et3amAPI {
     private static let baseUrlString = "https://et3am.herokuapp.com"
     static let baseUserUrlString = "\(baseUrlString)/user"
     static let baseCouponUrlString = "\(baseUrlString)/coupon"
+    static let baseRestaurantUrlString = "\(baseUrlString)/restaurant/"
 }
-

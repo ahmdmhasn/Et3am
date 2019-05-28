@@ -32,12 +32,17 @@ class RestaurantDetailsViewController: UIViewController {
         restuarantObj.restaurantID=1
         restuarantObj.restaurantName = ""
         restuarantObj.image = "restaurant"
+        
         restuarantAndMealsTableView.dataSource = self
         restuarantAndMealsTableView.delegate = self
         
         
-        let restaurantDao:RestaurantDao = RestaurantDao()
-        restaurantDao.fetchJsonForRestaurant(typeURL: "https://et3am.herokuapp.com/restaurant/rest/1", handler: {restuarant in
+        let restaurantDao:RestaurantDao = RestaurantDao.sharedRestaurantObject
+        let restaurantUrl:String = "\(Et3amAPI.baseRestaurantUrlString)\(RestaurantQueries.rest)/1"
+        let mealsUrl:String  = "\(Et3amAPI.baseRestaurantUrlString)1/\(RestaurantQueries.meals)"
+        
+        print(mealsUrl)
+        restaurantDao.fetchJsonForRestaurant(typeURL: restaurantUrl, handler: {restuarant in
             DispatchQueue.main.async {
                 self.restaurantName = restuarant.restaurantName!
                 self.restaurantCountry =  restuarant.country!
@@ -47,7 +52,7 @@ class RestaurantDetailsViewController: UIViewController {
             }
         })
         
-        restaurantDao.fetchJsonForMeals(typeURL: "https://et3am.herokuapp.com/restaurant/1/meals") { fetchedArray in
+        restaurantDao.fetchJsonForMeals(typeURL: mealsUrl) { fetchedArray in
             DispatchQueue.main.async {
                 self.mealsArray = fetchedArray
                 self.restuarantAndMealsTableView.reloadData()

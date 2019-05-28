@@ -11,7 +11,10 @@ import Alamofire
 
 class RestaurantDao
 {
-    
+    public static let sharedRestaurantObject = RestaurantDao()
+    private init() {
+        
+    }
     
     
     func fetchJsonForRestaurant(typeURL:String, handler:@escaping (Restaurant) -> Void)   {
