@@ -22,8 +22,8 @@
 		2117FBDF229CC03F0099DE05 /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117FBDE229CC03F0099DE05 /* UserHelper.swift */; };
 		2117FBE2229D49000099DE05 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117FBE1229D49000099DE05 /* UIViewController.swift */; };
 		2117FBE4229D5D150099DE05 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117FBE3229D5D150099DE05 /* UIView.swift */; };
-		21B6E8F2229BF9F10067C5F4 /* Donate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21B6E8F1229BF9F10067C5F4 /* Donate.storyboard */; };
-		21B6E8F4229BFA670067C5F4 /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6E8F3229BFA670067C5F4 /* DonateViewController.swift */; };
+		2117FBE6229D7ECF0099DE05 /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117FBE5229D7ECF0099DE05 /* DonateViewController.swift */; };
+		2117FBE8229D7ED60099DE05 /* Donate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2117FBE7229D7ED60099DE05 /* Donate.storyboard */; };
 		21B6E8F6229C1D350067C5F4 /* CouponDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6E8F5229C1D350067C5F4 /* CouponDao.swift */; };
 		83517C4F229A954A009DD6C3 /* RestaurantDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83517C4E229A954A009DD6C3 /* RestaurantDetailsCell.swift */; };
 		838DE133229AB3A2001C001B /* RestaurantDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838DE132229AB3A2001C001B /* RestaurantDetailsViewController.swift */; };
@@ -88,8 +88,8 @@
 		2117FBDE229CC03F0099DE05 /* UserHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHelper.swift; sourceTree = "<group>"; };
 		2117FBE1229D49000099DE05 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		2117FBE3229D5D150099DE05 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		21B6E8F1229BF9F10067C5F4 /* Donate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Donate.storyboard; path = ../../../Desktop/Et3am/Et3am/view/Donate.storyboard; sourceTree = "<group>"; };
-		21B6E8F3229BFA670067C5F4 /* DonateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DonateViewController.swift; path = ../../../Desktop/Et3am/Et3am/controller/DonateViewController.swift; sourceTree = "<group>"; };
+		2117FBE5229D7ECF0099DE05 /* DonateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DonateViewController.swift; path = ../../../Desktop/DonateViewController.swift; sourceTree = "<group>"; };
+		2117FBE7229D7ED60099DE05 /* Donate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Donate.storyboard; path = ../../../Desktop/Donate.storyboard; sourceTree = "<group>"; };
 		21B6E8F5229C1D350067C5F4 /* CouponDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponDao.swift; sourceTree = "<group>"; };
 		2964356AE08F41DE5941CC48 /* Pods-Et3amUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Et3amUITests.debug.xcconfig"; path = "Target Support Files/Pods-Et3amUITests/Pods-Et3amUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		594CCC07588F84D16ABEFC13 /* Pods-Et3am.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Et3am.release.xcconfig"; path = "Target Support Files/Pods-Et3am/Pods-Et3am.release.xcconfig"; sourceTree = "<group>"; };
@@ -370,8 +370,8 @@
 		E268002A229AB939003EF0CC /* Donate */ = {
 			isa = PBXGroup;
 			children = (
-				21B6E8F3229BFA670067C5F4 /* DonateViewController.swift */,
-				21B6E8F1229BF9F10067C5F4 /* Donate.storyboard */,
+				2117FBE5229D7ECF0099DE05 /* DonateViewController.swift */,
+				2117FBE7229D7ED60099DE05 /* Donate.storyboard */,
 			);
 			name = Donate;
 			sourceTree = "<group>";
@@ -506,7 +506,7 @@
 				E2029CED22836B6D007BA6A1 /* Main.storyboard in Resources */,
 				210B4D87228B560B002EB218 /* RegisterAndLogin.storyboard in Resources */,
 				E2512CC62285DAD900D8E0F7 /* UserProfile.storyboard in Resources */,
-				21B6E8F2229BF9F10067C5F4 /* Donate.storyboard in Resources */,
+				2117FBE8229D7ED60099DE05 /* Donate.storyboard in Resources */,
 				21110BC7228843DF00D982E5 /* CopounsRecieved.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -609,7 +609,6 @@
 			files = (
 				2117FBE2229D49000099DE05 /* UIViewController.swift in Sources */,
 				E21DAF9D229BE8EC00129F7D /* SignInView.swift in Sources */,
-				21B6E8F4229BFA670067C5F4 /* DonateViewController.swift in Sources */,
 				A21013B1228AE96E001D9CA4 /* MealCell.swift in Sources */,
 				E20E07262299DEA300FEC852 /* UserProfileViewController.swift in Sources */,
 				E2F11BA22288D49D0031ABCC /* User.swift in Sources */,
@@ -634,6 +633,7 @@
 				E2F11BA72288E5A50031ABCC /* CopounsRecievedViewController.swift in Sources */,
 				2117FBDF229CC03F0099DE05 /* UserHelper.swift in Sources */,
 				E2F11B9F2288D49D0031ABCC /* Fakka.swift in Sources */,
+				2117FBE6229D7ECF0099DE05 /* DonateViewController.swift in Sources */,
 				E2F11B9D2288D49D0031ABCC /* Admin.swift in Sources */,
 				CC06D76B229553E30072D3C8 /* RestaurantDao.swift in Sources */,
 				E2F11BA82288E5A50031ABCC /* CouponRecievedTableViewCell.swift in Sources */,
