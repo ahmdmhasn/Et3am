@@ -42,7 +42,7 @@
         <!--Profile-->
         <scene sceneID="2XX-uX-Rlt">
             <objects>
-                <tableViewController id="Zxw-Tr-Frp" customClass="UserProfileViewController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="userProfileID" id="Zxw-Tr-Frp" customClass="UserProfileViewController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="i3e-aZ-nXr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -329,7 +329,7 @@
                             <tableViewSection headerTitle="National ID" footerTitle="In order to be able to receive coupons you will need to verify your id." id="2le-qB-PjZ" userLabel="National ID">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="j1i-Z3-DDQ">
-                                        <rect key="frame" x="0.0" y="644.33333333333337" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="644" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j1i-Z3-DDQ" id="cpn-As-Yz7">
                                             <rect key="frame" x="0.0" y="0.0" width="381" height="44"/>
@@ -372,7 +372,7 @@
                             <tableViewSection id="D4J-jQ-mAw" userLabel="Logout">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="5wx-nJ-eAY">
-                                        <rect key="frame" x="0.0" y="752.33333333333337" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="752" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5wx-nJ-eAY" id="pV0-a8-yDS">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>

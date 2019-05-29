@@ -9,15 +9,11 @@
 import UIKit
 
 class UnpublishCouponTableViewController: UITableViewController {
-
+    var listOfCoupons:[String:Int]?
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+       
     }
 
   
@@ -26,21 +22,49 @@ class UnpublishCouponTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        if let listOfCoupons = listOfCoupons{
+        switch(section)
+        {
+        case 0:
+                return listOfCoupons["50"]!
+        case 1:
+                return listOfCoupons["100"]!
+        case 2:
+                return listOfCoupons["200"]!
+        default :
+            break
+            
+            
+        }
+        }
+        
+       return 0
+        
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as! UnpublishCouponTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "donatedcoupon", for: indexPath) as! UnpublishCouponTableViewCell
         cell.couponCodeLbl.text="15******"
-        cell.couponValueLbl.text="50LE"
-
-        // Configure the cell...
+        switch(indexPath.section)
+        {
+        case 0:
+            cell.couponValueLbl.text="50LE"
+        case 1:
+           cell.couponValueLbl.text="100LE"
+        case 2:
+        cell.couponValueLbl.text="200LE"
+        default :
+            break
+            
+            
+        }
+    
 
         return cell
    
