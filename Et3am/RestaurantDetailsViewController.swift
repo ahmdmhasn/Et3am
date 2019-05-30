@@ -23,15 +23,10 @@ class RestaurantDetailsViewController: UIViewController {
     
     
     var restuarantObj = Restaurant()
+    
     var mealsArray:Array<Meal> = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        restuarantObj.city = ""
-        restuarantObj.country = ""
-        restuarantObj.restaurantID=1
-        restuarantObj.restaurantName = ""
-        restuarantObj.image = "restaurant"
         
         restuarantAndMealsTableView.dataSource = self
         restuarantAndMealsTableView.delegate = self
@@ -75,8 +70,8 @@ extension RestaurantDetailsViewController:UITableViewDelegate,UITableViewDataSou
         
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "restCell", for: indexPath) as! RestaurantDetailsCell
-            cell.restaurantName.text = restaurantName
-            cell.restaurantCountyCity.text = restaurantCity + "," + restaurantCountry
+            cell.restaurantName.text = restuarantObj.restaurantName
+            cell.restaurantCountyCity.text = restuarantObj.city! + "," + restuarantObj.country!
             let image : UIImage = UIImage(named: "food")!
             cell.restaurantImage.image = image
             
