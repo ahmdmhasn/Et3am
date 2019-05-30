@@ -25,10 +25,9 @@ enum CouponURLQueries:String {
 }
 
 enum RestaurantQueries:String {
-    
     case rest = "/rest"
     case meals = "/meals"
-    
+    case list = "/list"
 }
 
 struct Et3amAPI {
@@ -36,4 +35,7 @@ struct Et3amAPI {
     static let baseUserUrlString = "\(baseUrlString)/user"
     static let baseCouponUrlString = "\(baseUrlString)/coupon"
     static let baseRestaurantUrlString = "\(baseUrlString)/restaurant/"
+    
+    
 }
+
