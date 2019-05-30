@@ -46,29 +46,24 @@ class RegisterandLoginViewController: UIViewController {
         userEmail = signUpView.emailTxtField.text
         userPassword = signUpView.passTxtField.text
         userRepeatPassword = signUpView.repeatedPassTxtField.text
-        let parameters : [String:String] = [
-            
-            "userName" : userName! ,
-            "userEmail" : userEmail! ,
-            "password" : userPassword!
-        ]
+       
         
-        userDao.addUser(parameters: parameters, completionHandler: {(isRegistered) in
-            if isRegistered {
-                DispatchQueue.main.async {
-                    let storyboard = UIStoryboard(name:"RestaurantInfo", bundle:nil)
-                    let HomeViewController = storyboard.instantiateViewController(withIdentifier: "restaurantID") as! RestaurantDetailsViewController
-                    self.navigationController?.pushViewController(HomeViewController, animated: false)
-                }
-            }
-            else {
-                
-                // add alert
-                let alert = UIAlertController(title: "", message: "Error In Register,Try Again", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                self.present(alert, animated: true)
-            }
-        })
+//        userDao.addUser(parameters: parameters, completionHandler: {(isRegistered) in
+//            if isRegistered {
+//                DispatchQueue.main.async {
+//                    let storyboard = UIStoryboard(name:"Donate", bundle:nil)
+//                    let HomeViewController = storyboard.instantiateViewController(withIdentifier: "couponId") as! DonateViewController
+//                    self.navigationController?.pushViewController(HomeViewController, animated: false)
+//                }
+//            }
+//            else {
+//                
+//                // add alert
+//                let alert = UIAlertController(title: "", message: "Error In Register,Try Again", preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+//                self.present(alert, animated: true)
+//            }
+//        })
     }
     
     @IBAction func userNameEditingChange(_ sender: UITextField) {
@@ -82,6 +77,7 @@ class RegisterandLoginViewController: UIViewController {
             signUpView.userNameValidLabel.text = ""
         }
         enableSignUpBtn()
+    
     }
     
     @IBAction func emailEditingEndAction(_ sender: UITextField) {
@@ -149,14 +145,31 @@ class RegisterandLoginViewController: UIViewController {
     @IBAction func signInUser(_ sender: Any) {
         userEmail = signInView.emailTxtField.text
         userPassword = signInView.passTxtField.text
-        userDao.validateLogin(userEmail: userEmail!, password: userPassword!) {userFound in
+        
+        guard let userEmail = userEmail , !userEmail.isEmpty else {
+            self.signInView.valdiatelabel.text =
+            "email or password is empty"
+            return}
+         guard let userPassword = userPassword ,!userPassword.isEmpty else {self.signInView.valdiatelabel.text =
+            "email or password is empty"
+            return
+        }
+
+        view.setnetworkIndicator()
+        
+        userDao.validateLogin(userEmail: userEmail, password: userPassword) {userFound in
             print(self.userEmail!)
             print(userFound!)
             if userFound! == "user is found"
             {
-                let storyboard = UIStoryboard(name: "RestaurantInfo", bundle: nil)
-                let HomeViewController = storyboard.instantiateViewController(withIdentifier: "restaurantID") as! RestaurantDetailsViewController
-                self.navigationController?.pushViewController(HomeViewController, animated: false)
+                
+                let window = UIApplication.shared.keyWindow
+                let storyboard
+                    = UIStoryboard(name: "UserProfile", bundle: nil)
+                let HomeViewController = storyboard.instantiateViewController(withIdentifier: "userProfileID") as! UserProfileViewController
+                window?.rootViewController  = HomeViewController
+                UIView.transition(with: window!, duration: 0.5, options: .transitionCurlUp, animations: nil, completion: nil)
+//                self.navigationController?.pushViewController(HomeViewController, animated: false)
             }
             else{
                 self.signInView.valdiatelabel.text = "email or password is wrong"

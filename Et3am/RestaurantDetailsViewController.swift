@@ -9,12 +9,38 @@
 import UIKit
 
 class RestaurantDetailsViewController: UIViewController {
+    
+    var getMealsFinished:Bool = false
+    var getRestaurantDetails:Bool = false
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    
+    
+    
+    private func showLoadingActivityIndicator(){
+        
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
+    }
+    private func hideLoadingActivityIndicator(){
+        
+       activityIndicator.stopAnimating()
+      UIApplication.shared.endIgnoringInteractionEvents()
+        
+    }
+    
 
     @IBAction func inviteFriend(_ sender: Any) {
     }
     
     @IBAction func getFreeCoupon(_ sender: Any) {
-    }
+        
+         }
     var restaurantName :String = ""
     var restaurantCountry :String = ""
     var restaurantCity:String = ""
@@ -38,26 +64,40 @@ class RestaurantDetailsViewController: UIViewController {
         
         print(mealsUrl)
         restaurantDao.fetchJsonForRestaurant(typeURL: restaurantUrl, handler: {restuarant in
+            
+            
             DispatchQueue.main.async {
                 self.restaurantName = restuarant.restaurantName!
                 self.restaurantCountry =  restuarant.country!
                 self.restaurantCity = restuarant.city!
-                //let restuarantImg: UIImage = UIImage(named: restuarant.image!)!
-                // self.restaurantImage.image = restuarantImg
-            }
-        })
+                //self.hideLoadingActivityIndicator()
+                self.getRestaurantDetails = true
+                if self.getRestaurantDetails == true && self.getMealsFinished == true {
+                    self.hideLoadingActivityIndicator()
+                }
+                            }
+                   })
         
         restaurantDao.fetchJsonForMeals(typeURL: mealsUrl) { fetchedArray in
+              
             DispatchQueue.main.async {
                 self.mealsArray = fetchedArray
                 self.restuarantAndMealsTableView.reloadData()
+                //self.hideLoadingActivityIndicator()
+                self.getMealsFinished = true
+                if self.getRestaurantDetails == true && self.getMealsFinished == true {
+                    self.hideLoadingActivityIndicator()
+                }
             }
+            
         }
         
         
         
         
     }
+    
+    
     
     
 }
