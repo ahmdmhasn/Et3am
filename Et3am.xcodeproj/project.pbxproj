@@ -47,6 +47,10 @@
 		E2F11BA72288E5A50031ABCC /* CopounsRecievedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11BA32288E5A50031ABCC /* CopounsRecievedViewController.swift */; };
 		E2F11BA82288E5A50031ABCC /* CouponRecievedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11BA42288E5A50031ABCC /* CouponRecievedTableViewCell.swift */; };
 		E2F11BA92288E5A50031ABCC /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11BA52288E5A50031ABCC /* DonateViewController.swift */; };
+		F1261FC4229EA607005CB7AD /* ExtensionRestaurantListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1261FC3229EA607005CB7AD /* ExtensionRestaurantListVC.swift */; };
+		F17C3FD1229D3850005A449E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F17C3FD0229D3850005A449E /* CoreLocation.framework */; };
+		F17C3FD3229D44CD005A449E /* RestaurantsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17C3FD2229D44CD005A449E /* RestaurantsListVC.swift */; };
+		F17C3FD5229D45CE005A449E /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17C3FD4229D45CE005A449E /* RestaurantCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +123,10 @@
 		E2F11BA32288E5A50031ABCC /* CopounsRecievedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CopounsRecievedViewController.swift; path = controller/CopounsRecievedViewController.swift; sourceTree = "<group>"; };
 		E2F11BA42288E5A50031ABCC /* CouponRecievedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CouponRecievedTableViewCell.swift; path = controller/CouponRecievedTableViewCell.swift; sourceTree = "<group>"; };
 		E2F11BA52288E5A50031ABCC /* DonateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DonateViewController.swift; path = controller/DonateViewController.swift; sourceTree = "<group>"; };
+		F1261FC3229EA607005CB7AD /* ExtensionRestaurantListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionRestaurantListVC.swift; path = controller/ExtensionRestaurantListVC.swift; sourceTree = "<group>"; };
+		F17C3FD0229D3850005A449E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F17C3FD2229D44CD005A449E /* RestaurantsListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantsListVC.swift; path = controller/RestaurantsListVC.swift; sourceTree = "<group>"; };
+		F17C3FD4229D45CE005A449E /* RestaurantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantCell.swift; path = controller/RestaurantCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F17C3FD1229D3850005A449E /* CoreLocation.framework in Frameworks */,
 				C7EE519B2AC1E41C3A64F79D /* Pods_Et3am.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,6 +184,7 @@
 		72E0C1BC5518452B36546A4B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F17C3FD0229D3850005A449E /* CoreLocation.framework */,
 				693E598950506D287CF64D8D /* Pods_Et3am.framework */,
 				5B2B04E14B268BE19AA18B5F /* Pods_Et3amTests.framework */,
 				03C870E401F2CB162131A79B /* Pods_Et3amUITests.framework */,
@@ -306,6 +316,9 @@
 			isa = PBXGroup;
 			children = (
 				E2029CEB22836B6D007BA6A1 /* Main.storyboard */,
+				F17C3FD2229D44CD005A449E /* RestaurantsListVC.swift */,
+				F17C3FD4229D45CE005A449E /* RestaurantCell.swift */,
+				F1261FC3229EA607005CB7AD /* ExtensionRestaurantListVC.swift */,
 			);
 			name = RestaurantList;
 			sourceTree = "<group>";
@@ -599,15 +612,18 @@
 				83517C4F229A954A009DD6C3 /* RestaurantDetailsCell.swift in Sources */,
 				E2F11BA02288D49D0031ABCC /* Meal.swift in Sources */,
 				E2029CF022836B6D007BA6A1 /* Et3am.xcdatamodeld in Sources */,
+				F17C3FD3229D44CD005A449E /* RestaurantsListVC.swift in Sources */,
 				E22585D72298BD4E006D7A08 /* ImageStore.swift in Sources */,
 				211378A72284F16A0056E5C7 /* AllCouponTableViewCell.swift in Sources */,
 				211378A9228623AC0056E5C7 /* UnpublishCouponTableViewController.swift in Sources */,
 				210B4D81228B5341002EB218 /* RegisterandLoginViewController.swift in Sources */,
 				E2F11BA12288D49D0031ABCC /* Restaurant.swift in Sources */,
 				E2029CE822836B6D007BA6A1 /* AppDelegate.swift in Sources */,
+				F17C3FD5229D45CE005A449E /* RestaurantCell.swift in Sources */,
 				838DE133229AB3A2001C001B /* RestaurantDetailsViewController.swift in Sources */,
 				E2F11BA72288E5A50031ABCC /* CopounsRecievedViewController.swift in Sources */,
 				E2F11B9F2288D49D0031ABCC /* Fakka.swift in Sources */,
+				F1261FC4229EA607005CB7AD /* ExtensionRestaurantListVC.swift in Sources */,
 				E2F11B9D2288D49D0031ABCC /* Admin.swift in Sources */,
 				CC06D76B229553E30072D3C8 /* RestaurantDao.swift in Sources */,
 				E2F11BA82288E5A50031ABCC /* CouponRecievedTableViewCell.swift in Sources */,
