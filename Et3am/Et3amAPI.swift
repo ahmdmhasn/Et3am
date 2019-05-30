@@ -24,30 +24,10 @@ enum CouponURLQueries:String {
     case value_200Query = "value_200"
 }
 
-enum UserURLQueries:String {
-    case add = "/add"
-    case list = "/list"
-    case validateEmail="/validate/email/"
-    case loginValidation = "/validate/login"
-    case update = "/update"
-    case emailQuery = "email"
-    case passwordQuery = "password"
-}
-
 enum RestaurantQueries:String {
-    case list = "/list"
     case rest = "/rest"
     case meals = "/meals"
-}
-
-
-
-struct Et3amAPI {
-    private static let baseUrlString = "https://et3am.herokuapp.com"
-    static let baseUserUrlString = "\(baseUrlString)/user"
-    static let baseRestaurantUrlString = "\(baseUrlString)/restaurant/"
-    
-    
+    case list = "/list"
 }
 
 struct Et3amAPI {
@@ -55,4 +35,7 @@ struct Et3amAPI {
     static let baseUserUrlString = "\(baseUrlString)/user"
     static let baseCouponUrlString = "\(baseUrlString)/coupon"
     static let baseRestaurantUrlString = "\(baseUrlString)/restaurant/"
+    
+    
 }
+

@@ -53,6 +53,8 @@ class RestaurantDetailsViewController: UIViewController {
     var mealsArray:Array<Meal> = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.showLoadingActivityIndicator()
+
         
         restuarantAndMealsTableView.dataSource = self
         restuarantAndMealsTableView.delegate = self
