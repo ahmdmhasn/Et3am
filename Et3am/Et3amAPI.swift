@@ -8,29 +8,29 @@
 
 import Foundation
 
-    enum UserURLQueries:String {
-        case add = "/add"
-        case list = "/list"
-        case validateEmail="/validate/email/"
-        case loginValidation = "/validate/login"
-        case update = "/update"
-        case emailQuery = "email"
-        case passwordQuery = "password"
-    }
+enum UserURLQueries:String {
+    case add = "/add"
+    case list = "/list"
+    case validateEmail="/validate/email/"
+    case loginValidation = "/validate/login"
+    case update = "/update"
+    case emailQuery = "email"
+    case passwordQuery = "password"
+}
 
-    enum RestaurantQueries:String {
-        
-        case rest = "/rest"
-        case meals = "/meals"
-        
-    }
+enum RestaurantQueries:String {
+    case list = "/list"
+    case rest = "/rest"
+    case meals = "/meals"
+}
 
-    struct Et3amAPI {
-        private static let baseUrlString = "https://et3am.herokuapp.com"
-        static let baseUserUrlString = "\(baseUrlString)/user"
-        
-        static let baseRestaurantUrlString = "\(baseUrlString)/restaurant/"
-        
-        
-   }
+
+
+struct Et3amAPI {
+    private static let baseUrlString = "https://et3am.herokuapp.com"
+    static let baseUserUrlString = "\(baseUrlString)/user"
+    static let baseRestaurantUrlString = "\(baseUrlString)/restaurant/"
+    
+    
+}
 
