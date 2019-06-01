@@ -8,13 +8,14 @@
 
 import Foundation
 
-class Restaurant {
+class Restaurant{
     
     var restaurantID:Int?
     var restaurantName:String?
     var city:String?
     var country:String?
-    var latitude:Float?
-    var longitude:Float?
+    var latitude:Double?
+    var longitude:Double?
+    var distance:Double?
     var image:String?
 }

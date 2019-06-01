@@ -17,16 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 // check for user default
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        if((UserDefaults.standard.string(forKey: "userEmail") != nil)){
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "restaurantID")
-        let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
-       
-        navigationController.viewControllers = [initialViewController]
-        self.window?.rootViewController = navigationController
-            
-        
-        }
+//       if let userId = UserHelper.getUser_Id(){
+//      let storyboard = UIStoryboard(name: "UserProfile", bundle: nil)
+//    let initialViewController = storyboard.instantiateViewController(withIdentifier: "userProfileID")
+////     //  let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+////       // navigationController.viewControllers = [initialViewController]
+//       self.window?.rootViewController = initialViewController
+////            
+////        
+//       }
        return true
     }
  
