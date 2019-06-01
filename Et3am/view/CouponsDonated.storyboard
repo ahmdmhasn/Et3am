@@ -13,7 +13,7 @@
         <!--Cuopons Tab Bar Controller-->
         <scene sceneID="d0T-vY-q6W">
             <objects>
-                <tabBarController storyboardIdentifier="listofCouponsid" id="YL8-c9-Miw" customClass="CuoponsTabBarController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="listofCouponsid" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YL8-c9-Miw" customClass="CuoponsTabBarController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="a4V-Ye-a1T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -31,7 +31,7 @@
         <!--unpublish-->
         <scene sceneID="MgW-Oj-I3w">
             <objects>
-                <tableViewController storyboardIdentifier="unpublishCouponsId" clearsSelectionOnViewWillAppear="NO" id="IqA-nd-HcT" customClass="UnpublishCouponTableViewController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="unpublishCouponsId" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="IqA-nd-HcT" customClass="UnpublishCouponTableViewController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="107" sectionHeaderHeight="28" sectionFooterHeight="28" id="PFK-op-xQo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
