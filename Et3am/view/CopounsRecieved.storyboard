@@ -1,91 +1,53 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G22010" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kyN-H8-lI4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G22010" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mJI-F2-ZkH">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Copouns Recieved View Controller-->
-        <scene sceneID="RFA-y3-hBN">
+        <!--Recieved View Controller-->
+        <scene sceneID="PVO-CZ-qkF">
             <objects>
-                <viewController id="kyN-H8-lI4" customClass="CopounsRecievedViewController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mJI-F2-ZkH" customClass="RecievedViewController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Kty-qh-SOy"/>
-                        <viewControllerLayoutGuide type="bottom" id="K9h-Kh-mhD"/>
+                        <viewControllerLayoutGuide type="top" id="98j-dS-e9X"/>
+                        <viewControllerLayoutGuide type="bottom" id="EbO-ym-f5e"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="FBG-Gh-OA9">
+                    <view key="view" contentMode="scaleToFill" id="wAS-QV-QW4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="113" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="G8e-KG-L66">
-                                <rect key="frame" x="0.0" y="28" width="375" height="639"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="z8f-4k-cxH">
+                                <rect key="frame" x="16" y="16" width="343" height="651"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="couponRecievedCell" rowHeight="113" id="rTm-eL-B1g" customClass="CouponRecievedTableViewCell" customModule="Et3am" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="113"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rTm-eL-B1g" id="I1e-uA-mzl">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="112"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="CouponNumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qpk-IJ-M7I">
-                                                    <rect key="frame" x="16" y="16" width="331" height="28"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Nx-l4-Np5">
-                                                    <rect key="frame" x="16" y="52" width="80" height="25"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRk-pj-07j">
-                                                    <rect key="frame" x="263" y="74" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="rRk-pj-07j" firstAttribute="top" secondItem="qpk-IJ-M7I" secondAttribute="bottom" constant="50" id="6bQ-C5-x3c"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="1Nx-l4-Np5" secondAttribute="trailing" constant="250" id="DkP-SI-Lam"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="qpk-IJ-M7I" secondAttribute="trailing" constant="20" id="NQB-Jw-v3i"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="1Nx-l4-Np5" secondAttribute="bottom" constant="20" id="PAr-wl-JyJ"/>
-                                                <constraint firstItem="1Nx-l4-Np5" firstAttribute="leading" secondItem="I1e-uA-mzl" secondAttribute="leadingMargin" constant="10" id="Uai-Ad-Z9m"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="rRk-pj-07j" secondAttribute="bottom" constant="10" id="Vlp-Bt-iZj"/>
-                                                <constraint firstItem="rRk-pj-07j" firstAttribute="leading" secondItem="I1e-uA-mzl" secondAttribute="leadingMargin" constant="250" id="XSC-Y3-b1u"/>
-                                                <constraint firstItem="1Nx-l4-Np5" firstAttribute="top" secondItem="qpk-IJ-M7I" secondAttribute="bottom" constant="10" id="ZCB-gf-AS3"/>
-                                                <constraint firstItem="qpk-IJ-M7I" firstAttribute="top" secondItem="I1e-uA-mzl" secondAttribute="topMargin" constant="10" id="aJf-2V-1uF"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="rRk-pj-07j" secondAttribute="trailing" constant="50" id="f31-62-aPT"/>
-                                                <constraint firstItem="1Nx-l4-Np5" firstAttribute="top" secondItem="qpk-IJ-M7I" secondAttribute="bottom" constant="10" id="q9L-nE-MIy"/>
-                                                <constraint firstItem="qpk-IJ-M7I" firstAttribute="leading" secondItem="I1e-uA-mzl" secondAttribute="leadingMargin" constant="20" id="w8m-Iq-KrZ"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="couponNumberLbl" destination="qpk-IJ-M7I" id="IWH-qn-t1C"/>
-                                            <outlet property="couponStateLbl" destination="1Nx-l4-Np5" id="MeD-Bp-HbN"/>
-                                            <outlet property="couponValueLbl" destination="rRk-pj-07j" id="daP-0F-WLG"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wOP-cR-LAP">
+                                    <size key="itemSize" width="373" height="189"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="z8f-4k-cxH" secondAttribute="trailing" constant="16" id="Dmd-Uk-qqj"/>
+                            <constraint firstItem="z8f-4k-cxH" firstAttribute="top" secondItem="wAS-QV-QW4" secondAttribute="top" constant="16" id="IXR-0o-Rgt"/>
+                            <constraint firstItem="EbO-ym-f5e" firstAttribute="top" secondItem="z8f-4k-cxH" secondAttribute="bottom" id="P2z-Jg-Web"/>
+                            <constraint firstItem="z8f-4k-cxH" firstAttribute="leading" secondItem="wAS-QV-QW4" secondAttribute="leading" constant="16" id="ShS-iY-lwT"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="CopounRecievedTableView" destination="G8e-KG-L66" id="hjI-DT-xw9"/>
+                        <outlet property="CouponCollectioonView" destination="z8f-4k-cxH" id="dDO-HJ-mqR"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RLk-vc-mVl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VBS-FO-4H2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-116" y="25.637181409295355"/>
+            <point key="canvasLocation" x="-18.399999999999999" y="-0.44977511244377816"/>
         </scene>
     </scenes>
 </document>
