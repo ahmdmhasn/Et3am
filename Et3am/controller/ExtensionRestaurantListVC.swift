@@ -7,7 +7,22 @@
 //
 
 import Foundation
+import UIKit
 import CoreLocation
+extension UITableView{
+    func registerNib<Cell:UITableViewCell>(cell: Cell.Type){
+        let nibName = String(describing: Cell.self)
+        self.register(UINib(nibName: nibName, bundle: nil), forCellReuseIdentifier:nibName)
+    }
+    
+    func dequeueCell<Cell:UITableViewCell>()->Cell{
+        let IdentifierCell = String(describing:Cell.self)
+        guard let cell = self.dequeueReusableCell(withIdentifier: IdentifierCell) as? Cell else{
+            fatalError("Cell Identifier Not founded")
+        }
+        return cell;
+    }
+}
 extension RestaurantsListVC : CLLocationManagerDelegate{
     
     /**************Get Location**************/
@@ -35,8 +50,6 @@ extension RestaurantsListVC : CLLocationManagerDelegate{
             print("locations = \(locationValue)")
             restaurantDao.fetchAllRestaurants(latitude: locationValue.latitude, longitude: locationValue.longitude, completionHandler: {restaurantList in
                 print("\(restaurantList[0].restaurantName,restaurantList[0].distance)")
-                print("\(restaurantList[1].restaurantName)")
-                
                 self.restaurantsList = restaurantList
                 self.tableView.reloadData()
             })

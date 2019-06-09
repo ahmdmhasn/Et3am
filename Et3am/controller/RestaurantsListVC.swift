@@ -8,13 +8,19 @@
 
 import UIKit
 import CoreLocation
-
+//@IBDesignable
 class RestaurantsListVC: UITableViewController {
     
+
     var restaurantsList = [Restaurant]()
     var locationManager:CLLocationManager!
     var currentLocation:CLLocation?
-    
+//    @IBInspectable var test : UIColor = .blue{
+//        didSet{
+//        
+//        }
+//        willSet{}
+//    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidLoad()
         setupLocationManager()
@@ -23,6 +29,14 @@ class RestaurantsListVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //
+//        self.tableView.register(UINib(nibName: "RestaurantsCell", bundle: nil), forCellReuseIdentifier: "restaurantsCell")
+        
+//        self.tableView.registerNib(cell: RestaurantsCell.self)
+        //
+//        self.tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 110
+
         self.tableView.reloadData()
     }
     
@@ -40,11 +54,16 @@ class RestaurantsListVC: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "restaurantCell", for: indexPath) as! RestaurantCell
+        //
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "restaurantsCell", for: indexPath) as! RestaurantsCell
+        let cell = tableView.dequeueCell() as RestaurantCell
+        //
+        
         let image : UIImage = UIImage(named: "food")!
         cell.restaurantImage.image = image
         cell.restaurantNameLabel.text = restaurantsList[indexPath.row].restaurantName
-        cell.restaurantDistanceLabel.text = String(describing: (restaurantsList[indexPath.row].distance)!)
+        cell.restaurantDistanceLabel.text = String(describing: (restaurantsList[indexPath.row].distance)!)+", KM"
+        cell.restaurantTimeLabel.text = String(describing: (restaurantsList[indexPath.row].travelTime)!)+", Min"
         return cell
     }
     
