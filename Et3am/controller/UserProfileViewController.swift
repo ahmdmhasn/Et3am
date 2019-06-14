@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 enum UserProfileSections: Int {
     case profile, coupons, settings, nationalID, logout

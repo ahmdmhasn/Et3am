@@ -55,8 +55,6 @@ class UserDao{
 
     
     func validateEmail(email:String,completionHandler:@escaping (Bool)->Void) {
-        
-        
         Alamofire.request(Et3amAPI.baseUserUrlString+UserURLQueries.validateEmail.rawValue+email).validate().responseJSON{
             response in
             
@@ -80,9 +78,8 @@ class UserDao{
             completionHandler(isEmailFound!)
             
         }
-        
-        
     }
+    
     func validateLogin(userEmail:String,password:String,completionHandler:@escaping (String?)->Void) {
         var userFound : String!
         var urlComponents = URLComponents(string: Et3amAPI.baseUserUrlString+UserURLQueries.loginValidation.rawValue)
