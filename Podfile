@@ -20,5 +20,6 @@ target 'Et3am' do
 pod 'Alamofire', '~> 4.0'
 pod "SVProgressHUD", '~> 1.1.2' 
 pod 'ChameleonFramework'
+pod 'SwiftyJSON', '~> 3.0’
 
 end

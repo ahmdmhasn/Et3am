@@ -7,10 +7,11 @@
 //
 
 import UIKit
-
+import SVProgressHUD
 
 class RegisterandLoginViewController: UIViewController {
     
+    //MARK: Properties
     var userName:String?
     var userEmail:String?
     var userPassword:String?
@@ -18,6 +19,7 @@ class RegisterandLoginViewController: UIViewController {
     let userDao = UserDao.shared
     var emailValid, userNameValid, passValid, repeatPassValid, emailValidForSignIn, passValidForSignIn: Bool!
     
+    //MARK: Outlets
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var signUpView: SignUpView!
     @IBOutlet weak var signInView: SignInView!
@@ -55,17 +57,98 @@ class RegisterandLoginViewController: UIViewController {
 //                    let HomeViewController = storyboard.instantiateViewController(withIdentifier: "couponId") as! DonateViewController
 //                    self.navigationController?.pushViewController(HomeViewController, animated: false)
 //                }
-//            }
-//            else {
-//                
+//            } else {
 //                // add alert
-//                let alert = UIAlertController(title: "", message: "Error In Register,Try Again", preferredStyle: .alert)
+//                let alert = UIAlertController(title: "", message: "Something went wrong, please try again later!", preferredStyle: .alert)
 //                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 //                self.present(alert, animated: true)
 //            }
 //        })
     }
     
+    @IBAction func signInUser(_ sender: Any) {
+        userEmail = signInView.emailTxtField.text
+        userPassword = signInView.passTxtField.text
+        
+        guard let userEmail = userEmail , !userEmail.isEmpty else {
+            self.signInView.valdiatelabel.text = "Email is required!"
+            return
+        }
+        
+         guard let userPassword = userPassword ,!userPassword.isEmpty else {
+            self.signInView.valdiatelabel.text = "Password is required!"
+            return
+        }
+
+        SVProgressHUD.show()
+        
+        userDao.validateLogin(userEmail: userEmail, password: userPassword) {
+            response in
+
+            SVProgressHUD.dismiss()
+            
+            switch response {
+            case .success(let code):
+                if code == 1 {
+                    let window = UIApplication.shared.keyWindow
+                    let storyboard
+                        = UIStoryboard(name: "UserProfile", bundle: nil)
+                    let HomeViewController = storyboard.instantiateViewController(withIdentifier: "userProfileID") as! UserProfileViewController
+                    window?.rootViewController  = HomeViewController
+                    UIView.transition(with: window!, duration: 0.5, options: .transitionCurlUp, animations: nil, completion: nil)
+                } else {
+                    self.signInView.valdiatelabel.text = "Username/ password doesn't match."
+                }
+            case .failure(let _):
+                self.signInView.valdiatelabel.text = "Something went wrong, please try again later."
+            }
+            
+        }
+    }
+    
+    @IBAction func signUpWithFacebookButton(_ sender: Any) {
+        
+    }
+    
+    @IBAction func forgetUserPassword(_ sender: Any) {
+        
+    }
+    
+    func enableSignUpBtn(){
+        if emailValid && passValid && repeatPassValid && userNameValid {
+            signUpButton.isEnabled = true
+        } else {
+            signUpButton.isEnabled = false
+        }
+    }
+    
+    func enableSignInBtn(){
+        
+    }
+    
+    //MARK: - Segment controller switching methods
+    @IBAction func segmenetdControlAction(_ sender: Any) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            showSigninView()
+        case 1:
+            showSignupView()
+        default:
+            break
+        }
+    }
+    
+    func showSignupView() {
+        signInView.isHidden = true
+        signUpView.isHidden = false
+    }
+    
+    func showSigninView() {
+        signInView.isHidden = false
+        signUpView.isHidden = true
+    }
+    
+    //MARK: - Validation of email & password
     @IBAction func userNameEditingChange(_ sender: UITextField) {
         
         print(sender.text!)
@@ -77,7 +160,7 @@ class RegisterandLoginViewController: UIViewController {
             signUpView.userNameValidLabel.text = ""
         }
         enableSignUpBtn()
-    
+        
     }
     
     @IBAction func emailEditingEndAction(_ sender: UITextField) {
@@ -136,83 +219,6 @@ class RegisterandLoginViewController: UIViewController {
             signUpView.repeatPassLabel.text = ""
         }
         enableSignUpBtn()
-    }
-    
-    @IBAction func signUpWithFacebookButton(_ sender: Any) {
-        
-    }
-    
-    @IBAction func signInUser(_ sender: Any) {
-        userEmail = signInView.emailTxtField.text
-        userPassword = signInView.passTxtField.text
-        
-        guard let userEmail = userEmail , !userEmail.isEmpty else {
-            self.signInView.valdiatelabel.text =
-            "email or password is empty"
-            return}
-         guard let userPassword = userPassword ,!userPassword.isEmpty else {self.signInView.valdiatelabel.text =
-            "email or password is empty"
-            return
-        }
-
-        view.setnetworkIndicator()
-        
-        userDao.validateLogin(userEmail: userEmail, password: userPassword) {userFound in
-            print(self.userEmail!)
-            print(userFound!)
-            if userFound! == "user is found"
-            {
-                
-                let window = UIApplication.shared.keyWindow
-                let storyboard
-                    = UIStoryboard(name: "UserProfile", bundle: nil)
-                let HomeViewController = storyboard.instantiateViewController(withIdentifier: "userProfileID") as! UserProfileViewController
-                window?.rootViewController  = HomeViewController
-                UIView.transition(with: window!, duration: 0.5, options: .transitionCurlUp, animations: nil, completion: nil)
-//                self.navigationController?.pushViewController(HomeViewController, animated: false)
-            }
-            else{
-                self.signInView.valdiatelabel.text = "email or password is wrong"
-            }
-        }
-    }
-    
-    @IBAction func segmenetdControlAction(_ sender: Any) {
-        
-        switch segmentedControl.selectedSegmentIndex {
-        case 0:
-            showSigninView()
-        case 1:
-            showSignupView()
-        default:
-            break
-        }
-    }
-    
-    @IBAction func forgetUserPassword(_ sender: Any) {
-    }
-    
-    func showSignupView() {
-        signInView.isHidden = true
-        signUpView.isHidden = false
-    }
-    
-    func showSigninView() {
-        signInView.isHidden = false
-        signUpView.isHidden = true
-    }
-    
-    func enableSignUpBtn(){
-        
-        if emailValid && passValid && repeatPassValid && userNameValid {
-            signUpButton.isEnabled = true
-        } else {
-            signUpButton.isEnabled = false
-        }
-    }
-    
-    func enableSignInBtn(){
-        
     }
     
     func isValidEmailAddress(emailAddressString: String) -> Bool {

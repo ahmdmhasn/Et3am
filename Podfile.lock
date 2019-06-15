@@ -4,23 +4,27 @@ PODS:
     - ChameleonFramework/Default (= 2.1.0)
   - ChameleonFramework/Default (2.1.0)
   - SVProgressHUD (1.1.3)
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
   - ChameleonFramework
   - SVProgressHUD (~> 1.1.2)
+  - SwiftyJSON (~> 3.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - ChameleonFramework
     - SVProgressHUD
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 95919f0a777f9e5782b8c757fc17b9801efc697b
+PODFILE CHECKSUM: be35ca65970bd0dcf12b23f11e6876d817914bc4
 
 COCOAPODS: 1.6.1
