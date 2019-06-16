@@ -17,5 +17,6 @@ class Restaurant{
     var latitude:Double?
     var longitude:Double?
     var distance:Double?
+    var travelTime:Double?
     var image:String?
 }

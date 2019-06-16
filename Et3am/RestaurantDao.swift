@@ -44,6 +44,7 @@ class RestaurantDao
                         restaurant.latitude = value["latituse"] as? Double
                         restaurant.longitude = value["longitude"] as? Double
                         restaurant.distance = value["distance"] as? Double
+                        restaurant.travelTime = value["travelTime"] as? Double
                         restaurantsList.append(restaurant)
                     }
                     DispatchQueue.main.async {
