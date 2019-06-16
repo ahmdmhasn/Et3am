@@ -10,11 +10,13 @@ import Foundation
 enum UserURLQueries:String {
     case add = "/add"
     case list = "/list"
-    case validateEmail="/validate/email/"
+    case validateEmail="/validate/userEmail"
+    case validateName="/validate/userName"
     case loginValidation = "/validate/login"
     case update = "/update"
     case emailQuery = "email"
     case passwordQuery = "password"
+    case stringParam = "string"
 }
 enum CouponURLQueries:String {
     case add = "/add"

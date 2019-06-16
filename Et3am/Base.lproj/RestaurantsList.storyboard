@@ -21,7 +21,7 @@
         <!--Restaurants ListVC-->
         <scene sceneID="kyI-cb-KFJ">
             <objects>
-                <tableViewController storyboardIdentifier="DetailsVCID" id="Cjv-Ey-5RJ" customClass="RestaurantsListVC" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Cjv-Ey-5RJ" customClass="RestaurantsListVC" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="103" sectionHeaderHeight="28" sectionFooterHeight="28" id="mRS-9C-VKB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -107,7 +107,7 @@
         <!--Navigation Controller-->
         <scene sceneID="TgV-GE-a7i">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9c2-Qr-5Eh" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RestaurantsListNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="9c2-Qr-5Eh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="W1l-4H-fIa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -120,7 +120,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AhG-Mn-cGW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-559" y="-577"/>
+            <point key="canvasLocation" x="-438" y="-576"/>
         </scene>
     </scenes>
 </document>

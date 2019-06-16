@@ -27,64 +27,96 @@ class UserDao{
     
     var user = User()
     
-//    public  func addUser(parameters : [String:String],completionHandler:@escaping (Bool)->Void) {
-//        var isRegistered:Bool = false
-//        Alamofire.request(Et3amAPI.baseUserUrlString+UserURLQueries.add.rawValue,
-//                          method: .post,
-//                          parameters: parameters,
-//                          encoding: JSONEncoding.default,
-//                          headers: nil).responseJSON {
-//                            response in
-//                            switch response.result {
-//                            case .success:
-//                                let sucessDataValue = response.result.value
-//                                let returnedData = sucessDataValue as! NSDictionary
-//                                let userDataDictionary:NSDictionary =  returnedData.value(forKey: "user") as! NSDictionary
-//                                
-//                                self.user.userID=userDataDictionary.value(forKey: "userId") as! String?
-//                                self.user.userName=userDataDictionary.value(forKey: "userName") as! String?
-//                                self.user.email=userDataDictionary.value(forKey: "userEmail") as! String?
-//                                self.user.password=userDataDictionary.value(forKey: "password") as! String?
-//                                self.user.verified=false
-//                                isRegistered = true
-//                                
-//                                helper.addUserObjectIntoUserDefault(userObject: self.user)
-//                                completionHandler(isRegistered)
-//                                
-//                            case .failure(let error):
-//                                print(error)
-//                                isRegistered = false
-//                                completionHandler(isRegistered)
-//                                
-//                            }
-//     
-//}
-  // }
-    
-
-    
-    func validateEmail(email:String,completionHandler:@escaping (Bool)->Void) {
-        Alamofire.request(Et3amAPI.baseUserUrlString+UserURLQueries.validateEmail.rawValue+email).validate().responseJSON{
+    public  func addUser(parameters : [String:String], completionHandler:@escaping (Bool) -> Void) {
+        
+        var isRegistered:Bool = false
+        Alamofire.request(Et3amAPI.baseUserUrlString+UserURLQueries.add.rawValue, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON {
             response in
             
-            var isEmailFound: Bool?
+            switch response.result {
+            case .success(let value):
+                
+                print(value)
+
+                let json = JSON(value)
+                guard let code = json["status"].int else {
+                    return
+                }
+                
+                if code == 1 {
+                    let user = json["user"]
+                    
+                    self.user = UserHelper.parseUser(json: user)
+                    
+                    isRegistered = true
+                    
+                    self.addToUserDefaults(self.user)
+                }
+                
+            case .failure(let error):
+                print(error)
+            }
+            
+            completionHandler(isRegistered)
+
+        }
+    }
+    
+    func validateUsername(username: String, completionHandler: @escaping (Bool) -> Void ) {
+        
+        var urlComponents = URLComponents(string: Et3amAPI.baseUserUrlString + UserURLQueries.validateName.rawValue)
+        
+        urlComponents?.queryItems = [URLQueryItem(name: UserURLQueries.stringParam.rawValue, value: username)]
+        
+        let url = urlComponents?.url
+        
+        Alamofire.request(url!).responseJSON {
+            response in
+            
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                let code = (json["code"].int == 1) ? true : false
+                completionHandler(code)
+                
+            case .failure(let error):
+                print(error)
+                completionHandler(false)
+            }
+        }
+    }
+    
+    func validateEmail(email: String, completionHandler: @escaping (Bool) -> Void ) {
+        
+        var urlComponents = URLComponents(string: Et3amAPI.baseUserUrlString + UserURLQueries.validateEmail.rawValue)
+        
+        urlComponents?.queryItems = [URLQueryItem(name: UserURLQueries.stringParam.rawValue, value: email)]
+        
+        let url = urlComponents?.url
+        
+        Alamofire.request(url!).validate(statusCode: 200..<500).responseJSON{
+            response in
+            
+            var isEmailValid: Bool = false
+            
+            print(response.result.value!)
             
             switch response.result {
             case .success:
                 let sucessDataValue = response.result.value
                 let returnedData = sucessDataValue as! NSDictionary
                 let code = returnedData.value(forKey: "code")! as! Int
-                if(code == 0){
-                    isEmailFound = false
+                if(code == 1){
+                    isEmailValid = true
                 } else {
-                    isEmailFound = true
+                    isEmailValid = false
                 }
                 
-            case .failure:
-                isEmailFound = false
+            case .failure(let error):
+                print(error)
             }
             
-            completionHandler(isEmailFound!)
+            completionHandler(isEmailValid)
             
         }
     }
@@ -101,10 +133,12 @@ class UserDao{
             switch response.result {
             case .success:
                 
-                let json = JSON(response.result.value!)
-                guard let code: Int =  json["code"].int else {
+                guard let responseValue = response.result.value else {
                     return
                 }
+                
+                let json = JSON(responseValue)
+                let code: Int =  json["code"].int ?? 0
                 
                 print(json)
                 
