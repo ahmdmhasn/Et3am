@@ -119,7 +119,7 @@
         <!--Navigation Controller-->
         <scene sceneID="TgV-GE-a7i">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9c2-Qr-5Eh" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RestaurantsListNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="9c2-Qr-5Eh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="W1l-4H-fIa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -136,7 +136,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AhG-Mn-cGW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-559" y="-577"/>
+            <point key="canvasLocation" x="-438" y="-576"/>
         </scene>
     </scenes>
 </document>

@@ -16,7 +16,6 @@ class SignUpView: UIStackView {
     @IBOutlet weak var repeatedPassTxtField :UITextField!
     @IBOutlet weak var userNameValidLabel : UILabel!
     @IBOutlet weak var emailLabel : UILabel!
-    @IBOutlet weak var passwordLabel : UILabel!
-    @IBOutlet weak var repeatPassLabel : UILabel!
+    @IBOutlet weak var passwordValidLabel : UILabel!
     
 }
