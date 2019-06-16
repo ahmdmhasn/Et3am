@@ -13,10 +13,7 @@ class RestaurantDetailsViewController: UIViewController {
     var getMealsFinished:Bool = false
     var getRestaurantDetails:Bool = false
     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
-    
-    
-    
-    
+
     private func showLoadingActivityIndicator(){
         
         activityIndicator.center = self.view.center

@@ -37,7 +37,6 @@ class UserProfileViewController: UITableViewController {
     @IBOutlet weak var userMobileNumberLabel: UILabel!
     @IBOutlet weak var userJobLabel: UILabel!
     @IBOutlet weak var isVerifiedLabel: UILabel!
-    
     @IBOutlet weak var userEmailLabel: UILabel!
     
     override func viewDidLoad() {

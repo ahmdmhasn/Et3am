@@ -21,12 +21,7 @@ class GetCouponViewController: UIViewController {
     @IBAction func cancelProcess(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
-    
-    
-    
-    
-    
+
     override func viewDidLoad() {
         containerView.layer.cornerRadius = 15
         containerView.layer.masksToBounds = true

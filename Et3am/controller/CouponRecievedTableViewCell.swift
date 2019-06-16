@@ -11,8 +11,6 @@ import UIKit
 class CouponRecievedTableViewCell: UITableViewCell {
 
     @IBOutlet weak var couponNumberLbl: UILabel!
-    
-    
     @IBOutlet weak var couponStateLbl: UILabel!
     @IBOutlet weak var couponValueLbl: UILabel!
     override func awakeFromNib() {

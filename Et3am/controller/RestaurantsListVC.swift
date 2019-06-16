@@ -8,19 +8,12 @@
 
 import UIKit
 import CoreLocation
-//@IBDesignable
 class RestaurantsListVC: UITableViewController {
     
 
     var restaurantsList = [Restaurant]()
     var locationManager:CLLocationManager!
     var currentLocation:CLLocation?
-//    @IBInspectable var test : UIColor = .blue{
-//        didSet{
-//        
-//        }
-//        willSet{}
-//    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidLoad()
         setupLocationManager()
@@ -29,13 +22,8 @@ class RestaurantsListVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //
-//        self.tableView.register(UINib(nibName: "RestaurantsCell", bundle: nil), forCellReuseIdentifier: "restaurantsCell")
-        
-//        self.tableView.registerNib(cell: RestaurantsCell.self)
-        //
 //        self.tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 110
+//        tableView.estimatedRowHeight = 110
 
         self.tableView.reloadData()
     }
