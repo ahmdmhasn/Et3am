@@ -9,8 +9,8 @@
 import Foundation
 import Alamofire
 
-class CouponDao
-{
+class CouponDao {
+    
     public func addCoupon(value_50:String,value_100:String,value_200:String,completionHandler:@escaping (String)->Void) {/*UserDefaults.standard.string(forKey: "user_id"))*/
         var couponDonate : String = ""
         var urlComponents = URLComponents(string: Et3amAPI.baseCouponUrlString+CouponURLQueries.add.rawValue)
@@ -27,26 +27,13 @@ class CouponDao
                 let sucessDataValue = response.result.value
                 let returnedData = sucessDataValue as! NSDictionary
                 print (returnedData)
-               let statusDataDictionary:Int =  returnedData.value(forKey: "status")! as! Int
+                let statusDataDictionary = returnedData.value(forKey: "status") as? Int ?? 0
                 
-                switch statusDataDictionary
-               {
+                switch statusDataDictionary {
                 case 1:
                     couponDonate = "coupon is donated"
                     completionHandler(couponDonate)
-//                    let userDataDictionary:NSDictionary =  returnedData.value(forKey: "user")! as! NSDictionary
-//                    self.user.userID=userDataDictionary.value(forKey: "userId") as! String?
-//                    self.user.userName=userDataDictionary.value(forKey: "userName") as! String?
-//                    self.user.email=userDataDictionary.value(forKey: "userEmail") as! String?
-//                    self.user.password = password
-//                    self.user.verified=false
-//                    
-//                    if((UserDefaults.standard.string(forKey: "userEmail") == nil)){
-//                        self.addUserObjectIntoUserDefault(userObject: self.user)
-//                        
-//                 }
-//                    
-              case 0:
+                case 0:
                     couponDonate = "coupon is not donated"
                     completionHandler(couponDonate)
                     
@@ -61,7 +48,7 @@ class CouponDao
             }
             
         }
-
+        
     }
     
 }

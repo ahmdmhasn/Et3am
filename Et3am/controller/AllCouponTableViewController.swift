@@ -9,7 +9,7 @@
 import UIKit
 
 class AllCouponTableViewController: UITableViewController {
-
+var i=3
     override func viewDidLoad() {
         super.viewDidLoad()
 
