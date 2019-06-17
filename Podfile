@@ -17,7 +17,7 @@ target 'Et3am' do
     # Pods for testing
   end
 
-pod 'Alamofire', '~> 4.0’
+pod 'Alamofire', '~> 4.0'
 pod "SVProgressHUD", '~> 1.1.2' 
 pod 'ChameleonFramework'
 pod 'SwiftyJSON', '~> 3.0’
