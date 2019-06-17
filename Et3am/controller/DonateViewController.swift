@@ -61,11 +61,14 @@ class DonateViewController: UITableViewController {
 //                    ,"200":  Int(self.countOfValue_200Label.text!)!]
 //                self.navigationController?.pushViewController(CuoponsTabBarController!, animated: false)
             } else {
-                self.showAlert(message: "you are not connected", title:"")
-                
+                self.showAlert(message: "Connection error. Please try again later.", title:"")
             }
             
         })
         
+    }
+    
+    @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
     }
 }

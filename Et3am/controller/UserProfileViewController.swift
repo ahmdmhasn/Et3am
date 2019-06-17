@@ -42,7 +42,7 @@ class UserProfileViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        isVerifiedLabel.isHidden = (userDao.user.verified ?? false) ? false : true
+        isVerifiedLabel.isHidden = !(userDao.user.verified ?? false)
 //        userImageView.image = userDao.user.profileImage
         usernameLabel.text = userDao.user.userName ?? ""
         userIDLabel.text = userDao.user.nationalID ?? ""

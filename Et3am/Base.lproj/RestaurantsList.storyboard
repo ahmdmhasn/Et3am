@@ -18,7 +18,7 @@
             </objects>
             <point key="canvasLocation" x="865" y="-864"/>
         </scene>
-        <!--Nearest Restaurant-->
+        <!--Home-->
         <scene sceneID="kyI-cb-KFJ">
             <objects>
                 <tableViewController storyboardIdentifier="DetailsVCID" id="Cjv-Ey-5RJ" customClass="RestaurantsListVC" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
@@ -96,8 +96,9 @@
                             <outlet property="delegate" destination="Cjv-Ey-5RJ" id="iyh-ha-UuI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Nearest Restaurant" id="Cka-Mo-2Bn">
-                        <barButtonItem key="rightBarButtonItem" title="Profile" id="XY0-TX-jZZ">
+                    <navigationItem key="navigationItem" title="Home" id="Cka-Mo-2Bn">
+                        <barButtonItem key="rightBarButtonItem" title="Dashboard" id="XY0-TX-jZZ">
+                            <color key="tintColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="045-5V-Eyw" kind="show" id="NMb-sI-KI4"/>
                             </connections>
@@ -126,7 +127,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="18"/>
-                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>

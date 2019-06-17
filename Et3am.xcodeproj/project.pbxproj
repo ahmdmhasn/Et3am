@@ -44,7 +44,7 @@
 		E280CC4B22B81C7D00E32CE1 /* RegisterandLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280CC4722B81C7D00E32CE1 /* RegisterandLoginViewController.swift */; };
 		E280CC4C22B81C7D00E32CE1 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280CC4822B81C7D00E32CE1 /* SignInView.swift */; };
 		E280CC4D22B81C7D00E32CE1 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280CC4922B81C7D00E32CE1 /* SignUpView.swift */; };
-		E2B3A29822B6403E00D6645F /* Donate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2B3A29722B6403E00D6645F /* Donate.storyboard */; };
+		E280CC4F22B8215600E32CE1 /* Donate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E280CC4E22B8215600E32CE1 /* Donate.storyboard */; };
 		E2F11B9D2288D49D0031ABCC /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11B972288D49C0031ABCC /* Admin.swift */; };
 		E2F11B9E2288D49D0031ABCC /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11B982288D49C0031ABCC /* Coupon.swift */; };
 		E2F11BA02288D49D0031ABCC /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11B9A2288D49C0031ABCC /* Meal.swift */; };
@@ -128,7 +128,7 @@
 		E280CC4722B81C7D00E32CE1 /* RegisterandLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterandLoginViewController.swift; sourceTree = "<group>"; };
 		E280CC4822B81C7D00E32CE1 /* SignInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		E280CC4922B81C7D00E32CE1 /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		E2B3A29722B6403E00D6645F /* Donate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Donate.storyboard; sourceTree = "<group>"; };
+		E280CC4E22B8215600E32CE1 /* Donate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Donate.storyboard; sourceTree = "<group>"; };
 		E2F11B972288D49C0031ABCC /* Admin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Admin.swift; path = model/Admin.swift; sourceTree = "<group>"; };
 		E2F11B982288D49C0031ABCC /* Coupon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coupon.swift; path = model/Coupon.swift; sourceTree = "<group>"; };
 		E2F11B992288D49C0031ABCC /* Fakka.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Fakka.swift; path = model/Fakka.swift; sourceTree = "<group>"; };
@@ -397,7 +397,7 @@
 		E268002A229AB939003EF0CC /* Donate */ = {
 			isa = PBXGroup;
 			children = (
-				E2B3A29722B6403E00D6645F /* Donate.storyboard */,
+				E280CC4E22B8215600E32CE1 /* Donate.storyboard */,
 				2189265722A0028300BD7404 /* DonateViewController.swift */,
 			);
 			name = Donate;
@@ -532,8 +532,8 @@
 				21110BCB2288444500D982E5 /* CouponsDonated.storyboard in Resources */,
 				E2029CED22836B6D007BA6A1 /* RestaurantsList.storyboard in Resources */,
 				E280CC4A22B81C7D00E32CE1 /* RegisterAndLogin.storyboard in Resources */,
-				E2B3A29822B6403E00D6645F /* Donate.storyboard in Resources */,
 				F13F051422B68DCB000F090A /* PublishCouponViewCell.xib in Resources */,
+				E280CC4F22B8215600E32CE1 /* Donate.storyboard in Resources */,
 				E2512CC62285DAD900D8E0F7 /* UserProfile.storyboard in Resources */,
 				21110BC7228843DF00D982E5 /* CopounsRecieved.storyboard in Resources */,
 			);
