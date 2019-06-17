@@ -11,11 +11,7 @@ import UIKit
 class UnpublishCouponTableViewCell: UITableViewCell {
 
     @IBOutlet weak var couponCodeLbl: UILabel!
-    
     @IBOutlet weak var couponValueLbl: UILabel!
-   
-    
-   
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
