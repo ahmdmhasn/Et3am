@@ -15,8 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-// check for user default
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        // Get user defaults path
+        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true))
+        
 //       if let userId = UserHelper.getUser_Id(){
 //      let storyboard = UIStoryboard(name: "UserProfile", bundle: nil)
 //    let initialViewController = storyboard.instantiateViewController(withIdentifier: "userProfileID")

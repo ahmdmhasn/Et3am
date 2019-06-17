@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 enum UserProfileSections: Int {
     case profile, coupons, settings, nationalID, logout
@@ -36,7 +37,6 @@ class UserProfileViewController: UITableViewController {
     @IBOutlet weak var userMobileNumberLabel: UILabel!
     @IBOutlet weak var userJobLabel: UILabel!
     @IBOutlet weak var isVerifiedLabel: UILabel!
-    
     @IBOutlet weak var userEmailLabel: UILabel!
     
     override func viewDidLoad() {
@@ -122,6 +122,13 @@ extension UserProfileViewController {
     }
     
     func logoutUser() {
+        userDao.removeUserFromUserDefaults()
         
+        let window = UIApplication.shared.keyWindow
+        let storyboard
+            = UIStoryboard(name: "RegisterAndLogin", bundle: nil)
+        let LoginVC = storyboard.instantiateViewController(withIdentifier: "registerViewController") as! RegisterandLoginViewController
+        window?.rootViewController  = LoginVC
+        UIView.transition(with: window!, duration: 0.5, options: .curveEaseInOut, animations: nil, completion: nil)
     }
 }

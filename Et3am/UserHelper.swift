@@ -7,20 +7,38 @@
 //
 
 import UIKit
+import SwiftyJSON
 
-class UserHelper: NSObject {
+enum UserProperties: String {
+    case userId, userName, userEmail, password, verified, userStatus, mobileNumber, profileImage, nationalId, job, nationalIdFront, nationalIdBack, birthdate, userDetailses
+}
 
-    class func addUserObjectIntoUserDefault(userObject : User) ->Void {
-        UserDefaults.standard.set(userObject.userID, forKey: "userId")
-        UserDefaults.standard.set(userObject.userName, forKey: "userName")
-        UserDefaults.standard.set(userObject.email, forKey: "userEmail")
-        UserDefaults.standard.set(userObject.password, forKey: "password")
-        UserDefaults.standard.set(userObject.verified, forKey: "verified")
+class UserHelper: NSObject {    
+    
+    class func parseUser(json: JSON) -> User {
+        let user = User()
         
+        user.userID = json[UserProperties.userId.rawValue].string
+        user.userName = json[UserProperties.userName.rawValue].string
+        user.email = json[UserProperties.userEmail.rawValue].string
+        user.password = json[UserProperties.password.rawValue].string
+        user.verified = (json[UserProperties.verified.rawValue].int == 1) ? true : false
+        user.userStatus = (json[UserProperties.userStatus.rawValue].int == 1) ? true : false
+        
+        let details = json[UserProperties.userDetailses.rawValue][0]
+        user.nationalID = details[UserProperties.nationalId.rawValue].string
+        user.nationalID_Front = details[UserProperties.nationalIdFront.rawValue].string
+        user.nationalID_Back = details[UserProperties.nationalIdBack.rawValue].string
+        user.mobileNumber = details[UserProperties.mobileNumber.rawValue].string
+        user.job = details[UserProperties.job.rawValue].string
+        //TODO: - Convert date string to date
+//        user.birthdate = Date(details[UserProperties.birthdate.rawValue].string)
+        user.profileImage = details[UserProperties.profileImage.rawValue].string
+        
+        return user
     }
     
-    class func getUser_Id() ->String?
-    {
+    class func getUser_Id() ->String? {
         let def = UserDefaults.standard
         return def.string(forKey: "userId")
     }

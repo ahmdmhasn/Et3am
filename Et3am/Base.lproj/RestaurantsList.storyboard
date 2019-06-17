@@ -18,56 +18,67 @@
             </objects>
             <point key="canvasLocation" x="865" y="-864"/>
         </scene>
-        <!--Restaurants ListVC-->
+        <!--Nearest Restaurant-->
         <scene sceneID="kyI-cb-KFJ">
             <objects>
                 <tableViewController storyboardIdentifier="DetailsVCID" id="Cjv-Ey-5RJ" customClass="RestaurantsListVC" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="103" sectionHeaderHeight="28" sectionFooterHeight="28" id="mRS-9C-VKB">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" sectionHeaderHeight="28" sectionFooterHeight="28" id="mRS-9C-VKB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="restaurantCell" rowHeight="103" id="8CS-ty-qvM" customClass="RestaurantCell" customModule="Et3am" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="103"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="RestaurantCell" rowHeight="110" id="8CS-ty-qvM" customClass="RestaurantCell" customModule="Et3am" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8CS-ty-qvM" id="BCV-2P-Ada">
-                                    <rect key="frame" x="0.0" y="0.0" width="381" height="103"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="110"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ElBaraka" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cC-H6-9y1">
-                                            <rect key="frame" x="109" y="8" width="264" height="28"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ElBaraka" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cC-H6-9y1">
+                                            <rect key="frame" x="109" y="8" width="264" height="26.666666666666664"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" id="8tI-oP-ZvW"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
+                                            <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="22"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qMY-4A-A1I">
-                                            <rect key="frame" x="8" y="8" width="93" height="86.666666666666671"/>
+                                            <rect key="frame" x="8" y="8" width="93" height="93.666666666666671"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="93" id="6oG-lL-4W7"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 KM, distance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZU-2a-VXR">
-                                            <rect key="frame" x="109" y="56" width="264" height="25"/>
+                                            <rect key="frame" x="109" y="79.666666666666671" width="264" height="22"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="25" id="BlM-YV-1w7"/>
+                                                <constraint firstAttribute="height" constant="22" id="Q2b-4W-B7Q"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="19"/>
                                             <color key="textColor" red="1" green="0.41691233259999999" blue="0.054188302520000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDt-q9-FyS">
+                                            <rect key="frame" x="109" y="56.666666666666671" width="264" height="21.000000000000014"/>
+                                            <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="18"/>
+                                            <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="hZU-2a-VXR" firstAttribute="leading" secondItem="qMY-4A-A1I" secondAttribute="trailing" constant="8" id="0yd-aK-Um3"/>
+                                        <constraint firstItem="yDt-q9-FyS" firstAttribute="leading" secondItem="qMY-4A-A1I" secondAttribute="trailing" constant="8" id="0Ho-Cm-af3"/>
+                                        <constraint firstAttribute="trailing" secondItem="hZU-2a-VXR" secondAttribute="trailing" constant="8" id="Khn-LO-ZiH"/>
+                                        <constraint firstAttribute="trailing" secondItem="yDt-q9-FyS" secondAttribute="trailing" constant="8" id="Lvf-Zh-lbD"/>
+                                        <constraint firstItem="hZU-2a-VXR" firstAttribute="top" secondItem="yDt-q9-FyS" secondAttribute="bottom" constant="2" id="RQA-Ro-qt8"/>
+                                        <constraint firstItem="hZU-2a-VXR" firstAttribute="leading" secondItem="qMY-4A-A1I" secondAttribute="trailing" constant="8" id="TUm-q9-vK5"/>
                                         <constraint firstItem="2cC-H6-9y1" firstAttribute="top" secondItem="BCV-2P-Ada" secondAttribute="topMargin" id="ZaD-t8-0PS"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="qMY-4A-A1I" secondAttribute="bottom" constant="0.3333333333333286" id="b0v-vl-lky"/>
                                         <constraint firstAttribute="trailing" secondItem="2cC-H6-9y1" secondAttribute="trailing" constant="8" id="eYL-OM-gzD"/>
+                                        <constraint firstAttribute="topMargin" secondItem="qMY-4A-A1I" secondAttribute="top" id="j2S-hu-Qdb"/>
                                         <constraint firstItem="2cC-H6-9y1" firstAttribute="leading" secondItem="qMY-4A-A1I" secondAttribute="trailing" constant="8" id="j7M-NL-KfW"/>
-                                        <constraint firstItem="hZU-2a-VXR" firstAttribute="top" secondItem="2cC-H6-9y1" secondAttribute="bottom" constant="20" id="jTK-uR-aM7"/>
-                                        <constraint firstAttribute="trailing" secondItem="hZU-2a-VXR" secondAttribute="trailing" constant="8" id="o6D-fT-E9h"/>
                                         <constraint firstItem="qMY-4A-A1I" firstAttribute="centerY" secondItem="BCV-2P-Ada" secondAttribute="centerY" id="sAM-dO-hMe"/>
                                         <constraint firstItem="qMY-4A-A1I" firstAttribute="leading" secondItem="BCV-2P-Ada" secondAttribute="leadingMargin" id="sKm-eq-Svo"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="hZU-2a-VXR" secondAttribute="bottom" id="tSX-dg-8GT"/>
                                         <constraint firstAttribute="trailing" secondItem="2cC-H6-9y1" secondAttribute="trailing" constant="8" id="x7Q-TB-xdP"/>
                                         <constraint firstItem="qMY-4A-A1I" firstAttribute="top" secondItem="2cC-H6-9y1" secondAttribute="top" id="xWq-ca-VrM"/>
                                     </constraints>
@@ -76,6 +87,7 @@
                                     <outlet property="restaurantDistanceLabel" destination="hZU-2a-VXR" id="eoo-zJ-gYW"/>
                                     <outlet property="restaurantImage" destination="qMY-4A-A1I" id="fxa-he-LQr"/>
                                     <outlet property="restaurantNameLabel" destination="2cC-H6-9y1" id="UAC-OM-g4t"/>
+                                    <outlet property="restaurantTimeLabel" destination="yDt-q9-FyS" id="bkE-eh-iA8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -84,7 +96,7 @@
                             <outlet property="delegate" destination="Cjv-Ey-5RJ" id="iyh-ha-UuI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Cka-Mo-2Bn">
+                    <navigationItem key="navigationItem" title="Nearest Restaurant" id="Cka-Mo-2Bn">
                         <barButtonItem key="rightBarButtonItem" title="Profile" id="XY0-TX-jZZ">
                             <connections>
                                 <segue destination="045-5V-Eyw" kind="show" id="NMb-sI-KI4"/>
@@ -94,7 +106,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lF7-Ga-KSI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="293.60000000000002" y="-577.06146926536735"/>
+            <point key="canvasLocation" x="292.75362318840581" y="-577.17391304347825"/>
         </scene>
         <!--RestaurantInfo-->
         <scene sceneID="yHZ-35-P83">
@@ -107,11 +119,15 @@
         <!--Navigation Controller-->
         <scene sceneID="TgV-GE-a7i">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9c2-Qr-5Eh" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RestaurantsListNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="9c2-Qr-5Eh" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W1l-4H-fIa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="W1l-4H-fIa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="18"/>
+                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -120,7 +136,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AhG-Mn-cGW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-559" y="-577"/>
+            <point key="canvasLocation" x="-438" y="-576"/>
         </scene>
     </scenes>
 </document>
