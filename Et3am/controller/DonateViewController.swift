@@ -45,22 +45,21 @@ class DonateViewController: UITableViewController {
     }
     
     @IBAction func DonateButton(_ sender: UIBarButtonItem) {
-
         coupounDao.addCoupon(value_50: countOfValue_50Label.text! , value_100: countOfValue_100Label.text!, value_200: countOfValue_200Label.text!, completionHandler: {couponDonate in
             print(couponDonate)
-            
             if couponDonate == "coupon is donated" {
-                let storyboard = UIStoryboard(name: "CouponsDonated", bundle: nil)
                 
-                let CuoponsTabBarController = storyboard.instantiateViewController(withIdentifier: "listofCouponsid") as? CuoponsTabBarController
-                let unpublishCouponTableViewController = CuoponsTabBarController?.viewControllers?[0] as! UnpublishCouponTableViewController
+                //TODO: - push to unpublished view controller
                 
-                unpublishCouponTableViewController.listOfCoupons = ["50": Int(self.countOfValue_50Label.text!)!
-                    ,"100": Int(self.countOfValue_100Label.text!)!
-                    ,"200":  Int(self.countOfValue_200Label.text!)!]
-                
-                
-                self.navigationController?.pushViewController(CuoponsTabBarController!, animated: false)
+//                let storyboard = UIStoryboard(name: "CouponsDonated", bundle: nil)
+//                
+//                let CuoponsTabBarController = storyboard.instantiateViewController(withIdentifier: "listofCouponsid") as? CuoponsTabBarController
+//                let unpublishCouponTableViewController = CuoponsTabBarController?.viewControllers?[0] as! UnpublishCouponTableViewController
+//                
+//                unpublishCouponTableViewController.listOfCoupons = ["50": Int(self.countOfValue_50Label.text!)!
+//                    ,"100": Int(self.countOfValue_100Label.text!)!
+//                    ,"200":  Int(self.countOfValue_200Label.text!)!]
+//                self.navigationController?.pushViewController(CuoponsTabBarController!, animated: false)
             } else {
                 self.showAlert(message: "you are not connected", title:"")
                 
