@@ -11,6 +11,60 @@ import Alamofire
 
 class CouponDao
 {
+    public func getReceivedCoupons(completionHandler:@escaping (NSArray,NSArray,NSArray,Int)->Void)
+        
+    {
+        var urlComponents = URLComponents(string: Et3amAPI.baseCouponUrlString+CouponURLQueries.used_coupon.rawValue)
+        urlComponents?.queryItems = [URLQueryItem(name: "userId", value:
+           "0db77343-e323-4ec1-9896-6c9853d30f5d")]
+        print(urlComponents!)
+        Alamofire.request(urlComponents!).validate().responseJSON{ response in
+            switch response.result {
+            case .success:
+                let sucessDataValue = response.result.value
+                let returnedData = sucessDataValue as! NSDictionary
+               
+                let codeDataDictionary:Int =  returnedData.value(forKey: "code")! as! Int
+                
+                switch codeDataDictionary
+                {
+                case 1:
+                  
+                 
+                    let couponDataDictionary:NSArray =  returnedData.value(forKey: "Coupons")! as! NSArray
+                    let restaurants =  couponDataDictionary.value(forKey: "restaurants") as! NSArray
+                  
+                    let userReserveCoupon =  couponDataDictionary.value(forKey: "userReserveCoupon") as! NSArray
+                    let coupons =  userReserveCoupon.value(forKey: "coupons") as! NSArray
+                    
+                    
+                   
+                  let useDate =  couponDataDictionary.value(forKey: "useDate")
+                        let restaurantName =  restaurants.value(forKey: "restaurantName")
+            
+                        let couponBarcode =  coupons.value(forKey: "couponBarcode")
+                    
+                    completionHandler(useDate as! NSArray,restaurantName as! NSArray,couponBarcode as! NSArray,codeDataDictionary)
+                    
+                    
+                case 0:
+                  
+                    completionHandler([],[],[],codeDataDictionary)
+                default:
+                    break
+                }
+                
+            case .failure(let error):
+          
+                print(error.localizedDescription)
+               
+            }
+            
+        }
+
+        }
+        
+    
     public func addCoupon(value_50:String,value_100:String,value_200:String,completionHandler:@escaping (String)->Void) {/*UserDefaults.standard.string(forKey: "user_id"))*/
         var couponDonate : String = ""
         var urlComponents = URLComponents(string: Et3amAPI.baseCouponUrlString+CouponURLQueries.add.rawValue)

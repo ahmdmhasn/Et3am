@@ -22,6 +22,7 @@ enum CouponURLQueries:String {
     case value_50Query = "value_50"
     case value_100Query = "value_100"
     case value_200Query = "value_200"
+    case used_coupon = "/user_used_coupon"
 }
 
 enum RestaurantQueries:String {

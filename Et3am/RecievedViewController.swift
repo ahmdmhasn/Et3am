@@ -9,30 +9,62 @@
 import UIKit
 
 class RecievedViewController: UIViewController {
-
+  var coupounDao = CouponDao()
+    var usedCouponsCount = 0
+    var usedDateArray:NSArray = []
+    var restaurantNameArray:NSArray = []
+     var barCodeArray:NSArray = []
+    
     @IBOutlet weak var CouponCollectioonView: UICollectionView!
    fileprivate let CouponCellIdentifier = "CouponCollectionViewCell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         CouponCollectioonView.delegate = self
         CouponCollectioonView.dataSource = self
         CouponCollectioonView.register(UINib.init(nibName: CouponCellIdentifier, bundle: nil), forCellWithReuseIdentifier: CouponCellIdentifier)
+     
+        coupounDao.getReceivedCoupons(completionHandler: {
+            useDate,restaurantName,barCode,code in
+            self.usedCouponsCount = useDate.count
+            
+            
+              
+                self.usedDateArray = useDate
+         
+             self.restaurantNameArray = restaurantName
+              self.barCodeArray = barCode
+      
+        
+          
+            
+            self.CouponCollectioonView.reloadData()
+           
+        })
         
     }
 }
     extension RecievedViewController : UICollectionViewDataSource
     {
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return 1
+            return self.usedCouponsCount
         }
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = CouponCollectioonView.dequeueReusableCell(withReuseIdentifier: CouponCellIdentifier, for: indexPath) as! CouponCollectionViewCell
-        //    cell.contentView.layer.cornerRadius = 10
-            cell.contentView.layer.cornerRadius = 10
-            cell.contentView.layer.borderWidth = 1.0
+          
+        
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeStyle = DateFormatter.Style.medium //Set time style
+            dateFormatter.dateStyle = DateFormatter.Style.medium //Set date style
+          
+            let localDate = dateFormatter.string(from: NSDate(timeIntervalSince1970:self.usedDateArray[indexPath.row] as! TimeInterval) as Date)
+            print(localDate)
+                   cell.useDate.text! = String(describing: localDate)
+                cell.couponBarCode.text! = String(describing: self.barCodeArray[indexPath.row])
             
-            cell.contentView.layer.borderColor = UIColor.clear.cgColor
-            cell.contentView.layer.masksToBounds = true
+             cell.restaurantName.text! = String(describing: self.restaurantNameArray[indexPath.row])
+            
             
             return cell
         }
@@ -42,7 +74,7 @@ class RecievedViewController: UIViewController {
     {
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             let ScreenWidth = UIScreen.main.bounds.width
-            let ItemWidth = ScreenWidth-30
+            let ItemWidth = ScreenWidth-50
             return CGSize.init(width: ItemWidth, height: ItemWidth/2)
         }
         }
