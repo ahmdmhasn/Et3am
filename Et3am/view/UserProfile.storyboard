@@ -25,7 +25,9 @@
         <!--Donate-->
         <scene sceneID="sFX-qF-8Wg">
             <objects>
-                <viewControllerPlaceholder storyboardName="Donate" id="1m6-GH-ZLf" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Donate" id="1m6-GH-ZLf" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="d8J-gU-ffe"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RmW-HY-WqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1812" y="-492"/>
@@ -198,7 +200,7 @@
             </objects>
             <point key="canvasLocation" x="2320" y="-124"/>
         </scene>
-        <!--Profile-->
+        <!--Dashboard-->
         <scene sceneID="2XX-uX-Rlt">
             <objects>
                 <tableViewController storyboardIdentifier="userProfileID" id="Zxw-Tr-Frp" customClass="UserProfileViewController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
@@ -213,7 +215,7 @@
                                         <rect key="frame" x="0.0" y="35" width="414" height="170"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="02a-Vt-HkB" id="6fi-aw-09j">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="169"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="d8P-wc-8Zt">
@@ -574,10 +576,11 @@
                             <outlet property="delegate" destination="Zxw-Tr-Frp" id="Xji-bF-ScX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Profile" id="ZNh-kx-nPZ">
+                    <navigationItem key="navigationItem" title="Dashboard" id="ZNh-kx-nPZ">
                         <barButtonItem key="rightBarButtonItem" title="Donate" id="bzO-Up-8Vq">
+                            <color key="tintColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="1m6-GH-ZLf" kind="show" id="CoE-rb-aQU"/>
+                                <segue destination="1m6-GH-ZLf" kind="push" id="CoE-rb-aQU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

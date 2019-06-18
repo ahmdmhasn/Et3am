@@ -20,19 +20,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Get user defaults path
         print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true))
         
-//       if let userId = UserHelper.getUser_Id(){
-//      let storyboard = UIStoryboard(name: "UserProfile", bundle: nil)
-//    let initialViewController = storyboard.instantiateViewController(withIdentifier: "userProfileID")
-////     //  let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
-////       // navigationController.viewControllers = [initialViewController]
-//       self.window?.rootViewController = initialViewController
-////            
-////        
-//       }
-       return true
+        // If a user is associated with the device
+        let user = UserDao.shared.user
+        
+        if user.userID != nil {
+            let storyboard = UIStoryboard(name: "RestaurantsList", bundle: nil)
+            
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "RestaurantsListNavigationController")
+            
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+        }
+        
+        return true
     }
- 
-
+    
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

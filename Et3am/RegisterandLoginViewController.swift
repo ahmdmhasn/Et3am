@@ -45,7 +45,12 @@ class RegisterandLoginViewController: UIViewController {
         }
     }
     
-    var emailValidForSignIn, passValidForSignIn: Bool!
+    var signinValidation: Bool = false {
+        didSet {
+            signInView.valdiatelabel.isHidden = false
+            signInView.valdiatelabel.textColor = UIColor.red
+        }
+    }
     
     //MARK: Outlets
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -59,6 +64,10 @@ class RegisterandLoginViewController: UIViewController {
         super.viewDidLoad()
         
         showSigninView()
+        signUpView.userNameValidLabel.isHidden = true
+        signUpView.emailLabel.isHidden = true
+        signUpView.passwordValidLabel.isHidden = true
+        signInView.valdiatelabel.isHidden = true
         
         signInButton.layer.cornerRadius = signInButton.frame.height / 2
         signInButton.layer.masksToBounds = true
@@ -66,14 +75,12 @@ class RegisterandLoginViewController: UIViewController {
         signUpButton.layer.cornerRadius = signUpButton.frame.height / 2
         signUpButton.layer.masksToBounds = true
         
-        userNameValid = false
-        passwordValid = false
-        
         //TODO: For testing SDWebImage Library, you can remove it #hassan
         logoImageView.sd_setShowActivityIndicatorView(true)
         logoImageView.sd_setIndicatorStyle(.gray)
         logoImageView.sd_setImage(with: URL(string: "https://global.canon/en/imaging/eosd/samples/eos1300d/downloads/01.jpg"), completed: nil)
     }
+    
     
     @IBAction func signUpButton(_ sender: Any) {
         
@@ -95,9 +102,7 @@ class RegisterandLoginViewController: UIViewController {
             self.signUpButton.isEnabled = true
             
             if isRegistered {
-                let storyboard = UIStoryboard(name:"Donate", bundle:nil)
-                let HomeViewController = storyboard.instantiateViewController(withIdentifier: "couponId") as! DonateViewController
-                self.navigationController?.pushViewController(HomeViewController, animated: false)
+                self.performSegue(withIdentifier: "showRestaurantList", sender: self)
             } else {
                 SVProgressHUD.showError(withStatus: "Something went wrong!")
             }
@@ -107,11 +112,13 @@ class RegisterandLoginViewController: UIViewController {
     @IBAction func signInUser(_ sender: Any) {
         
         guard let userEmail = signInView.emailTxtField.text , !userEmail.isEmpty else {
+            signinValidation = false
             self.signInView.valdiatelabel.text = "Email is required!"
             return
         }
         
          guard let userPassword = signInView.passTxtField.text ,!userPassword.isEmpty else {
+            signinValidation = false
             self.signInView.valdiatelabel.text = "Password is required!"
             return
         }
@@ -130,10 +137,12 @@ class RegisterandLoginViewController: UIViewController {
                 if code == 1 {
                     self.performSegue(withIdentifier: "showRestaurantList", sender: self)
                 } else {
+                    self.signinValidation = false
                     self.signInView.valdiatelabel.text = "Username/ password doesn't match."
                 }
                 
             case .failure(let error):
+                self.signinValidation = false
                 self.signInView.valdiatelabel.text = "Something went wrong, please try again later."
                 print(error)
             }
@@ -154,10 +163,6 @@ class RegisterandLoginViewController: UIViewController {
         } else {
             signUpButton.isEnabled = false
         }
-    }
-    
-    func enableSignInBtn(){
-        
     }
     
     //MARK: - Segment controller switching methods
@@ -185,15 +190,7 @@ class RegisterandLoginViewController: UIViewController {
     //MARK: - Validation of email & password
     @IBAction func userNameEditingChange(_ sender: UITextField) {
         
-        guard let text = sender.text else {
-            return
-        }
-        
-        print(text)
-        
-        if text.isEmpty {
-            userNameValid = false
-        } else {
+        if let text = sender.text, !text.isEmpty {
             userDao.validateUsername(username: text, completionHandler: { (isUsernameValid) in
                 self.userNameValid = isUsernameValid
             })
@@ -202,13 +199,7 @@ class RegisterandLoginViewController: UIViewController {
     
     @IBAction func emailEditingEndAction(_ sender: UITextField) {
         
-        guard let text = sender.text else {
-            return
-        }
-        
-        emailValid = false
-        
-        if !text.isEmpty && isValidEmailAddress(emailAddressString: text){
+        if let text = sender.text, !text.isEmpty, UserHelper.isEmailValid(emailAddressString: text){
             userDao.validateEmail(email: sender.text!, completionHandler: {(isEmailValid) in
                 self.emailValid = isEmailValid
             })
@@ -225,7 +216,7 @@ class RegisterandLoginViewController: UIViewController {
         
         if text.isEmpty {
             signUpView.passwordValidLabel.text = "Password cannot be empty!"
-        } else if isPasswordValid(text) && password1 == password2 {
+        } else if UserHelper.isPasswordValid(text) && password1 == password2 {
             passwordValid = true
             signUpView.passwordValidLabel.text = "✓ Valid"
         } else if password2.isEmpty {
@@ -236,31 +227,5 @@ class RegisterandLoginViewController: UIViewController {
         
     }
     
-    func isValidEmailAddress(emailAddressString: String) -> Bool {
-        
-        var returnValue = true
-        let emailRegEx = "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}"
-        
-        do {
-            let regex = try NSRegularExpression(pattern: emailRegEx)
-            let nsString = emailAddressString as NSString
-            let results = regex.matches(in: emailAddressString, range: NSRange(location: 0, length: nsString.length))
-            
-            if results.count == 0 {
-                returnValue = false
-            }
-            
-        } catch let error as NSError {
-            print("invalid regex: \(error.localizedDescription)")
-            returnValue = false
-        }
-        
-        return  returnValue
-    }
-    
-    func isPasswordValid(_ password : String) -> Bool{
-        let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,}$")
-        return passwordTest.evaluate(with: password)
-    }
 }
 
