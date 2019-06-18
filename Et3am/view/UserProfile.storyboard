@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G22010" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zxw-Tr-Frp">
-    <device id="ipad9_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -203,24 +203,24 @@
             <objects>
                 <tableViewController storyboardIdentifier="userProfileID" id="Zxw-Tr-Frp" customClass="UserProfileViewController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="i3e-aZ-nXr">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection id="n43-Bu-t4P" userLabel="Username &amp; Image">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="170" id="02a-Vt-HkB">
-                                        <rect key="frame" x="0.0" y="35" width="768" height="170"/>
+                                        <rect key="frame" x="0.0" y="35" width="414" height="170"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="02a-Vt-HkB" id="6fi-aw-09j">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="169"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="169"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="d8P-wc-8Zt">
-                                                    <rect key="frame" x="8" y="8" width="752" height="157.5"/>
+                                                    <rect key="frame" x="8" y="8" width="398" height="157"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userProfile" translatesAutoresizingMaskIntoConstraints="NO" id="Qbc-sF-kbL">
-                                                            <rect key="frame" x="326" y="0.0" width="100" height="100"/>
+                                                            <rect key="frame" x="149" y="0.0" width="100" height="100"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="Qbc-sF-kbL" secondAttribute="height" multiplier="1:1" id="Ff4-3A-ySu"/>
                                                                 <constraint firstAttribute="width" constant="100" id="PC5-Zf-WvC"/>

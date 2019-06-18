@@ -7,40 +7,49 @@
 //
 
 import UIKit
-
+import SDWebImage
+import SVProgressHUD
 class RecievedViewController: UIViewController {
   var coupounDao = CouponDao()
     var usedCouponsCount = 0
     var usedDateArray:NSArray = []
-    var restaurantNameArray:NSArray = []
-     var barCodeArray:NSArray = []
+    var restaurantArray = [Restaurant]()
+    var barCodeArray:NSArray = []
     
     @IBOutlet weak var CouponCollectioonView: UICollectionView!
    fileprivate let CouponCellIdentifier = "CouponCollectionViewCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         CouponCollectioonView.delegate = self
         CouponCollectioonView.dataSource = self
         CouponCollectioonView.register(UINib.init(nibName: CouponCellIdentifier, bundle: nil), forCellWithReuseIdentifier: CouponCellIdentifier)
-     
+        let noCouponsLabel = UILabel()
+        noCouponsLabel.center = view.center
+        noCouponsLabel.text = "There are not used Coupons yet....."
+        noCouponsLabel.textColor = #colorLiteral(red: 0.9334495664, green: 0.3899522722, blue: 0.2985906601, alpha: 1)
+        view.addSubview(noCouponsLabel)
+        SVProgressHUD.show()
         coupounDao.getReceivedCoupons(completionHandler: {
-            useDate,restaurantName,barCode,code in
-            self.usedCouponsCount = useDate.count
-            
-            
-              
+            useDate,restaurantArray,barCode,code in
+            SVProgressHUD.dismiss()
+            switch code
+            {
+            case .success(1):
+                self.usedCouponsCount = useDate.count
                 self.usedDateArray = useDate
-         
-             self.restaurantNameArray = restaurantName
-              self.barCodeArray = barCode
-      
-        
-          
+                self.restaurantArray = restaurantArray
+                self.barCodeArray = barCode
+                 noCouponsLabel.isHidden = false
+                self.CouponCollectioonView.reloadData()
+            case .success(0):
+                self.CouponCollectioonView.backgroundView = noCouponsLabel
+                break
+                default:
+                break
+
+            }
             
-            self.CouponCollectioonView.reloadData()
-           
         })
         
     }
@@ -52,20 +61,18 @@ class RecievedViewController: UIViewController {
         }
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = CouponCollectioonView.dequeueReusableCell(withReuseIdentifier: CouponCellIdentifier, for: indexPath) as! CouponCollectionViewCell
-          
-        
-            let dateFormatter = DateFormatter()
+           let dateFormatter = DateFormatter()
             dateFormatter.timeStyle = DateFormatter.Style.medium //Set time style
             dateFormatter.dateStyle = DateFormatter.Style.medium //Set date style
-          
             let localDate = dateFormatter.string(from: NSDate(timeIntervalSince1970:self.usedDateArray[indexPath.row] as! TimeInterval) as Date)
-            print(localDate)
-                   cell.useDate.text! = String(describing: localDate)
-                cell.couponBarCode.text! = String(describing: self.barCodeArray[indexPath.row])
-            
-             cell.restaurantName.text! = String(describing: self.restaurantNameArray[indexPath.row])
-            
-            
+           cell.useDate.text! = String(describing: localDate)
+           cell.couponBarCode.text! =  String(describing: self.barCodeArray[indexPath.row])+"*********"
+           let currentRestaurant = self.restaurantArray[indexPath.row]
+         cell.restaurantName.text! = currentRestaurant.restaurantName!
+          let path = "https://maps.googleapis.com/maps/api/staticmap?size=500x250"+"&markers=color:redlabel:E"+"\(currentRestaurant.latitude!),\(currentRestaurant.longitude!)&key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM"
+            cell.restaurantLoation.sd_setShowActivityIndicatorView(true)
+            cell.restaurantLoation.sd_setIndicatorStyle(.gray)
+            cell.restaurantLoation.sd_setImage(with: URL(string: path)!, completed: nil)
             return cell
         }
     }

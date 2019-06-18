@@ -115,7 +115,7 @@ class RegisterandLoginViewController: UIViewController {
             self.signInView.valdiatelabel.text = "Password is required!"
             return
         }
-
+        
         SVProgressHUD.show()
         signInButton.isEnabled = false
         

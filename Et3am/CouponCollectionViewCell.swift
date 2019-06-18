@@ -10,6 +10,7 @@ import UIKit
 
 class CouponCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var restaurantLoation: UIImageView!
     @IBOutlet weak var couponBarCode: UILabel!
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var useDate: UILabel!

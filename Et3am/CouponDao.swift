@@ -8,62 +8,58 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
-class CouponDao
-{
-    public func getReceivedCoupons(completionHandler:@escaping (NSArray,NSArray,NSArray,Int)->Void)
-        
-    {
+class CouponDao {
+    
+    public func getReceivedCoupons(completionHandler:@escaping (NSMutableArray, [Restaurant], NSMutableArray,APIResponse) -> Void) {
+        let couponBarcode:NSMutableArray = []
+        let useDate:NSMutableArray = []
+        var restaurantObject = Restaurant()
+        var restaurantArray = [Restaurant]()
         var urlComponents = URLComponents(string: Et3amAPI.baseCouponUrlString+CouponURLQueries.used_coupon.rawValue)
-        urlComponents?.queryItems = [URLQueryItem(name: "userId", value:
-           "0db77343-e323-4ec1-9896-6c9853d30f5d")]
+        //0db77343-e323-4ec1-9896-6c9853d30f5d
+        urlComponents?.queryItems = [URLQueryItem(name: "userId", value:UserDao.shared.userDefaults.string(forKey: "userId"))]
         print(urlComponents!)
-        Alamofire.request(urlComponents!).validate().responseJSON{ response in
+        Alamofire.request(urlComponents!).validate(statusCode: 200..<500).responseJSON
+            { response in
             switch response.result {
             case .success:
-                let sucessDataValue = response.result.value
-                let returnedData = sucessDataValue as! NSDictionary
-               
-                let codeDataDictionary:Int =  returnedData.value(forKey: "code")! as! Int
-                
-                switch codeDataDictionary
-                {
-                case 1:
-                  
-                 
-                    let couponDataDictionary:NSArray =  returnedData.value(forKey: "Coupons")! as! NSArray
-                    let restaurants =  couponDataDictionary.value(forKey: "restaurants") as! NSArray
-                  
-                    let userReserveCoupon =  couponDataDictionary.value(forKey: "userReserveCoupon") as! NSArray
-                    let coupons =  userReserveCoupon.value(forKey: "coupons") as! NSArray
-                    
-                    
-                   
-                  let useDate =  couponDataDictionary.value(forKey: "useDate")
-                        let restaurantName =  restaurants.value(forKey: "restaurantName")
-            
-                        let couponBarcode =  coupons.value(forKey: "couponBarcode")
-                    
-                    completionHandler(useDate as! NSArray,restaurantName as! NSArray,couponBarcode as! NSArray,codeDataDictionary)
-                    
-                    
-                case 0:
-                  
-                    completionHandler([],[],[],codeDataDictionary)
-                default:
-                    break
+                guard let responseValue = response.result.value else {
+                    return
                 }
-                
+                let json = JSON(responseValue)
+                let codeDataDictionary:Int =  json["code"].int ?? 0
+                if(codeDataDictionary == 1)
+                    {
+                   guard let couponDataDictionary = json["Coupons"].array else
+                   {
+                    return
+                   }
+                      for i in 0 ..< couponDataDictionary.count
+                      {
+                       let restaurantsJson = couponDataDictionary[i]["restaurants"]
+                       restaurantObject.restaurantName = restaurantsJson["restaurantName"].string
+                       restaurantObject.latitude = restaurantsJson["latitude"].double
+                       restaurantObject.longitude = restaurantsJson["longitude"].double
+                       restaurantArray.append(restaurantObject)
+                        let barcode = couponDataDictionary[i]["userReserveCoupon"]["coupons"]["couponBarcode"].string
+                        couponBarcode[i] = barcode?.substring(to:(barcode?.index((barcode?.startIndex)!, offsetBy: 3))!)
+                       useDate[i] =  couponDataDictionary[i]["useDate"].double
+                        }
+                }
+                  completionHandler(useDate ,restaurantArray ,couponBarcode ,.success(codeDataDictionary))
             case .failure(let error):
-          
+                
                 print(error.localizedDescription)
-               
+                completionHandler([],[],[],.failure(error))
             }
             
-        }
-
+            
         }
         
+    }
+    
     
     public func addCoupon(value_50:String,value_100:String,value_200:String,completionHandler:@escaping (String)->Void) {/*UserDefaults.standard.string(forKey: "user_id"))*/
         var couponDonate : String = ""
