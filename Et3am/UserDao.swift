@@ -66,7 +66,7 @@ class UserDao{
         
         var urlComponents = URLComponents(string: Et3amAPI.baseUserUrlString + UserURLQueries.validateName.rawValue)
         
-        urlComponents?.queryItems = [URLQueryItem(name: UserURLQueries.stringParam.rawValue, value: username)]
+        urlComponents?.queryItems = [URLQueryItem(name: QueryItems.stringParam.rawValue, value: username)]
         
         let url = urlComponents?.url
         
@@ -90,7 +90,7 @@ class UserDao{
         
         var urlComponents = URLComponents(string: Et3amAPI.baseUserUrlString + UserURLQueries.validateEmail.rawValue)
         
-        urlComponents?.queryItems = [URLQueryItem(name: UserURLQueries.stringParam.rawValue, value: email)]
+        urlComponents?.queryItems = [URLQueryItem(name: QueryItems.stringParam.rawValue, value: email)]
         
         let url = urlComponents?.url
         
@@ -121,11 +121,67 @@ class UserDao{
         }
     }
     
+    func updateUserPassword(oldPass: String, newPass: String, completionHandler: @escaping (Int) -> Void ) {
+        
+        var url = URLComponents(string: UserURLQueries.updatePassword.getUrl())
+        
+        url?.queryItems = [URLQueryItem(name: ChangePassword.oldPassword.rawValue, value: oldPass), URLQueryItem(name: ChangePassword.newPassword.rawValue, value: newPass)]
+        
+        Alamofire.request(url!, method: .put).responseJSON { (response) in
+            
+            switch response.result {
+            case .success(let value):
+                print(value)
+                let json = JSON(value)
+                if let code = json["status"].int {
+                    completionHandler(code)
+                } else {
+                    completionHandler(0)
+                }
+                
+            case .failure(let error):
+                print(error)
+                completionHandler(0)
+            }
+        }
+    }
+    
+    func getUserData(completionHandler: @escaping (Int) -> Void) {
+        
+        Alamofire.request(UserURLQueries.getUser.getUrl()).responseJSON { (response) in
+            
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                
+                print(json)
+                
+                guard let code = json["status"].int else {
+                    print("Status doesn't exist!")
+                    return
+                }
+                
+                if code == 1 {
+                    self.user = UserHelper.parseUser(json: json["user"])
+                    
+                    self.addToUserDefaults(self.user)
+                }
+                
+                completionHandler(code)
+                
+            case .failure(let error):
+                print(error)
+                completionHandler(0)
+            }
+        }
+        
+    }
+    
     func validateLogin(userEmail:String, password:String, completionHandler:@escaping (APIResponse)->Void) {
         
         var urlComponents = URLComponents(string: Et3amAPI.baseUserUrlString + UserURLQueries.loginValidation.rawValue)
         
-        urlComponents?.queryItems = [URLQueryItem(name: UserURLQueries.emailQuery.rawValue, value:userEmail), URLQueryItem(name: UserURLQueries.passwordQuery.rawValue, value:password)]
+        urlComponents?.queryItems = [URLQueryItem(name: QueryItems.emailQuery.rawValue, value:userEmail), URLQueryItem(name: QueryItems.passwordQuery.rawValue, value:password)]
         
         Alamofire.request((urlComponents?.url!)!).validate(statusCode: 200..<500).responseJSON{
             response in

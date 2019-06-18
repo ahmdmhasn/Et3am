@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-
+import SVProgressHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        // Disable user interactions in SVProgressHUD
+        SVProgressHUD.setDefaultMaskType(.clear)
         
         // Get user defaults path
         print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true))

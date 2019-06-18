@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 enum UserURLQueries:String {
     case add = "/add"
     case list = "/list"
@@ -14,10 +15,40 @@ enum UserURLQueries:String {
     case validateName="/validate/userName"
     case loginValidation = "/validate/login"
     case update = "/update"
+    case updatePassword = "/update/password"
+    case getUser = "/u"
+    
+    func getUrl() -> String {
+        
+        let baseUrl = "https://et3am.herokuapp.com"
+        let baseUserUrl = "\(baseUrl)/user\(self.rawValue)/"
+        
+        guard let userID = UserDao.shared.user.userID else {
+            fatalError("User ID cannot be nil")
+        }
+        
+        switch self {
+        case .updatePassword:
+            return baseUserUrl + userID
+        case .getUser:
+            return baseUserUrl + userID
+        default:
+            return ""
+        }
+    }
+}
+
+enum QueryItems: String {
     case emailQuery = "email"
     case passwordQuery = "password"
     case stringParam = "string"
 }
+
+enum ChangePassword: String {
+    case oldPassword = "oldPass"
+    case newPassword = "newPass"
+}
+
 enum CouponURLQueries:String {
     case add = "/add"
     case user_idQuery = "user_id"
@@ -37,7 +68,5 @@ struct Et3amAPI {
     static let baseUserUrlString = "\(baseUrlString)/user"
     static let baseCouponUrlString = "\(baseUrlString)/coupon"
     static let baseRestaurantUrlString = "\(baseUrlString)/restaurant/"
-    
-    
 }
 

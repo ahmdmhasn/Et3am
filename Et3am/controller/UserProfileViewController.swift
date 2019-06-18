@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import SDWebImage
 
 enum UserProfileSections: Int {
     case profile, coupons, settings, nationalID, logout
@@ -18,11 +19,7 @@ enum CouponsSection: Int {
 }
 
 enum SettingsSection: Int {
-    case emailAddress, mobileNumber, job, changePassword
-}
-
-enum AlertSwitcher {
-    case mobileNumber, job
+    case emailAddress, profile, changePassword
 }
 
 class UserProfileViewController: UITableViewController {
@@ -34,22 +31,38 @@ class UserProfileViewController: UITableViewController {
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var userIDLabel: UILabel!
-    @IBOutlet weak var userMobileNumberLabel: UILabel!
-    @IBOutlet weak var userJobLabel: UILabel!
     @IBOutlet weak var isVerifiedLabel: UILabel!
     @IBOutlet weak var userEmailLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        updateUI()
+        
+        getUserData()
+    }
+    
+    func updateUI() {
         isVerifiedLabel.isHidden = !(userDao.user.verified ?? false)
-//        userImageView.image = userDao.user.profileImage
         usernameLabel.text = userDao.user.userName ?? ""
         userIDLabel.text = userDao.user.nationalID ?? ""
-        userMobileNumberLabel.text = userDao.user.mobileNumber ?? ""
-        userJobLabel.text = userDao.user.job ?? ""
-        userEmailLabel.text = userDao.user.email ?? ""
         
+        userImageView.layer.cornerRadius = userImageView.frame.width / 2
+        userImageView.layer.masksToBounds = true
+        
+        if let image = userDao.user.profileImage, !image.isEmpty {
+            userImageView.sd_setShowActivityIndicatorView(true)
+            userImageView.sd_setIndicatorStyle(.gray)
+            userImageView.sd_setImage(with: URL(string: ImageAPI.getImage(type: .profile_r250, publicId: image)), completed: nil)
+        }
+    }
+    
+    func getUserData() {
+        userDao.getUserData { (result) in
+            DispatchQueue.main.async {
+                self.updateUI()
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -81,36 +94,30 @@ extension UserProfileViewController {
         switch section {
         case .emailAddress:
             break
-        case .mobileNumber:
-            showInputAlert(type: .mobileNumber)
-        case .job:
-            showInputAlert(type: .job)
-        case .changePassword:
+        case .profile:
             break
+        case .changePassword:
+            showPasswordInputAlert()
         }
     }
     
-    func showInputAlert(type: AlertSwitcher) {
-        var title: String?
-        var message: String?
-        switch type {
-        case .mobileNumber:
-            title = "Change Mobile Number"
-            message = "Kindly add your mobile number. Only you can see this."
-        case .job:
-            title = "Change Job"
-            message = "Kindly add your current job. Only you can see this."
-        }
+    func showPasswordInputAlert() {
+        let title = "Change Password"
+        let message = "Enter your current password to proceed"
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let saveAction = UIAlertAction(title: "Save", style: .default, handler: { _ in
+        let saveAction = UIAlertAction(title: "Proceed", style: .default, handler: { _ in
+            
             let textField = alertController.textFields![0]
-            print(textField.text ?? "")
-            switch type {
-            case .mobileNumber:
-                print(type)
-            case .job:
-                print(type)
+
+            guard let text = textField.text else {
+                return
+            }
+            
+            if text == self.userDao.user.password {
+                self.performSegue(withIdentifier: "showChangePassword", sender: self)
+            } else {
+                SVProgressHUD.showError(withStatus: "Wrong password", maskType: .clear)
             }
             
         })
