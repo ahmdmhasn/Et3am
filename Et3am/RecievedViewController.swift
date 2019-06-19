@@ -10,14 +10,14 @@ import UIKit
 import SDWebImage
 import SVProgressHUD
 class RecievedViewController: UIViewController {
-  var coupounDao = CouponDao()
+    var coupounDao = CouponDao()
     var usedCouponsCount = 0
     var usedDateArray:NSArray = []
     var restaurantArray = [Restaurant]()
     var barCodeArray:NSArray = []
     
     @IBOutlet weak var CouponCollectioonView: UICollectionView!
-   fileprivate let CouponCellIdentifier = "CouponCollectionViewCell"
+    fileprivate let CouponCellIdentifier = "CouponCollectionViewCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +26,9 @@ class RecievedViewController: UIViewController {
         CouponCollectioonView.register(UINib.init(nibName: CouponCellIdentifier, bundle: nil), forCellWithReuseIdentifier: CouponCellIdentifier)
         let noCouponsLabel = UILabel()
         noCouponsLabel.center = view.center
-        noCouponsLabel.text = "There are not used Coupons yet....."
-        noCouponsLabel.textColor = #colorLiteral(red: 0.9334495664, green: 0.3899522722, blue: 0.2985906601, alpha: 1)
+        noCouponsLabel.text = "You don't have any used coupon."
+        noCouponsLabel.textAlignment = .center
+        noCouponsLabel.textColor = #colorLiteral(red: 0.4078193307, green: 0.4078193307, blue: 0.4078193307, alpha: 1)
         view.addSubview(noCouponsLabel)
         SVProgressHUD.show()
         coupounDao.getReceivedCoupons(completionHandler: {
@@ -40,49 +41,49 @@ class RecievedViewController: UIViewController {
                 self.usedDateArray = useDate
                 self.restaurantArray = restaurantArray
                 self.barCodeArray = barCode
-                 noCouponsLabel.isHidden = false
+                noCouponsLabel.isHidden = false
                 self.CouponCollectioonView.reloadData()
             case .success(0):
                 self.CouponCollectioonView.backgroundView = noCouponsLabel
                 break
-                default:
+            default:
                 break
-
+                
             }
             
         })
         
     }
 }
-    extension RecievedViewController : UICollectionViewDataSource
-    {
-        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return self.usedCouponsCount
-        }
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = CouponCollectioonView.dequeueReusableCell(withReuseIdentifier: CouponCellIdentifier, for: indexPath) as! CouponCollectionViewCell
-           let dateFormatter = DateFormatter()
-            dateFormatter.timeStyle = DateFormatter.Style.medium //Set time style
-            dateFormatter.dateStyle = DateFormatter.Style.medium //Set date style
-            let localDate = dateFormatter.string(from: NSDate(timeIntervalSince1970:self.usedDateArray[indexPath.row] as! TimeInterval) as Date)
-           cell.useDate.text! = String(describing: localDate)
-           cell.couponBarCode.text! =  String(describing: self.barCodeArray[indexPath.row])+"*********"
-           let currentRestaurant = self.restaurantArray[indexPath.row]
-         cell.restaurantName.text! = currentRestaurant.restaurantName!
-          let path = "https://maps.googleapis.com/maps/api/staticmap?size=500x250"+"&markers=color:redlabel:E"+"\(currentRestaurant.latitude!),\(currentRestaurant.longitude!)&key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM"
-            cell.restaurantLoation.sd_setShowActivityIndicatorView(true)
-            cell.restaurantLoation.sd_setIndicatorStyle(.gray)
-            cell.restaurantLoation.sd_setImage(with: URL(string: path)!, completed: nil)
-            return cell
-        }
+extension RecievedViewController : UICollectionViewDataSource
+{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.usedCouponsCount
     }
-    extension RecievedViewController: UICollectionViewDelegateFlowLayout
-
-    {
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            let ScreenWidth = UIScreen.main.bounds.width
-            let ItemWidth = ScreenWidth-50
-            return CGSize.init(width: ItemWidth, height: ItemWidth/2)
-        }
-        }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = CouponCollectioonView.dequeueReusableCell(withReuseIdentifier: CouponCellIdentifier, for: indexPath) as! CouponCollectionViewCell
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = DateFormatter.Style.medium //Set time style
+        dateFormatter.dateStyle = DateFormatter.Style.medium //Set date style
+        let localDate = dateFormatter.string(from: NSDate(timeIntervalSince1970:self.usedDateArray[indexPath.row] as! TimeInterval) as Date)
+        cell.useDate.text! = String(describing: localDate)
+        cell.couponBarCode.text! =  String(describing: self.barCodeArray[indexPath.row])+"*********"
+        let currentRestaurant = self.restaurantArray[indexPath.row]
+        cell.restaurantName.text! = currentRestaurant.restaurantName!
+        let path = "https://maps.googleapis.com/maps/api/staticmap?size=500x250"+"&markers=color:redlabel:E"+"\(currentRestaurant.latitude!),\(currentRestaurant.longitude!)&key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM"
+        cell.restaurantLoation.sd_setShowActivityIndicatorView(true)
+        cell.restaurantLoation.sd_setIndicatorStyle(.gray)
+        cell.restaurantLoation.sd_setImage(with: URL(string: path)!, completed: nil)
+        return cell
+    }
+}
+extension RecievedViewController: UICollectionViewDelegateFlowLayout
     
+{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let ScreenWidth = UIScreen.main.bounds.width
+        let ItemWidth = ScreenWidth-50
+        return CGSize.init(width: ItemWidth, height: ItemWidth/2)
+    }
+}
+
