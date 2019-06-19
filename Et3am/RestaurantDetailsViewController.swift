@@ -13,7 +13,10 @@ class RestaurantDetailsViewController: UIViewController {
     var getMealsFinished:Bool = false
     var getRestaurantDetails:Bool = false
     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
-
+    
+    
+    
+    
     private func showLoadingActivityIndicator(){
         
         activityIndicator.center = self.view.center
@@ -37,6 +40,7 @@ class RestaurantDetailsViewController: UIViewController {
     
     @IBAction func getFreeCoupon(_ sender: Any) {
         
+        
          }
     var restaurantName :String = ""
     var restaurantCountry :String = ""
@@ -47,9 +51,14 @@ class RestaurantDetailsViewController: UIViewController {
     
     var restuarantObj = Restaurant()
     
+    
+    
     var mealsArray:Array<Meal> = []
     override func viewDidLoad() {
         super.viewDidLoad()
+//        restuarantObj.city = ""
+//        restuarantObj.restaurantName = ""
+//        restuarantObj.country = ""
         self.showLoadingActivityIndicator()
 
         
@@ -58,24 +67,24 @@ class RestaurantDetailsViewController: UIViewController {
         
         
         let restaurantDao:RestaurantDao = RestaurantDao.sharedRestaurantObject
-        let restaurantUrl:String = "\(Et3amAPI.baseRestaurantUrlString)\(RestaurantQueries.rest)/1"
-        let mealsUrl:String  = "\(Et3amAPI.baseRestaurantUrlString)1/\(RestaurantQueries.meals)"
+        //let restaurantUrl:String = "\(Et3amAPI.baseRestaurantUrlString)\(RestaurantQueries.rest)/1"
+        let mealsUrl:String  = "\(Et3amAPI.baseRestaurantUrlString)\(restuarantObj.restaurantID)/\(RestaurantQueries.meals)"
         
         print(mealsUrl)
-        restaurantDao.fetchJsonForRestaurant(typeURL: restaurantUrl, handler: {restuarant in
-            
-            
-            DispatchQueue.main.async {
-                self.restaurantName = restuarant.restaurantName!
-                self.restaurantCountry =  restuarant.country!
-                self.restaurantCity = restuarant.city!
-                //self.hideLoadingActivityIndicator()
-                self.getRestaurantDetails = true
-                if self.getRestaurantDetails == true && self.getMealsFinished == true {
-                    self.hideLoadingActivityIndicator()
-                }
-                            }
-                   })
+//        restaurantDao.fetchJsonForRestaurant(typeURL: restaurantUrl, handler: {restuarant in
+//            
+//            
+//            DispatchQueue.main.async {
+//                self.restuarantObj.restaurantName = restuarant.restaurantName!
+//                self.restuarantObj.country =  restuarant.country!
+//                self.restuarantObj.city = restuarant.city!
+//                //self.hideLoadingActivityIndicator()
+//                self.getRestaurantDetails = true
+//                if self.getRestaurantDetails == true && self.getMealsFinished == true {
+//                    self.hideLoadingActivityIndicator()
+//                }
+//                            }
+//                   })
         
         restaurantDao.fetchJsonForMeals(typeURL: mealsUrl) { fetchedArray in
               

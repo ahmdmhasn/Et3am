@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 import SVProgressHUD
 class RecievedViewController: UIViewController {
-    var coupounDao = CouponDao()
+    var coupounDao = CouponDao.shared
     var usedCouponsCount = 0
     var usedDateArray:NSArray = []
     var restaurantArray = [Restaurant]()

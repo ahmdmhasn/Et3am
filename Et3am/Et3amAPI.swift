@@ -56,6 +56,26 @@ enum CouponURLQueries:String {
     case value_100Query = "value_100"
     case value_200Query = "value_200"
     case used_coupon = "/user_used_coupon"
+    case getFreeCoupon = "/get_free_coupon?user_id="
+    
+    func getUrl() -> String {
+        
+        var baseUrl: String {
+            return Et3amAPI.baseCouponUrlString
+        }
+        
+        guard let userID = UserDao.shared.user.userID else {
+            fatalError("User ID cannot be nil")
+        }
+        
+        switch self {
+        case .getFreeCoupon:
+            return baseUrl + userID
+        default:
+            return ""
+        }
+    }
+
 }
 
 enum RestaurantQueries:String {
