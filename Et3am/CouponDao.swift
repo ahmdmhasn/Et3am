@@ -18,8 +18,8 @@ class CouponDao {
         var restaurantObject = Restaurant()
         var restaurantArray = [Restaurant]()
         var urlComponents = URLComponents(string: Et3amAPI.baseCouponUrlString+CouponURLQueries.used_coupon.rawValue)
-        //0db77343-e323-4ec1-9896-6c9853d30f5d
-        urlComponents?.queryItems = [URLQueryItem(name: "userId", value:UserDao.shared.userDefaults.string(forKey: "userId"))]
+        //UserDao.shared.userDefaults.string(forKey: "userId")
+        urlComponents?.queryItems = [URLQueryItem(name: "userId", value:"0db77343-e323-4ec1-9896-6c9853d30f5d")]
         print(urlComponents!)
         Alamofire.request(urlComponents!).validate(statusCode: 200..<500).responseJSON
             { response in
@@ -44,8 +44,8 @@ class CouponDao {
                        restaurantObject.longitude = restaurantsJson["longitude"].double
                        restaurantArray.append(restaurantObject)
                         let barcode = couponDataDictionary[i]["userReserveCoupon"]["coupons"]["couponBarcode"].string
-                        couponBarcode[i] = barcode?.substring(to:(barcode?.index((barcode?.startIndex)!, offsetBy: 3))!)
-                       useDate[i] =  couponDataDictionary[i]["useDate"].double
+                        couponBarcode[i] = barcode?.substring(to:(barcode?.index((barcode?.startIndex)!, offsetBy: 3))!) ?? 0
+                       useDate[i] =  couponDataDictionary[i]["useDate"].double ?? 0
                         }
                 }
                   completionHandler(useDate ,restaurantArray ,couponBarcode ,.success(codeDataDictionary))
