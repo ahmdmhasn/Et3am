@@ -9,7 +9,7 @@
 import Foundation
 
 
-class User {
+struct User {
     
     var userID: String?
     var userName: String?

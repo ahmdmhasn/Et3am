@@ -10,7 +10,8 @@ import UIKit
 
 class DonateViewController: UITableViewController {
     
-    var coupounDao = CouponDao()
+    var coupounDao = CouponDao.shared
+    
     @IBOutlet weak var countOfValue_50Label: UILabel!
     @IBOutlet weak var countOfValue_100Label: UILabel!
     @IBOutlet weak var countOfValue_200Label: UILabel!
@@ -45,6 +46,8 @@ class DonateViewController: UITableViewController {
     }
     
     @IBAction func DonateButton(_ sender: UIBarButtonItem) {
+        print(countOfValue_100Label.text!)
+        
         coupounDao.addCoupon(value_50: countOfValue_50Label.text! , value_100: countOfValue_100Label.text!, value_200: countOfValue_200Label.text!, completionHandler: {couponDonate in
             print(couponDonate)
             if couponDonate == "coupon is donated" {
@@ -61,11 +64,14 @@ class DonateViewController: UITableViewController {
 //                    ,"200":  Int(self.countOfValue_200Label.text!)!]
 //                self.navigationController?.pushViewController(CuoponsTabBarController!, animated: false)
             } else {
-                self.showAlert(message: "you are not connected", title:"")
-                
+                self.showAlert(message: "Connection error. Please try again later.", title:"")
             }
             
         })
         
+    }
+    
+    @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
     }
 }

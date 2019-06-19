@@ -22,22 +22,27 @@ class UserDao{
     let userDefaults = UserDefaults.standard
     
     private init() {
-        
+        self.user = getUserFromUserDefaults()
     }
     
-    var user = User()
+    var user = User() {
+        didSet {
+            print("did set called")
+            addToUserDefaults(self.user)
+        }
+    }
     
     public  func addUser(parameters : [String:String], completionHandler:@escaping (Bool) -> Void) {
         
         var isRegistered:Bool = false
-        Alamofire.request(Et3amAPI.baseUserUrlString+UserURLQueries.add.rawValue, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON {
+        Alamofire.request(Et3amAPI.baseUserUrlString + UserURLQueries.add.rawValue, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON {
             response in
             
             switch response.result {
             case .success(let value):
                 
                 print(value)
-
+                
                 let json = JSON(value)
                 guard let code = json["status"].int else {
                     return
@@ -58,7 +63,7 @@ class UserDao{
             }
             
             completionHandler(isRegistered)
-
+            
         }
     }
     
@@ -66,7 +71,7 @@ class UserDao{
         
         var urlComponents = URLComponents(string: Et3amAPI.baseUserUrlString + UserURLQueries.validateName.rawValue)
         
-        urlComponents?.queryItems = [URLQueryItem(name: UserURLQueries.stringParam.rawValue, value: username)]
+        urlComponents?.queryItems = [URLQueryItem(name: QueryItems.stringParam.rawValue, value: username)]
         
         let url = urlComponents?.url
         
@@ -90,7 +95,7 @@ class UserDao{
         
         var urlComponents = URLComponents(string: Et3amAPI.baseUserUrlString + UserURLQueries.validateEmail.rawValue)
         
-        urlComponents?.queryItems = [URLQueryItem(name: UserURLQueries.stringParam.rawValue, value: email)]
+        urlComponents?.queryItems = [URLQueryItem(name: QueryItems.stringParam.rawValue, value: email)]
         
         let url = urlComponents?.url
         
@@ -121,11 +126,67 @@ class UserDao{
         }
     }
     
+    func updateUserPassword(oldPass: String, newPass: String, completionHandler: @escaping (Int) -> Void ) {
+        
+        var url = URLComponents(string: UserURLQueries.updatePassword.getUrl())
+        
+        url?.queryItems = [URLQueryItem(name: ChangePassword.oldPassword.rawValue, value: oldPass), URLQueryItem(name: ChangePassword.newPassword.rawValue, value: newPass)]
+        
+        Alamofire.request(url!, method: .put).responseJSON { (response) in
+            
+            switch response.result {
+            case .success(let value):
+                print(value)
+                let json = JSON(value)
+                if let code = json["status"].int {
+                    completionHandler(code)
+                } else {
+                    completionHandler(0)
+                }
+                
+            case .failure(let error):
+                print(error)
+                completionHandler(0)
+            }
+        }
+    }
+    
+    func getUserData(completionHandler: @escaping (Int) -> Void) {
+        
+        Alamofire.request(UserURLQueries.getUser.getUrl()).responseJSON { (response) in
+            
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                
+                print(json)
+                
+                guard let code = json["status"].int else {
+                    print("Status doesn't exist!")
+                    return
+                }
+                
+                if code == 1 {
+                    self.user = UserHelper.parseUser(json: json["user"])
+                    
+                    self.addToUserDefaults(self.user)
+                }
+                
+                completionHandler(code)
+                
+            case .failure(let error):
+                print(error)
+                completionHandler(0)
+            }
+        }
+        
+    }
+    
     func validateLogin(userEmail:String, password:String, completionHandler:@escaping (APIResponse)->Void) {
         
-        var urlComponents = URLComponents(string: Et3amAPI.baseUserUrlString+UserURLQueries.loginValidation.rawValue)
+        var urlComponents = URLComponents(string: Et3amAPI.baseUserUrlString + UserURLQueries.loginValidation.rawValue)
         
-        urlComponents?.queryItems = [URLQueryItem(name: UserURLQueries.emailQuery.rawValue, value:userEmail), URLQueryItem(name: UserURLQueries.passwordQuery.rawValue, value:password)]
+        urlComponents?.queryItems = [URLQueryItem(name: QueryItems.emailQuery.rawValue, value:userEmail), URLQueryItem(name: QueryItems.passwordQuery.rawValue, value:password)]
         
         Alamofire.request((urlComponents?.url!)!).validate(statusCode: 200..<500).responseJSON{
             response in
@@ -184,6 +245,27 @@ class UserDao{
         userDefaults.set(user.nationalID_Front, forKey: UserProperties.nationalIdFront.rawValue)
         userDefaults.set(user.nationalID_Back, forKey: UserProperties.nationalIdBack.rawValue)
         userDefaults.set(user.birthdate, forKey: UserProperties.birthdate.rawValue)
+    }
+    
+    func getUserFromUserDefaults() -> User {
+        var user = User()
+        
+        user.userID = userDefaults.object(forKey: UserProperties.userId.rawValue) as? String
+        user.userName = userDefaults.object(forKey: UserProperties.userName.rawValue) as? String
+        user.email = userDefaults.object(forKey: UserProperties.userEmail.rawValue) as? String
+        user.password = userDefaults.object(forKey: UserProperties.password.rawValue) as? String
+        user.verified = userDefaults.object(forKey: UserProperties.verified.rawValue) as? Bool
+        user.userStatus = userDefaults.object(forKey: UserProperties.userStatus.rawValue) as? Bool
+        
+        user.mobileNumber = userDefaults.object(forKey: UserProperties.mobileNumber.rawValue) as? String
+        user.profileImage = userDefaults.object(forKey: UserProperties.profileImage.rawValue) as? String
+        user.nationalID = userDefaults.object(forKey: UserProperties.nationalIdFront.rawValue) as? String
+        user.job = userDefaults.object(forKey: UserProperties.job.rawValue) as? String
+        user.nationalID_Front = userDefaults.object(forKey: UserProperties.nationalIdFront.rawValue) as? String
+        user.nationalID_Back = userDefaults.object(forKey: UserProperties.nationalIdBack.rawValue) as? String
+        user.birthdate = userDefaults.object(forKey: UserProperties.birthdate.rawValue) as? Date
+        
+        return user
     }
     
     func removeUserFromUserDefaults() {
