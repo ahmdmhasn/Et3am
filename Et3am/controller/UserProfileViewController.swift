@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import SDWebImage
 
 enum UserProfileSections: Int {
     case profile, coupons, settings, nationalID, logout
@@ -18,11 +19,7 @@ enum CouponsSection: Int {
 }
 
 enum SettingsSection: Int {
-    case emailAddress, mobileNumber, job, changePassword
-}
-
-enum AlertSwitcher {
-    case mobileNumber, job
+    case emailAddress, phone, job, changePassword
 }
 
 class UserProfileViewController: UITableViewController {
@@ -34,22 +31,47 @@ class UserProfileViewController: UITableViewController {
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var userIDLabel: UILabel!
-    @IBOutlet weak var userMobileNumberLabel: UILabel!
-    @IBOutlet weak var userJobLabel: UILabel!
     @IBOutlet weak var isVerifiedLabel: UILabel!
     @IBOutlet weak var userEmailLabel: UILabel!
+    @IBOutlet weak var changeImageButton: UIButton!
+    @IBOutlet weak var imageActivityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        updateUI()
+        
+        getUserData()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.didTapOnImageSection()
+        }
+    }
+    
+    func updateUI() {
         isVerifiedLabel.isHidden = !(userDao.user.verified ?? false)
-//        userImageView.image = userDao.user.profileImage
         usernameLabel.text = userDao.user.userName ?? ""
         userIDLabel.text = userDao.user.nationalID ?? ""
-        userMobileNumberLabel.text = userDao.user.mobileNumber ?? ""
-        userJobLabel.text = userDao.user.job ?? ""
         userEmailLabel.text = userDao.user.email ?? ""
         
+        userImageView.layer.cornerRadius = userImageView.frame.width / 2
+        userImageView.layer.masksToBounds = true
+        
+        if let image = userDao.user.profileImage, !image.isEmpty {
+            userImageView.sd_setShowActivityIndicatorView(true)
+            userImageView.sd_setIndicatorStyle(.gray)
+            userImageView.sd_setImage(with: URL(string: ImageAPI.getImage(type: .profile_r250, publicId: image)), completed: nil)
+        }
+    }
+    
+    func getUserData() {
+        DispatchQueue.global().async {
+            self.userDao.getUserData { (result) in
+                DispatchQueue.main.async {
+                    self.updateUI()
+                }
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -57,60 +79,93 @@ class UserProfileViewController: UITableViewController {
         let section = UserProfileSections(rawValue: indexPath.section)!
         switch section {
         case .profile:
-            break
+            didTapOnImageSection()
+            
         case .coupons:
             break
+            
         case .settings:
             getUserSettings(section: SettingsSection(rawValue: indexPath.row)!)
+            
         case .nationalID:
             print("ID")
+            
         case .logout:
             logoutUser()
         }
+    }
+    
+    @IBAction func editPhoneNumber(_ sender: UITextField) {
         
+        if let text = sender.text {
+            userDao.user.mobileNumber = text
+        }
+        
+    }
+    
+    @IBAction func editJob(_ sender: UITextField) {
+
+        if let text = sender.text {
+            userDao.user.job = text
+        }
+    }
+    
+    @IBAction func changeImage(_ sender: UIButton) {
+        
+        let myPickerController = UIImagePickerController()
+        
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            
+            myPickerController.delegate = self
+            myPickerController.sourceType = .savedPhotosAlbum
+            myPickerController.allowsEditing = false
+            
+            present(myPickerController, animated: true, completion: nil)
+        }
+    }
+    
+    
+    func didTapOnImageSection() {
+        
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+            let isHidden = self.changeImageButton.isHidden
+            self.changeImageButton.alpha = (isHidden) ? 1 : 0
+            self.changeImageButton.isHidden = !isHidden
+        }, completion: nil)
     }
     
     
 }
 
-// MARK - Selection Methods
+// MARK: - User Data Methods
 extension UserProfileViewController {
-    
     
     func getUserSettings(section: SettingsSection) {
         switch section {
-        case .emailAddress:
+        case .emailAddress, .phone, .job:
             break
-        case .mobileNumber:
-            showInputAlert(type: .mobileNumber)
-        case .job:
-            showInputAlert(type: .job)
         case .changePassword:
-            break
+            showPasswordInputAlert()
         }
     }
     
-    func showInputAlert(type: AlertSwitcher) {
-        var title: String?
-        var message: String?
-        switch type {
-        case .mobileNumber:
-            title = "Change Mobile Number"
-            message = "Kindly add your mobile number. Only you can see this."
-        case .job:
-            title = "Change Job"
-            message = "Kindly add your current job. Only you can see this."
-        }
+    func showPasswordInputAlert() {
+        let title = "Change Password"
+        let message = "Enter your current password to proceed"
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let saveAction = UIAlertAction(title: "Save", style: .default, handler: { _ in
+        let saveAction = UIAlertAction(title: "Proceed", style: .default, handler: { _ in
+            
             let textField = alertController.textFields![0]
-            print(textField.text ?? "")
-            switch type {
-            case .mobileNumber:
-                print(type)
-            case .job:
-                print(type)
+
+            guard let text = textField.text else {
+                return
+            }
+            
+            if text == self.userDao.user.password {
+                self.performSegue(withIdentifier: "showChangePassword", sender: self)
+            } else {
+                SVProgressHUD.showError(withStatus: "Wrong password", maskType: .clear)
             }
             
         })
@@ -130,5 +185,53 @@ extension UserProfileViewController {
         let LoginVC = storyboard.instantiateViewController(withIdentifier: "registerViewController") as! RegisterandLoginViewController
         window?.rootViewController  = LoginVC
         UIView.transition(with: window!, duration: 0.5, options: .curveEaseInOut, animations: nil, completion: nil)
+    }
+}
+
+
+//MARK: - Select image from gallery
+extension UserProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
+    {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            let imageData: Data = UIImageJPEGRepresentation(image, 0.2)!
+            
+            uploadUserImage(imageData)
+            
+            userImageView.image = image
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+//MARK: - Image Uploading
+extension UserProfileViewController {
+    
+    func uploadUserImage(_ imageData: Data) {
+        
+        uploadStarts()
+        
+        ImageAPI.uploadImage(imgData: imageData, completionHandler: { result in
+            
+            self.uploadCompleted()
+            
+            if let code = result.0, let publicId = result.1 {
+                self.userDao.user.profileImage = publicId
+            }
+        })
+    }
+    
+    func uploadStarts() {
+        imageActivityIndicator.startAnimating()
+        userImageView.alpha = 0.3
+    }
+    
+    
+    func uploadCompleted() {
+        imageActivityIndicator.stopAnimating()
+        userImageView.alpha = 1.0
     }
 }

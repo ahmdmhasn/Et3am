@@ -31,8 +31,9 @@ class RecievedViewController: UIViewController {
         
         let noCouponsLabel = UILabel()
         noCouponsLabel.center = view.center
-        noCouponsLabel.text = "There are not used Coupons yet....."
-        noCouponsLabel.textColor = #colorLiteral(red: 0.9334495664, green: 0.3899522722, blue: 0.2985906601, alpha: 1)
+        noCouponsLabel.text = "You don't have any used coupon."
+        noCouponsLabel.textAlignment = .center
+        noCouponsLabel.textColor = #colorLiteral(red: 0.4078193307, green: 0.4078193307, blue: 0.4078193307, alpha: 1)
         view.addSubview(noCouponsLabel)
         SVProgressHUD.show()
         coupounDao.getReceivedCoupons(completionHandler: {

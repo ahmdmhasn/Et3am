@@ -10,7 +10,8 @@ import UIKit
 
 class DonateViewController: UITableViewController {
     
-    var coupounDao = CouponDao()
+    var coupounDao = CouponDao.shared
+    
     @IBOutlet weak var countOfValue_50Label: UILabel!
     @IBOutlet weak var countOfValue_100Label: UILabel!
     @IBOutlet weak var countOfValue_200Label: UILabel!

@@ -12,6 +12,9 @@ import SwiftyJSON
 
 class CouponDao {
     
+    public static let shared = CouponDao()
+    private init() {}
+    
     public func getReceivedCoupons(completionHandler:@escaping (NSMutableArray, [Restaurant], NSMutableArray,APIResponse) -> Void) {
         let couponBarcode:NSMutableArray = []
         let useDate:NSMutableArray = []
@@ -96,9 +99,39 @@ class CouponDao {
                 print(error.localizedDescription)
                 completionHandler(couponDonate)
             }
-            
         }
+    }
+    
+    func getFreeCoupon(typeURL:String, handler:@escaping (Coupon?) -> Void)    {
         
+        var couponObj:Coupon! = Coupon()
+        
+        Alamofire.request(typeURL).responseJSON { (response) in
+            
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                
+                let status  = json["status"]
+                if status == 1  {
+                    let barCode = json["coupon"]["coupons"]["couponBarcode"].string
+                    let couopnValue = json["coupon"]["coupons"]["couponValue"].float
+                    let couponID = json[]
+                    print(barCode ?? "d")
+                    couponObj.barCode = barCode
+                    couponObj.couponValue = couopnValue
+                    handler(couponObj)
+                }
+                else {
+                    handler(nil)
+                }
+                
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
     }
     
 }
