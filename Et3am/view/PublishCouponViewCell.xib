@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G22010" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina5_5" orientation="portrait">
+    <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -12,103 +12,121 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PublishCouponViewCell" id="cGD-HE-7Cs" customClass="PublishCouponViewCell" customModule="Et3am" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="427" height="144"/>
+            <rect key="frame" x="0.0" y="0.0" width="390" height="174"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="427" height="144"/>
+                <rect key="frame" x="0.0" y="0.0" width="390" height="174"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NUl-q3-CHD">
-                        <rect key="frame" x="8" y="8" width="301" height="128"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EJk-a9-M9E">
+                        <rect key="frame" x="8" y="8" width="451" height="120"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="55555999997777722222" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08P-Ey-RYv">
-                                <rect key="frame" x="0.0" y="0.0" width="236.66666666666666" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 LE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHc-tu-gYd">
-                                <rect key="frame" x="0.0" y="34" width="41.666666666666664" height="19.333333333333336"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created : 5/6/2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gT1-GL-VfC">
-                                <rect key="frame" x="0.0" y="63.333333333333329" width="144.33333333333334" height="20.333333333333343"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ey9-dl-2gl">
-                                <rect key="frame" x="0.0" y="93.666666666666686" width="301" height="34.333333333333314"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wVb-xr-ebE">
+                                <rect key="frame" x="0.0" y="0.0" width="284" height="80"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uA5-uV-1JL">
-                                        <rect key="frame" x="0.0" y="2.3333333333333286" width="97" height="30"/>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Post">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="selectPost:" destination="cGD-HE-7Cs" eventType="touchUpInside" id="oN7-vm-dad"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WoA-2M-LPD">
-                                        <rect key="frame" x="102" y="2.3333333333333286" width="97" height="30"/>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Share">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didSelectShare:" destination="cGD-HE-7Cs" eventType="touchUpInside" id="z5S-m7-qBk"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7zV-Mj-N13">
-                                        <rect key="frame" x="204" y="2.3333333333333286" width="97" height="30"/>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Print">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didSelectPrint:" destination="cGD-HE-7Cs" eventType="touchUpInside" id="yZ8-bM-nJs"/>
-                                        </connections>
-                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="55555999997777722222" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXy-lT-NEm">
+                                        <rect key="frame" x="0.0" y="0.0" width="236.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 LE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvX-BU-6DH">
+                                        <rect key="frame" x="0.0" y="35" width="42" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created : 5/6/2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBi-2O-x75">
+                                        <rect key="frame" x="0.0" y="59.5" width="144.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dNe-6E-60P">
+                                <rect key="frame" x="294" y="0.0" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="bx1-JY-VMc"/>
+                                    <constraint firstAttribute="height" constant="80" id="hOL-wj-XLK"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="ey9-dl-2gl" firstAttribute="leading" secondItem="NUl-q3-CHD" secondAttribute="leading" id="ISL-ub-zXQ"/>
-                            <constraint firstAttribute="trailing" secondItem="ey9-dl-2gl" secondAttribute="trailing" id="S5A-CZ-DGK"/>
-                        </constraints>
                     </stackView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dNe-6E-60P">
-                        <rect key="frame" x="319" y="8" width="100" height="128"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="100" id="Lss-28-hoA"/>
-                        </constraints>
-                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NdH-uj-cdj">
+                        <rect key="frame" x="8" y="124" width="301" height="34"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GKj-Qf-8lK">
+                                <rect key="frame" x="0.0" y="23" width="121.5" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Post">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="selectPost:" destination="cGD-HE-7Cs" eventType="touchUpInside" id="80E-FX-xaY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sr-qo-3Zk">
+                                <rect key="frame" x="126.5" y="23" width="121" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Share">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didSelectShare:" destination="cGD-HE-7Cs" eventType="touchUpInside" id="8d3-7n-T4b"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hwc-BA-bW8">
+                                <rect key="frame" x="252.5" y="23" width="121.5" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Print">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didSelectPrint:" destination="cGD-HE-7Cs" eventType="touchUpInside" id="Fse-Kw-hPT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </stackView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="dNe-6E-60P" firstAttribute="leading" secondItem="NUl-q3-CHD" secondAttribute="trailing" constant="10" id="ECw-58-JXD"/>
-                <constraint firstItem="dNe-6E-60P" firstAttribute="top" secondItem="cGD-HE-7Cs" secondAttribute="top" constant="8" id="PVN-Y3-wuV"/>
-                <constraint firstAttribute="trailing" secondItem="dNe-6E-60P" secondAttribute="trailing" constant="8" id="UEU-BE-XlM"/>
-                <constraint firstItem="NUl-q3-CHD" firstAttribute="top" secondItem="cGD-HE-7Cs" secondAttribute="top" constant="8" id="bDK-yv-WaD"/>
-                <constraint firstAttribute="bottom" secondItem="dNe-6E-60P" secondAttribute="bottom" constant="8" id="h0h-Vl-Ve7"/>
-                <constraint firstAttribute="bottom" secondItem="NUl-q3-CHD" secondAttribute="bottom" constant="8" id="kjP-8U-Wzi"/>
-                <constraint firstAttribute="trailing" secondItem="dNe-6E-60P" secondAttribute="trailing" constant="8" id="u5c-vA-hNl"/>
-                <constraint firstItem="dNe-6E-60P" firstAttribute="centerY" secondItem="cGD-HE-7Cs" secondAttribute="centerY" id="w8P-Zt-x3d"/>
-                <constraint firstItem="NUl-q3-CHD" firstAttribute="leading" secondItem="cGD-HE-7Cs" secondAttribute="leading" constant="8" id="x4P-Hf-EgB"/>
+                <constraint firstItem="NdH-uj-cdj" firstAttribute="top" secondItem="EJk-a9-M9E" secondAttribute="bottom" constant="2" id="4ky-8G-VeS"/>
+                <constraint firstItem="EJk-a9-M9E" firstAttribute="top" secondItem="cGD-HE-7Cs" secondAttribute="top" constant="8" id="E2n-af-xBH"/>
+                <constraint firstItem="EJk-a9-M9E" firstAttribute="leading" secondItem="cGD-HE-7Cs" secondAttribute="leading" constant="8" id="GVV-JT-t9q"/>
+                <constraint firstAttribute="trailing" secondItem="EJk-a9-M9E" secondAttribute="trailing" constant="8" id="K52-bp-tZ5"/>
+                <constraint firstItem="NdH-uj-cdj" firstAttribute="leading" secondItem="cGD-HE-7Cs" secondAttribute="leading" constant="8" id="UtO-er-09D"/>
+                <constraint firstAttribute="bottom" secondItem="NdH-uj-cdj" secondAttribute="bottom" constant="8" id="l5f-kX-XXT"/>
+                <constraint firstAttribute="trailing" secondItem="NdH-uj-cdj" secondAttribute="trailing" constant="8" id="pvk-Ix-0nw"/>
             </constraints>
-            <size key="customSize" width="427" height="144"/>
+            <size key="customSize" width="390" height="174"/>
             <connections>
-                <outlet property="barCodeLabel" destination="08P-Ey-RYv" id="4TS-rV-fqX"/>
+                <outlet property="barCodeLabel" destination="XXy-lT-NEm" id="fbs-Ai-ZM9"/>
                 <outlet property="qrCodeImage" destination="dNe-6E-60P" id="AA7-b1-tQ0"/>
-                <outlet property="valueLabel" destination="PHc-tu-gYd" id="Wt1-p1-bWG"/>
+                <outlet property="valueLabel" destination="nvX-BU-6DH" id="nJh-h1-8HU"/>
             </connections>
-            <point key="canvasLocation" x="-221" y="-100"/>
+            <point key="canvasLocation" x="-240" y="-115"/>
         </collectionViewCell>
     </objects>
 </document>

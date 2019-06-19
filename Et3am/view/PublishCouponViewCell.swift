@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class PublishCouponViewCell: UICollectionViewCell {
     
     weak var delegate: PublishCouponViewCellDelegate?

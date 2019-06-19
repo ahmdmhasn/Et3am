@@ -57,7 +57,7 @@ class UnpPublishCouponVC: UICollectionViewController {
         // an UI event occurs teh cell will call methods implemented by our controller
         cell.delegate = self
         // Configure the cell
-        cell.valueLabel.text = "20 LE"
+        //cell.valueLabel.text = "20 LE"
         cell.barCodeLabel.text = "123456789999999"
         cell.qrCodeImage.sd_setImage(with: URL(string: "https://global.canon/en/imaging/eosd/samples/eos1300d/downloads/01.jpg"), completed: nil)
         return cell

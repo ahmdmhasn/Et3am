@@ -59,6 +59,7 @@
 		F17C3FD1229D3850005A449E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F17C3FD0229D3850005A449E /* CoreLocation.framework */; };
 		F17C3FD3229D44CD005A449E /* RestaurantsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17C3FD2229D44CD005A449E /* RestaurantsListVC.swift */; };
 		F17C3FD5229D45CE005A449E /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17C3FD4229D45CE005A449E /* RestaurantCell.swift */; };
+		F1D35E2E22B7BAEE007CD846 /* DesignableFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D35E2D22B7BAEE007CD846 /* DesignableFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,7 @@
 		F17C3FD0229D3850005A449E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F17C3FD2229D44CD005A449E /* RestaurantsListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantsListVC.swift; path = controller/RestaurantsListVC.swift; sourceTree = "<group>"; };
 		F17C3FD4229D45CE005A449E /* RestaurantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantCell.swift; path = controller/RestaurantCell.swift; sourceTree = "<group>"; };
+		F1D35E2D22B7BAEE007CD846 /* DesignableFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DesignableFile.swift; path = view/DesignableFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -410,6 +412,7 @@
 				E2029CF122836B6D007BA6A1 /* Assets.xcassets */,
 				E2029CEE22836B6D007BA6A1 /* Et3am.xcdatamodeld */,
 				E2029CF622836B6D007BA6A1 /* Info.plist */,
+				F1D35E2D22B7BAEE007CD846 /* DesignableFile.swift */,
 			);
 			name = SupportingFiles;
 			sourceTree = "<group>";
@@ -673,6 +676,7 @@
 				F17C3FD5229D45CE005A449E /* RestaurantCell.swift in Sources */,
 				838DE133229AB3A2001C001B /* RestaurantDetailsViewController.swift in Sources */,
 				21B6E8F6229C1D350067C5F4 /* CouponDao.swift in Sources */,
+				F1D35E2E22B7BAEE007CD846 /* DesignableFile.swift in Sources */,
 				E2F11BA72288E5A50031ABCC /* CopounsRecievedViewController.swift in Sources */,
 				2117FBDF229CC03F0099DE05 /* UserHelper.swift in Sources */,
 				F1261FC4229EA607005CB7AD /* ExtensionRestaurantListVC.swift in Sources */,
