@@ -74,11 +74,6 @@ class RegisterandLoginViewController: UIViewController {
         
         signUpButton.layer.cornerRadius = signUpButton.frame.height / 2
         signUpButton.layer.masksToBounds = true
-        
-        //TODO: For testing SDWebImage Library, you can remove it #hassan
-        logoImageView.sd_setShowActivityIndicatorView(true)
-        logoImageView.sd_setIndicatorStyle(.gray)
-        logoImageView.sd_setImage(with: URL(string: "https://global.canon/en/imaging/eosd/samples/eos1300d/downloads/01.jpg"), completed: nil)
     }
     
     

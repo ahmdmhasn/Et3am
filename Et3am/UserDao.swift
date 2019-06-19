@@ -25,7 +25,12 @@ class UserDao{
         self.user = getUserFromUserDefaults()
     }
     
-    var user = User()
+    var user = User() {
+        didSet {
+            print("did set called")
+            addToUserDefaults(self.user)
+        }
+    }
     
     public  func addUser(parameters : [String:String], completionHandler:@escaping (Bool) -> Void) {
         
@@ -243,7 +248,7 @@ class UserDao{
     }
     
     func getUserFromUserDefaults() -> User {
-        let user = User()
+        var user = User()
         
         user.userID = userDefaults.object(forKey: UserProperties.userId.rawValue) as? String
         user.userName = userDefaults.object(forKey: UserProperties.userName.rawValue) as? String

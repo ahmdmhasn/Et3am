@@ -16,7 +16,7 @@ enum UserProperties: String {
 class UserHelper: NSObject {
     
     class func parseUser(json: JSON) -> User {
-        let user = User()
+        var user = User()
         
         user.userID = json[UserProperties.userId.rawValue].string
         user.userName = json[UserProperties.userName.rawValue].string
