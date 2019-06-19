@@ -45,6 +45,8 @@ class DonateViewController: UITableViewController {
     }
     
     @IBAction func DonateButton(_ sender: UIBarButtonItem) {
+        print(countOfValue_100Label.text!)
+        
         coupounDao.addCoupon(value_50: countOfValue_50Label.text! , value_100: countOfValue_100Label.text!, value_200: countOfValue_200Label.text!, completionHandler: {couponDonate in
             print(couponDonate)
             if couponDonate == "coupon is donated" {
