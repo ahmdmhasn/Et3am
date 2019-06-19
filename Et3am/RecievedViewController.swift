@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 import SVProgressHUD
 class RecievedViewController: UIViewController {
-    var coupounDao = CouponDao()
+    var coupounDao = CouponDao.shared
     var usedCouponsCount = 0
     var usedDateArray:NSArray = []
     var restaurantArray = [Restaurant]()
@@ -21,7 +21,6 @@ class RecievedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        CouponCollectioonView.delegate = self
         CouponCollectioonView.dataSource = self
         CouponCollectioonView.register(UINib.init(nibName: CouponCellIdentifier, bundle: nil), forCellWithReuseIdentifier: CouponCellIdentifier)
         
@@ -29,12 +28,6 @@ class RecievedViewController: UIViewController {
             flowLayout.estimatedItemSize = CGSize(width: 1,height: 1)
         }
         
-        let noCouponsLabel = UILabel()
-        noCouponsLabel.center = view.center
-        noCouponsLabel.text = "You don't have any used coupon."
-        noCouponsLabel.textAlignment = .center
-        noCouponsLabel.textColor = #colorLiteral(red: 0.4078193307, green: 0.4078193307, blue: 0.4078193307, alpha: 1)
-        view.addSubview(noCouponsLabel)
         SVProgressHUD.show()
         coupounDao.getReceivedCoupons(completionHandler: {
             useDate,restaurantArray,barCode,code in
@@ -46,9 +39,14 @@ class RecievedViewController: UIViewController {
                 self.usedDateArray = useDate
                 self.restaurantArray = restaurantArray
                 self.barCodeArray = barCode
-                noCouponsLabel.isHidden = false
                 self.CouponCollectioonView.reloadData()
             case .success(0):
+                let noCouponsLabel = UILabel()
+                noCouponsLabel.center = self.view.center
+                noCouponsLabel.text = "You don't have any used coupon."
+                noCouponsLabel.textAlignment = .center
+                noCouponsLabel.textColor = #colorLiteral(red: 0.4078193307, green: 0.4078193307, blue: 0.4078193307, alpha: 1)
+                self.view.addSubview(noCouponsLabel)
                 self.CouponCollectioonView.backgroundView = noCouponsLabel
                 break
             default:
@@ -84,13 +82,5 @@ extension RecievedViewController : UICollectionViewDataSource
     }
 }
 
-//extension RecievedViewController: UICollectionViewDelegateFlowLayout {
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let ScreenWidth = UIScreen.main.bounds.width
-//        let ItemWidth = ScreenWidth-100
-//        return CGSize.init(width: ItemWidth, height: 270)
-//    }
-//}
 
 
