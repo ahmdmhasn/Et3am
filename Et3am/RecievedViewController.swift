@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 import SVProgressHUD
 class RecievedViewController: UIViewController {
-    var coupounDao = CouponDao()
+    var coupounDao = CouponDao.shared
     var usedCouponsCount = 0
     var usedDateArray:NSArray = []
     var restaurantArray = [Restaurant]()
@@ -21,15 +21,13 @@ class RecievedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        CouponCollectioonView.delegate = self
         CouponCollectioonView.dataSource = self
         CouponCollectioonView.register(UINib.init(nibName: CouponCellIdentifier, bundle: nil), forCellWithReuseIdentifier: CouponCellIdentifier)
-        let noCouponsLabel = UILabel()
-        noCouponsLabel.center = view.center
-        noCouponsLabel.text = "You don't have any used coupon."
-        noCouponsLabel.textAlignment = .center
-        noCouponsLabel.textColor = #colorLiteral(red: 0.4078193307, green: 0.4078193307, blue: 0.4078193307, alpha: 1)
-        view.addSubview(noCouponsLabel)
+        
+        if let flowLayout = CouponCollectioonView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.estimatedItemSize = CGSize(width: 1,height: 1)
+        }
+        
         SVProgressHUD.show()
         coupounDao.getReceivedCoupons(completionHandler: {
             useDate,restaurantArray,barCode,code in
@@ -40,9 +38,14 @@ class RecievedViewController: UIViewController {
                 self.usedDateArray = useDate
                 self.restaurantArray = restaurantArray
                 self.barCodeArray = barCode
-                noCouponsLabel.isHidden = false
                 self.CouponCollectioonView.reloadData()
             case .success(0):
+                let noCouponsLabel = UILabel()
+                noCouponsLabel.center = self.view.center
+                noCouponsLabel.text = "You don't have any used coupon."
+                noCouponsLabel.textAlignment = .center
+                noCouponsLabel.textColor = #colorLiteral(red: 0.4078193307, green: 0.4078193307, blue: 0.4078193307, alpha: 1)
+                self.view.addSubview(noCouponsLabel)
                 self.CouponCollectioonView.backgroundView = noCouponsLabel
                 break
             default:
@@ -69,10 +72,10 @@ extension RecievedViewController : UICollectionViewDataSource {
         cell.couponBarCode.text! =  String(describing: self.barCodeArray[indexPath.row])+"*********"
         let currentRestaurant = self.restaurantArray[indexPath.row]
         cell.restaurantName.text! = currentRestaurant.restaurantName!
-        let path = "https://maps.googleapis.com/maps/api/staticmap?size=500x250"+"&markers=color:redlabel:E"+"\(currentRestaurant.latitude!),\(currentRestaurant.longitude!)&key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM"
+        let path = "https://maps.googleapis.com/maps/api/staticmap?size=500x250"+"&markers=color:red%7C"+"\(currentRestaurant.latitude!),\(currentRestaurant.longitude!)&key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM"
         cell.restaurantLoation.sd_setShowActivityIndicatorView(true)
         cell.restaurantLoation.sd_setIndicatorStyle(.gray)
-        cell.restaurantLoation.sd_setImage(with: URL(string: path)!, completed: nil)
+        cell.restaurantLoation.sd_setImage(with: URL(string: path), completed: nil)
         return cell
     }
 }
