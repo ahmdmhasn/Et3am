@@ -655,6 +655,7 @@
 				2117FBE2229D49000099DE05 /* UIViewController.swift in Sources */,
 				2189265822A0028300BD7404 /* DonateViewController.swift in Sources */,
 				21E8F21F22A3F2020070F223 /* CouponCollectionViewCell.swift in Sources */,
+				A21013B1228AE96E001D9CA4 /* MealCell.swift in Sources */,
 				E20E07262299DEA300FEC852 /* UserProfileViewController.swift in Sources */,
 				E2F11BA22288D49D0031ABCC /* User.swift in Sources */,
 				211378A52284F0C70056E5C7 /* AllCouponTableViewController.swift in Sources */,

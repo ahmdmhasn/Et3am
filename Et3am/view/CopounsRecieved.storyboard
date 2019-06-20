@@ -6,13 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Recieved View Controller-->
+        <!--UsedCoupons-->
         <scene sceneID="PVO-CZ-qkF">
             <objects>
-                <viewController id="mJI-F2-ZkH" customClass="RecievedViewController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="UsedCoupons" id="mJI-F2-ZkH" customClass="RecievedViewController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="98j-dS-e9X"/>
                         <viewControllerLayoutGuide type="bottom" id="EbO-ym-f5e"/>
@@ -22,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="z8f-4k-cxH">
-                                <rect key="frame" x="16" y="16" width="343" height="651"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wOP-cR-LAP">
                                     <size key="itemSize" width="373" height="189"/>
@@ -35,10 +36,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="z8f-4k-cxH" secondAttribute="trailing" constant="16" id="Dmd-Uk-qqj"/>
-                            <constraint firstItem="z8f-4k-cxH" firstAttribute="top" secondItem="wAS-QV-QW4" secondAttribute="top" constant="16" id="IXR-0o-Rgt"/>
+                            <constraint firstAttribute="trailing" secondItem="z8f-4k-cxH" secondAttribute="trailing" id="Dmd-Uk-qqj"/>
+                            <constraint firstItem="z8f-4k-cxH" firstAttribute="top" secondItem="wAS-QV-QW4" secondAttribute="topMargin" id="IXR-0o-Rgt"/>
                             <constraint firstItem="EbO-ym-f5e" firstAttribute="top" secondItem="z8f-4k-cxH" secondAttribute="bottom" id="P2z-Jg-Web"/>
-                            <constraint firstItem="z8f-4k-cxH" firstAttribute="leading" secondItem="wAS-QV-QW4" secondAttribute="leading" constant="16" id="ShS-iY-lwT"/>
+                            <constraint firstItem="z8f-4k-cxH" firstAttribute="leading" secondItem="wAS-QV-QW4" secondAttribute="leading" id="ShS-iY-lwT"/>
                         </constraints>
                     </view>
                     <connections>

@@ -21,19 +21,18 @@ class CouponDao {
         let restaurantObject = Restaurant()
         var restaurantArray = [Restaurant]()
         var urlComponents = URLComponents(string: Et3amAPI.baseCouponUrlString+CouponURLQueries.used_coupon.rawValue)
-        //0db77343-e323-4ec1-9896-6c9853d30f5d
         urlComponents?.queryItems = [URLQueryItem(name: "userId", value:UserDao.shared.userDefaults.string(forKey: "userId"))]
         print(urlComponents!)
         Alamofire.request(urlComponents!).validate(statusCode: 200..<500).responseJSON
             { response in
-            switch response.result {
-            case .success:
-                guard let responseValue = response.result.value else {
-                    return
-                }
-                let json = JSON(responseValue)
-                let codeDataDictionary:Int =  json["code"].int ?? 0
-                if(codeDataDictionary == 1)
+                switch response.result {
+                case .success:
+                    guard let responseValue = response.result.value else {
+                        return
+                    }
+                    let json = JSON(responseValue)
+                    let codeDataDictionary:Int =  json["code"].int ?? 0
+                    if(codeDataDictionary == 1)
                     {
                    guard let couponDataDictionary = json["Coupons"].array else
                    {
@@ -50,15 +49,26 @@ class CouponDao {
                         couponBarcode[i] = barcode?.substring(to:(barcode?.index((barcode?.startIndex)!, offsetBy: 3))!) ?? 0
                        useDate[i] =  couponDataDictionary[i]["useDate"].double ?? 0
                         }
+                        for i in 0 ..< couponDataDictionary.count
+                        {
+                            let restaurantsJson = couponDataDictionary[i]["restaurants"]
+                            restaurantObject.restaurantName = restaurantsJson["restaurantName"].string
+                            restaurantObject.latitude = restaurantsJson["latitude"].double
+                            restaurantObject.longitude = restaurantsJson["longitude"].double
+                            restaurantArray.append(restaurantObject)
+                            let barcode = couponDataDictionary[i]["userReserveCoupon"]["coupons"]["couponBarcode"].string
+                            couponBarcode[i] = barcode?.substring(to:(barcode?.index((barcode?.startIndex)!, offsetBy: 3))!) ?? 0
+                            useDate[i] =  couponDataDictionary[i]["useDate"].double ?? 0
+                        }
+                    }
+                    completionHandler(useDate ,restaurantArray ,couponBarcode ,.success(codeDataDictionary))
+                case .failure(let error):
+                    
+                    print(error.localizedDescription)
+                    completionHandler([],[],[],.failure(error))
                 }
-                  completionHandler(useDate ,restaurantArray ,couponBarcode ,.success(codeDataDictionary))
-            case .failure(let error):
                 
-                print(error.localizedDescription)
-                completionHandler([],[],[],.failure(error))
-            }
-            
-            
+                
         }
         
     }
