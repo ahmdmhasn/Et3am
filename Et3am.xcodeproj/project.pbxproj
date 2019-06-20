@@ -61,7 +61,6 @@
 		F17C3FD1229D3850005A449E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F17C3FD0229D3850005A449E /* CoreLocation.framework */; };
 		F17C3FD3229D44CD005A449E /* RestaurantsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17C3FD2229D44CD005A449E /* RestaurantsListVC.swift */; };
 		F17C3FD5229D45CE005A449E /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17C3FD4229D45CE005A449E /* RestaurantCell.swift */; };
-		F1D35E2E22B7BAEE007CD846 /* DesignableFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D35E2D22B7BAEE007CD846 /* DesignableFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,6 +196,7 @@
 		2117FBE0229D48B80099DE05 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				F1D35E2D22B7BAEE007CD846 /* DesignableFile.swift */,
 				2117FBE1229D49000099DE05 /* UIViewController.swift */,
 				2117FBE3229D5D150099DE05 /* UIView.swift */,
 			);
@@ -418,7 +418,6 @@
 				E2029CF122836B6D007BA6A1 /* Assets.xcassets */,
 				E2029CEE22836B6D007BA6A1 /* Et3am.xcdatamodeld */,
 				E2029CF622836B6D007BA6A1 /* Info.plist */,
-				F1D35E2D22B7BAEE007CD846 /* DesignableFile.swift */,
 			);
 			name = SupportingFiles;
 			sourceTree = "<group>";
@@ -682,8 +681,6 @@
 				E280CC4B22B81C7D00E32CE1 /* RegisterandLoginViewController.swift in Sources */,
 				830BE78F22BA4D2000F50699 /* RestaurantDetailsViewController.swift in Sources */,
 				21B6E8F6229C1D350067C5F4 /* CouponDao.swift in Sources */,
-				F1D35E2E22B7BAEE007CD846 /* DesignableFile.swift in Sources */,
-				E2F11BA72288E5A50031ABCC /* CopounsRecievedViewController.swift in Sources */,
 				E280CC5122B83FC600E32CE1 /* ImageAPI.swift in Sources */,
 				E280CC4C22B81C7D00E32CE1 /* SignInView.swift in Sources */,
 				2117FBDF229CC03F0099DE05 /* UserHelper.swift in Sources */,
