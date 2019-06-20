@@ -218,7 +218,7 @@ extension UserProfileViewController {
             
             self.uploadCompleted()
             
-            if let code = result.0, let publicId = result.1 {
+            if let _ = result.0, let publicId = result.1 {
                 self.userDao.user.profileImage = publicId
             }
         })
