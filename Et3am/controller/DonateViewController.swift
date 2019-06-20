@@ -72,7 +72,8 @@ class DonateViewController: UITableViewController {
                 
                 SVProgressHUD.showSuccess(withStatus: "\(self.totalCoupons) coupons donated successfully.")
                 
-                self.performSegue(withIdentifier: "showCouponsDonated", sender: self)
+//                self.performSegue(withIdentifier: "showCouponsDonated", sender: self)
+                let _ = self.navigationController?.popViewController(animated: true)
                 
             } else {
                 
