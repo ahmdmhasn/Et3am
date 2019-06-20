@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import MessageUI
 //private let reuseIdentifier = "Cell"
 
 class UnpPublishCouponVC: UICollectionViewController {
@@ -56,6 +57,9 @@ class UnpPublishCouponVC: UICollectionViewController {
         // In here we assign teh delegate member of teh cell to make sure once
         // an UI event occurs teh cell will call methods implemented by our controller
         cell.delegate = self
+        var x = cell.frame.size
+        var z = cell.bounds.size
+        
         // Configure the cell
         //cell.valueLabel.text = "20 LE"
         cell.barCodeLabel.text = "123456789999999"
@@ -96,15 +100,62 @@ class UnpPublishCouponVC: UICollectionViewController {
 
 }
 // MARK: Extension UICollectionViewDelegate
-extension UnpPublishCouponVC : PublishCouponViewCellDelegate{
+extension UnpPublishCouponVC : PublishCouponViewCellDelegate,MFMessageComposeViewControllerDelegate,MFMailComposeViewControllerDelegate{
     func didPressPost(){
         print("Post")
     }
     func didPressShare(){
-        print("Share")
+        print("SMS")
+        // Present the view controller modally.
+        if MFMessageComposeViewController.canSendText() {
+            let composeVC = MFMessageComposeViewController()
+            composeVC.messageComposeDelegate = self
+            // Configure the fields of the interface.
+            //composeVC.recipients = ["3142026521"]
+            composeVC.body = "I love Swift!"
+            self.present(composeVC, animated: true, completion: nil)
+        } else {
+            print("Can't send messages.")
+        }
     }
     func didPressPrint(){
-        print("Print")
+        print("Share")
+        //share screenshot using other apps
+        share(data:captureScreenshot())
+    }
+    
+    func share(data:Any){
+        let activityVC = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        self.present(activityVC, animated: true, completion: nil)
+    }
+    
+
+    func captureScreenshot() -> UIImage {
+        let layer = UIApplication.shared.keyWindow!.layer
+        let scale = UIScreen.main.scale
+        // Creates UIImage of same size as view
+        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return screenshot!
+        // THIS IS TO SAVE SCREENSHOT TO PHOTOS
+        //UIImageWriteToSavedPhotosAlbum(screenshot!, nil, nil, nil)
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        switch (result) {
+        case .cancelled:
+            print("Message was cancelled")
+            dismiss(animated: true, completion: nil)
+        case .failed:
+            print("Message failed")
+            dismiss(animated: true, completion: nil)
+        case .sent:
+            print("Message was sent")
+            dismiss(animated: true, completion: nil)
+        }
     }
 }
 
