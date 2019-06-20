@@ -41,7 +41,7 @@ class GetCouponViewController: UIViewController {
     override func viewDidLoad() {
         containerView.layer.cornerRadius = 15
         containerView.layer.masksToBounds = true
-        print(currentUser.userID)
+        print(currentUser.userID ?? 0)
     }
     
     func getFreeCoupon(URL: String) -> Void {
