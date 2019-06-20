@@ -327,8 +327,8 @@
 		E20EF90A229B40F50093970D /* RestaurantDetails */ = {
 			isa = PBXGroup;
 			children = (
-				830BE78822BA4D2000F50699 /* GetCouponViewController.swift */,
 				830BE78922BA4D2000F50699 /* MealCell.swift */,
+				830BE78822BA4D2000F50699 /* GetCouponViewController.swift */,
 				830BE78A22BA4D2000F50699 /* RestaurantDetailsCell.swift */,
 				830BE78B22BA4D2000F50699 /* RestaurantDetailsViewController.swift */,
 				830BE78622BA4CEA00F50699 /* RestaurantInfo.storyboard */,
