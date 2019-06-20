@@ -152,6 +152,7 @@
 		F17C3FD0229D3850005A449E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F17C3FD2229D44CD005A449E /* RestaurantsListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantsListVC.swift; path = controller/RestaurantsListVC.swift; sourceTree = "<group>"; };
 		F17C3FD4229D45CE005A449E /* RestaurantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantCell.swift; path = controller/RestaurantCell.swift; sourceTree = "<group>"; };
+		F1D35E2D22B7BAEE007CD846 /* DesignableFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DesignableFile.swift; path = view/DesignableFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +200,7 @@
 		2117FBE0229D48B80099DE05 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				F1D35E2D22B7BAEE007CD846 /* DesignableFile.swift */,
 				2117FBE1229D49000099DE05 /* UIViewController.swift */,
 				2117FBE3229D5D150099DE05 /* UIView.swift */,
 				E207D8CE22BB9F320014ECC6 /* UILabel.swift */,

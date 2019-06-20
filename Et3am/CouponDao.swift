@@ -18,7 +18,7 @@ class CouponDao {
     public func getReceivedCoupons(completionHandler:@escaping (NSMutableArray, [Restaurant], NSMutableArray,APIResponse) -> Void) {
         let couponBarcode:NSMutableArray = []
         let useDate:NSMutableArray = []
-        var restaurantObject = Restaurant()
+        let restaurantObject = Restaurant()
         var restaurantArray = [Restaurant]()
         var urlComponents = URLComponents(string: Et3amAPI.baseCouponUrlString+CouponURLQueries.used_coupon.rawValue)
         urlComponents?.queryItems = [URLQueryItem(name: "userId", value:UserDao.shared.userDefaults.string(forKey: "userId"))]
@@ -34,9 +34,20 @@ class CouponDao {
                     let codeDataDictionary:Int =  json["code"].int ?? 0
                     if(codeDataDictionary == 1)
                     {
-                        guard let couponDataDictionary = json["Coupons"].array else
-                        {
-                            return
+                   guard let couponDataDictionary = json["Coupons"].array else
+                   {
+                    return
+                   }
+                      for i in 0 ..< couponDataDictionary.count
+                      {
+                       let restaurantsJson = couponDataDictionary[i]["restaurants"]
+                       restaurantObject.restaurantName = restaurantsJson["restaurantName"].string
+                       restaurantObject.latitude = restaurantsJson["latitude"].double
+                       restaurantObject.longitude = restaurantsJson["longitude"].double
+                       restaurantArray.append(restaurantObject)
+                        let barcode = couponDataDictionary[i]["userReserveCoupon"]["coupons"]["couponBarcode"].string
+                        couponBarcode[i] = barcode?.substring(to:(barcode?.index((barcode?.startIndex)!, offsetBy: 3))!) ?? 0
+                       useDate[i] =  couponDataDictionary[i]["useDate"].double ?? 0
                         }
                         for i in 0 ..< couponDataDictionary.count
                         {
@@ -94,7 +105,7 @@ class CouponDao {
     
     func getFreeCoupon(typeURL:String, handler:@escaping (Coupon?) -> Void)    {
         
-        var couponObj:Coupon! = Coupon()
+        let couponObj:Coupon! = Coupon()
         
         Alamofire.request(typeURL).responseJSON { (response) in
             
@@ -106,7 +117,7 @@ class CouponDao {
                 if status == 1  {
                     let barCode = json["coupon"]["coupons"]["couponBarcode"].string
                     let couopnValue = json["coupon"]["coupons"]["couponValue"].float
-                    let couponID = json[]
+                    _ = json[]
                     print(barCode ?? "d")
                     couponObj.barCode = barCode
                     couponObj.couponValue = couopnValue

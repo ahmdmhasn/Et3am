@@ -8,26 +8,22 @@
 
 import UIKit
 
+@IBDesignable
 class PublishCouponViewCell: UICollectionViewCell {
     
     weak var delegate: PublishCouponViewCellDelegate?
     
+    
     @IBOutlet weak var qrCodeImage: UIImageView!
     @IBOutlet weak var barCodeLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
-    @IBAction func selectPost(_ sender: UIButton) {
-        delegate?.didPressPost()
-    }
-    @IBAction func didSelectShare(_ sender: UIButton) {
-        delegate?.didPressShare()
-    }
-    @IBAction func didSelectPrint(_ sender: UIButton) {
-        delegate?.didPressPrint()
-    }
+    @IBAction func selectPost(_ sender: UIButton) { delegate?.didPressPost() }
+    @IBAction func didSelectShare(_ sender: UIButton) { delegate?.didPressShare() }
+    @IBAction func didSelectPrint(_ sender: UIButton) { delegate?.didPressPrint() }
     
     func didSelect(coupon : Coupon){
-        barCodeLabel.text=coupon.barCode
-        valueLabel.text=coupon.couponCode
+        barCodeLabel.text = coupon.barCode
+        valueLabel.text = coupon.couponCode
     }
     
     override func awakeFromNib() {
