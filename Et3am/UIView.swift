@@ -9,13 +9,11 @@
 import Foundation
 import UIKit
 
-extension UIView
-{
-    func setnetworkIndicator()
-    {
-       var indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+extension UIView{
+    func setnetworkIndicator(){
+       let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         indicator.center = self.center
         indicator.startAnimating()
         self.addSubview(indicator)
-            }
+    }
 }

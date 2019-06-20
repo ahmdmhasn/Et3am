@@ -20,6 +20,10 @@ class DesignableButton: UIButton {
 class DesignableLabel: UILabel {
 }
 
+@IBDesignable
+class DesignableImage: UIImageView {
+}
+
 extension UIView {
     
     @IBInspectable
