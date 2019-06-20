@@ -74,7 +74,6 @@ enum CouponURLQueries:String {
             return ""
         }
     }
-
 }
 
 enum RestaurantQueries:String {

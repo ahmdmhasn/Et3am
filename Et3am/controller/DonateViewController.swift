@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class DonateViewController: UITableViewController {
     
@@ -46,32 +47,40 @@ class DonateViewController: UITableViewController {
     }
     
     @IBAction func DonateButton(_ sender: UIBarButtonItem) {
-        print(countOfValue_100Label.text!)
         
-        coupounDao.addCoupon(value_50: countOfValue_50Label.text! , value_100: countOfValue_100Label.text!, value_200: countOfValue_200Label.text!, completionHandler: {couponDonate in
-            print(couponDonate)
-            if couponDonate == "coupon is donated" {
-                
-                //TODO: - push to unpublished view controller
-                
-//                let storyboard = UIStoryboard(name: "CouponsDonated", bundle: nil)
-//                
-//                let CuoponsTabBarController = storyboard.instantiateViewController(withIdentifier: "listofCouponsid") as? CuoponsTabBarController
-//                let unpublishCouponTableViewController = CuoponsTabBarController?.viewControllers?[0] as! UnpublishCouponTableViewController
-//                
-//                unpublishCouponTableViewController.listOfCoupons = ["50": Int(self.countOfValue_50Label.text!)!
-//                    ,"100": Int(self.countOfValue_100Label.text!)!
-//                    ,"200":  Int(self.countOfValue_200Label.text!)!]
-//                self.navigationController?.pushViewController(CuoponsTabBarController!, animated: false)
-            } else {
-                self.showAlert(message: "Connection error. Please try again later.", title:"")
-            }
-            
-        })
+        let alert = UIAlertController(title: "Are you sure you want to donate '\(totalCoupons)' coupons?", message: "", preferredStyle: .alert)
         
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+            self.donateCoupons()
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true)
     }
     
     @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
-        self.navigationController?.popViewController(animated: true)
+        let _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+    func donateCoupons() {
+        
+        SVProgressHUD.show()
+        
+        coupounDao.addCoupon(value_50: countOfValue_50Label.text! , value_100: countOfValue_100Label.text!, value_200: countOfValue_200Label.text!, completionHandler: {couponDonate in
+            
+            if couponDonate == 1 {
+                
+                SVProgressHUD.showSuccess(withStatus: "\(self.totalCoupons) coupons donated successfully.")
+                
+                self.performSegue(withIdentifier: "showCouponsDonated", sender: self)
+                
+            } else {
+                
+                SVProgressHUD.dismiss()
+                
+                self.showAlert(message: "Connection error. Please try again later.", title:"")
+                
+            }
+        })
     }
 }

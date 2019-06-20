@@ -63,7 +63,8 @@ class CouponDao {
     }
     
     
-    public func addCoupon(value_50:String,value_100:String,value_200:String,completionHandler:@escaping (String)->Void) {/*UserDefaults.standard.string(forKey: "user_id"))*/
+    public func addCoupon(value_50:String, value_100:String, value_200:String, completionHandler:@escaping (Int)->Void) {
+        
         var couponDonate : String = ""
         var urlComponents = URLComponents(string: Et3amAPI.baseCouponUrlString+CouponURLQueries.add.rawValue)
         urlComponents?.queryItems = [URLQueryItem(name: CouponURLQueries.user_idQuery.rawValue , value:
@@ -71,6 +72,7 @@ class CouponDao {
                                      URLQueryItem(name: CouponURLQueries.value_50Query.rawValue , value: value_50),
                                      URLQueryItem(name: CouponURLQueries.value_100Query.rawValue , value: value_100),
                                      URLQueryItem(name: CouponURLQueries.value_200Query.rawValue , value: value_200)]
+        
         Alamofire.request((urlComponents?.url!)!).validate(statusCode: 200..<600).responseJSON{
             response in
             
@@ -81,22 +83,11 @@ class CouponDao {
                 print (returnedData)
                 let statusDataDictionary = returnedData.value(forKey: "status") as? Int ?? 0
                 
-                switch statusDataDictionary {
-                case 1:
-                    couponDonate = "coupon is donated"
-                    completionHandler(couponDonate)
-                case 0:
-                    couponDonate = "coupon is not donated"
-                    completionHandler(couponDonate)
-                    
-                default:
-                    break
-                }
+                completionHandler(statusDataDictionary)
                 
             case .failure(let error):
-                couponDonate = "there is error in connection"
                 print(error.localizedDescription)
-                completionHandler(couponDonate)
+                completionHandler(0)
             }
         }
     }

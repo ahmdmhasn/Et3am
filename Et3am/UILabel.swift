@@ -10,13 +10,16 @@ import UIKit
 
 extension UILabel {
     
-    func showMessage(_ text: String) {
+    func showMessage(_ text: String, with color: UIColor) {
         UIView.animate(withDuration: 1, animations: {
+            self.textColor = color
+            self.isHidden = false
             self.alpha = 1
             self.text = text
         }) { (bool) in
             UIView.animate(withDuration: 1, delay: 3.0, options: [.curveEaseInOut], animations: {
                 self.alpha = 0
+                self.isHidden = true
             }, completion: nil)
         }
     }
