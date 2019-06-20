@@ -18,7 +18,7 @@ class CouponDao {
     public func getReceivedCoupons(completionHandler:@escaping (NSMutableArray, [Restaurant], NSMutableArray,APIResponse) -> Void) {
         let couponBarcode:NSMutableArray = []
         let useDate:NSMutableArray = []
-        var restaurantObject = Restaurant()
+        let restaurantObject = Restaurant()
         var restaurantArray = [Restaurant]()
         var urlComponents = URLComponents(string: Et3amAPI.baseCouponUrlString+CouponURLQueries.used_coupon.rawValue)
         //0db77343-e323-4ec1-9896-6c9853d30f5d
@@ -47,8 +47,8 @@ class CouponDao {
                        restaurantObject.longitude = restaurantsJson["longitude"].double
                        restaurantArray.append(restaurantObject)
                         let barcode = couponDataDictionary[i]["userReserveCoupon"]["coupons"]["couponBarcode"].string
-                        couponBarcode[i] = barcode?.substring(to:(barcode?.index((barcode?.startIndex)!, offsetBy: 3))!)
-                       useDate[i] =  couponDataDictionary[i]["useDate"].double
+                        couponBarcode[i] = barcode?.substring(to:(barcode?.index((barcode?.startIndex)!, offsetBy: 3))!) ?? 0
+                       useDate[i] =  couponDataDictionary[i]["useDate"].double ?? 0
                         }
                 }
                   completionHandler(useDate ,restaurantArray ,couponBarcode ,.success(codeDataDictionary))
@@ -104,7 +104,7 @@ class CouponDao {
     
     func getFreeCoupon(typeURL:String, handler:@escaping (Coupon?) -> Void)    {
         
-        var couponObj:Coupon! = Coupon()
+        let couponObj:Coupon! = Coupon()
         
         Alamofire.request(typeURL).responseJSON { (response) in
             
@@ -116,7 +116,7 @@ class CouponDao {
                 if status == 1  {
                     let barCode = json["coupon"]["coupons"]["couponBarcode"].string
                     let couopnValue = json["coupon"]["coupons"]["couponValue"].float
-                    let couponID = json[]
+                    _ = json[]
                     print(barCode ?? "d")
                     couponObj.barCode = barCode
                     couponObj.couponValue = couopnValue

@@ -20,9 +20,10 @@ class RestaurantDao
     // Resquest With Parameter using Alamofire
     func fetchAllRestaurants(latitude:Double ,longitude:Double ,completionHandler: @escaping (Array<Restaurant>) -> Void) {
         var restaurantsList = [Restaurant]()
-        DispatchQueue.global(qos: .userInteractive).async {
+        //DispatchQueue.global(qos: .userInteractive).async {
             Alamofire.request("https://et3am.herokuapp.com/restaurant/list", method: .get, parameters: ["latitude": latitude,"longitude":longitude])
                 .validate()
+                //.validate(statusCode: 200..<500)
                 .responseJSON { response in
                     guard response.result.isSuccess else {
                         print("Error while fetching remote restaurants: \(response.result.error)")
@@ -47,11 +48,11 @@ class RestaurantDao
                         restaurant.travelTime = value["travelTime"] as? Double
                         restaurantsList.append(restaurant)
                     }
-                    DispatchQueue.main.async {
-                    completionHandler(restaurantsList)
-                    }
+                    //DispatchQueue.main.async {
+                        completionHandler(restaurantsList)
+                    //}
             }
-        }
+        //}
     }
     
     func fetchJsonForRestaurant(typeURL:String, handler:@escaping (Restaurant) -> Void)   {
