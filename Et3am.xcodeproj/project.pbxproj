@@ -39,8 +39,10 @@
 		E2029CF522836B6D007BA6A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2029CF322836B6D007BA6A1 /* LaunchScreen.storyboard */; };
 		E2029D0022836B6E007BA6A1 /* Et3amTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029CFF22836B6E007BA6A1 /* Et3amTests.swift */; };
 		E2029D0B22836B6E007BA6A1 /* Et3amUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029D0A22836B6E007BA6A1 /* Et3amUITests.swift */; };
+		E207D8CF22BB9F320014ECC6 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E207D8CE22BB9F320014ECC6 /* UILabel.swift */; };
 		E20D2192229D49DF00110D5D /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20D2191229D49DF00110D5D /* ChangePasswordViewController.swift */; };
 		E20E07262299DEA300FEC852 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20E07252299DEA300FEC852 /* UserProfileViewController.swift */; };
+		E21A104022BA8B6500824B50 /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21A103F22BA8B6500824B50 /* VerificationViewController.swift */; };
 		E22585D72298BD4E006D7A08 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22585D62298BD4E006D7A08 /* ImageStore.swift */; };
 		E2512CC62285DAD900D8E0F7 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */; };
 		E280CC4A22B81C7D00E32CE1 /* RegisterAndLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E280CC4622B81C7D00E32CE1 /* RegisterAndLogin.storyboard */; };
@@ -125,8 +127,10 @@
 		E2029D0622836B6E007BA6A1 /* Et3amUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Et3amUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2029D0A22836B6E007BA6A1 /* Et3amUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Et3amUITests.swift; sourceTree = "<group>"; };
 		E2029D0C22836B6E007BA6A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E207D8CE22BB9F320014ECC6 /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		E20D2191229D49DF00110D5D /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChangePasswordViewController.swift; path = controller/ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		E20E07252299DEA300FEC852 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileViewController.swift; path = controller/UserProfileViewController.swift; sourceTree = "<group>"; };
+		E21A103F22BA8B6500824B50 /* VerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerificationViewController.swift; path = controller/VerificationViewController.swift; sourceTree = "<group>"; };
 		E22585D62298BD4E006D7A08 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UserProfile.storyboard; path = view/UserProfile.storyboard; sourceTree = "<group>"; };
 		E280CC4622B81C7D00E32CE1 /* RegisterAndLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegisterAndLogin.storyboard; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 			children = (
 				2117FBE1229D49000099DE05 /* UIViewController.swift */,
 				2117FBE3229D5D150099DE05 /* UIView.swift */,
+				E207D8CE22BB9F320014ECC6 /* UILabel.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 				E20E07252299DEA300FEC852 /* UserProfileViewController.swift */,
 				E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */,
 				E20D2191229D49DF00110D5D /* ChangePasswordViewController.swift */,
+				E21A103F22BA8B6500824B50 /* VerificationViewController.swift */,
 			);
 			name = UserProfile;
 			sourceTree = "<group>";
@@ -539,7 +545,6 @@
 				E2029CED22836B6D007BA6A1 /* RestaurantsList.storyboard in Resources */,
 				E280CC4A22B81C7D00E32CE1 /* RegisterAndLogin.storyboard in Resources */,
 				F13F051422B68DCB000F090A /* PublishCouponViewCell.xib in Resources */,
-				210B4D87228B560B002EB218 /* RegisterAndLogin.storyboard in Resources */,
 				21E8F22022A3F2020070F223 /* CouponCollectionViewCell.xib in Resources */,
 				E280CC4F22B8215600E32CE1 /* Donate.storyboard in Resources */,
 				E2512CC62285DAD900D8E0F7 /* UserProfile.storyboard in Resources */,
@@ -654,7 +659,6 @@
 				2117FBE2229D49000099DE05 /* UIViewController.swift in Sources */,
 				2189265822A0028300BD7404 /* DonateViewController.swift in Sources */,
 				21E8F21F22A3F2020070F223 /* CouponCollectionViewCell.swift in Sources */,
-				E21DAF9D229BE8EC00129F7D /* SignInView.swift in Sources */,
 				A21013B1228AE96E001D9CA4 /* MealCell.swift in Sources */,
 				E20E07262299DEA300FEC852 /* UserProfileViewController.swift in Sources */,
 				E2F11BA22288D49D0031ABCC /* User.swift in Sources */,
@@ -664,12 +668,14 @@
 				E2F11B9E2288D49D0031ABCC /* Coupon.swift in Sources */,
 				2117FBE4229D5D150099DE05 /* UIView.swift in Sources */,
 				F13F051622B699D9000F090A /* UnpPublishCouponVC.swift in Sources */,
+				E21A104022BA8B6500824B50 /* VerificationViewController.swift in Sources */,
 				211644AB228C4A6C009AA2BB /* Et3amAPI.swift in Sources */,
 				83517C4F229A954A009DD6C3 /* RestaurantDetailsCell.swift in Sources */,
 				E2F11BA02288D49D0031ABCC /* Meal.swift in Sources */,
 				E20D2192229D49DF00110D5D /* ChangePasswordViewController.swift in Sources */,
 				E2029CF022836B6D007BA6A1 /* Et3am.xcdatamodeld in Sources */,
 				E280CC4D22B81C7D00E32CE1 /* SignUpView.swift in Sources */,
+				E207D8CF22BB9F320014ECC6 /* UILabel.swift in Sources */,
 				F17C3FD3229D44CD005A449E /* RestaurantsListVC.swift in Sources */,
 				E22585D72298BD4E006D7A08 /* ImageStore.swift in Sources */,
 				211378A72284F16A0056E5C7 /* AllCouponTableViewCell.swift in Sources */,
@@ -682,7 +688,6 @@
 				E280CC4B22B81C7D00E32CE1 /* RegisterandLoginViewController.swift in Sources */,
 				838DE133229AB3A2001C001B /* RestaurantDetailsViewController.swift in Sources */,
 				21B6E8F6229C1D350067C5F4 /* CouponDao.swift in Sources */,
-				E2F11BA72288E5A50031ABCC /* CopounsRecievedViewController.swift in Sources */,
 				E280CC5122B83FC600E32CE1 /* ImageAPI.swift in Sources */,
 				E280CC4C22B81C7D00E32CE1 /* SignInView.swift in Sources */,
 				2117FBDF229CC03F0099DE05 /* UserHelper.swift in Sources */,

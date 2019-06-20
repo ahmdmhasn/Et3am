@@ -46,7 +46,6 @@ class ImageAPI {
                     }
                     
                     let json = JSON(result)
-                    print(json)
                     let code = json["code"].int
                     let imageId = json["image"]["public_id"].string
                     completionHandler(code, imageId)

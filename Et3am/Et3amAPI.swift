@@ -8,14 +8,15 @@
 
 import Foundation
 
-enum UserURLQueries:String {
+enum UserURLQueries: String {
     case add = "/add"
     case list = "/list"
     case validateEmail="/validate/userEmail"
     case validateName="/validate/userName"
     case loginValidation = "/validate/login"
-    case update = "/update"
+    case update = "/update/u"
     case updatePassword = "/update/password"
+    case verify = "/update/verification"
     case getUser = "/u"
     
     func getUrl() -> String {
@@ -28,9 +29,7 @@ enum UserURLQueries:String {
         }
         
         switch self {
-        case .updatePassword:
-            return baseUserUrl + userID
-        case .getUser:
+        case .updatePassword, .update, .getUser, .verify:
             return baseUserUrl + userID
         default:
             return ""
