@@ -14,9 +14,19 @@ class CouponCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var couponBarCode: UILabel!
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var useDate: UILabel!
+    @IBOutlet weak var widthConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var container: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        self.contentView.translatesAutoresizingMaskIntoConstraints = false
+        let screenWidth = UIScreen.main.bounds.size.width
+        widthConstraint.constant = screenWidth - (2 * 12)
+        
+        container.layer.cornerRadius = 12
+        container.layer.masksToBounds = true
     }
 
 }

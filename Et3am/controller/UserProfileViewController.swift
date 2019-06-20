@@ -9,6 +9,7 @@
 import UIKit
 import SVProgressHUD
 import SDWebImage
+import ChameleonFramework
 
 enum UserProfileSections: Int {
     case profile, coupons, settings, nationalID, logout
@@ -35,6 +36,8 @@ class UserProfileViewController: UITableViewController {
     @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var changeImageButton: UIButton!
     @IBOutlet weak var imageActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var phoneNumberTextField: UITextField!
+    @IBOutlet weak var jobTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,10 +52,11 @@ class UserProfileViewController: UITableViewController {
     }
     
     func updateUI() {
-        isVerifiedLabel.isHidden = !(userDao.user.verified ?? false)
         usernameLabel.text = userDao.user.userName ?? ""
         userIDLabel.text = userDao.user.nationalID ?? ""
         userEmailLabel.text = userDao.user.email ?? ""
+        phoneNumberTextField.text = userDao.user.mobileNumber ?? ""
+        jobTextField.text = userDao.user.job ?? ""
         
         userImageView.layer.cornerRadius = userImageView.frame.width / 2
         userImageView.layer.masksToBounds = true
@@ -62,6 +66,24 @@ class UserProfileViewController: UITableViewController {
             userImageView.sd_setIndicatorStyle(.gray)
             userImageView.sd_setImage(with: URL(string: ImageAPI.getImage(type: .profile_r250, publicId: image)), completed: nil)
         }
+        
+        switch userDao.user.verified! {
+        case .verified:
+            isVerifiedLabel.isHidden = false
+            isVerifiedLabel.text = "Verified"
+            isVerifiedLabel.textColor = UIColor.flatGreen()
+        case .pending:
+            isVerifiedLabel.isHidden = false
+            isVerifiedLabel.text = "Pending"
+            isVerifiedLabel.textColor = UIColor.flatGray()
+        case .rejected:
+            isVerifiedLabel.isHidden = false
+            isVerifiedLabel.text = "Rejected!"
+            isVerifiedLabel.textColor = UIColor.flatRed()
+        default:
+            isVerifiedLabel.isHidden = true
+        }
+
     }
     
     func getUserData() {
@@ -88,7 +110,9 @@ class UserProfileViewController: UITableViewController {
             getUserSettings(section: SettingsSection(rawValue: indexPath.row)!)
             
         case .nationalID:
-            print("ID")
+            if userDao.user.verified! != VerificationStatus.verified {
+                performSegue(withIdentifier: "showVerification", sender: self)
+            }
             
         case .logout:
             logoutUser()
@@ -98,6 +122,7 @@ class UserProfileViewController: UITableViewController {
     @IBAction func editPhoneNumber(_ sender: UITextField) {
         
         if let text = sender.text {
+            print(text)
             userDao.user.mobileNumber = text
         }
         
@@ -192,8 +217,7 @@ extension UserProfileViewController {
 //MARK: - Select image from gallery
 extension UserProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
-    {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             let imageData: Data = UIImageJPEGRepresentation(image, 0.2)!
             
@@ -218,7 +242,7 @@ extension UserProfileViewController {
             
             self.uploadCompleted()
             
-            if let code = result.0, let publicId = result.1 {
+            if let _ = result.0, let publicId = result.1 {
                 self.userDao.user.profileImage = publicId
             }
         })
