@@ -97,17 +97,8 @@ class RestaurantDetailsViewController: UIViewController {
                     self.hideLoadingActivityIndicator()
                 }
             }
-            
         }
-        
-        
-        
-        
     }
-    
-    
-    
-    
 }
 
 extension RestaurantDetailsViewController:UITableViewDelegate,UITableViewDataSource{
