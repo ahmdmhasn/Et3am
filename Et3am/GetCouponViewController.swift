@@ -10,22 +10,24 @@ import UIKit
 
 class GetCouponViewController: UIViewController {
     let couponDao = CouponDao.shared
-    //let user:User = UserDao.shared.user
     let currentUser = UserDao.shared.user
-    
-    
+     var capturedScreenShotView:UIView!
+    @IBOutlet weak var screenshotView: UIView!
     @IBOutlet var outerContainerView: UIView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var barCodeLable: UILabel!
     @IBOutlet weak var errorMsgLable: UILabel!
     @IBOutlet weak var imageViewQR: UIImageView!
     @IBOutlet weak var requestButton: UIBarButtonItem!
-    
     @IBAction func cancelProcess(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
     
+    @IBAction func screenShotButton(_ sender: Any) {
+        
+        captureScreenshot()
+    }
     private  let getFreeCouponURL: String = CouponURLQueries.getFreeCoupon.getUrl()
     
     @IBAction func requestCouponButton(_ sender: Any) {
@@ -39,9 +41,14 @@ class GetCouponViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         containerView.layer.cornerRadius = 15
         containerView.layer.masksToBounds = true
-        print(currentUser.userID ?? 0)
+        capturedScreenShotView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
+        capturedScreenShotView.backgroundColor = UIColor.black
+       view.addSubview(capturedScreenShotView)
+        capturedScreenShotView.isHidden = true
     }
     
     func getFreeCoupon(URL: String) -> Void {
@@ -62,7 +69,6 @@ class GetCouponViewController: UIViewController {
             }})
     }
     
-    
     func generateQRCOde(barCode:String!) -> Void {
         if let myString = barCode
         {
@@ -74,7 +80,41 @@ class GetCouponViewController: UIViewController {
             
             imageViewQR.image = img
         }
-
 }
+    
+    func captureScreenshot(){
+        let layer = UIApplication.shared.keyWindow!.layer
+        let scale = UIScreen.main.scale
+        // Creates UIImage of same size as view
+        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        // THIS IS TO SAVE SCREENSHOT TO PHOTOS
+       notifyUser(data: screenshot)
+        
+        capturedScreenShotView.isHidden = false
+        self.capturedScreenShotView.alpha = 1
+        UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+            self.capturedScreenShotView.alpha = 0
+            
+        }) { (completed) in
+            self.capturedScreenShotView.isHidden = true
+            
+        }
+            
+    }
+    func notifyUser(data:Any) -> Void {
+        let alert = UIAlertController(title: "Save Screenshot", message: "Screenshot is captured, Do you Save?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {action in
+            // THIS IS TO SAVE SCREENSHOT TO PHOTOS
+            UIImageWriteToSavedPhotosAlbum(data as! UIImage, nil, nil, nil)
+        
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true)
+    }
 
 }

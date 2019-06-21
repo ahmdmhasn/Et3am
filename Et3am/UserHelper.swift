@@ -22,7 +22,7 @@ class UserHelper: NSObject {
         user.userName = json[UserProperties.userName.rawValue].string
         user.email = json[UserProperties.userEmail.rawValue].string
         user.password = json[UserProperties.password.rawValue].string
-        user.verified = (json[UserProperties.verified.rawValue].int == 1) ? true : false
+        user.verified = VerificationStatus(rawValue: json[UserProperties.verified.rawValue].int ?? 0)
         user.userStatus = (json[UserProperties.userStatus.rawValue].int == 1) ? true : false
         
         let details = json[UserProperties.userDetailses.rawValue][0]
