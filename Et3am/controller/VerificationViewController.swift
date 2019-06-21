@@ -84,10 +84,10 @@ class VerificationViewController: UIViewController {
         
         let myPickerController = UIImagePickerController()
         
-        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             
             myPickerController.delegate = self
-            myPickerController.sourceType = .savedPhotosAlbum
+            myPickerController.sourceType = .photoLibrary
             myPickerController.allowsEditing = false
             
             present(myPickerController, animated: true, completion: nil)

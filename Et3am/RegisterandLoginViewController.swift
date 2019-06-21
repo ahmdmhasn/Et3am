@@ -173,8 +173,15 @@ class RegisterandLoginViewController: UIViewController {
     }
     
     func showSignupView() {
-        signInView.isHidden = true
-        signUpView.isHidden = false
+        signUpView.alpha = 0
+        self.signInView.isHidden = true
+        UIView.animate(withDuration: 0.5, animations: {
+            self.signUpView.alpha = 1
+            self.signUpView.isHidden = false
+        }) { (done) in
+            
+        }
+        
     }
     
     func showSigninView() {
