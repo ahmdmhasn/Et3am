@@ -63,13 +63,17 @@ enum CouponURLQueries:String {
             return Et3amAPI.baseCouponUrlString
         }
         
+        
+        
+        
+        
         guard let userID = UserDao.shared.user.userID else {
             fatalError("User ID cannot be nil")
         }
         
         switch self {
         case .getFreeCoupon:
-            return baseUrl + userID
+            return baseUrl + CouponURLQueries.getFreeCoupon.rawValue + userID
         default:
             return ""
         }

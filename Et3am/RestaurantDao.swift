@@ -72,12 +72,17 @@ class RestaurantDao
         }
     }
     
-    func fetchJsonForMeals (typeURL:String, handler:@escaping(Array<Meal>) -> Void){
+    func fetchJsonForMeals (typeURL:String, handler:@escaping(Array<Meal>?) -> Void){
+        
         var mealsArray:Array<Meal> = []
         
         Alamofire.request(typeURL).responseJSON { (response) in
-            if let responseValue = response.result.value as! [Dictionary<String, Any>]? {
-                // self.responseJson = responseValue as! [[String: Any]]
+            
+            guard let responseValue = response.result.value as? [Dictionary<String, Any>] else {
+                handler(nil)
+                return
+            }
+            
                 for item in responseValue{
                     let meal = Meal()
                     //    print(item["mealName"] as! String)
@@ -96,7 +101,7 @@ class RestaurantDao
         }
     }
     
-}
+
 
 
 
