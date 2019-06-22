@@ -180,9 +180,9 @@ class CouponDao {
     }
     
     func getCreationDate(milisecond: Double) -> String {
-        let dateVar = Date.init(timeIntervalSinceNow: TimeInterval(milisecond)/1000)
+        let dateVar = Date(timeIntervalSince1970: (milisecond / 1000.0))
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy hh:mm"
+        dateFormatter.dateFormat = "hh:mm a dd/MM/yyyy"
         let date = dateFormatter.string(from: dateVar)
         print(date)
         return date
