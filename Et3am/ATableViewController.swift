@@ -13,7 +13,7 @@ import SVProgressHUD
 class ATableViewController: UITableViewController {
 
     var listCoupons = [Coupon]()
-    
+    var message = UILabel()
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         let couponSevices = CouponDao.shared
@@ -26,9 +26,22 @@ class ATableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        message.center = view.center
+        //noList.text = "You don't have any used coupon."
+        message.text = "No Restaurant Found"
+        message.textAlignment = .center
+        message.textColor = #colorLiteral(red: 0.4078193307, green: 0.4078193307, blue: 0.4078193307, alpha: 1)
+        view.addSubview(message)
+        message.isHidden = true
+//        if listCoupons.count == 0 {
+//            self.tableView.backgroundView = self.message
+//        } else {
+//            self.message.isHidden = false
+//            self.tableView.reloadData()
+//        }
         tableView.register(UINib(nibName: "ATableViewCell", bundle: nil), forCellReuseIdentifier: "ATableViewCell")
     }
-
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -91,10 +104,15 @@ extension ATableViewController : ATableViewCellDelegate,MFMessageComposeViewCont
         self.listCoupons.remove(at: cellIndex.row)
         self.tableView.deleteRows(at: [cellIndex], with: .automatic)
         self.tableView.reloadData()
-        
+        if listCoupons.count == 0 {
+            self.tableView.backgroundView = self.message
+        } else {
+            self.message.isHidden = false
+            self.tableView.reloadData()
+        }
+
         // If succeed
         SVProgressHUD.showSuccess(withStatus: "Donated successfully!")
-        //print("row \(cellIndex.row)")
         
     }
     func didPressShare(){
