@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Coupons-->
+        <!--Title-->
         <scene sceneID="3Eh-8A-Tnv">
             <objects>
                 <tableViewController id="H6v-bs-eps" customClass="ATableViewController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,8 +23,17 @@
                             <outlet property="delegate" destination="H6v-bs-eps" id="UOY-Wd-EKR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Coupons" id="sYx-0A-JgS">
-                        <barButtonItem key="rightBarButtonItem" title="Display" id="OON-Bh-Ij4"/>
+                    <navigationItem key="navigationItem" title="Title" id="0lE-UP-Wv9">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="OMH-Ny-b2O">
+                            <connections>
+                                <action selector="back:" destination="H6v-bs-eps" id="xpM-Ca-NuX"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Display" id="ewa-kZ-ytN">
+                            <connections>
+                                <action selector="displayListAs:" destination="H6v-bs-eps" id="7d7-Ct-kr8"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8qO-Jy-VfQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -88,7 +97,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8PI-Kw-rSA" id="Sto-pt-clk">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="available on app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZbH-2C-LZv">

@@ -12,11 +12,18 @@ import SVProgressHUD
 
 class ATableViewController: UITableViewController {
 
+    @IBAction func back(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func displayListAs(_ sender: Any) {
+    }
     var listCoupons = [Coupon]()
     var message = UILabel()
+    let couponSevices = CouponDao.shared
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        let couponSevices = CouponDao.shared
         couponSevices.getInBalanceCoupon(userId:UserDao.shared.user.userID! , inBalanceHandler:{ listCoupon in
             self.listCoupons = listCoupon
             self.tableView.reloadData()
@@ -28,17 +35,17 @@ class ATableViewController: UITableViewController {
         super.viewDidLoad()
         message.center = view.center
         //noList.text = "You don't have any used coupon."
-        message.text = "No Restaurant Found"
+        message.text = "No Coupon Found"
         message.textAlignment = .center
         message.textColor = #colorLiteral(red: 0.4078193307, green: 0.4078193307, blue: 0.4078193307, alpha: 1)
         view.addSubview(message)
         message.isHidden = true
-//        if listCoupons.count == 0 {
-//            self.tableView.backgroundView = self.message
-//        } else {
-//            self.message.isHidden = false
-//            self.tableView.reloadData()
-//        }
+        if listCoupons.count == 0 {
+            self.tableView.backgroundView = self.message
+        } else {
+            self.message.isHidden = false
+            self.tableView.reloadData()
+        }
         tableView.register(UINib(nibName: "ATableViewCell", bundle: nil), forCellReuseIdentifier: "ATableViewCell")
     }
     
@@ -71,20 +78,6 @@ class ATableViewController: UITableViewController {
     }
  
 
-    
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            //didPressPost(cellIndex: indexPath)
-            self.listCoupons.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
-        }else{
-            print("Cannot Delete")
-        }
-    }
-    
-
     /*
     // MARK: - Navigation
 
@@ -101,21 +94,27 @@ class ATableViewController: UITableViewController {
 extension ATableViewController : ATableViewCellDelegate,MFMessageComposeViewControllerDelegate{
     func didPressPost(cellIndex:IndexPath){
         print("Post \(cellIndex)")
-        self.listCoupons.remove(at: cellIndex.row)
-        self.tableView.deleteRows(at: [cellIndex], with: .automatic)
-        self.tableView.reloadData()
+        self.couponSevices.publishCoupon(couponId: self.listCoupons[cellIndex.row].couponID!,completedHandler: { (result) in
+            switch result {
+            case true :
+                self.listCoupons.remove(at: cellIndex.row)
+                self.tableView.deleteRows(at: [cellIndex], with: .automatic)
+                self.tableView.reloadData()
+                 SVProgressHUD.showSuccess(withStatus: "Donated successfully!")
+            case false:
+                 SVProgressHUD.showSuccess(withStatus: "Donated unSuccessfully!")
+            }
+        })
+        
         if listCoupons.count == 0 {
             self.tableView.backgroundView = self.message
         } else {
             self.message.isHidden = false
             self.tableView.reloadData()
         }
-
-        // If succeed
-        SVProgressHUD.showSuccess(withStatus: "Donated successfully!")
-        
     }
-    func didPressShare(){
+    
+    func didPressShare(cellIndex:IndexPath){
         print("SMS")
         // Present the view controller modally.
         if MFMessageComposeViewController.canSendText() {
@@ -123,13 +122,13 @@ extension ATableViewController : ATableViewCellDelegate,MFMessageComposeViewCont
             composeVC.messageComposeDelegate = self
             // Configure the fields of the interface.
             //composeVC.recipients = ["3142026521"]
-            composeVC.body = "I love Swift!"
+            composeVC.body = listCoupons[cellIndex.row].couponID
             self.present(composeVC, animated: true, completion: nil)
         } else {
             print("Can't send messages.")
         }
     }
-    func didPressPrint(){
+    func didPressPrint(cellIndex:IndexPath){
         print("Share")
         //share screenshot using other apps
         share(data:captureScreenshot())
@@ -138,7 +137,9 @@ extension ATableViewController : ATableViewCellDelegate,MFMessageComposeViewCont
     func share(data:Any){
         let activityVC = UIActivityViewController(activityItems: [data], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
-        self.present(activityVC, animated: true, completion: nil)
+        self.present(activityVC, animated: true, completion: { (response) in
+            print("testtt \(response)")
+        })
     }
     
     

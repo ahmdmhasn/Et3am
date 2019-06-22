@@ -29,13 +29,13 @@ class ATableViewCell: UITableViewCell {
     }
     
     @IBAction func didPostPressed(_ sender: Any) { delegate?.didPressPost(cellIndex:indexPath)}
-    @IBAction func didSMSPressed(_ sender: Any) { delegate?.didPressShare() }
-    @IBAction func didSharePressed(_ sender: Any) { delegate?.didPressPrint() }
+    @IBAction func didSMSPressed(_ sender: Any) { delegate?.didPressShare(cellIndex:indexPath) }
+    @IBAction func didSharePressed(_ sender: Any) { delegate?.didPressPrint(cellIndex:indexPath) }
     
 }
 
 protocol ATableViewCellDelegate: class {
     func didPressPost(cellIndex:IndexPath)
-    func didPressShare()
-    func didPressPrint()
+    func didPressShare(cellIndex:IndexPath)
+    func didPressPrint(cellIndex:IndexPath)
 }
