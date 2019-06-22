@@ -144,7 +144,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="213" height="39"/>
                                                                 <color key="backgroundColor" red="0.17254902420000001" green="0.24313725529999999" blue="0.31372550129999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                                <state key="normal" title="Near Restaurants">
+                                                                <state key="normal" title="Restaurants">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
                                                                 <connections>
@@ -155,9 +155,12 @@
                                                                 <rect key="frame" x="0.0" y="51" width="213" height="39"/>
                                                                 <color key="backgroundColor" red="0.17254902420000001" green="0.24313725529999999" blue="0.31372550129999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                                <state key="normal" title="Dashboard">
+                                                                <state key="normal" title="Profile">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="showUserProfile:" destination="VaX-Tk-ec7" eventType="touchUpInside" id="tDj-09-u1Z"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGK-uu-htk" customClass="RoundedButton" customModule="Et3am" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="102" width="213" height="39"/>
@@ -166,6 +169,9 @@
                                                                 <state key="normal" title="Donate">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="showDonate:" destination="VaX-Tk-ec7" eventType="touchUpInside" id="B6i-Dk-Yj1"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -229,9 +235,20 @@
                             <constraint firstAttribute="trailing" secondItem="KOm-Xt-QWJ" secondAttribute="trailing" id="xqg-A9-1pT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="nFk-TI-cLm"/>
+                    <navigationItem key="navigationItem" id="nFk-TI-cLm">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" style="plain" id="c1w-Pj-aFt">
+                            <color key="tintColor" red="0.90588235859999999" green="0.29803922770000002" blue="0.23529411850000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="donatedCouponsLabel" destination="Wee-h9-1H4" id="vle-b1-Gmo"/>
+                        <outlet property="moreInfoBackground" destination="9DI-2y-PHI" id="I4O-Y2-WCy"/>
+                        <outlet property="moreInfoLabel" destination="3sI-zY-1FZ" id="fcq-Bu-7tU"/>
+                        <outlet property="receivedCouponsLabel" destination="hwc-GF-PsV" id="52K-K4-xs8"/>
+                        <outlet property="usernameLabel" destination="rBK-nU-P5N" id="QaU-6J-FaI"/>
                         <segue destination="x3b-f5-2TT" kind="show" identifier="showRestaurantList" id="U5b-YI-Bhy"/>
+                        <segue destination="mAI-6S-l51" kind="show" identifier="showUserProfile" id="GRh-bh-fTm"/>
+                        <segue destination="DLW-AL-sSc" kind="show" identifier="showDonate" id="Yap-WL-HjJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n0J-Tm-Gie" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -244,12 +261,28 @@
                 <viewControllerPlaceholder storyboardName="RestaurantsList" id="x3b-f5-2TT" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vIV-zo-8yR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1535" y="35"/>
+            <point key="canvasLocation" x="1659" y="-183"/>
+        </scene>
+        <!--UserProfile-->
+        <scene sceneID="DSB-Eo-R69">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UserProfile" id="mAI-6S-l51" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tzq-zi-sIb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1660" y="-65"/>
+        </scene>
+        <!--Donate-->
+        <scene sceneID="zyX-uL-Ijn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Donate" id="DLW-AL-sSc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kWN-QW-eCe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1640" y="49"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1qW-VY-JId">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="bh3-yh-yHI" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LandingNavigationController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="bh3-yh-yHI" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cza-li-Si5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

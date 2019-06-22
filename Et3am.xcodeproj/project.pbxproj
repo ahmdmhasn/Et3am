@@ -44,7 +44,6 @@
 		E210689922BEC67000A9AD4F /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E210689822BEC67000A9AD4F /* LandingViewController.swift */; };
 		E210689B22BEC6AD00A9AD4F /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E210689A22BEC6AD00A9AD4F /* Landing.storyboard */; };
 		E21A104022BA8B6500824B50 /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21A103F22BA8B6500824B50 /* VerificationViewController.swift */; };
-		E22585D72298BD4E006D7A08 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22585D62298BD4E006D7A08 /* ImageStore.swift */; };
 		E2512CC62285DAD900D8E0F7 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */; };
 		E280CC4A22B81C7D00E32CE1 /* RegisterAndLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E280CC4622B81C7D00E32CE1 /* RegisterAndLogin.storyboard */; };
 		E280CC4B22B81C7D00E32CE1 /* RegisterandLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280CC4722B81C7D00E32CE1 /* RegisterandLoginViewController.swift */; };
@@ -136,7 +135,6 @@
 		E210689822BEC67000A9AD4F /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LandingViewController.swift; path = controller/LandingViewController.swift; sourceTree = "<group>"; };
 		E210689A22BEC6AD00A9AD4F /* Landing.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Landing.storyboard; path = view/Landing.storyboard; sourceTree = "<group>"; };
 		E21A103F22BA8B6500824B50 /* VerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerificationViewController.swift; path = controller/VerificationViewController.swift; sourceTree = "<group>"; };
-		E22585D62298BD4E006D7A08 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UserProfile.storyboard; path = view/UserProfile.storyboard; sourceTree = "<group>"; };
 		E280CC4622B81C7D00E32CE1 /* RegisterAndLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegisterAndLogin.storyboard; sourceTree = "<group>"; };
 		E280CC4722B81C7D00E32CE1 /* RegisterandLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterandLoginViewController.swift; sourceTree = "<group>"; };
@@ -401,7 +399,6 @@
 		E22585D52298BD27006D7A08 /* Data Layer */ = {
 			isa = PBXGroup;
 			children = (
-				E22585D62298BD4E006D7A08 /* ImageStore.swift */,
 			);
 			name = "Data Layer";
 			sourceTree = "<group>";
@@ -701,7 +698,6 @@
 				E280CC4D22B81C7D00E32CE1 /* SignUpView.swift in Sources */,
 				E207D8CF22BB9F320014ECC6 /* UILabel.swift in Sources */,
 				F17C3FD3229D44CD005A449E /* RestaurantsListVC.swift in Sources */,
-				E22585D72298BD4E006D7A08 /* ImageStore.swift in Sources */,
 				211378A72284F16A0056E5C7 /* AllCouponTableViewCell.swift in Sources */,
 				F13F051322B68DCB000F090A /* PublishCouponViewCell.swift in Sources */,
 				E2F11BA12288D49D0031ABCC /* Restaurant.swift in Sources */,

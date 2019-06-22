@@ -29,9 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if user.userID != nil {
             let storyboard = UIStoryboard(name: "Landing", bundle: nil)
             
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "LandingVC")
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "LandingVC") as? LandingViewController
             
-            self.window?.rootViewController = initialViewController
+            let navigationController = UINavigationController(rootViewController: initialViewController!)
+            
+            self.window?.rootViewController = navigationController
             self.window?.makeKeyAndVisible()
         }
         
