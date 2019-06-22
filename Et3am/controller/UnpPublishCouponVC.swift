@@ -22,6 +22,7 @@ class UnpPublishCouponVC: UICollectionViewController {
         // Register cell classes
         //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         self.collectionView?.registerNib(cell: PublishCouponViewCell.self)
+        
         // Do any additional setup after loading the view.
 //        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
 //            flowLayout.estimateItemSize = CGSize(width:1,height:1)

@@ -14,6 +14,7 @@ class PublishCouponViewCell: UICollectionViewCell {
     weak var delegate: PublishCouponViewCellDelegate?
     
     
+    @IBOutlet weak var containerWidth: NSLayoutConstraint!
     @IBOutlet weak var qrCodeImage: UIImageView!
     @IBOutlet weak var barCodeLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
@@ -29,6 +30,9 @@ class PublishCouponViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.contentView.translatesAutoresizingMaskIntoConstraints = false
+        let screenWidth = UIScreen.main.bounds.size.width
+        containerWidth.constant = screenWidth - (2 * 12)
     }
     
     
