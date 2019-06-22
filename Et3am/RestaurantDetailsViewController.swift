@@ -46,7 +46,7 @@ extension RestaurantDetailsViewController:UITableViewDelegate,UITableViewDataSou
             cell.restaurantName.text = restuarantObj.restaurantName
             cell.restaurantCountyCity.text = restuarantObj.city! + ", " + restuarantObj.country!
             
-            let imageURL = ImageAPI.getImage(type: .original, publicId: restuarantObj.image ?? "")
+            let imageURL = ImageAPI.getImage(type: .width500, publicId: restuarantObj.image ?? "")
             cell.restaurantImage.sd_setShowActivityIndicatorView(true)
             cell.restaurantImage.sd_setImage(with: URL(string: imageURL), placeholderImage: placeholderImage, options: [], completed: nil)
             return cell
@@ -55,10 +55,10 @@ extension RestaurantDetailsViewController:UITableViewDelegate,UITableViewDataSou
             
             let meal = mealsArray[indexPath.row]
             cell.mealName.text = meal.mealName ?? ""
-            let imageURL = ImageAPI.getImage(type: .original, publicId: meal.mealImage ?? "")
+            cell.mealValue.text = String(describing: meal.mealValue!)+"€"
+            let imageURL = ImageAPI.getImage(type: .profile_r250, publicId: meal.mealImage ?? "")
             cell.mealImage.sd_setShowActivityIndicatorView(true)
             cell.mealImage.sd_setImage(with: URL(string: imageURL), placeholderImage: placeholderImage, options: [], completed: nil)
-            
             return cell
         }
    }

@@ -41,7 +41,7 @@ class RestaurantDao
                         restaurant.restaurantName = value["restaurantName"] as? String
                         restaurant.city = value["city"] as? String
                         restaurant.country = value["country"] as? String
-                        restaurant.image = "restaurant"
+                        restaurant.image = value["restaurantImage"] as? String
                         restaurant.latitude = value["latituse"] as? Double
                         restaurant.longitude = value["longitude"] as? Double
                         restaurant.distance = value["distance"] as? Double
@@ -85,12 +85,10 @@ class RestaurantDao
             
                 for item in responseValue{
                     let meal = Meal()
-                    //    print(item["mealName"] as! String)
                     meal.mealName = item["mealName"] as? String
-                    // print(meal.mealName)
                     meal.mealID = item["mealId"] as? String
-                    meal.mealImage="food"
-                    // print(item["mealName"])
+                    meal.mealImage=item["mealImage"] as? String
+                    meal.mealValue = item["mealValue"] as? Float
                     mealsArray.append(meal)
                 }
                 
