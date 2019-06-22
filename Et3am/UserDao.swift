@@ -104,9 +104,7 @@ class UserDao{
             response in
             
             var isEmailValid: Bool = false
-            
-            print(response.result.value!)
-            
+                        
             switch response.result {
             case .success:
                 let sucessDataValue = response.result.value

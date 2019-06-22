@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import SVProgressHUD
+import SDWebImage
 
 class RestaurantsListVC: UITableViewController {
     
@@ -61,11 +62,14 @@ class RestaurantsListVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell() as RestaurantCell
-        let image : UIImage = UIImage(named: "food")!
-        cell.restaurantImage.image = image
+        
+        let placeholderImage = UIImage(named: "placeholder")!
+        let imageURL = restaurantsList[indexPath.row].image ?? ""
+        cell.restaurantImage.sd_setShowActivityIndicatorView(true)
+        cell.restaurantImage.sd_setImage(with: URL(string: imageURL), placeholderImage: placeholderImage, options: [], completed: nil)
         cell.restaurantNameLabel.text = restaurantsList[indexPath.row].restaurantName
-        cell.restaurantDistanceLabel.text = String(describing: (restaurantsList[indexPath.row].distance)!)+", KM"
-        cell.restaurantTimeLabel.text = String(describing: (restaurantsList[indexPath.row].travelTime)!)+", Min"
+        cell.restaurantDistanceLabel.text = String(describing: (restaurantsList[indexPath.row].distance)!)+" km"
+        cell.restaurantTimeLabel.text = String(describing: (restaurantsList[indexPath.row].travelTime)!)+" min"
         return cell
     }
     

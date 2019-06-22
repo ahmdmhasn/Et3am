@@ -122,7 +122,6 @@ class UserProfileViewController: UITableViewController {
     @IBAction func editPhoneNumber(_ sender: UITextField) {
         
         if let text = sender.text {
-            print(text)
             userDao.user.mobileNumber = text
         }
         
@@ -139,10 +138,10 @@ class UserProfileViewController: UITableViewController {
         
         let myPickerController = UIImagePickerController()
         
-        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             
             myPickerController.delegate = self
-            myPickerController.sourceType = .savedPhotosAlbum
+            myPickerController.sourceType = .photoLibrary
             myPickerController.allowsEditing = false
             
             present(myPickerController, animated: true, completion: nil)
