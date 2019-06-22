@@ -7,133 +7,61 @@
 //
 
 import UIKit
+import SVProgressHUD
+import SDWebImage
 
 class RestaurantDetailsViewController: UIViewController {
-    
-    var getMealsFinished:Bool = false
-    var getRestaurantDetails:Bool = false
-    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
-    
-    
-    
-    
-    private func showLoadingActivityIndicator(){
-        
-        activityIndicator.center = self.view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
-        UIApplication.shared.beginIgnoringInteractionEvents()
-        
-    }
-    private func hideLoadingActivityIndicator(){
-        
-       activityIndicator.stopAnimating()
-      UIApplication.shared.endIgnoringInteractionEvents()
-        
-    }
-    
-
-    @IBAction func inviteFriend(_ sender: Any) {
-    }
-    
-    @IBAction func getFreeCoupon(_ sender: Any) {
-        
-        
-         }
-    var restaurantName :String = ""
-    var restaurantCountry :String = ""
-    var restaurantCity:String = ""
-    
-    @IBOutlet weak var restuarantAndMealsTableView: UITableView!
-    
-    
+   @IBOutlet weak var restuarantAndMealsTableView: UITableView!
     var restuarantObj = Restaurant()
-    
-    
-    
     var mealsArray:Array<Meal> = []
     override func viewDidLoad() {
         super.viewDidLoad()
-//        restuarantObj.city = ""
-//        restuarantObj.restaurantName = ""
-//        restuarantObj.country = ""
-        self.showLoadingActivityIndicator()
-
-        
         restuarantAndMealsTableView.dataSource = self
         restuarantAndMealsTableView.delegate = self
-        
-        
-        let restaurantDao:RestaurantDao = RestaurantDao.sharedRestaurantObject
-        //let restaurantUrl:String = "\(Et3amAPI.baseRestaurantUrlString)\(RestaurantQueries.rest)/1"
-        let mealsUrl:String  = "\(Et3amAPI.baseRestaurantUrlString)\(restuarantObj.restaurantID)/\(RestaurantQueries.meals)"
-        
-        print(mealsUrl)
-//        restaurantDao.fetchJsonForRestaurant(typeURL: restaurantUrl, handler: {restuarant in
-//            
-//            
-//            DispatchQueue.main.async {
-//                self.restuarantObj.restaurantName = restuarant.restaurantName!
-//                self.restuarantObj.country =  restuarant.country!
-//                self.restuarantObj.city = restuarant.city!
-//                //self.hideLoadingActivityIndicator()
-//                self.getRestaurantDetails = true
-//                if self.getRestaurantDetails == true && self.getMealsFinished == true {
-//                    self.hideLoadingActivityIndicator()
-//                }
-//                            }
-//                   })
-        
-        restaurantDao.fetchJsonForMeals(typeURL: mealsUrl) { fetchedArray in
-              
-            DispatchQueue.main.async {
-                self.mealsArray = fetchedArray
-                self.restuarantAndMealsTableView.reloadData()
-                //self.hideLoadingActivityIndicator()
-                self.getMealsFinished = true
-                if self.getRestaurantDetails == true && self.getMealsFinished == true {
-                    self.hideLoadingActivityIndicator()
-                }
-            }
-            
-        }
-        
-        
-        
-        
+            fetchRestarurantMeals()
     }
     
-    
-    
-    
+    func fetchRestarurantMeals() {
+        let restaurantDao:RestaurantDao = RestaurantDao.sharedRestaurantObject
+        let mealsUrl:String  = "\(Et3amAPI.baseRestaurantUrlString)\(restuarantObj.restaurantID!)/\(RestaurantQueries.meals)"
+        SVProgressHUD.show()
+        restaurantDao.fetchJsonForMeals(typeURL: mealsUrl) { fetchedArray in
+            SVProgressHUD.dismiss()
+            if let mealsList = fetchedArray {
+                DispatchQueue.main.async {
+                    self.mealsArray = mealsList
+                    self.restuarantAndMealsTableView.reloadData()
+                }
+            }
+        }
+    }
 }
 
 extension RestaurantDetailsViewController:UITableViewDelegate,UITableViewDataSource{
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        let placeholderImage = UIImage(named: "placeholder")
         
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "restCell", for: indexPath) as! RestaurantDetailsCell
             cell.restaurantName.text = restuarantObj.restaurantName
-            cell.restaurantCountyCity.text = restuarantObj.city! + "," + restuarantObj.country!
-            let image : UIImage = UIImage(named: "food")!
-            cell.restaurantImage.image = image
+            cell.restaurantCountyCity.text = restuarantObj.city! + ", " + restuarantObj.country!
             
+            let imageURL = ImageAPI.getImage(type: .width500, publicId: restuarantObj.image ?? "")
+            cell.restaurantImage.sd_setShowActivityIndicatorView(true)
+            cell.restaurantImage.sd_setImage(with: URL(string: imageURL), placeholderImage: placeholderImage, options: [], completed: nil)
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "mealCell", for: indexPath) as! MealCell
-            cell.mealName.text = mealsArray[indexPath.row].mealName!
-            let image : UIImage = UIImage(named: "food")!
-            cell.mealImage.image = image
+            
+            let meal = mealsArray[indexPath.row]
+            cell.mealName.text = meal.mealName ?? ""
+            cell.mealValue.text = String(describing: meal.mealValue!)+"€"
+            let imageURL = ImageAPI.getImage(type: .profile_r250, publicId: meal.mealImage ?? "")
+            cell.mealImage.sd_setShowActivityIndicatorView(true)
+            cell.mealImage.sd_setImage(with: URL(string: imageURL), placeholderImage: placeholderImage, options: [], completed: nil)
             return cell
         }
-        
-        
-    }
+   }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -147,15 +75,7 @@ extension RestaurantDetailsViewController:UITableViewDelegate,UITableViewDataSou
         }
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        if section == 0{
-            return "INFO"
-        }
-        else{
-            return "Meals For You"
-        }
-    }
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return 245

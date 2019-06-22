@@ -173,13 +173,21 @@ class RegisterandLoginViewController: UIViewController {
     }
     
     func showSignupView() {
-        signInView.isHidden = true
-        signUpView.isHidden = false
+        signUpView.alpha = 0
+        self.signInView.isHidden = true
+        self.signUpView.isHidden = false
+        UIView.animate(withDuration: 0.5) {
+            self.signUpView.alpha = 1
+        }
     }
     
     func showSigninView() {
-        signInView.isHidden = false
         signUpView.isHidden = true
+        signInView.isHidden = false
+        signInView.alpha = 0
+        UIView.animate(withDuration: 0.5) {
+            self.signInView.alpha = 1
+        }
     }
     
     //MARK: - Validation of email & password

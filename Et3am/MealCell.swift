@@ -10,12 +10,15 @@ import UIKit
 
 class MealCell: UITableViewCell {
 
+    @IBOutlet weak var mealValue: UILabel!
    
     @IBOutlet weak var mealName: UILabel!
     @IBOutlet weak var mealImage: UIImageView!
     override func awakeFromNib() {
+       
         super.awakeFromNib()
         // Initialization code
+        
     }
 
    

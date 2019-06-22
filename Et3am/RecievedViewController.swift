@@ -32,8 +32,7 @@ class RecievedViewController: UIViewController {
         coupounDao.getReceivedCoupons(completionHandler: {
             useDate,restaurantArray,barCode,code in
             SVProgressHUD.dismiss()
-            switch code
-            {
+            switch code {
             case .success(1):
                 self.usedCouponsCount = useDate.count
                 self.usedDateArray = useDate
@@ -51,15 +50,14 @@ class RecievedViewController: UIViewController {
                 break
             default:
                 break
-                
             }
-            
         })
-        
     }
+    
 }
-extension RecievedViewController : UICollectionViewDataSource
-{
+
+extension RecievedViewController : UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.usedCouponsCount
     }
@@ -82,5 +80,12 @@ extension RecievedViewController : UICollectionViewDataSource
     }
 }
 
-
+extension RecievedViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let ScreenWidth = UIScreen.main.bounds.width
+        let ItemWidth = ScreenWidth-50
+        return CGSize.init(width: ItemWidth, height: ItemWidth/2)
+    }
+}
 

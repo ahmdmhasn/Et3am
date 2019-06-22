@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import CoreLocation
+import SVProgressHUD
+
 extension UITableView{
     func registerNib<Cell:UITableViewCell>(cell: Cell.Type){
         let nibName = String(describing: Cell.self)
@@ -25,7 +27,6 @@ extension UITableView{
 }
 extension RestaurantsListVC : CLLocationManagerDelegate{
     
-    /**************Get Location**************/
     // MARK: - Core Location
     func setupLocationManager(){
         locationManager = CLLocationManager()
@@ -42,16 +43,23 @@ extension RestaurantsListVC : CLLocationManagerDelegate{
         
         if currentLocation == nil {
             currentLocation = locations.last
-            //            currentLocation?.coordinate.latitude
-            //            currentLocation?.coordinate.longitude
             locationManager?.stopMonitoringSignificantLocationChanges()
             let locationValue:CLLocationCoordinate2D = manager.location!.coordinate
-            let restaurantDao:RestaurantDao = RestaurantDao.sharedRestaurantObject
+            let restaurantDao = RestaurantDao.sharedRestaurantObject
             print("locations = \(locationValue)")
             restaurantDao.fetchAllRestaurants(latitude: locationValue.latitude, longitude: locationValue.longitude, completionHandler: {restaurantList in
                 print("\(restaurantList[0].restaurantName,restaurantList[0].distance)")
-                self.restaurantsList = restaurantList
-                self.tableView.reloadData()
+                print(restaurantList.count)
+                if restaurantList.count == 0 {
+                    SVProgressHUD.dismiss()
+                    self.tableView.backgroundView = self.noList
+                    self.noList.text = "No Restaurant Found"
+                }else{
+                    SVProgressHUD.dismiss()
+                    self.restaurantsList = restaurantList
+                    self.noList.isHidden = false
+                    self.tableView.reloadData()
+                }
             })
             
             locationManager?.stopUpdatingLocation()
@@ -62,22 +70,4 @@ extension RestaurantsListVC : CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error")
     }
-    /********************/
 }
-
-
-
-
-
-
-/*
- print("inside \(restaurantList.count)")
- let storyboard = UIStoryboard(name: "Main", bundle: nil)
- let navigationController:RestaurantsListVC = storyboard.instantiateViewController(withIdentifier: "DetailsVCID") as! RestaurantsListVC
- self.restaurantsList = restaurantList
- navigationController.restaurantsList = restaurantList
- navigationController.tableView.reloadData()
- navigationController.loadView()
- print("launch \(self.restaurantsList.count)")
- //self.window?.rootViewController = navigationController
- */

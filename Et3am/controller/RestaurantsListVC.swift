@@ -8,24 +8,43 @@
 
 import UIKit
 import CoreLocation
+import SVProgressHUD
+import SDWebImage
+
 class RestaurantsListVC: UITableViewController {
     
 
     var restaurantsList = [Restaurant]()
     var locationManager:CLLocationManager!
     var currentLocation:CLLocation?
+    let noList = UILabel()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidLoad()
         setupLocationManager()
         self.tableView.reloadData()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+         SVProgressHUD.dismiss()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.tableView.rowHeight = UITableViewAutomaticDimension
-//        tableView.estimatedRowHeight = 110
-
-        self.tableView.reloadData()
+        noList.center = view.center
+        //noList.text = "You don't have any used coupon."
+        noList.text = "No Restaurant Found"
+        noList.textAlignment = .center
+        noList.textColor = #colorLiteral(red: 0.4078193307, green: 0.4078193307, blue: 0.4078193307, alpha: 1)
+        view.addSubview(noList)
+        SVProgressHUD.show(withStatus : "Loading Restaurants", maskType: .none)
+        if restaurantsList.count == 0 {
+            self.tableView.backgroundView = self.noList
+        }
+        else{
+            self.noList.isHidden = false
+            self.tableView.reloadData()
+        }
     }
     
     // MARK: - Table view data source
@@ -36,22 +55,21 @@ class RestaurantsListVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print("_count \(restaurantsList.count)")
+        print("numberOfRowsInSection \(restaurantsList.count)")
         return restaurantsList.count;
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "restaurantsCell", for: indexPath) as! RestaurantsCell
         let cell = tableView.dequeueCell() as RestaurantCell
-        //
         
-        let image : UIImage = UIImage(named: "food")!
-        cell.restaurantImage.image = image
+        let placeholderImage = UIImage(named: "placeholder")!
+        let imageURL = ImageAPI.getImage(type: .profile_r250, publicId: restaurantsList[indexPath.row].image ?? "")
+        cell.restaurantImage.sd_setShowActivityIndicatorView(true)
+        cell.restaurantImage.sd_setImage(with: URL(string: imageURL), placeholderImage: placeholderImage, options: [], completed: nil)
         cell.restaurantNameLabel.text = restaurantsList[indexPath.row].restaurantName
-        cell.restaurantDistanceLabel.text = String(describing: (restaurantsList[indexPath.row].distance)!)+", KM"
-        cell.restaurantTimeLabel.text = String(describing: (restaurantsList[indexPath.row].travelTime)!)+", Min"
+        cell.restaurantDistanceLabel.text = String(describing: (restaurantsList[indexPath.row].distance)!)+" km"
+        cell.restaurantTimeLabel.text = String(describing: (restaurantsList[indexPath.row].travelTime)!)+" min"
         return cell
     }
     
@@ -60,14 +78,5 @@ class RestaurantsListVC: UITableViewController {
         detailsView.restuarantObj = self.restaurantsList[indexPath.row]
         self.navigationController?.pushViewController(detailsView, animated: true);
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

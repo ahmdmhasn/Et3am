@@ -18,7 +18,7 @@ class CouponDao {
     public func getReceivedCoupons(completionHandler:@escaping (NSMutableArray, [Restaurant], NSMutableArray,APIResponse) -> Void) {
         let couponBarcode:NSMutableArray = []
         let useDate:NSMutableArray = []
-        var restaurantObject = Restaurant()
+        let restaurantObject = Restaurant()
         var restaurantArray = [Restaurant]()
         var urlComponents = URLComponents(string: Et3amAPI.baseCouponUrlString+CouponURLQueries.used_coupon.rawValue)
         urlComponents?.queryItems = [URLQueryItem(name: "userId", value:UserDao.shared.userDefaults.string(forKey: "userId"))]
@@ -56,14 +56,12 @@ class CouponDao {
                     print(error.localizedDescription)
                     completionHandler([],[],[],.failure(error))
                 }
-                
-                
         }
-        
     }
     
     
-    public func addCoupon(value_50:String,value_100:String,value_200:String,completionHandler:@escaping (String)->Void) {/*UserDefaults.standard.string(forKey: "user_id"))*/
+    public func addCoupon(value_50:String, value_100:String, value_200:String, completionHandler:@escaping (Int)->Void) {
+        
         var couponDonate : String = ""
         var urlComponents = URLComponents(string: Et3amAPI.baseCouponUrlString+CouponURLQueries.add.rawValue)
         urlComponents?.queryItems = [URLQueryItem(name: CouponURLQueries.user_idQuery.rawValue , value:
@@ -71,6 +69,7 @@ class CouponDao {
                                      URLQueryItem(name: CouponURLQueries.value_50Query.rawValue , value: value_50),
                                      URLQueryItem(name: CouponURLQueries.value_100Query.rawValue , value: value_100),
                                      URLQueryItem(name: CouponURLQueries.value_200Query.rawValue , value: value_200)]
+        
         Alamofire.request((urlComponents?.url!)!).validate(statusCode: 200..<600).responseJSON{
             response in
             
@@ -81,29 +80,18 @@ class CouponDao {
                 print (returnedData)
                 let statusDataDictionary = returnedData.value(forKey: "status") as? Int ?? 0
                 
-                switch statusDataDictionary {
-                case 1:
-                    couponDonate = "coupon is donated"
-                    completionHandler(couponDonate)
-                case 0:
-                    couponDonate = "coupon is not donated"
-                    completionHandler(couponDonate)
-                    
-                default:
-                    break
-                }
+                completionHandler(statusDataDictionary)
                 
             case .failure(let error):
-                couponDonate = "there is error in connection"
                 print(error.localizedDescription)
-                completionHandler(couponDonate)
+                completionHandler(0)
             }
         }
     }
     
     func getFreeCoupon(typeURL:String, handler:@escaping (Coupon?) -> Void)    {
         
-        var couponObj:Coupon! = Coupon()
+        let couponObj:Coupon! = Coupon()
         
         Alamofire.request(typeURL).responseJSON { (response) in
             
@@ -115,8 +103,6 @@ class CouponDao {
                 if status == 1  {
                     let barCode = json["coupon"]["coupons"]["couponBarcode"].string
                     let couopnValue = json["coupon"]["coupons"]["couponValue"].float
-                    let couponID = json[]
-                    print(barCode ?? "d")
                     couponObj.barCode = barCode
                     couponObj.couponValue = couopnValue
                     handler(couponObj)
@@ -124,10 +110,70 @@ class CouponDao {
                 else {
                     handler(nil)
                 }
-                
-                
             case .failure(let error):
                 
+                print(error)
+            }
+        }
+    }
+    
+    func getInBalanceCoupon(userId:String, inBalanceHandler:@escaping ([Coupon]) -> Void){
+        
+        var listCoupon = [Coupon]()
+        var arrRes = [[String:AnyObject]]() //Array of dictionary
+        Alamofire.request("https://et3am.herokuapp.com/coupon/get_inBalance_coupon", method: .get, parameters:["user_id": userId]).validate().responseJSON{ (response) in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                let code  = json["code"]
+                if code == 1 {
+                    guard let coupons = json["Coupons"].arrayObject else  {return}
+                    arrRes = coupons as! [[String:AnyObject]]
+                    for item in arrRes {
+                        let coupon:Coupon = Coupon()
+                        coupon.couponID = item["couponId"] as? String
+                        coupon.barCode = item["couponBarcode"] as? String
+                        coupon.couponValue = item["couponValue"] as? Float
+                        coupon.creationDate = item["creationDate"] as? String
+                        listCoupon.append(coupon)
+                    }
+                    inBalanceHandler(listCoupon)
+                }
+                else {
+                    inBalanceHandler([])
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func getUsedCoupon(userId:String, inBalanceHandler:@escaping ([Coupon]) -> Void){
+        
+        var listCoupon = [Coupon]()
+        var arrRes = [[String:AnyObject]]() //Array of dictionary
+        Alamofire.request("https://et3am.herokuapp.com/coupon/get_all_coupon", method: .get, parameters:["user_id": userId]).validate().responseJSON{ (response) in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                let code  = json["code"]
+                if code == 1 {
+                    guard let coupons = json["Coupons"].arrayObject else  {return}
+                    arrRes = coupons as! [[String:AnyObject]]
+                    for item in arrRes {
+                        let coupon:Coupon = Coupon()
+                        coupon.couponID = item["couponId"] as? String
+                        coupon.barCode = item["couponBarcode"] as? String
+                        coupon.couponValue = item["couponValue"] as? Float
+                        coupon.creationDate = item["creationDate"] as? String
+                        listCoupon.append(coupon)
+                    }
+                    inBalanceHandler(listCoupon)
+                }
+                else {
+                    inBalanceHandler([])
+                }
+            case .failure(let error):
                 print(error)
             }
         }

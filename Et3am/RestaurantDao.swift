@@ -20,9 +20,10 @@ class RestaurantDao
     // Resquest With Parameter using Alamofire
     func fetchAllRestaurants(latitude:Double ,longitude:Double ,completionHandler: @escaping (Array<Restaurant>) -> Void) {
         var restaurantsList = [Restaurant]()
-        DispatchQueue.global(qos: .userInteractive).async {
+        //DispatchQueue.global(qos: .userInteractive).async {
             Alamofire.request("https://et3am.herokuapp.com/restaurant/list", method: .get, parameters: ["latitude": latitude,"longitude":longitude])
                 .validate()
+                //.validate(statusCode: 200..<500)
                 .responseJSON { response in
                     guard response.result.isSuccess else {
                         print("Error while fetching remote restaurants: \(response.result.error)")
@@ -40,18 +41,18 @@ class RestaurantDao
                         restaurant.restaurantName = value["restaurantName"] as? String
                         restaurant.city = value["city"] as? String
                         restaurant.country = value["country"] as? String
-                        restaurant.image = "restaurant"
+                        restaurant.image = value["restaurantImage"] as? String
                         restaurant.latitude = value["latituse"] as? Double
                         restaurant.longitude = value["longitude"] as? Double
                         restaurant.distance = value["distance"] as? Double
                         restaurant.travelTime = value["travelTime"] as? Double
                         restaurantsList.append(restaurant)
                     }
-                    DispatchQueue.main.async {
-                    completionHandler(restaurantsList)
-                    }
+                    //DispatchQueue.main.async {
+                        completionHandler(restaurantsList)
+                    //}
             }
-        }
+        //}
     }
     
     func fetchJsonForRestaurant(typeURL:String, handler:@escaping (Restaurant) -> Void)   {
@@ -71,20 +72,23 @@ class RestaurantDao
         }
     }
     
-    func fetchJsonForMeals (typeURL:String, handler:@escaping(Array<Meal>) -> Void){
+    func fetchJsonForMeals (typeURL:String, handler:@escaping(Array<Meal>?) -> Void){
+        
         var mealsArray:Array<Meal> = []
         
         Alamofire.request(typeURL).responseJSON { (response) in
-            if let responseValue = response.result.value as! [Dictionary<String, Any>]? {
-                // self.responseJson = responseValue as! [[String: Any]]
+            
+            guard let responseValue = response.result.value as? [Dictionary<String, Any>] else {
+                handler(nil)
+                return
+            }
+            
                 for item in responseValue{
                     let meal = Meal()
-                    //    print(item["mealName"] as! String)
                     meal.mealName = item["mealName"] as? String
-                    // print(meal.mealName)
                     meal.mealID = item["mealId"] as? String
-                    meal.mealImage="food"
-                    // print(item["mealName"])
+                    meal.mealImage=item["mealImage"] as? String
+                    meal.mealValue = item["mealValue"] as? Float
                     mealsArray.append(meal)
                 }
                 
@@ -95,7 +99,7 @@ class RestaurantDao
         }
     }
     
-}
+
 
 
 

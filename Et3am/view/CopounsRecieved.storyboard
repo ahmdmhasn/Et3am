@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--UsedCoupons-->
+        <!--Used Coupons-->
         <scene sceneID="PVO-CZ-qkF">
             <objects>
-                <viewController title="UsedCoupons" id="mJI-F2-ZkH" customClass="RecievedViewController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Used Coupons" id="mJI-F2-ZkH" customClass="RecievedViewController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="98j-dS-e9X"/>
                         <viewControllerLayoutGuide type="bottom" id="EbO-ym-f5e"/>

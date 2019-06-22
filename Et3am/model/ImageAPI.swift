@@ -24,6 +24,7 @@ class ImageAPI {
     static func getImage(type: ImageTransformation, publicId: String) -> String {
         let imageUrl = "\(baseURL)\(key)/image/upload/"
         return imageUrl + type.rawValue + publicId
+        
     }
     
     static func uploadImage(imgData: Data, completionHandler: @escaping (Int?, String?) -> Void) {
@@ -46,7 +47,6 @@ class ImageAPI {
                     }
                     
                     let json = JSON(result)
-                    print(json)
                     let code = json["code"].int
                     let imageId = json["image"]["public_id"].string
                     completionHandler(code, imageId)

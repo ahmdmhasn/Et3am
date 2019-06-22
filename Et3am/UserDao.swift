@@ -27,8 +27,9 @@ class UserDao{
     
     var user = User() {
         didSet {
-            print("did set called")
-            addToUserDefaults(self.user)
+            if oldValue != user {
+                updateUserDetails(completionHandler: { if $0 == 1 { self.addToUserDefaults(self.user)} })
+            }
         }
     }
     
@@ -103,9 +104,7 @@ class UserDao{
             response in
             
             var isEmailValid: Bool = false
-            
-            print(response.result.value!)
-            
+                        
             switch response.result {
             case .success:
                 let sucessDataValue = response.result.value
@@ -124,6 +123,41 @@ class UserDao{
             completionHandler(isEmailValid)
             
         }
+    }
+    
+    // User to update user details and verify user
+    func updateUserDetails(type: UserURLQueries = .update, completionHandler: @escaping (Int) -> Void) {
+        
+        let url = URLComponents(string: type.getUrl())
+        
+        let user = self.user
+        
+        let parameters: [String : Any] = [UserProperties.mobileNumber.rawValue: user.mobileNumber ?? "",
+                          UserProperties.nationalId.rawValue: user.nationalID ?? "",
+                          UserProperties.job.rawValue: user.job ?? "",
+                          UserProperties.nationalIdFront.rawValue: user.nationalID_Front ?? "",
+                          UserProperties.nationalIdBack.rawValue: user.nationalID_Back ?? "",
+                          UserProperties.profileImage.rawValue: user.profileImage ?? ""/*,
+                          UserProperties.birthdate.rawValue: user.birthdate ?? Date()*/]
+        
+        Alamofire.request(url!, method: .put, parameters: parameters, encoding: JSONEncoding.default,
+                          headers: nil).responseJSON { (response) in
+            
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                if let code = json["status"].int {
+                    completionHandler(code)
+                } else {
+                    completionHandler(0)
+                }
+            case .failure(let error):
+                print(error)
+                completionHandler(0)
+            }
+            
+        }
+        
     }
     
     func updateUserPassword(oldPass: String, newPass: String, completionHandler: @escaping (Int) -> Void ) {
@@ -235,7 +269,7 @@ class UserDao{
         userDefaults.set(user.userName, forKey: UserProperties.userName.rawValue)
         userDefaults.set(user.email, forKey: UserProperties.userEmail.rawValue)
         userDefaults.set(user.password, forKey: UserProperties.password.rawValue)
-        userDefaults.set(user.verified, forKey: UserProperties.verified.rawValue)
+        userDefaults.set(user.verified?.rawValue, forKey: UserProperties.verified.rawValue)
         userDefaults.set(user.userStatus, forKey: UserProperties.userStatus.rawValue)
         
         userDefaults.set(user.mobileNumber, forKey: UserProperties.mobileNumber.rawValue)
@@ -254,12 +288,14 @@ class UserDao{
         user.userName = userDefaults.object(forKey: UserProperties.userName.rawValue) as? String
         user.email = userDefaults.object(forKey: UserProperties.userEmail.rawValue) as? String
         user.password = userDefaults.object(forKey: UserProperties.password.rawValue) as? String
-        user.verified = userDefaults.object(forKey: UserProperties.verified.rawValue) as? Bool
         user.userStatus = userDefaults.object(forKey: UserProperties.userStatus.rawValue) as? Bool
+        
+        let verifiedTemp = userDefaults.object(forKey: UserProperties.verified.rawValue) as? Int
+        user.verified = VerificationStatus(rawValue: verifiedTemp ?? 0)
         
         user.mobileNumber = userDefaults.object(forKey: UserProperties.mobileNumber.rawValue) as? String
         user.profileImage = userDefaults.object(forKey: UserProperties.profileImage.rawValue) as? String
-        user.nationalID = userDefaults.object(forKey: UserProperties.nationalIdFront.rawValue) as? String
+        user.nationalID = userDefaults.object(forKey: UserProperties.nationalId.rawValue) as? String
         user.job = userDefaults.object(forKey: UserProperties.job.rawValue) as? String
         user.nationalID_Front = userDefaults.object(forKey: UserProperties.nationalIdFront.rawValue) as? String
         user.nationalID_Back = userDefaults.object(forKey: UserProperties.nationalIdBack.rawValue) as? String

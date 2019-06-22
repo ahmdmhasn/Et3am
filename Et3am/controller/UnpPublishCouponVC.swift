@@ -8,23 +8,27 @@
 
 import UIKit
 import SDWebImage
+import MessageUI
 //private let reuseIdentifier = "Cell"
 
 class UnpPublishCouponVC: UICollectionViewController {
 
+    var listCoupons = [Coupon]()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        let couponSevices = CouponDao.shared
+        couponSevices.getInBalanceCoupon(userId:UserDao.shared.user.userID! , inBalanceHandler:{ listCoupon in
+            self.listCoupons = listCoupon
+            self.collectionView?.reloadData()
+        })
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("UNPUBLISH")
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         self.collectionView?.registerNib(cell: PublishCouponViewCell.self)
-        // Do any additional setup after loading the view.
-//        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-//            flowLayout.estimateItemSize = CGSize(width:1,height:1)
-//        }
+       
     }
 
     /*
@@ -47,7 +51,7 @@ class UnpPublishCouponVC: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 10
+        return listCoupons.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -56,9 +60,10 @@ class UnpPublishCouponVC: UICollectionViewController {
         // In here we assign teh delegate member of teh cell to make sure once
         // an UI event occurs teh cell will call methods implemented by our controller
         cell.delegate = self
+        
         // Configure the cell
-        cell.valueLabel.text = "20 LE"
-        cell.barCodeLabel.text = "123456789999999"
+        cell.valueLabel.text = String(describing: listCoupons[indexPath.item].couponValue) 
+        cell.barCodeLabel.text = listCoupons[indexPath.item].barCode
         cell.qrCodeImage.sd_setImage(with: URL(string: "https://global.canon/en/imaging/eosd/samples/eos1300d/downloads/01.jpg"), completed: nil)
         return cell
     }
@@ -96,15 +101,62 @@ class UnpPublishCouponVC: UICollectionViewController {
 
 }
 // MARK: Extension UICollectionViewDelegate
-extension UnpPublishCouponVC : PublishCouponViewCellDelegate{
+extension UnpPublishCouponVC : PublishCouponViewCellDelegate,MFMessageComposeViewControllerDelegate{
     func didPressPost(){
         print("Post")
     }
     func didPressShare(){
-        print("Share")
+        print("SMS")
+        // Present the view controller modally.
+        if MFMessageComposeViewController.canSendText() {
+            let composeVC = MFMessageComposeViewController()
+            composeVC.messageComposeDelegate = self
+            // Configure the fields of the interface.
+            //composeVC.recipients = ["3142026521"]
+            composeVC.body = "I love Swift!"
+            self.present(composeVC, animated: true, completion: nil)
+        } else {
+            print("Can't send messages.")
+        }
     }
     func didPressPrint(){
-        print("Print")
+        print("Share")
+        //share screenshot using other apps
+        share(data:captureScreenshot())
+    }
+    
+    func share(data:Any){
+        let activityVC = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        self.present(activityVC, animated: true, completion: nil)
+    }
+    
+
+    func captureScreenshot() -> UIImage {
+        let layer = UIApplication.shared.keyWindow!.layer
+        let scale = UIScreen.main.scale
+        // Creates UIImage of same size as view
+        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return screenshot!
+        // THIS IS TO SAVE SCREENSHOT TO PHOTOS
+        //UIImageWriteToSavedPhotosAlbum(screenshot!, nil, nil, nil)
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        switch (result) {
+        case .cancelled:
+            print("Message was cancelled")
+            dismiss(animated: true, completion: nil)
+        case .failed:
+            print("Message failed")
+            dismiss(animated: true, completion: nil)
+        case .sent:
+            print("Message was sent")
+            dismiss(animated: true, completion: nil)
+        }
     }
 }
 

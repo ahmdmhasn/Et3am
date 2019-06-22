@@ -28,7 +28,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q7r-xs-wgC">
                                         <rect key="frame" x="0.0" y="32" width="375" height="880"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="g8z-XD-vtw">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="g8z-XD-vtw">
                                                 <rect key="frame" x="16" y="0.0" width="343" height="880"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Vno-30-OKf" userLabel="switcher">
@@ -94,7 +94,7 @@
                                                                                 <rect key="frame" x="0.0" y="22" width="343" height="30"/>
                                                                                 <nil key="textColor"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                                <textInputTraits key="textInputTraits"/>
+                                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                             </textField>
                                                                         </subviews>
                                                                     </stackView>
@@ -213,7 +213,7 @@
                                                                                 <rect key="frame" x="0.0" y="22" width="343" height="30"/>
                                                                                 <nil key="textColor"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                                <textInputTraits key="textInputTraits"/>
+                                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                                 <connections>
                                                                                     <action selector="passwordEditingChangeAction:" destination="IGS-5P-0mx" eventType="editingDidEnd" id="coH-VN-wDR"/>
                                                                                 </connections>
@@ -233,7 +233,7 @@
                                                                                 <rect key="frame" x="0.0" y="22" width="343" height="30"/>
                                                                                 <nil key="textColor"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                                                <textInputTraits key="textInputTraits"/>
+                                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                                 <connections>
                                                                                     <action selector="passwordEditingChangeAction:" destination="IGS-5P-0mx" eventType="editingDidEnd" id="Bvb-6l-sTp"/>
                                                                                 </connections>
