@@ -18,6 +18,7 @@ class PublishCouponViewCell: UICollectionViewCell {
     @IBOutlet weak var qrCodeImage: UIImageView!
     @IBOutlet weak var barCodeLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBAction func selectPost(_ sender: UIButton) { delegate?.didPressPost() }
     @IBAction func didSelectShare(_ sender: UIButton) { delegate?.didPressShare() }
     @IBAction func didSelectPrint(_ sender: UIButton) { delegate?.didPressPrint() }
@@ -34,9 +35,6 @@ class PublishCouponViewCell: UICollectionViewCell {
         let screenWidth = UIScreen.main.bounds.size.width
         containerWidth.constant = screenWidth - (2 * 12)
     }
-    
-    
-
 }
 
 protocol PublishCouponViewCellDelegate: class {
