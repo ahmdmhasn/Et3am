@@ -17,6 +17,7 @@
 		2117FBDF229CC03F0099DE05 /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117FBDE229CC03F0099DE05 /* UserHelper.swift */; };
 		2117FBE2229D49000099DE05 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117FBE1229D49000099DE05 /* UIViewController.swift */; };
 		2117FBE4229D5D150099DE05 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117FBE3229D5D150099DE05 /* UIView.swift */; };
+		21725FB122BE76D4005FB4AB /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21725FB022BE76D4005FB4AB /* ResetPasswordViewController.swift */; };
 		2189265822A0028300BD7404 /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2189265722A0028300BD7404 /* DonateViewController.swift */; };
 		2189265C22A00FCA00BD7404 /* CuoponsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2189265B22A00FCA00BD7404 /* CuoponsTabBarController.swift */; };
 		21B6E8F6229C1D350067C5F4 /* CouponDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6E8F5229C1D350067C5F4 /* CouponDao.swift */; };
@@ -95,6 +96,7 @@
 		2117FBDE229CC03F0099DE05 /* UserHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHelper.swift; sourceTree = "<group>"; };
 		2117FBE1229D49000099DE05 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		2117FBE3229D5D150099DE05 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		21725FB022BE76D4005FB4AB /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		2189265722A0028300BD7404 /* DonateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DonateViewController.swift; path = controller/DonateViewController.swift; sourceTree = "<group>"; };
 		2189265B22A00FCA00BD7404 /* CuoponsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuoponsTabBarController.swift; sourceTree = "<group>"; };
 		21B6E8F5229C1D350067C5F4 /* CouponDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponDao.swift; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 				E280CC4722B81C7D00E32CE1 /* RegisterandLoginViewController.swift */,
 				E280CC4822B81C7D00E32CE1 /* SignInView.swift */,
 				E280CC4922B81C7D00E32CE1 /* SignUpView.swift */,
+				21725FB022BE76D4005FB4AB /* ResetPasswordViewController.swift */,
 			);
 			name = RegisterLoginScreen;
 			sourceTree = "<group>";
@@ -667,6 +670,7 @@
 				E20E07262299DEA300FEC852 /* UserProfileViewController.swift in Sources */,
 				E2F11BA22288D49D0031ABCC /* User.swift in Sources */,
 				211378A52284F0C70056E5C7 /* AllCouponTableViewController.swift in Sources */,
+				21725FB122BE76D4005FB4AB /* ResetPasswordViewController.swift in Sources */,
 				211644A9228C49E5009AA2BB /* UserDao.swift in Sources */,
 				830BE78C22BA4D2000F50699 /* GetCouponViewController.swift in Sources */,
 				211378AD228626D70056E5C7 /* UnpublishCouponTableViewCell.swift in Sources */,

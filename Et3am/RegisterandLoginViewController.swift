@@ -149,6 +149,7 @@ class RegisterandLoginViewController: UIViewController {
     }
     
     @IBAction func forgetUserPassword(_ sender: Any) {
+        
        
     }
     
