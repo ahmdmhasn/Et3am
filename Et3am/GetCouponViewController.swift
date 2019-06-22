@@ -24,6 +24,7 @@ class GetCouponViewController: UIViewController {
     }
     
     
+    @IBOutlet weak var btnScreenshotOutlet: UIButton!
     @IBAction func screenShotButton(_ sender: Any) {
         
         captureScreenshot()
@@ -31,7 +32,6 @@ class GetCouponViewController: UIViewController {
     private  let getFreeCouponURL: String = CouponURLQueries.getFreeCoupon.getUrl()
     
     @IBAction func requestCouponButton(_ sender: Any) {
-        print(getFreeCouponURL)
         
         getFreeCoupon(URL: getFreeCouponURL)
         requestButton.isEnabled = false
@@ -59,6 +59,8 @@ class GetCouponViewController: UIViewController {
                 self.barCodeLable.text = coupon.barCode
                     self.generateQRCOde(barCode: coupon.barCode)
                     self.errorMsgLable.isHidden = true
+                    self.btnScreenshotOutlet.isHidden = false
+                    
                     
                 } else {
                     DispatchQueue.main.async {

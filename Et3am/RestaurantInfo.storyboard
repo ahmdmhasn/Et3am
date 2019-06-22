@@ -33,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="245" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1la-Hz-oWg">
-                                <rect key="frame" x="0.0" y="8" width="375" height="635"/>
+                                <rect key="frame" x="0.0" y="8" width="375" height="579"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="restCell" rowHeight="245" id="m3R-iL-glW" userLabel="RestaurantDetailsCell" customClass="RestaurantDetailsCell" customModule="Et3am" customModuleProvider="target">
@@ -114,19 +114,31 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEF-Lf-Lb5" userLabel="mealValue">
+                                                    <rect key="frame" x="99.5" y="66.5" width="275.5" height="25.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="PEF-Lf-Lb5" firstAttribute="leading" secondItem="oce-tW-Lgy" secondAttribute="leading" id="4F8-dN-UTp"/>
                                                 <constraint firstAttribute="bottom" secondItem="8GY-t7-UVs" secondAttribute="bottom" constant="8" id="4uy-UB-1EE"/>
                                                 <constraint firstItem="oce-tW-Lgy" firstAttribute="leading" secondItem="8GY-t7-UVs" secondAttribute="trailing" constant="8" id="5t3-qn-rPE"/>
                                                 <constraint firstItem="8GY-t7-UVs" firstAttribute="top" secondItem="0sK-Q8-11A" secondAttribute="top" constant="8" id="6o2-dG-CwS"/>
+                                                <constraint firstItem="PEF-Lf-Lb5" firstAttribute="height" secondItem="oce-tW-Lgy" secondAttribute="height" id="Drw-rv-5Tc"/>
+                                                <constraint firstItem="PEF-Lf-Lb5" firstAttribute="trailing" secondItem="oce-tW-Lgy" secondAttribute="trailing" id="MZ2-h7-EqY"/>
                                                 <constraint firstItem="oce-tW-Lgy" firstAttribute="trailing" secondItem="0sK-Q8-11A" secondAttribute="trailingMargin" constant="8" id="diI-Fq-vbK"/>
                                                 <constraint firstItem="8GY-t7-UVs" firstAttribute="leading" secondItem="0sK-Q8-11A" secondAttribute="leading" constant="8" id="gUh-Ar-0hO"/>
+                                                <constraint firstItem="PEF-Lf-Lb5" firstAttribute="width" secondItem="oce-tW-Lgy" secondAttribute="width" id="gkC-LZ-9BO"/>
+                                                <constraint firstItem="PEF-Lf-Lb5" firstAttribute="top" secondItem="oce-tW-Lgy" secondAttribute="bottom" constant="4" id="xzo-Dd-V50"/>
                                                 <constraint firstItem="oce-tW-Lgy" firstAttribute="centerY" secondItem="0sK-Q8-11A" secondAttribute="centerY" id="zlo-VN-kRc"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="mealImage" destination="8GY-t7-UVs" id="ncs-MS-bjR"/>
                                             <outlet property="mealName" destination="oce-tW-Lgy" id="tNw-yy-oSl"/>
+                                            <outlet property="mealValue" destination="PEF-Lf-Lb5" id="gBt-sr-qV1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -179,7 +191,7 @@
                             <constraint firstItem="1la-Hz-oWg" firstAttribute="top" secondItem="hDz-wP-k7F" secondAttribute="top" constant="8" id="kJc-7I-ALM"/>
                             <constraint firstItem="r51-os-eWt" firstAttribute="centerX" secondItem="hDz-wP-k7F" secondAttribute="centerX" id="mQ2-zk-WzM"/>
                             <constraint firstItem="DAV-6R-3Hq" firstAttribute="width" secondItem="hDz-wP-k7F" secondAttribute="width" multiplier="1:2" id="pp2-sG-75Q"/>
-                            <constraint firstItem="bxi-kd-t4r" firstAttribute="top" secondItem="1la-Hz-oWg" secondAttribute="bottom" constant="24" id="q3R-WH-c7V"/>
+                            <constraint firstItem="bxi-kd-t4r" firstAttribute="top" secondItem="1la-Hz-oWg" secondAttribute="bottom" constant="80" id="q3R-WH-c7V"/>
                             <constraint firstAttribute="trailing" secondItem="1la-Hz-oWg" secondAttribute="trailing" id="tcU-O3-yXZ"/>
                         </constraints>
                     </view>
@@ -283,7 +295,7 @@
                                                                 <color key="textColor" red="1" green="0.11478563158326704" blue="0.088706940999451755" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TaU-vX-4y2">
+                                                            <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TaU-vX-4y2">
                                                                 <rect key="frame" x="84.5" y="481.5" width="150" height="24"/>
                                                                 <color key="backgroundColor" red="0.16078431904315948" green="0.50196081399917603" blue="0.72549021244049072" alpha="0.0" colorSpace="calibratedRGB"/>
                                                                 <constraints>
@@ -359,6 +371,7 @@
                     <connections>
                         <outlet property="ErrorMsgLable" destination="MAA-9c-A2m" id="phy-e6-tzc"/>
                         <outlet property="barCodeLable" destination="g6Y-sl-6zU" id="WvX-FU-Jpa"/>
+                        <outlet property="btnScreenshotOutlet" destination="TaU-vX-4y2" id="PB3-dL-Izg"/>
                         <outlet property="containerView" destination="pDk-8U-CE0" id="oft-3l-mfa"/>
                         <outlet property="imageViewQR" destination="NCa-AT-Bku" id="31l-Jt-pJv"/>
                         <outlet property="outerContainerView" destination="ZkV-uD-WXz" id="20B-hZ-xn6"/>
