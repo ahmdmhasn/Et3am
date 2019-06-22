@@ -27,9 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let user = UserDao.shared.user
         
         if user.userID != nil {
-            let storyboard = UIStoryboard(name: "RestaurantsList", bundle: nil)
+            let storyboard = UIStoryboard(name: "Landing", bundle: nil)
             
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "RestaurantsListNavigationController")
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "LandingVC")
             
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
