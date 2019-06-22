@@ -40,8 +40,7 @@ class RestaurantsListVC: UITableViewController {
         SVProgressHUD.show(withStatus : "Loading Restaurants", maskType: .none)
         if restaurantsList.count == 0 {
             self.tableView.backgroundView = self.noList
-        }
-        else{
+        } else {
             self.noList.isHidden = false
             self.tableView.reloadData()
         }
