@@ -134,7 +134,7 @@ class CouponDao {
                         coupon.couponID = item["couponId"] as? String
                         coupon.barCode = item["couponBarcode"] as? String
                         coupon.couponValue = item["couponValue"] as? Float
-                        coupon.creationDate = item["creationDate"] as? String
+                        coupon.creationDate = self.getCreationDate(milisecond: (item["creationDate"] as? Double)!)
                         listCoupon.append(coupon)
                     }
                     inBalanceHandler(listCoupon)
@@ -165,7 +165,7 @@ class CouponDao {
                         coupon.couponID = item["couponId"] as? String
                         coupon.barCode = item["couponBarcode"] as? String
                         coupon.couponValue = item["couponValue"] as? Float
-                        coupon.creationDate = item["creationDate"] as? String
+                        coupon.creationDate = self.getCreationDate(milisecond: (item["creationDate"] as? Double)!)
                         listCoupon.append(coupon)
                     }
                     inBalanceHandler(listCoupon)
@@ -177,6 +177,15 @@ class CouponDao {
                 print(error)
             }
         }
+    }
+    
+    func getCreationDate(milisecond: Double) -> String {
+        let dateVar = Date.init(timeIntervalSinceNow: TimeInterval(milisecond)/1000)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy hh:mm"
+        let date = dateFormatter.string(from: dateVar)
+        print(date)
+        return date
     }
     
 }
