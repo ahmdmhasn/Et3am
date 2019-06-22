@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import SVProgressHUD
 
 class ATableViewController: UITableViewController {
 
@@ -89,7 +90,10 @@ extension ATableViewController : ATableViewCellDelegate,MFMessageComposeViewCont
         print("Post \(cellIndex)")
         self.listCoupons.remove(at: cellIndex.row)
         self.tableView.deleteRows(at: [cellIndex], with: .automatic)
+        self.tableView.reloadData()
         
+        // If succeed
+        SVProgressHUD.showSuccess(withStatus: "Donated successfully!")
         //print("row \(cellIndex.row)")
         
     }
