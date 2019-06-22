@@ -9,10 +9,10 @@
 import Foundation
 
 class Coupon {
-    var couponID:Int?
+    var couponID:String?
     var couponCode:String?
     var barCode:String?
-    var creationDate:Date?
+    var creationDate:String?
     var couponValue:Float?
-    var status:Int?
+    var inBalance:Int?
 }

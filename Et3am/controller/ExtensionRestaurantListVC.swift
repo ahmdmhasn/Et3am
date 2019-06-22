@@ -45,7 +45,7 @@ extension RestaurantsListVC : CLLocationManagerDelegate{
             currentLocation = locations.last
             locationManager?.stopMonitoringSignificantLocationChanges()
             let locationValue:CLLocationCoordinate2D = manager.location!.coordinate
-            let restaurantDao:RestaurantDao = RestaurantDao.sharedRestaurantObject
+            let restaurantDao = RestaurantDao.sharedRestaurantObject
             print("locations = \(locationValue)")
             restaurantDao.fetchAllRestaurants(latitude: locationValue.latitude, longitude: locationValue.longitude, completionHandler: {restaurantList in
                 print("\(restaurantList[0].restaurantName,restaurantList[0].distance)")

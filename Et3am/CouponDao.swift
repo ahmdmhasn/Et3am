@@ -34,20 +34,9 @@ class CouponDao {
                     let codeDataDictionary:Int =  json["code"].int ?? 0
                     if(codeDataDictionary == 1)
                     {
-                   guard let couponDataDictionary = json["Coupons"].array else
-                   {
-                    return
-                   }
-                      for i in 0 ..< couponDataDictionary.count
-                      {
-                       let restaurantsJson = couponDataDictionary[i]["restaurants"]
-                       restaurantObject.restaurantName = restaurantsJson["restaurantName"].string
-                       restaurantObject.latitude = restaurantsJson["latitude"].double
-                       restaurantObject.longitude = restaurantsJson["longitude"].double
-                       restaurantArray.append(restaurantObject)
-                        let barcode = couponDataDictionary[i]["userReserveCoupon"]["coupons"]["couponBarcode"].string
-                        couponBarcode[i] = barcode?.substring(to:(barcode?.index((barcode?.startIndex)!, offsetBy: 3))!) ?? 0
-                       useDate[i] =  couponDataDictionary[i]["useDate"].double ?? 0
+                        guard let couponDataDictionary = json["Coupons"].array else
+                        {
+                            return
                         }
                         for i in 0 ..< couponDataDictionary.count
                         {
@@ -67,10 +56,7 @@ class CouponDao {
                     print(error.localizedDescription)
                     completionHandler([],[],[],.failure(error))
                 }
-                
-                
         }
-        
     }
     
     
@@ -117,8 +103,6 @@ class CouponDao {
                 if status == 1  {
                     let barCode = json["coupon"]["coupons"]["couponBarcode"].string
                     let couopnValue = json["coupon"]["coupons"]["couponValue"].float
-                    _ = json[]
-                    print(barCode ?? "d")
                     couponObj.barCode = barCode
                     couponObj.couponValue = couopnValue
                     handler(couponObj)
@@ -126,10 +110,70 @@ class CouponDao {
                 else {
                     handler(nil)
                 }
-                
-                
             case .failure(let error):
                 
+                print(error)
+            }
+        }
+    }
+    
+    func getInBalanceCoupon(userId:String, inBalanceHandler:@escaping ([Coupon]) -> Void){
+        
+        var listCoupon = [Coupon]()
+        var arrRes = [[String:AnyObject]]() //Array of dictionary
+        Alamofire.request("https://et3am.herokuapp.com/coupon/get_inBalance_coupon", method: .get, parameters:["user_id": userId]).validate().responseJSON{ (response) in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                let code  = json["code"]
+                if code == 1 {
+                    guard let coupons = json["Coupons"].arrayObject else  {return}
+                    arrRes = coupons as! [[String:AnyObject]]
+                    for item in arrRes {
+                        let coupon:Coupon = Coupon()
+                        coupon.couponID = item["couponId"] as? String
+                        coupon.barCode = item["couponBarcode"] as? String
+                        coupon.couponValue = item["couponValue"] as? Float
+                        coupon.creationDate = item["creationDate"] as? String
+                        listCoupon.append(coupon)
+                    }
+                    inBalanceHandler(listCoupon)
+                }
+                else {
+                    inBalanceHandler([])
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func getUsedCoupon(userId:String, inBalanceHandler:@escaping ([Coupon]) -> Void){
+        
+        var listCoupon = [Coupon]()
+        var arrRes = [[String:AnyObject]]() //Array of dictionary
+        Alamofire.request("https://et3am.herokuapp.com/coupon/get_all_coupon", method: .get, parameters:["user_id": userId]).validate().responseJSON{ (response) in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                let code  = json["code"]
+                if code == 1 {
+                    guard let coupons = json["Coupons"].arrayObject else  {return}
+                    arrRes = coupons as! [[String:AnyObject]]
+                    for item in arrRes {
+                        let coupon:Coupon = Coupon()
+                        coupon.couponID = item["couponId"] as? String
+                        coupon.barCode = item["couponBarcode"] as? String
+                        coupon.couponValue = item["couponValue"] as? Float
+                        coupon.creationDate = item["creationDate"] as? String
+                        listCoupon.append(coupon)
+                    }
+                    inBalanceHandler(listCoupon)
+                }
+                else {
+                    inBalanceHandler([])
+                }
+            case .failure(let error):
                 print(error)
             }
         }

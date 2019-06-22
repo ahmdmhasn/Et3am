@@ -35,7 +35,6 @@ class RestaurantDetailsViewController: UIViewController {
             }
         }
     }
-    
 }
 
 extension RestaurantDetailsViewController:UITableViewDelegate,UITableViewDataSource{

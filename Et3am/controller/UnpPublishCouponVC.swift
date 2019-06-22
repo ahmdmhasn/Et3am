@@ -13,14 +13,20 @@ import MessageUI
 
 class UnpPublishCouponVC: UICollectionViewController {
 
+    var listCoupons = [Coupon]()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        let couponSevices = CouponDao.shared
+        couponSevices.getInBalanceCoupon(userId:UserDao.shared.user.userID! , inBalanceHandler:{ listCoupon in
+            self.listCoupons = listCoupon
+            self.collectionView?.reloadData()
+        })
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("UNPUBLISH")
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         self.collectionView?.registerNib(cell: PublishCouponViewCell.self)
         
         // Do any additional setup after loading the view.
@@ -49,7 +55,7 @@ class UnpPublishCouponVC: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 10
+        return listCoupons.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -58,12 +64,10 @@ class UnpPublishCouponVC: UICollectionViewController {
         // In here we assign teh delegate member of teh cell to make sure once
         // an UI event occurs teh cell will call methods implemented by our controller
         cell.delegate = self
-        var x = cell.frame.size
-        var z = cell.bounds.size
         
         // Configure the cell
-        //cell.valueLabel.text = "20 LE"
-        cell.barCodeLabel.text = "123456789999999"
+        cell.valueLabel.text = String(describing: listCoupons[indexPath.item].couponValue) 
+        cell.barCodeLabel.text = listCoupons[indexPath.item].barCode
         cell.qrCodeImage.sd_setImage(with: URL(string: "https://global.canon/en/imaging/eosd/samples/eos1300d/downloads/01.jpg"), completed: nil)
         return cell
     }
@@ -101,7 +105,7 @@ class UnpPublishCouponVC: UICollectionViewController {
 
 }
 // MARK: Extension UICollectionViewDelegate
-extension UnpPublishCouponVC : PublishCouponViewCellDelegate,MFMessageComposeViewControllerDelegate,MFMailComposeViewControllerDelegate{
+extension UnpPublishCouponVC : PublishCouponViewCellDelegate,MFMessageComposeViewControllerDelegate{
     func didPressPost(){
         print("Post")
     }
