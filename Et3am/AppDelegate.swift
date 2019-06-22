@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // Disable user interactions in SVProgressHUD
-        SVProgressHUD.setDefaultMaskType(.clear)
+//        SVProgressHUD.setDefaultMaskType(.clear)
         
         // Get user defaults path
         print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true))

@@ -134,7 +134,7 @@ class CouponDao {
                         coupon.couponID = item["couponId"] as? String
                         coupon.barCode = item["couponBarcode"] as? String
                         coupon.couponValue = item["couponValue"] as? Float
-                        coupon.creationDate = item["creationDate"] as? String
+                        coupon.creationDate = self.getCreationDate(milisecond: (item["creationDate"] as? Double)!)
                         listCoupon.append(coupon)
                     }
                     inBalanceHandler(listCoupon)
@@ -165,7 +165,7 @@ class CouponDao {
                         coupon.couponID = item["couponId"] as? String
                         coupon.barCode = item["couponBarcode"] as? String
                         coupon.couponValue = item["couponValue"] as? Float
-                        coupon.creationDate = item["creationDate"] as? String
+                        coupon.creationDate = self.getCreationDate(milisecond: (item["creationDate"] as? Double)!)
                         listCoupon.append(coupon)
                     }
                     inBalanceHandler(listCoupon)
@@ -177,6 +177,36 @@ class CouponDao {
                 print(error)
             }
         }
+    }
+    
+    
+    func publishCoupon(couponId:String, completedHandler:@escaping (Bool) -> Void) {
+        Alamofire.request("https://et3am.herokuapp.com/coupon/publish_coupon", method: .get, parameters: ["coupon_id":couponId]).validate().responseJSON{
+            (response) in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                let status  = json["status"]
+                if status == 1 {
+                    print("true")
+                    completedHandler(true)
+                }else{
+                    print("false")
+                    completedHandler(false)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func getCreationDate(milisecond: Double) -> String {
+        let dateVar = Date(timeIntervalSince1970: (milisecond / 1000.0))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm a dd/MM/yyyy"
+        let date = dateFormatter.string(from: dateVar)
+        print(date)
+        return date
     }
     
 }

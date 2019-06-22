@@ -74,6 +74,12 @@ class RegisterandLoginViewController: UIViewController {
         
         signUpButton.layer.cornerRadius = signUpButton.frame.height / 2
         signUpButton.layer.masksToBounds = true
+        
+        // Dismiss keyboard 
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+
     }
     
     
