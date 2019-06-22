@@ -63,7 +63,7 @@ class RestaurantsListVC: UITableViewController {
         let cell = tableView.dequeueCell() as RestaurantCell
         
         let placeholderImage = UIImage(named: "placeholder")!
-        let imageURL = ImageAPI.getImage(type: .profile_r250, publicId: restaurantsList[indexPath.row].image ?? "")
+        let imageURL = ImageAPI.getImage(type: .width150, publicId: restaurantsList[indexPath.row].image ?? "")
         cell.restaurantImage.sd_setShowActivityIndicatorView(true)
         cell.restaurantImage.sd_setImage(with: URL(string: imageURL), placeholderImage: placeholderImage, options: [], completed: nil)
         cell.restaurantNameLabel.text = restaurantsList[indexPath.row].restaurantName

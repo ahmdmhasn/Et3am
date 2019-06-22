@@ -40,7 +40,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="275"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m3R-iL-glW" id="OHz-Jw-bne">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="274"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="275"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ry0-Ga-Ead">
@@ -48,6 +48,12 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Ry0-Ga-Ead" secondAttribute="height" multiplier="5:2" id="t0e-lu-UGT"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Sfh-1C-VkP">
                                                     <rect key="frame" x="24" y="163.5" width="100" height="100"/>
@@ -80,7 +86,7 @@
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.92283653846153835" green="0.92283653846153835" blue="0.92283653846153835" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstItem="Ry0-Ga-Ead" firstAttribute="leading" secondItem="OHz-Jw-bne" secondAttribute="leadingMargin" id="5se-sf-l0J"/>
                                                 <constraint firstItem="Ry0-Ga-Ead" firstAttribute="top" secondItem="OHz-Jw-bne" secondAttribute="topMargin" constant="4" id="VmV-Ul-W6Y"/>
@@ -100,50 +106,48 @@
                                             <outlet property="restaurantName" destination="4iZ-Wy-Teo" id="L5x-pb-Dun"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="mealCell" rowHeight="100" id="7Nb-1q-6oz" userLabel="MealCell" customClass="MealCell" customModule="Et3am" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="303" width="375" height="100"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="mealCell" rowHeight="90" id="7Nb-1q-6oz" userLabel="MealCell" customClass="MealCell" customModule="Et3am" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="303" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Nb-1q-6oz" id="0sK-Q8-11A">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oce-tW-Lgy">
-                                                    <rect key="frame" x="99.5" y="37" width="275.5" height="25.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                    <color key="textColor" red="0.86666666670000003" green="0.32009467800000002" blue="0.032570746740000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8GY-t7-UVs">
-                                                    <rect key="frame" x="8" y="8" width="83.5" height="83.5"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1qS-Ao-TH9">
+                                                    <rect key="frame" x="89" y="18" width="270" height="53"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oce-tW-Lgy">
+                                                            <rect key="frame" x="0.0" y="0.0" width="270" height="26.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                                            <color key="textColor" red="0.90588235859999999" green="0.29803922770000002" blue="0.23529411850000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEF-Lf-Lb5" userLabel="mealValue">
+                                                            <rect key="frame" x="0.0" y="26.5" width="270" height="26.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="PEF-Lf-Lb5" firstAttribute="height" secondItem="oce-tW-Lgy" secondAttribute="height" id="73x-GN-omR"/>
+                                                        <constraint firstItem="PEF-Lf-Lb5" firstAttribute="width" secondItem="oce-tW-Lgy" secondAttribute="width" id="Yox-9B-1bf"/>
+                                                    </constraints>
+                                                </stackView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8GY-t7-UVs" customClass="RoundedImageView" customModule="Et3am" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="8" width="73" height="73"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="8GY-t7-UVs" secondAttribute="height" multiplier="1:1" id="1Aa-lR-mok"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="10"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEF-Lf-Lb5" userLabel="mealValue">
-                                                    <rect key="frame" x="99.5" y="66.5" width="275.5" height="25.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="PEF-Lf-Lb5" firstAttribute="leading" secondItem="oce-tW-Lgy" secondAttribute="leading" id="4F8-dN-UTp"/>
                                                 <constraint firstAttribute="bottom" secondItem="8GY-t7-UVs" secondAttribute="bottom" constant="8" id="4uy-UB-1EE"/>
-                                                <constraint firstItem="oce-tW-Lgy" firstAttribute="leading" secondItem="8GY-t7-UVs" secondAttribute="trailing" constant="8" id="5t3-qn-rPE"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="1qS-Ao-TH9" secondAttribute="trailing" constant="8" id="6R5-vX-go5"/>
                                                 <constraint firstItem="8GY-t7-UVs" firstAttribute="top" secondItem="0sK-Q8-11A" secondAttribute="top" constant="8" id="6o2-dG-CwS"/>
-                                                <constraint firstItem="PEF-Lf-Lb5" firstAttribute="height" secondItem="oce-tW-Lgy" secondAttribute="height" id="Drw-rv-5Tc"/>
-                                                <constraint firstItem="PEF-Lf-Lb5" firstAttribute="trailing" secondItem="oce-tW-Lgy" secondAttribute="trailing" id="MZ2-h7-EqY"/>
-                                                <constraint firstItem="oce-tW-Lgy" firstAttribute="trailing" secondItem="0sK-Q8-11A" secondAttribute="trailingMargin" constant="8" id="diI-Fq-vbK"/>
+                                                <constraint firstItem="1qS-Ao-TH9" firstAttribute="leading" secondItem="8GY-t7-UVs" secondAttribute="trailing" constant="8" id="NaF-4r-tze"/>
+                                                <constraint firstItem="1qS-Ao-TH9" firstAttribute="centerY" secondItem="8GY-t7-UVs" secondAttribute="centerY" id="STi-GS-XlI"/>
                                                 <constraint firstItem="8GY-t7-UVs" firstAttribute="leading" secondItem="0sK-Q8-11A" secondAttribute="leading" constant="8" id="gUh-Ar-0hO"/>
-                                                <constraint firstItem="PEF-Lf-Lb5" firstAttribute="width" secondItem="oce-tW-Lgy" secondAttribute="width" id="gkC-LZ-9BO"/>
-                                                <constraint firstItem="PEF-Lf-Lb5" firstAttribute="top" secondItem="oce-tW-Lgy" secondAttribute="bottom" constant="4" id="xzo-Dd-V50"/>
-                                                <constraint firstItem="oce-tW-Lgy" firstAttribute="centerY" secondItem="0sK-Q8-11A" secondAttribute="centerY" id="zlo-VN-kRc"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

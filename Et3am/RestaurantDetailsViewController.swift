@@ -18,6 +18,8 @@ class RestaurantDetailsViewController: UIViewController {
     var restuarantObj = Restaurant()
     var mealsArray:Array<Meal> = []
     
+    fileprivate var lastOffestPosition: CGFloat = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         restuarantAndMealsTableView.dataSource = self
@@ -26,7 +28,6 @@ class RestaurantDetailsViewController: UIViewController {
         
         restuarantAndMealsTableView.rowHeight = UITableViewAutomaticDimension
         restuarantAndMealsTableView.estimatedRowHeight = 250
-        
     }
     
     func fetchRestarurantMeals() {
@@ -71,8 +72,8 @@ extension RestaurantDetailsViewController:UITableViewDelegate,UITableViewDataSou
             
             let meal = mealsArray[indexPath.row]
             cell.mealName.text = meal.mealName ?? ""
-            cell.mealValue.text = String(describing: meal.mealValue!)+"€"
-            let imageURL = ImageAPI.getImage(type: .profile_r250, publicId: meal.mealImage ?? "")
+            cell.mealValue.text = String(describing: meal.mealValue!)+" €"
+            let imageURL = ImageAPI.getImage(type: .width150, publicId: meal.mealImage ?? "")
             cell.mealImage.sd_setShowActivityIndicatorView(true)
             cell.mealImage.sd_setImage(with: URL(string: imageURL), placeholderImage: placeholderImage, options: [], completed: nil)
             return cell
@@ -101,25 +102,28 @@ extension RestaurantDetailsViewController:UITableViewDelegate,UITableViewDataSou
     }
     
     
+    
     // Show/ hide the bottom container view depending on the current position on view
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height
         let topEdge = scrollView.contentOffset.y
         
-        if topEdge <= 0 {
+        if bottomEdge < scrollView.contentSize.height {
             
             UIView.animate(withDuration: 0.5, animations: {
                 self.bottomContainerView.alpha = 1
             })
             
-        } else if bottomEdge >= scrollView.contentSize.height {
+        } else {
             
             UIView.animate(withDuration: 0.5, animations: {
                 self.bottomContainerView.alpha = 0
             })
-            
         }
-        
+
+    
     }
+    
+    
     
 }
