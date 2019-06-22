@@ -23,10 +23,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KOm-Xt-QWJ">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_1" translatesAutoresizingMaskIntoConstraints="NO" id="SLP-6l-Wau">
-                                        <rect key="frame" x="0.0" y="-20" width="375" height="667"/>
+                                        <rect key="frame" x="0.0" y="-64" width="375" height="667"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="as1-c8-v89">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -282,12 +282,15 @@
         <!--Navigation Controller-->
         <scene sceneID="1qW-VY-JId">
             <objects>
-                <navigationController storyboardIdentifier="LandingNavigationController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="bh3-yh-yHI" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LandingNavigationController" automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" id="bh3-yh-yHI" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cza-li-Si5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="cza-li-Si5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.17254902420000001" green="0.24313725529999999" blue="0.31372550129999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.92549020051956177" green="0.94117647409439087" blue="0.94509804248809814" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.17254902420000001" green="0.24313725529999999" blue="0.31372550129999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
