@@ -13,12 +13,15 @@ import SDWebImage
 class RestaurantDetailsViewController: UIViewController {
    @IBOutlet weak var restuarantAndMealsTableView: UITableView!
     var restuarantObj = Restaurant()
-    var mealsArray:Array<Meal> = []
+    let noList = UILabel()
+        var mealsArray:Array<Meal> = []
     override func viewDidLoad() {
         super.viewDidLoad()
         restuarantAndMealsTableView.dataSource = self
         restuarantAndMealsTableView.delegate = self
             fetchRestarurantMeals()
+        
+
     }
     
     func fetchRestarurantMeals() {
@@ -30,6 +33,15 @@ class RestaurantDetailsViewController: UIViewController {
             if let mealsList = fetchedArray {
                 DispatchQueue.main.async {
                     self.mealsArray = mealsList
+                    if self.mealsArray.isEmpty
+                    {
+                        self.noList.center = self.view.center
+                        self.noList.text = "No Meals Exist"
+                        self.noList.textAlignment = .center
+                        self.noList.textColor = #colorLiteral(red: 0.4078193307, green: 0.4078193307, blue: 0.4078193307, alpha: 1)
+                        self.view.addSubview(self.noList)
+                    
+                    }
                     self.restuarantAndMealsTableView.reloadData()
                 }
             }
@@ -55,7 +67,7 @@ extension RestaurantDetailsViewController:UITableViewDelegate,UITableViewDataSou
             
             let meal = mealsArray[indexPath.row]
             cell.mealName.text = meal.mealName ?? ""
-            cell.mealValue.text = String(describing: meal.mealValue!)+"€"
+            cell.mealValue.text = String(describing: meal.mealValue!)+"EGP"
             let imageURL = ImageAPI.getImage(type: .profile_r250, publicId: meal.mealImage ?? "")
             cell.mealImage.sd_setShowActivityIndicatorView(true)
             cell.mealImage.sd_setImage(with: URL(string: imageURL), placeholderImage: placeholderImage, options: [], completed: nil)

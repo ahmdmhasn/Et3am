@@ -11,6 +11,7 @@ import UIKit
 class GetCouponViewController: UIViewController {
     let couponDao = CouponDao.shared
     let currentUser = UserDao.shared.user
+    
      var capturedScreenShotView:UIView!
     @IBOutlet weak var screenshotView: UIView!
     @IBOutlet var outerContainerView: UIView!

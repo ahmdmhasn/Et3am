@@ -19,6 +19,7 @@ class RestaurantsListVC: UITableViewController {
     var currentLocation:CLLocation?
     let noList = UILabel()
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidLoad()
         setupLocationManager()
