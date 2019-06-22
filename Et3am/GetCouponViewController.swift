@@ -49,6 +49,7 @@ class GetCouponViewController: UIViewController {
         capturedScreenShotView.backgroundColor = UIColor.black
        view.addSubview(capturedScreenShotView)
         capturedScreenShotView.isHidden = true
+        print(currentUser.userID ?? 0)
     }
     
     func getFreeCoupon(URL: String) -> Void {
