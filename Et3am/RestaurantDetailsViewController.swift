@@ -27,7 +27,7 @@ class RestaurantDetailsViewController: UIViewController {
     func fetchRestarurantMeals() {
         let restaurantDao:RestaurantDao = RestaurantDao.sharedRestaurantObject
         let mealsUrl:String  = "\(Et3amAPI.baseRestaurantUrlString)\(restuarantObj.restaurantID!)/\(RestaurantQueries.meals)"
-        SVProgressHUD.show()
+        SVProgressHUD.show(withStatus: "loading Meals")
         restaurantDao.fetchJsonForMeals(typeURL: mealsUrl) { fetchedArray in
             SVProgressHUD.dismiss()
             if let mealsList = fetchedArray {
