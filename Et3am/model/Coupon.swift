@@ -15,4 +15,13 @@ class Coupon {
     var creationDate:String?
     var couponValue:Float?
     var inBalance:Int?
+    
+    class func getCreationDate(milisecond: Double) -> String {
+        let dateVar = Date.init(timeIntervalSinceNow: TimeInterval(milisecond)/1000)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy hh:mm"
+        let date = dateFormatter.string(from: dateVar)
+         print(date)
+        return date
+    }
 }

@@ -34,7 +34,7 @@ class RestaurantDao
                         print("Malformed data received from service")
                         return
                     }
-                    
+                                        
                     for value in values{
                         let restaurant:Restaurant! = Restaurant()
                         restaurant.restaurantID = value["restaurantId"] as? Int
@@ -42,7 +42,7 @@ class RestaurantDao
                         restaurant.city = value["city"] as? String
                         restaurant.country = value["country"] as? String
                         restaurant.image = value["restaurantImage"] as? String
-                        restaurant.latitude = value["latituse"] as? Double
+                        restaurant.latitude = value["latitude"] as? Double
                         restaurant.longitude = value["longitude"] as? Double
                         restaurant.distance = value["distance"] as? Double
                         restaurant.travelTime = value["travelTime"] as? Double

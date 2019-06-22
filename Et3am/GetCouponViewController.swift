@@ -84,7 +84,7 @@ class GetCouponViewController: UIViewController {
             
             imageViewQR.image = img
         }
-}
+    }
     
     func captureScreenshot(){
         let layer = UIApplication.shared.keyWindow!.layer

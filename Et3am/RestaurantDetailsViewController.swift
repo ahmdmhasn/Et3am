@@ -11,7 +11,10 @@ import SVProgressHUD
 import SDWebImage
 
 class RestaurantDetailsViewController: UIViewController {
-   @IBOutlet weak var restuarantAndMealsTableView: UITableView!
+    
+    @IBOutlet weak var bottomContainerView: UIView!
+    @IBOutlet weak var restuarantAndMealsTableView: UITableView!
+    
     var restuarantObj = Restaurant()
     let noList = UILabel()
         var mealsArray:Array<Meal> = []
@@ -47,6 +50,7 @@ class RestaurantDetailsViewController: UIViewController {
             }
         }
     }
+    
 }
 
 extension RestaurantDetailsViewController:UITableViewDelegate,UITableViewDataSource{
@@ -61,6 +65,13 @@ extension RestaurantDetailsViewController:UITableViewDelegate,UITableViewDataSou
             let imageURL = ImageAPI.getImage(type: .width500, publicId: restuarantObj.image ?? "")
             cell.restaurantImage.sd_setShowActivityIndicatorView(true)
             cell.restaurantImage.sd_setImage(with: URL(string: imageURL), placeholderImage: placeholderImage, options: [], completed: nil)
+            
+            //Load restaurant image
+            let path = "https://maps.googleapis.com/maps/api/staticmap?size=500x200"+"&markers=color:red%7C"+"\(restuarantObj.latitude ?? 0),\(restuarantObj.longitude ?? 0)&key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM"
+            cell.mapImageView.sd_setShowActivityIndicatorView(true)
+            cell.mapImageView.sd_setIndicatorStyle(.whiteLarge)
+            cell.mapImageView.sd_setImage(with: URL(string: path), completed: nil)
+            
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "mealCell", for: indexPath) as! MealCell
@@ -73,7 +84,7 @@ extension RestaurantDetailsViewController:UITableViewDelegate,UITableViewDataSou
             cell.mealImage.sd_setImage(with: URL(string: imageURL), placeholderImage: placeholderImage, options: [], completed: nil)
             return cell
         }
-   }
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -87,13 +98,38 @@ extension RestaurantDetailsViewController:UITableViewDelegate,UITableViewDataSou
         }
     }
     
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 245
+            return UITableViewAutomaticDimension
         } else {
-            return 120
+            return 100
         }
     }
+    
+    
+    
+    // Show/ hide the bottom container view depending on the current position on view
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height
+        let topEdge = scrollView.contentOffset.y
+        
+        if bottomEdge < scrollView.contentSize.height {
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.bottomContainerView.alpha = 1
+            })
+            
+        } else {
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.bottomContainerView.alpha = 0
+            })
+        }
+
+    
+    }
+    
+    
     
 }
