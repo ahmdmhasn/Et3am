@@ -29,7 +29,7 @@ enum UserURLQueries: String {
         }
         
         switch self {
-        case .updatePassword, .update, .getUser, .verify:
+        case .updatePassword, .update, .getUser, .verify, .summary:
             return baseUserUrl + userID
         default:
             return ""

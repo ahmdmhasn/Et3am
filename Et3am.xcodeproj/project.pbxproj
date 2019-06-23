@@ -55,6 +55,7 @@
 		E280CC4F22B8215600E32CE1 /* Donate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E280CC4E22B8215600E32CE1 /* Donate.storyboard */; };
 		E280CC5122B83FC600E32CE1 /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280CC5022B83FC600E32CE1 /* ImageAPI.swift */; };
 		E2D6DE0622BD1B330042AD22 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D6DE0522BD1B330042AD22 /* RoundedButton.swift */; };
+		E2D9A7EC22BFAE5500132C09 /* UserSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D9A7EB22BFAE5500132C09 /* UserSummary.swift */; };
 		E2F11B9D2288D49D0031ABCC /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11B972288D49C0031ABCC /* Admin.swift */; };
 		E2F11B9E2288D49D0031ABCC /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11B982288D49C0031ABCC /* Coupon.swift */; };
 		E2F11BA02288D49D0031ABCC /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11B9A2288D49C0031ABCC /* Meal.swift */; };
@@ -149,6 +150,7 @@
 		E280CC4E22B8215600E32CE1 /* Donate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Donate.storyboard; sourceTree = "<group>"; };
 		E280CC5022B83FC600E32CE1 /* ImageAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageAPI.swift; path = model/ImageAPI.swift; sourceTree = "<group>"; };
 		E2D6DE0522BD1B330042AD22 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		E2D9A7EB22BFAE5500132C09 /* UserSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSummary.swift; path = model/UserSummary.swift; sourceTree = "<group>"; };
 		E2F11B972288D49C0031ABCC /* Admin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Admin.swift; path = model/Admin.swift; sourceTree = "<group>"; };
 		E2F11B982288D49C0031ABCC /* Coupon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Coupon.swift; path = model/Coupon.swift; sourceTree = "<group>"; };
 		E2F11B992288D49C0031ABCC /* Fakka.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Fakka.swift; path = model/Fakka.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				E2F11B9A2288D49C0031ABCC /* Meal.swift */,
 				E2F11B9B2288D49C0031ABCC /* Restaurant.swift */,
 				E2F11B9C2288D49D0031ABCC /* User.swift */,
+				E2D9A7EB22BFAE5500132C09 /* UserSummary.swift */,
 			);
 			name = DTO;
 			sourceTree = "<group>";
@@ -723,6 +726,7 @@
 				E280CC5122B83FC600E32CE1 /* ImageAPI.swift in Sources */,
 				E280CC4C22B81C7D00E32CE1 /* SignInView.swift in Sources */,
 				2117FBDF229CC03F0099DE05 /* UserHelper.swift in Sources */,
+				E2D9A7EC22BFAE5500132C09 /* UserSummary.swift in Sources */,
 				E210689622BEBD6D00A9AD4F /* RoundedImageView.swift in Sources */,
 				F1261FC4229EA607005CB7AD /* ExtensionRestaurantListVC.swift in Sources */,
 				21E8F21822A3ED960070F223 /* RecievedViewController.swift in Sources */,

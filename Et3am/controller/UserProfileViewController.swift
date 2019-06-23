@@ -115,7 +115,7 @@ class UserProfileViewController: UITableViewController {
             }
             
         case .logout:
-            logoutUser()
+            UserHelper.logoutUser()
         }
     }
     
@@ -200,16 +200,6 @@ extension UserProfileViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    func logoutUser() {
-        userDao.removeUserFromUserDefaults()
-        
-        let window = UIApplication.shared.keyWindow
-        let storyboard
-            = UIStoryboard(name: "RegisterAndLogin", bundle: nil)
-        let LoginVC = storyboard.instantiateViewController(withIdentifier: "registerViewController") as! RegisterandLoginViewController
-        window?.rootViewController  = LoginVC
-        UIView.transition(with: window!, duration: 0.5, options: .curveEaseInOut, animations: nil, completion: nil)
-    }
 }
 
 
