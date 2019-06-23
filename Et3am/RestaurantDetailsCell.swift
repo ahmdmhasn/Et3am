@@ -9,10 +9,16 @@
 import UIKit
 
 class RestaurantDetailsCell: UITableViewCell {
-    
+    weak var delegate: RestaurantDetailsViewController?
+    var indexPath:IndexPath!
     @IBOutlet weak var restaurantImage: UIImageView!
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var restaurantCountyCity: UILabel!
     @IBOutlet weak var mapImageView: UIImageView!
-
+    
+    
 }
+protocol RestaursntCellDelegate: class {
+    func tapedImage()
+}
+

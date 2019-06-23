@@ -35,7 +35,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="144"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Et3amApp" translatesAutoresizingMaskIntoConstraints="NO" id="YhV-pp-wGe">
-                                                                <rect key="frame" x="122" y="0.0" width="100" height="100"/>
+                                                                <rect key="frame" x="121.5" y="0.0" width="100" height="100"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="YhV-pp-wGe" secondAttribute="height" multiplier="1:1" id="Iaa-fv-xA1"/>
                                                                     <constraint firstAttribute="width" constant="100" id="pWa-Ky-uMl"/>
@@ -43,7 +43,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sSx-y6-Sko">
-                                                                <rect key="frame" x="47" y="116" width="250" height="29"/>
+                                                                <rect key="frame" x="46.5" y="116" width="250" height="29"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="CCR-en-chz"/>
                                                                 </constraints>
@@ -111,7 +111,7 @@
                                                                 <rect key="frame" x="0.0" y="185" width="343" height="68"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbM-Bs-IcM">
-                                                                        <rect key="frame" x="127" y="0.0" width="90" height="30"/>
+                                                                        <rect key="frame" x="126.5" y="0.0" width="90" height="30"/>
                                                                         <color key="backgroundColor" red="0.90588235859999999" green="0.29803922770000002" blue="0.23529411850000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                                         <color key="tintColor" red="0.13725490200000001" green="0.19215686269999999" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -131,6 +131,7 @@
                                                                         </state>
                                                                         <connections>
                                                                             <action selector="forgetUserPassword:" destination="IGS-5P-0mx" eventType="touchUpInside" id="8Fi-9A-El6"/>
+                                                                            <segue destination="cA3-K2-8V0" kind="show" id="1NK-Y8-xPL"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
@@ -252,7 +253,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="0.0"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPC-U9-p49">
-                                                                        <rect key="frame" x="115" y="0.0" width="114" height="0.0"/>
+                                                                        <rect key="frame" x="114.5" y="0.0" width="114" height="0.0"/>
                                                                         <color key="backgroundColor" red="0.90588235855102539" green="0.29803922772407532" blue="0.23529411852359772" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                                         <color key="tintColor" red="0.90588235859999999" green="0.29803922770000002" blue="0.23529411850000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -342,7 +343,17 @@
                 <viewControllerPlaceholder storyboardName="Landing" id="ne8-LI-Yjf" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G3A-S9-gZG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1623" y="-37"/>
+            <point key="canvasLocation" x="1586" y="-5"/>
+        </scene>
+        <!--ResetPassword-->
+        <scene sceneID="qyJ-ra-ILr">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ResetPassword" id="cA3-K2-8V0" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="CzF-vz-kOq"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JX1-RQ-MGI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1622" y="93"/>
         </scene>
         <!--RestaurantInfo-->
         <scene sceneID="OOf-Sv-60y">
