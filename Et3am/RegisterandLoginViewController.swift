@@ -155,7 +155,29 @@ class RegisterandLoginViewController: UIViewController {
     }
     
     @IBAction func forgetUserPassword(_ sender: Any) {
-        
+        guard let userEmail = signInView.emailTxtField.text , !userEmail.isEmpty else {
+            signinValidation = false
+            self.signInView.valdiatelabel.text = "Email is required!"
+            return
+        }
+        SVProgressHUD.show()
+        userDao.resetPassword(userEmail: userEmail){
+            response in
+            SVProgressHUD.dismiss()
+            switch response
+            {
+            case .success(let status):
+                if status == 1
+                {
+                    self.performSegue(withIdentifier: "resetpassword", sender: self)
+                }
+            case .failure(let error):
+                self.signinValidation = false
+                self.signInView.valdiatelabel.text = "Something went wrong, please try again later."
+                print(error)
+
+            }
+        }
        
     }
     
