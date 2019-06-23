@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		021A0A3222BFF49900479AFC /* ReservedCoupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A0A3122BFF49900479AFC /* ReservedCoupon.swift */; };
+		021A0A3422BFF73D00479AFC /* UsedCoupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A0A3322BFF73D00479AFC /* UsedCoupon.swift */; };
+		021A0A3622C00C0100479AFC /* ReservedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A0A3522C00C0100479AFC /* ReservedViewCell.swift */; };
+		021A0A3822C00D1700479AFC /* UsedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021A0A3722C00D1700479AFC /* UsedViewCell.swift */; };
+		021A0A3A22C0119E00479AFC /* UsedViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 021A0A3922C0119E00479AFC /* UsedViewCell.xib */; };
+		021A0A3C22C011D200479AFC /* ReservedViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 021A0A3B22C011D200479AFC /* ReservedViewCell.xib */; };
 		21110BC7228843DF00D982E5 /* CopounsRecieved.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21110BC6228843DF00D982E5 /* CopounsRecieved.storyboard */; };
 		21110BCB2288444500D982E5 /* CouponsDonated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21110BCA2288444500D982E5 /* CouponsDonated.storyboard */; };
 		211378A72284F16A0056E5C7 /* AllCouponTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211378A62284F16A0056E5C7 /* AllCouponTableViewCell.swift */; };
@@ -87,6 +93,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		021A0A3122BFF49900479AFC /* ReservedCoupon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReservedCoupon.swift; path = model/ReservedCoupon.swift; sourceTree = "<group>"; };
+		021A0A3322BFF73D00479AFC /* UsedCoupon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UsedCoupon.swift; path = model/UsedCoupon.swift; sourceTree = "<group>"; };
+		021A0A3522C00C0100479AFC /* ReservedViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReservedViewCell.swift; path = controller/ReservedViewCell.swift; sourceTree = "<group>"; };
+		021A0A3722C00D1700479AFC /* UsedViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UsedViewCell.swift; path = controller/UsedViewCell.swift; sourceTree = "<group>"; };
+		021A0A3922C0119E00479AFC /* UsedViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UsedViewCell.xib; path = controller/UsedViewCell.xib; sourceTree = "<group>"; };
+		021A0A3B22C011D200479AFC /* ReservedViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReservedViewCell.xib; path = controller/ReservedViewCell.xib; sourceTree = "<group>"; };
 		03C870E401F2CB162131A79B /* Pods_Et3amUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Et3amUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21110BC6228843DF00D982E5 /* CopounsRecieved.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CopounsRecieved.storyboard; path = view/CopounsRecieved.storyboard; sourceTree = "<group>"; };
 		21110BCA2288444500D982E5 /* CouponsDonated.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CouponsDonated.storyboard; path = view/CouponsDonated.storyboard; sourceTree = "<group>"; };
@@ -252,6 +264,8 @@
 				E2F11B9B2288D49C0031ABCC /* Restaurant.swift */,
 				E2F11B9C2288D49D0031ABCC /* User.swift */,
 				E2D9A7EB22BFAE5500132C09 /* UserSummary.swift */,
+				021A0A3122BFF49900479AFC /* ReservedCoupon.swift */,
+				021A0A3322BFF73D00479AFC /* UsedCoupon.swift */,
 			);
 			name = DTO;
 			sourceTree = "<group>";
@@ -367,6 +381,10 @@
 				21110BCA2288444500D982E5 /* CouponsDonated.storyboard */,
 				F13F051222B68DCB000F090A /* PublishCouponViewCell.xib */,
 				F1A7CE4822BE47E100491C58 /* ATableViewCell.xib */,
+				021A0A3522C00C0100479AFC /* ReservedViewCell.swift */,
+				021A0A3722C00D1700479AFC /* UsedViewCell.swift */,
+				021A0A3922C0119E00479AFC /* UsedViewCell.xib */,
+				021A0A3B22C011D200479AFC /* ReservedViewCell.xib */,
 			);
 			name = CouponsDonated;
 			sourceTree = "<group>";
@@ -569,6 +587,8 @@
 				E280CC4A22B81C7D00E32CE1 /* RegisterAndLogin.storyboard in Resources */,
 				F13F051422B68DCB000F090A /* PublishCouponViewCell.xib in Resources */,
 				21E8F22022A3F2020070F223 /* CouponCollectionViewCell.xib in Resources */,
+				021A0A3A22C0119E00479AFC /* UsedViewCell.xib in Resources */,
+				021A0A3C22C011D200479AFC /* ReservedViewCell.xib in Resources */,
 				E280CC4F22B8215600E32CE1 /* Donate.storyboard in Resources */,
 				F1A7CE4A22BE47E100491C58 /* ATableViewCell.xib in Resources */,
 				E2512CC62285DAD900D8E0F7 /* UserProfile.storyboard in Resources */,
@@ -682,6 +702,7 @@
 			files = (
 				2117FBE2229D49000099DE05 /* UIViewController.swift in Sources */,
 				2189265822A0028300BD7404 /* DonateViewController.swift in Sources */,
+				021A0A3822C00D1700479AFC /* UsedViewCell.swift in Sources */,
 				21E8F21F22A3F2020070F223 /* CouponCollectionViewCell.swift in Sources */,
 				E20E07262299DEA300FEC852 /* UserProfileViewController.swift in Sources */,
 				E2F11BA22288D49D0031ABCC /* User.swift in Sources */,
@@ -689,6 +710,7 @@
 				830BE78C22BA4D2000F50699 /* GetCouponViewController.swift in Sources */,
 				F1A7CE4422BE477400491C58 /* ATableViewController.swift in Sources */,
 				E2F11B9E2288D49D0031ABCC /* Coupon.swift in Sources */,
+				021A0A3222BFF49900479AFC /* ReservedCoupon.swift in Sources */,
 				830BE78D22BA4D2000F50699 /* MealCell.swift in Sources */,
 				E2D6DE0622BD1B330042AD22 /* RoundedButton.swift in Sources */,
 				2117FBE4229D5D150099DE05 /* UIView.swift in Sources */,
@@ -713,7 +735,9 @@
 				F1A7CE4922BE47E100491C58 /* ATableViewCell.swift in Sources */,
 				E280CC5122B83FC600E32CE1 /* ImageAPI.swift in Sources */,
 				E280CC4C22B81C7D00E32CE1 /* SignInView.swift in Sources */,
+				021A0A3422BFF73D00479AFC /* UsedCoupon.swift in Sources */,
 				2117FBDF229CC03F0099DE05 /* UserHelper.swift in Sources */,
+				021A0A3622C00C0100479AFC /* ReservedViewCell.swift in Sources */,
 				E2D9A7EC22BFAE5500132C09 /* UserSummary.swift in Sources */,
 				E210689622BEBD6D00A9AD4F /* RoundedImageView.swift in Sources */,
 				F1261FC4229EA607005CB7AD /* ExtensionRestaurantListVC.swift in Sources */,
