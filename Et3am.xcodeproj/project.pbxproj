@@ -16,10 +16,13 @@
 		2117FBE2229D49000099DE05 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117FBE1229D49000099DE05 /* UIViewController.swift */; };
 		2117FBE4229D5D150099DE05 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117FBE3229D5D150099DE05 /* UIView.swift */; };
 		2160DCF722BF9CA20079CF55 /* ResetPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2160DCF622BF9CA20079CF55 /* ResetPassword.storyboard */; };
+		2160DCF922BFB21A0079CF55 /* RegisterandLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2160DCF822BFB2190079CF55 /* RegisterandLoginViewController.swift */; };
+		2160DCFB22BFB2240079CF55 /* RegisterAndLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2160DCFA22BFB2240079CF55 /* RegisterAndLogin.storyboard */; };
 		21725FB122BE76D4005FB4AB /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21725FB022BE76D4005FB4AB /* ResetPasswordViewController.swift */; };
 		2189265822A0028300BD7404 /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2189265722A0028300BD7404 /* DonateViewController.swift */; };
 		2189265C22A00FCA00BD7404 /* CuoponsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2189265B22A00FCA00BD7404 /* CuoponsTabBarController.swift */; };
 		21B6E8F6229C1D350067C5F4 /* CouponDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B6E8F5229C1D350067C5F4 /* CouponDao.swift */; };
+		21DC260B22BFEC5800D55C62 /* GenerationNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DC260A22BFEC5800D55C62 /* GenerationNewPasswordViewController.swift */; };
 		21E8F21822A3ED960070F223 /* RecievedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E8F21722A3ED960070F223 /* RecievedViewController.swift */; };
 		21E8F21F22A3F2020070F223 /* CouponCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E8F21D22A3F2020070F223 /* CouponCollectionViewCell.swift */; };
 		21E8F22022A3F2020070F223 /* CouponCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21E8F21E22A3F2020070F223 /* CouponCollectionViewCell.xib */; };
@@ -47,7 +50,6 @@
 		E210689B22BEC6AD00A9AD4F /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E210689A22BEC6AD00A9AD4F /* Landing.storyboard */; };
 		E21A104022BA8B6500824B50 /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21A103F22BA8B6500824B50 /* VerificationViewController.swift */; };
 		E2512CC62285DAD900D8E0F7 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */; };
-		E280CC4B22B81C7D00E32CE1 /* RegisterandLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280CC4722B81C7D00E32CE1 /* RegisterandLoginViewController.swift */; };
 		E280CC4C22B81C7D00E32CE1 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280CC4822B81C7D00E32CE1 /* SignInView.swift */; };
 		E280CC4D22B81C7D00E32CE1 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280CC4922B81C7D00E32CE1 /* SignUpView.swift */; };
 		E280CC4F22B8215600E32CE1 /* Donate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E280CC4E22B8215600E32CE1 /* Donate.storyboard */; };
@@ -97,10 +99,13 @@
 		2117FBE1229D49000099DE05 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		2117FBE3229D5D150099DE05 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		2160DCF622BF9CA20079CF55 /* ResetPassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ResetPassword.storyboard; sourceTree = "<group>"; };
+		2160DCF822BFB2190079CF55 /* RegisterandLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterandLoginViewController.swift; sourceTree = "<group>"; };
+		2160DCFA22BFB2240079CF55 /* RegisterAndLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegisterAndLogin.storyboard; sourceTree = "<group>"; };
 		21725FB022BE76D4005FB4AB /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		2189265722A0028300BD7404 /* DonateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DonateViewController.swift; path = controller/DonateViewController.swift; sourceTree = "<group>"; };
 		2189265B22A00FCA00BD7404 /* CuoponsTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuoponsTabBarController.swift; sourceTree = "<group>"; };
 		21B6E8F5229C1D350067C5F4 /* CouponDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponDao.swift; sourceTree = "<group>"; };
+		21DC260A22BFEC5800D55C62 /* GenerationNewPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerationNewPasswordViewController.swift; sourceTree = "<group>"; };
 		21E8F21722A3ED960070F223 /* RecievedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecievedViewController.swift; sourceTree = "<group>"; };
 		21E8F21D22A3F2020070F223 /* CouponCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponCollectionViewCell.swift; sourceTree = "<group>"; };
 		21E8F21E22A3F2020070F223 /* CouponCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -139,7 +144,6 @@
 		E210689A22BEC6AD00A9AD4F /* Landing.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Landing.storyboard; path = view/Landing.storyboard; sourceTree = "<group>"; };
 		E21A103F22BA8B6500824B50 /* VerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerificationViewController.swift; path = controller/VerificationViewController.swift; sourceTree = "<group>"; };
 		E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UserProfile.storyboard; path = view/UserProfile.storyboard; sourceTree = "<group>"; };
-		E280CC4722B81C7D00E32CE1 /* RegisterandLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterandLoginViewController.swift; sourceTree = "<group>"; };
 		E280CC4822B81C7D00E32CE1 /* SignInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		E280CC4922B81C7D00E32CE1 /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		E280CC4E22B8215600E32CE1 /* Donate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Donate.storyboard; sourceTree = "<group>"; };
@@ -408,11 +412,13 @@
 		E2680028229AB8A2003EF0CC /* RegisterLoginScreen */ = {
 			isa = PBXGroup;
 			children = (
-				E280CC4722B81C7D00E32CE1 /* RegisterandLoginViewController.swift */,
+				2160DCF822BFB2190079CF55 /* RegisterandLoginViewController.swift */,
+				2160DCFA22BFB2240079CF55 /* RegisterAndLogin.storyboard */,
 				E280CC4822B81C7D00E32CE1 /* SignInView.swift */,
 				E280CC4922B81C7D00E32CE1 /* SignUpView.swift */,
 				21725FB022BE76D4005FB4AB /* ResetPasswordViewController.swift */,
 				2160DCF622BF9CA20079CF55 /* ResetPassword.storyboard */,
+				21DC260A22BFEC5800D55C62 /* GenerationNewPasswordViewController.swift */,
 			);
 			name = RegisterLoginScreen;
 			sourceTree = "<group>";
@@ -571,6 +577,7 @@
 				21E8F22022A3F2020070F223 /* CouponCollectionViewCell.xib in Resources */,
 				E280CC4F22B8215600E32CE1 /* Donate.storyboard in Resources */,
 				F1A7CE4A22BE47E100491C58 /* ATableViewCell.xib in Resources */,
+				2160DCFB22BFB2240079CF55 /* RegisterAndLogin.storyboard in Resources */,
 				E2512CC62285DAD900D8E0F7 /* UserProfile.storyboard in Resources */,
 				21110BC7228843DF00D982E5 /* CopounsRecieved.storyboard in Resources */,
 			);
@@ -697,8 +704,10 @@
 				E210689922BEC67000A9AD4F /* LandingViewController.swift in Sources */,
 				211644AB228C4A6C009AA2BB /* Et3amAPI.swift in Sources */,
 				E2F11BA02288D49D0031ABCC /* Meal.swift in Sources */,
+				2160DCF922BFB21A0079CF55 /* RegisterandLoginViewController.swift in Sources */,
 				E20D2192229D49DF00110D5D /* ChangePasswordViewController.swift in Sources */,
 				E2029CF022836B6D007BA6A1 /* Et3am.xcdatamodeld in Sources */,
+				21DC260B22BFEC5800D55C62 /* GenerationNewPasswordViewController.swift in Sources */,
 				E280CC4D22B81C7D00E32CE1 /* SignUpView.swift in Sources */,
 				E207D8CF22BB9F320014ECC6 /* UILabel.swift in Sources */,
 				F17C3FD3229D44CD005A449E /* RestaurantsListVC.swift in Sources */,
@@ -708,7 +717,6 @@
 				2189265C22A00FCA00BD7404 /* CuoponsTabBarController.swift in Sources */,
 				E2029CE822836B6D007BA6A1 /* AppDelegate.swift in Sources */,
 				F17C3FD5229D45CE005A449E /* RestaurantCell.swift in Sources */,
-				E280CC4B22B81C7D00E32CE1 /* RegisterandLoginViewController.swift in Sources */,
 				830BE78F22BA4D2000F50699 /* RestaurantDetailsViewController.swift in Sources */,
 				21B6E8F6229C1D350067C5F4 /* CouponDao.swift in Sources */,
 				F1A7CE4922BE47E100491C58 /* ATableViewCell.swift in Sources */,
