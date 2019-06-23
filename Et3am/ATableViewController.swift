@@ -16,8 +16,6 @@ class ATableViewController: UITableViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func displayListAs(_ sender: Any) {
-    }
     var listCoupons = [Coupon]()
     var message = UILabel()
     let couponSevices = CouponDao.shared
@@ -87,6 +85,39 @@ class ATableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func displayListAs(_ sender: Any) {
+        print("DisplayList")
+        let actionSheet = UIAlertController(title: "Show Coupons That", message: nil, preferredStyle: .actionSheet)
+        actionSheet.view.tintColor = UIColor.darkGray
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        let inBalance = UIAlertAction(title: "InBalance", style: .default) { action in
+            self.couponSevices.getInBalanceCoupon(userId:UserDao.shared.user.userID! , inBalanceHandler:{ listCoupon in
+                self.listCoupons = listCoupon
+                self.tableView.reloadData()
+            })
+
+        }
+        
+        let reserved = UIAlertAction(title: "Reserved", style: .default) { action in
+            self.couponSevices.getUsedCoupon(userId:UserDao.shared.user.userID! , inBalanceHandler:{ listCouponReserved in
+                self.listCoupons = listCouponReserved
+                self.tableView.reloadData()
+            })
+        }
+        
+        let consumed = UIAlertAction(title: "Consumed", style: .default) { action in
+            self.couponSevices.getUsedCoupon(userId:UserDao.shared.user.userID! , inBalanceHandler:{ listCouponConsumed in
+                self.listCoupons = listCouponConsumed
+                self.tableView.reloadData()
+            })
+        }
+        
+        actionSheet.addAction(inBalance)
+        actionSheet.addAction(reserved)
+        actionSheet.addAction(consumed)
+        present(actionSheet, animated: true, completion: nil)
+    }
 
 }
 
@@ -131,7 +162,10 @@ extension ATableViewController : ATableViewCellDelegate,MFMessageComposeViewCont
     func didPressPrint(cellIndex:IndexPath){
         print("Share")
         //share screenshot using other apps
-        share(data:captureScreenshot())
+        //share(data:captureScreenshot())
+        //share(data: snapshotrow(sender: cellIndex))
+        share(data:tableView.snapshotRows(at: Set([cellIndex])))
+//        share(data: snapshotrow(sender: cellIndex))
     }
     
     func share(data:Any){
@@ -142,6 +176,36 @@ extension ATableViewController : ATableViewCellDelegate,MFMessageComposeViewCont
         })
     }
     
+    func snapshotrow(sender: IndexPath) -> UIImage {
+            let rectOfCellInTableView = tableView.rectForRow(at: IndexPath(row: sender.row, section: sender.section))
+            let rectOfCellInSuperview = tableView.convert(rectOfCellInTableView, to: tableView.superview)
+            // @IBOutlet var snapImageView: UIImageView!
+            // snapImageView.image = self.view.snapshot(of: rectOfCellInSuperview)
+            print(self.view.snapshot(of: rectOfCellInSuperview))
+            
+            //let finalImage = saveImage(rowImage: snapImageView.image)
+            //test final image
+            //snapViewImage.image = finalImage
+            //return self.view.snapshot(of: rectOfCellInSuperview)
+        //}
+        return saveImage(rowImage:self.view.snapshot(of: rectOfCellInSuperview))
+    }
+    
+    func saveImage(rowImage: UIImage) -> UIImage {
+        let bottomImage = rowImage
+        //let topImage = UIImage(named: "myLogo")!
+        
+        let newSize = CGSize.init(width: 41, height: 41) // set this to what you need
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+        
+        bottomImage.draw(in: CGRect(origin: .zero, size: newSize))
+        //topImage.draw(in: CGRect(origin: .zero, size: newSize))
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
+    }
     
     func captureScreenshot() -> UIImage {
         let layer = UIApplication.shared.keyWindow!.layer
@@ -179,3 +243,49 @@ extension ATableViewController : ATableViewCellDelegate,MFMessageComposeViewCont
         return img
     }
 }
+
+
+extension UIView {
+    
+    /// Create image snapshot of view.
+    ///
+    /// - Parameters:
+    ///   - rect: The coordinates (in the view's own coordinate space) to be captured. If omitted, the entire `bounds` will be captured.
+    ///   - afterScreenUpdates: A Boolean value that indicates whether the snapshot should be rendered after recent changes have been incorporated. Specify the value false if you want to render a snapshot in the view hierarchy’s current state, which might not include recent changes. Defaults to `true`.
+    ///
+    /// - Returns: The `UIImage` snapshot.
+    
+    func snapshot(of rect: CGRect? = nil, afterScreenUpdates: Bool = true) -> UIImage {
+        return UIGraphicsImageRenderer(bounds: rect ?? bounds).image { _ in
+            drawHierarchy(in: bounds, afterScreenUpdates: true)
+        }
+    }
+}
+extension UITableView
+{
+    func snapshotRows(at indexPaths: Set<IndexPath>) -> UIImage?
+    {
+        guard !indexPaths.isEmpty else { return nil }
+        var rect = self.rectForRow(at: indexPaths.first!)
+        for indexPath in indexPaths
+        {
+            let cellRect = self.rectForRow(at: indexPath)
+            rect = rect.union(cellRect)
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+        for indexPath in indexPaths
+        {
+            let cell = self.cellForRow(at: indexPath)
+            cell?.layer.bounds.origin.y = self.rectForRow(at: indexPath).origin.y - rect.minY
+            cell?.layer.render(in: context)
+            cell?.layer.bounds.origin.y = 0
+        }
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+}
+
