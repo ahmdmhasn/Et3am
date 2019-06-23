@@ -337,10 +337,10 @@
             </objects>
             <point key="canvasLocation" x="1004" y="46.326836581709152"/>
         </scene>
-        <!--RestaurantsList-->
+        <!--Landing-->
         <scene sceneID="gUG-1T-8sA">
             <objects>
-                <viewControllerPlaceholder storyboardName="RestaurantsList" id="ne8-LI-Yjf" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Landing" id="ne8-LI-Yjf" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G3A-S9-gZG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1623" y="-37"/>
