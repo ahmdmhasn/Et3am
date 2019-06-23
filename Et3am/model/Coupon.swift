@@ -13,6 +13,7 @@ class Coupon {
     var couponCode:String?
     var barCode:String?
     var creationDate:String?
+    var reservationDate:String?
     var couponValue:Float?
     var inBalance:Int?
     
