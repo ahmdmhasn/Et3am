@@ -9,6 +9,7 @@
 import UIKit
 import SVProgressHUD
 import SDWebImage
+import MapKit
 
 class RestaurantDetailsViewController: UIViewController {
     
@@ -16,15 +17,25 @@ class RestaurantDetailsViewController: UIViewController {
     @IBOutlet weak var restuarantAndMealsTableView: UITableView!
     
     var restuarantObj = Restaurant()
+    var mealsArray:Array<Meal> = []
     let noList = UILabel()
-        var mealsArray:Array<Meal> = []
+    
+    fileprivate var lastOffestPosition: CGFloat = 0
+    
     override func viewDidLoad() {
+        
+        
+       
+
         super.viewDidLoad()
         restuarantAndMealsTableView.dataSource = self
         restuarantAndMealsTableView.delegate = self
-            fetchRestarurantMeals()
         
-
+        
+        fetchRestarurantMeals()
+        
+        restuarantAndMealsTableView.rowHeight = UITableViewAutomaticDimension
+        restuarantAndMealsTableView.estimatedRowHeight = 250
     }
     
     func fetchRestarurantMeals() {
@@ -51,6 +62,7 @@ class RestaurantDetailsViewController: UIViewController {
         }
     }
     
+    
 }
 
 extension RestaurantDetailsViewController:UITableViewDelegate,UITableViewDataSource{
@@ -58,9 +70,18 @@ extension RestaurantDetailsViewController:UITableViewDelegate,UITableViewDataSou
         let placeholderImage = UIImage(named: "placeholder")
         
         if indexPath.section == 0 {
+            
+            
+            
+            
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "restCell", for: indexPath) as! RestaurantDetailsCell
             cell.restaurantName.text = restuarantObj.restaurantName
             cell.restaurantCountyCity.text = restuarantObj.city! + ", " + restuarantObj.country!
+            
+            let tapGesture = UITapGestureRecognizer (target: self, action: #selector(imgTap(tapGesture:)))
+            cell.mapImageView.isUserInteractionEnabled = true
+            cell.mapImageView.addGestureRecognizer(tapGesture)
             
             let imageURL = ImageAPI.getImage(type: .width500, publicId: restuarantObj.image ?? "")
             cell.restaurantImage.sd_setShowActivityIndicatorView(true)
@@ -68,6 +89,7 @@ extension RestaurantDetailsViewController:UITableViewDelegate,UITableViewDataSou
             
             //Load restaurant image
             let path = "https://maps.googleapis.com/maps/api/staticmap?size=500x200"+"&markers=color:red%7C"+"\(restuarantObj.latitude ?? 0),\(restuarantObj.longitude ?? 0)&key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM"
+            print(path)
             cell.mapImageView.sd_setShowActivityIndicatorView(true)
             cell.mapImageView.sd_setIndicatorStyle(.whiteLarge)
             cell.mapImageView.sd_setImage(with: URL(string: path), completed: nil)
@@ -78,8 +100,8 @@ extension RestaurantDetailsViewController:UITableViewDelegate,UITableViewDataSou
             
             let meal = mealsArray[indexPath.row]
             cell.mealName.text = meal.mealName ?? ""
-            cell.mealValue.text = String(describing: meal.mealValue!)+"EGP"
-            let imageURL = ImageAPI.getImage(type: .profile_r250, publicId: meal.mealImage ?? "")
+            cell.mealValue.text = String(describing: meal.mealValue!)+" €"
+            let imageURL = ImageAPI.getImage(type: .width150, publicId: meal.mealImage ?? "")
             cell.mealImage.sd_setShowActivityIndicatorView(true)
             cell.mealImage.sd_setImage(with: URL(string: imageURL), placeholderImage: placeholderImage, options: [], completed: nil)
             return cell
@@ -127,9 +149,32 @@ extension RestaurantDetailsViewController:UITableViewDelegate,UITableViewDataSou
             })
         }
 
-    
     }
-    
-    
-    
+ 
+}
+
+extension RestaurantDetailsViewController : RestaursntCellDelegate {
+
+       func tapedImage() {
+        print("inside taped image")
+    }
+    func imgTap(tapGesture: UITapGestureRecognizer) {
+        let imgView = tapGesture.view as! UIImageView
+        let idToMove = imgView.tag
+        openMap(restaurantName: restuarantObj.restaurantName!, lat: restuarantObj.latitude!, longt: restuarantObj.longitude!)
+   
+    }
+    func openMap(restaurantName:String , lat: Double , longt: Double){
+        let latitude:CLLocationDegrees = lat
+        let longitude:CLLocationDegrees = longt
+        let regionDistance:CLLocationDistance = 500;
+        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+        let options = [MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center), MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)]
+        let placemark = MKPlacemark(coordinate: coordinates)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = restaurantName
+        mapItem.openInMaps(launchOptions: options)
+    }
+
 }
