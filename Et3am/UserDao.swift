@@ -50,9 +50,8 @@ class UserDao{
                 }
                 
                 if code == 1 {
-                    let user = json["user"]
-                    
-                    self.user = UserHelper.parseUser(json: user)
+
+                    self.user = UserHelper.parseUser(json: json["user"])
                     
                     isRegistered = true
                     
@@ -216,6 +215,36 @@ class UserDao{
         
     }
     
+    func getUserSummaryData(completionHandler: @escaping (UserSummary?) -> Void) {
+        
+        Alamofire.request(UserURLQueries.summary.getUrl()).responseJSON { (response) in
+            
+            print(response.result.value ?? "123")
+            
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                
+                guard let code = json["status"].int else {
+                    print("Status doesn't exist!")
+                    return
+                }
+                
+                if code == 1 {
+                    let summary = UserHelper.parseUserSummary(json: json["summary"])
+                    completionHandler(summary)
+                } else {
+                    completionHandler(nil)
+                }
+                
+            case .failure(let error):
+                print(error)
+                completionHandler(nil)
+            }
+        }
+    }
+
+    
     func validateLogin(userEmail:String, password:String, completionHandler:@escaping (APIResponse)->Void) {
         
         var urlComponents = URLComponents(string: Et3amAPI.baseUserUrlString + UserURLQueries.loginValidation.rawValue)
@@ -235,14 +264,10 @@ class UserDao{
                 let json = JSON(responseValue)
                 let code: Int =  json["code"].int ?? 0
                 
-                print(json)
-                
                 if code == 1 {
                     
-                    let userJSON = json["user"]
-                    
                     //Parse user json
-                    self.user = UserHelper.parseUser(json: userJSON)
+                    self.user = UserHelper.parseUser(json: json["user"])
                     
                     //Add user to user defaults
                     self.addToUserDefaults(self.user)

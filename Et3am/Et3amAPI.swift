@@ -18,6 +18,7 @@ enum UserURLQueries: String {
     case updatePassword = "/update/password"
     case verify = "/update/verification"
     case getUser = "/u"
+    case summary = "/summary"
     
     func getUrl() -> String {
         
@@ -29,7 +30,7 @@ enum UserURLQueries: String {
         }
         
         switch self {
-        case .updatePassword, .update, .getUser, .verify:
+        case .updatePassword, .update, .getUser, .verify, .summary:
             return baseUserUrl + userID
         default:
             return ""

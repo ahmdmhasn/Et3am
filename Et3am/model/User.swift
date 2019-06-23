@@ -20,7 +20,7 @@ struct User: Equatable {
     var password: String?
     var verified: VerificationStatus?
     var userStatus: Bool?
-    
+        
     //User Details Table in DB
     var mobileNumber: String?
     var profileImage: String?
