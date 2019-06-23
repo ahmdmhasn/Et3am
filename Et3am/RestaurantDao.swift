@@ -34,7 +34,7 @@ class RestaurantDao
                         print("Malformed data received from service")
                         return
                     }
-                    
+                                        
                     for value in values{
                         let restaurant:Restaurant! = Restaurant()
                         restaurant.restaurantID = value["restaurantId"] as? Int

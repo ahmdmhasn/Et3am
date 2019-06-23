@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // Disable user interactions in SVProgressHUD
-        SVProgressHUD.setDefaultMaskType(.clear)
+//        SVProgressHUD.setDefaultMaskType(.clear)
         
         // Get user defaults path
         print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true))
@@ -27,11 +27,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let user = UserDao.shared.user
         
         if user.userID != nil {
-            let storyboard = UIStoryboard(name: "RestaurantsList", bundle: nil)
+            let storyboard = UIStoryboard(name: "Landing", bundle: nil)
             
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "RestaurantsListNavigationController")
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "LandingVC") as? LandingViewController
             
-            self.window?.rootViewController = initialViewController
+            let navigationController = UINavigationController(rootViewController: initialViewController!)
+            
+            self.window?.rootViewController = navigationController
             self.window?.makeKeyAndVisible()
         }
         

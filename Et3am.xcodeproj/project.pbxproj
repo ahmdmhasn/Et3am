@@ -40,8 +40,10 @@
 		E207D8CF22BB9F320014ECC6 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E207D8CE22BB9F320014ECC6 /* UILabel.swift */; };
 		E20D2192229D49DF00110D5D /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20D2191229D49DF00110D5D /* ChangePasswordViewController.swift */; };
 		E20E07262299DEA300FEC852 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20E07252299DEA300FEC852 /* UserProfileViewController.swift */; };
+		E210689622BEBD6D00A9AD4F /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E210689522BEBD6D00A9AD4F /* RoundedImageView.swift */; };
+		E210689922BEC67000A9AD4F /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E210689822BEC67000A9AD4F /* LandingViewController.swift */; };
+		E210689B22BEC6AD00A9AD4F /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E210689A22BEC6AD00A9AD4F /* Landing.storyboard */; };
 		E21A104022BA8B6500824B50 /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21A103F22BA8B6500824B50 /* VerificationViewController.swift */; };
-		E22585D72298BD4E006D7A08 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22585D62298BD4E006D7A08 /* ImageStore.swift */; };
 		E2512CC62285DAD900D8E0F7 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */; };
 		E280CC4A22B81C7D00E32CE1 /* RegisterAndLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E280CC4622B81C7D00E32CE1 /* RegisterAndLogin.storyboard */; };
 		E280CC4B22B81C7D00E32CE1 /* RegisterandLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280CC4722B81C7D00E32CE1 /* RegisterandLoginViewController.swift */; };
@@ -129,8 +131,10 @@
 		E207D8CE22BB9F320014ECC6 /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		E20D2191229D49DF00110D5D /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChangePasswordViewController.swift; path = controller/ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		E20E07252299DEA300FEC852 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileViewController.swift; path = controller/UserProfileViewController.swift; sourceTree = "<group>"; };
+		E210689522BEBD6D00A9AD4F /* RoundedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundedImageView.swift; path = view/RoundedImageView.swift; sourceTree = "<group>"; };
+		E210689822BEC67000A9AD4F /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LandingViewController.swift; path = controller/LandingViewController.swift; sourceTree = "<group>"; };
+		E210689A22BEC6AD00A9AD4F /* Landing.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Landing.storyboard; path = view/Landing.storyboard; sourceTree = "<group>"; };
 		E21A103F22BA8B6500824B50 /* VerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerificationViewController.swift; path = controller/VerificationViewController.swift; sourceTree = "<group>"; };
-		E22585D62298BD4E006D7A08 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UserProfile.storyboard; path = view/UserProfile.storyboard; sourceTree = "<group>"; };
 		E280CC4622B81C7D00E32CE1 /* RegisterAndLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegisterAndLogin.storyboard; sourceTree = "<group>"; };
 		E280CC4722B81C7D00E32CE1 /* RegisterandLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterandLoginViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 				2117FBE3229D5D150099DE05 /* UIView.swift */,
 				E207D8CE22BB9F320014ECC6 /* UILabel.swift */,
 				E2D6DE0522BD1B330042AD22 /* RoundedButton.swift */,
+				E210689522BEBD6D00A9AD4F /* RoundedImageView.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 		E2029D1822837503007BA6A1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E210689722BEC64400A9AD4F /* Landing */,
 				2117FBE0229D48B80099DE05 /* Extension */,
 				E21DAF9F229BEBFE00129F7D /* LaunchScreen */,
 				E21DAF9E229BEA1000129F7D /* RestaurantList */,
@@ -362,6 +368,15 @@
 			name = CouponsDonated;
 			sourceTree = "<group>";
 		};
+		E210689722BEC64400A9AD4F /* Landing */ = {
+			isa = PBXGroup;
+			children = (
+				E210689822BEC67000A9AD4F /* LandingViewController.swift */,
+				E210689A22BEC6AD00A9AD4F /* Landing.storyboard */,
+			);
+			name = Landing;
+			sourceTree = "<group>";
+		};
 		E21DAF9E229BEA1000129F7D /* RestaurantList */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,7 +399,6 @@
 		E22585D52298BD27006D7A08 /* Data Layer */ = {
 			isa = PBXGroup;
 			children = (
-				E22585D62298BD4E006D7A08 /* ImageStore.swift */,
 			);
 			name = "Data Layer";
 			sourceTree = "<group>";
@@ -546,6 +560,7 @@
 				E2029CF522836B6D007BA6A1 /* LaunchScreen.storyboard in Resources */,
 				E2029CF222836B6D007BA6A1 /* Assets.xcassets in Resources */,
 				21110BCB2288444500D982E5 /* CouponsDonated.storyboard in Resources */,
+				E210689B22BEC6AD00A9AD4F /* Landing.storyboard in Resources */,
 				E2029CED22836B6D007BA6A1 /* RestaurantsList.storyboard in Resources */,
 				830BE78722BA4CEA00F50699 /* RestaurantInfo.storyboard in Resources */,
 				E280CC4A22B81C7D00E32CE1 /* RegisterAndLogin.storyboard in Resources */,
@@ -675,6 +690,7 @@
 				E2D6DE0622BD1B330042AD22 /* RoundedButton.swift in Sources */,
 				2117FBE4229D5D150099DE05 /* UIView.swift in Sources */,
 				E21A104022BA8B6500824B50 /* VerificationViewController.swift in Sources */,
+				E210689922BEC67000A9AD4F /* LandingViewController.swift in Sources */,
 				211644AB228C4A6C009AA2BB /* Et3amAPI.swift in Sources */,
 				E2F11BA02288D49D0031ABCC /* Meal.swift in Sources */,
 				E20D2192229D49DF00110D5D /* ChangePasswordViewController.swift in Sources */,
@@ -682,7 +698,6 @@
 				E280CC4D22B81C7D00E32CE1 /* SignUpView.swift in Sources */,
 				E207D8CF22BB9F320014ECC6 /* UILabel.swift in Sources */,
 				F17C3FD3229D44CD005A449E /* RestaurantsListVC.swift in Sources */,
-				E22585D72298BD4E006D7A08 /* ImageStore.swift in Sources */,
 				211378A72284F16A0056E5C7 /* AllCouponTableViewCell.swift in Sources */,
 				F13F051322B68DCB000F090A /* PublishCouponViewCell.swift in Sources */,
 				E2F11BA12288D49D0031ABCC /* Restaurant.swift in Sources */,
@@ -696,6 +711,7 @@
 				E280CC5122B83FC600E32CE1 /* ImageAPI.swift in Sources */,
 				E280CC4C22B81C7D00E32CE1 /* SignInView.swift in Sources */,
 				2117FBDF229CC03F0099DE05 /* UserHelper.swift in Sources */,
+				E210689622BEBD6D00A9AD4F /* RoundedImageView.swift in Sources */,
 				F1261FC4229EA607005CB7AD /* ExtensionRestaurantListVC.swift in Sources */,
 				21E8F21822A3ED960070F223 /* RecievedViewController.swift in Sources */,
 				830BE78E22BA4D2000F50699 /* RestaurantDetailsCell.swift in Sources */,
