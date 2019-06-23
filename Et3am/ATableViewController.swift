@@ -10,13 +10,22 @@ import UIKit
 import MessageUI
 import SVProgressHUD
 
-class ATableViewController: UITableViewController {
 
+enum SwitchTitle: String {
+    case inBalance = "InBalance"
+    case reserved = "Reserved"
+    case used = "Used"
+}
+class ATableViewController: UITableViewController {
+    
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
+    var commonList = [Any]()
     var listCoupons = [Coupon]()
+    var listUsedCoupon = [UsedCoupon]()
+    var listReservedCoupon = [ReservedCoupon]()
+    
     var message = UILabel()
     let couponSevices = CouponDao.shared
     
@@ -24,6 +33,7 @@ class ATableViewController: UITableViewController {
         super.viewWillAppear(true)
         couponSevices.getInBalanceCoupon(userId:UserDao.shared.user.userID! , inBalanceHandler:{ listCoupon in
             self.listCoupons = listCoupon
+            self.commonList = listCoupon
             self.tableView.reloadData()
         })
     }
@@ -45,10 +55,12 @@ class ATableViewController: UITableViewController {
             self.tableView.reloadData()
         }
         tableView.register(UINib(nibName: "ATableViewCell", bundle: nil), forCellReuseIdentifier: "ATableViewCell")
+        tableView.register(UINib(nibName: "ReservedViewCell", bundle: nil), forCellReuseIdentifier: "ReservedViewCell")
+        tableView.register(UINib(nibName: "UsedViewCell", bundle: nil), forCellReuseIdentifier: "UsedViewCell")
     }
     
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -62,7 +74,6 @@ class ATableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ATableViewCell", for: indexPath) as! ATableViewCell
-        
         cell.delegate = self
         cell.indexPath = indexPath
         
@@ -72,19 +83,58 @@ class ATableViewController: UITableViewController {
         //let date = Coupon.getCreationDate(milisecond: listCoupons[indexPath.item].creationDate!)
         cell.creationDate.text = "Created "+String(describing: listCoupons[indexPath.row].creationDate!)
         cell.imageQR.image = generateQRCOde(barCode: listCoupons[indexPath.row].barCode)
+        
+        switch "" {
+        case "InBalance":
+            print("")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ATableViewCell", for: indexPath) as! ATableViewCell
+            cell.delegate = self
+            cell.indexPath = indexPath
+            
+            // Configure the cell
+            cell.couponValue.text = String(describing:listCoupons[indexPath.row].couponValue!).appending(" LE")
+            cell.barCode.text = listCoupons[indexPath.row].barCode
+            //let date = Coupon.getCreationDate(milisecond: listCoupons[indexPath.item].creationDate!)
+            cell.creationDate.text = "Created "+String(describing: listCoupons[indexPath.row].creationDate!)
+            cell.imageQR.image = generateQRCOde(barCode: listCoupons[indexPath.row].barCode)
+            return cell
+
+        case "Reserved":
+            print("")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ReservedViewCell", for: indexPath) as! ReservedViewCell
+//            cell.delegate = self
+//            cell.indexPath = indexPath
+            
+            // Configure the cell
+//            cell.couponValue.text = String(describing:listCoupons[indexPath.row].couponValue!).appending(" LE")
+//            cell.barCode.text = listCoupons[indexPath.row].barCode
+//            //let date = Coupon.getCreationDate(milisecond: listCoupons[indexPath.item].creationDate!)
+//            cell.creationDate.text = "Created "+String(describing: listCoupons[indexPath.row].creationDate!)
+//            cell.imageQR.image = generateQRCOde(barCode: listCoupons[indexPath.row].barCode)
+            return cell
+
+        case "Consumed":
+            print("")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "UsedViewCell", for: indexPath) as! UsedViewCell
+            //cell.delegate = self
+            //cell.indexPath = indexPath
+            
+            // Configure the cell
+//            cell.couponValue.text = String(describing:listCoupons[indexPath.row].couponValue!).appending(" LE")
+//            cell.barCode.text = listCoupons[indexPath.row].barCode
+//            //let date = Coupon.getCreationDate(milisecond: listCoupons[indexPath.item].creationDate!)
+//            cell.creationDate.text = "Created "+String(describing: listCoupons[indexPath.row].creationDate!)
+//            cell.imageQR.image = generateQRCOde(barCode: listCoupons[indexPath.row].barCode)
+            return cell
+
+        default:
+            print("")
+        }
         return cell
     }
  
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     @IBAction func displayListAs(_ sender: Any) {
         print("DisplayList")
         let actionSheet = UIAlertController(title: "Show Coupons That", message: nil, preferredStyle: .actionSheet)
@@ -96,29 +146,60 @@ class ATableViewController: UITableViewController {
                 self.listCoupons = listCoupon
                 self.tableView.reloadData()
             })
+            print(action.title ?? "test")
+            //actionSwitch(action: action.title!)
+            self.selectTitle(selectedTitle: .inBalance)
+
+        }
+
+        let reserved = UIAlertAction(title: "Reserved", style: .default) { action in
+            self.couponSevices.getAllReservedCoupon(userId:UserDao.shared.user.userID! , couponReservedHandler:{ listCouponReserved in
+                self.listReservedCoupon = listCouponReserved
+                self.tableView.reloadData()
+            })
+            //actionSwitch(action: action.title!)
+            self.selectTitle(selectedTitle: .reserved)
 
         }
         
-        let reserved = UIAlertAction(title: "Reserved", style: .default) { action in
-            self.couponSevices.getUsedCoupon(userId:UserDao.shared.user.userID! , inBalanceHandler:{ listCouponReserved in
-                self.listCoupons = listCouponReserved
-                self.tableView.reloadData()
-            })
-        }
-        
         let consumed = UIAlertAction(title: "Consumed", style: .default) { action in
-            self.couponSevices.getUsedCoupon(userId:UserDao.shared.user.userID! , inBalanceHandler:{ listCouponConsumed in
-                self.listCoupons = listCouponConsumed
+            self.couponSevices.getAllUsedCoupon(userId:UserDao.shared.user.userID! , couponUsedHandler:{ listCouponConsumed in
+                self.listUsedCoupon = listCouponConsumed
                 self.tableView.reloadData()
             })
+            //actionSwitch(action: action.title!)
+            self.selectTitle(selectedTitle: .used)
+
         }
         
         actionSheet.addAction(inBalance)
         actionSheet.addAction(reserved)
         actionSheet.addAction(consumed)
         present(actionSheet, animated: true, completion: nil)
+        
     }
 
+    func selectTitle(selectedTitle:SwitchTitle){
+        switch selectedTitle {
+        case SwitchTitle.inBalance:
+            print("d")
+            break
+        case SwitchTitle.reserved:
+            print("ddd")
+            break
+        default:
+            print("dddd")
+            break
+        }
+    }
+}
+
+
+
+
+func actionSwitch(action:String) -> String{
+    print(action)
+    return action
 }
 
 // MARK: Extension UICollectionViewDelegate
@@ -164,7 +245,7 @@ extension ATableViewController : ATableViewCellDelegate,MFMessageComposeViewCont
         //share screenshot using other apps
         //share(data:captureScreenshot())
         //share(data: snapshotrow(sender: cellIndex))
-        share(data:tableView.snapshotRows(at: Set([cellIndex])))
+        share(data:tableView.snapshotRows(at: Set([cellIndex])) ?? 0)
 //        share(data: snapshotrow(sender: cellIndex))
     }
     
