@@ -10,7 +10,7 @@ import UIKit
 import SVProgressHUD
 import SDWebImage
 import ChameleonFramework
-
+import Alamofire
 class RegisterandLoginViewController: UIViewController {
     
     //MARK: Properties
@@ -155,8 +155,7 @@ class RegisterandLoginViewController: UIViewController {
     }
     
     @IBAction func forgetUserPassword(_ sender: Any) {
-        
-    }
+          }
     
     func enableSignUpBtn(){
         if emailValid && passwordValid && userNameValid {

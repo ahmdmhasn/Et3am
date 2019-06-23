@@ -287,7 +287,32 @@ class UserDao{
             
         }
     }
-    
+    func resetPassword(userEmail: String , completionHandler:@escaping (APIResponse)->Void) {
+        var urlComponents = URLComponents(string: Et3amAPI.baseUserUrlString + UserURLQueries.resetPassword.rawValue)
+        
+        urlComponents?.queryItems = [URLQueryItem(name: QueryItems.emailQuery.rawValue, value: userEmail)]
+        Alamofire.request(urlComponents!).validate(statusCode: 200..<500).responseJSON{ (response) in
+            print(response)
+            switch response.result {
+            case .success:
+                
+                guard let responseValue = response.result.value else {
+                    return
+                }
+                
+                let json = JSON(responseValue)
+                let status: Int =  json["status"].int ?? 0
+                print(json)
+                completionHandler(.success(status))
+                
+            case .failure(let error):
+                print("Connection error: \(error)")
+                completionHandler(.failure(error))
+            }
+            
+        }
+    }
+
     func addToUserDefaults(_ user: User) {
         
         userDefaults.set(user.userID, forKey: UserProperties.userId.rawValue)

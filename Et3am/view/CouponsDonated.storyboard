@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Title-->
+        <!--Donated Coupons-->
         <scene sceneID="3Eh-8A-Tnv">
             <objects>
                 <tableViewController id="H6v-bs-eps" customClass="ATableViewController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,7 +23,7 @@
                             <outlet property="delegate" destination="H6v-bs-eps" id="UOY-Wd-EKR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="0lE-UP-Wv9">
+                    <navigationItem key="navigationItem" title="Donated Coupons" id="0lE-UP-Wv9">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="OMH-Ny-b2O">
                             <connections>
                                 <action selector="back:" destination="H6v-bs-eps" id="xpM-Ca-NuX"/>
@@ -58,7 +58,7 @@
             </objects>
             <point key="canvasLocation" x="-217" y="-499"/>
         </scene>
-        <!--Item-->
+        <!--Coupons Donated-->
         <scene sceneID="ON9-IJ-8fN">
             <objects>
                 <collectionViewController automaticallyAdjustsScrollViewInsets="NO" id="vCT-Nc-uTS" customClass="UnpPublishCouponVC" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
@@ -83,7 +83,7 @@
                             <outlet property="delegate" destination="vCT-Nc-uTS" id="Zhw-iQ-tFW"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Item" id="CCO-4y-Ucd"/>
+                    <tabBarItem key="tabBarItem" title="Coupons Donated" id="CCO-4y-Ucd"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rPy-es-37i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -137,11 +137,11 @@ class ATableViewController: UITableViewController {
     // MARK: - Navigation
     @IBAction func displayListAs(_ sender: Any) {
         print("DisplayList")
-        let actionSheet = UIAlertController(title: "Show Coupons That", message: nil, preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: "Show your coupons", message: nil, preferredStyle: .actionSheet)
         actionSheet.view.tintColor = UIColor.darkGray
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
-        let inBalance = UIAlertAction(title: "InBalance", style: .default) { action in
+        let inBalance = UIAlertAction(title: "In Balance", style: .default) { action in
             self.couponSevices.getInBalanceCoupon(userId:UserDao.shared.user.userID! , inBalanceHandler:{ listCoupon in
                 self.listCoupons = listCoupon
                 self.tableView.reloadData()

@@ -21,6 +21,7 @@ class RecievedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         CouponCollectioonView.dataSource = self
         CouponCollectioonView.register(UINib.init(nibName: CouponCellIdentifier, bundle: nil), forCellWithReuseIdentifier: CouponCellIdentifier)
         
@@ -53,7 +54,6 @@ class RecievedViewController: UIViewController {
             }
         })
     }
-    
 }
 
 extension RecievedViewController : UICollectionViewDataSource {
@@ -63,16 +63,20 @@ extension RecievedViewController : UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = CouponCollectioonView.dequeueReusableCell(withReuseIdentifier: CouponCellIdentifier, for: indexPath) as! CouponCollectionViewCell
+        
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = DateFormatter.Style.medium //Set time style
         dateFormatter.dateStyle = DateFormatter.Style.medium //Set date style
         let localDate = dateFormatter.string(from: NSDate(timeIntervalSince1970:self.usedDateArray[indexPath.row] as! TimeInterval) as Date)
+        
         cell.useDate.text! = String(describing: localDate)
-        cell.couponBarCode.text! =  String(describing: self.barCodeArray[indexPath.row])+"*********"
+        cell.couponBarCode.text! =  String(describing: self.barCodeArray[indexPath.row])+"*******"
         let currentRestaurant = self.restaurantArray[indexPath.row]
         cell.restaurantName.text! = currentRestaurant.restaurantName!
         let path = "https://maps.googleapis.com/maps/api/staticmap?size=500x250"+"&markers=color:red%7C"+"\(currentRestaurant.latitude!),\(currentRestaurant.longitude!)&key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM"
+                
         cell.restaurantLoation.sd_setShowActivityIndicatorView(true)
         cell.restaurantLoation.sd_setIndicatorStyle(.gray)
         cell.restaurantLoation.sd_setImage(with: URL(string: path), completed: nil)
