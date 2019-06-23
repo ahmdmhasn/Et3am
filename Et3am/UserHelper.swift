@@ -13,11 +13,15 @@ enum UserProperties: String {
     case userId, userName, userEmail, password, verified, userStatus, mobileNumber, profileImage, nationalId, job, nationalIdFront, nationalIdBack, birthdate, userDetailses
 }
 
+enum UserSummaryEnum: String {
+    case donated, reserved, used
+}
+
 class UserHelper: NSObject {
     
     class func parseUser(json: JSON) -> User {
         var user = User()
-        
+                
         user.userID = json[UserProperties.userId.rawValue].string
         user.userName = json[UserProperties.userName.rawValue].string
         user.email = json[UserProperties.userEmail.rawValue].string
@@ -25,6 +29,7 @@ class UserHelper: NSObject {
         user.verified = VerificationStatus(rawValue: json[UserProperties.verified.rawValue].int ?? 0)
         user.userStatus = (json[UserProperties.userStatus.rawValue].int == 1) ? true : false
         
+        // User Details
         let details = json[UserProperties.userDetailses.rawValue][0]
         user.nationalID = details[UserProperties.nationalId.rawValue].string
         user.nationalID_Front = details[UserProperties.nationalIdFront.rawValue].string
@@ -36,6 +41,17 @@ class UserHelper: NSObject {
         user.profileImage = details[UserProperties.profileImage.rawValue].string
         
         return user
+    }
+    
+    class func parseUserSummary(json: JSON) -> UserSummary {
+
+        var userSummary = UserSummary()
+        userSummary.donatedCoupons = json[UserSummaryEnum.donated.rawValue].int
+        userSummary.usedCoupons = json[UserSummaryEnum.used.rawValue].int
+        if let reservedCouponExpDate = json[UserSummaryEnum.reserved.rawValue].double {
+            userSummary.reservedCouponExpNumber = reservedCouponExpDate
+        }
+        return userSummary        
     }
     
     class func getUser_Id() ->String? {
@@ -68,6 +84,18 @@ class UserHelper: NSObject {
     class func isPasswordValid(_ password : String) -> Bool{
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,}$")
         return passwordTest.evaluate(with: password)
+    }
+    
+    class func logoutUser() {
+        
+        UserDao.shared.removeUserFromUserDefaults()
+        
+        let window = UIApplication.shared.keyWindow
+        let storyboard
+            = UIStoryboard(name: "RegisterAndLogin", bundle: nil)
+        let LoginVC = storyboard.instantiateViewController(withIdentifier: "registerViewController") as! RegisterandLoginViewController
+        window?.rootViewController  = LoginVC
+        UIView.transition(with: window!, duration: 0.5, options: .curveEaseInOut, animations: nil, completion: nil)
     }
     
 }
