@@ -60,6 +60,7 @@ class LandingViewController: UIViewController {
         super.viewDidLoad()
         
 //        getUserSummary()
+        moreInfoText = ""
     }
     
     override func viewWillAppear(_ animated: Bool) {

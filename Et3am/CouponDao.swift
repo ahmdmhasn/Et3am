@@ -31,15 +31,16 @@ class CouponDao {
                         return
                     }
                     let json = JSON(responseValue)
+                    
+                    print(json)
                     let codeDataDictionary:Int =  json["code"].int ?? 0
                     if(codeDataDictionary == 1)
                     {
-                        guard let couponDataDictionary = json["Coupons"].array else
-                        {
+                        guard let couponDataDictionary = json["Coupons"].array else {
                             return
                         }
-                        for i in 0 ..< couponDataDictionary.count
-                        {
+                        
+                        for i in 0 ..< couponDataDictionary.count {
                             let restaurantsJson = couponDataDictionary[i]["restaurants"]
                             restaurantObject.restaurantName = restaurantsJson["restaurantName"].string
                             restaurantObject.latitude = restaurantsJson["latitude"].double
@@ -47,7 +48,7 @@ class CouponDao {
                             restaurantArray.append(restaurantObject)
                             let barcode = couponDataDictionary[i]["userReserveCoupon"]["coupons"]["couponBarcode"].string
                             couponBarcode[i] = barcode?.substring(to:(barcode?.index((barcode?.startIndex)!, offsetBy: 3))!) ?? 0
-                            useDate[i] =  couponDataDictionary[i]["useDate"].double ?? 0
+                            useDate[i] =  (couponDataDictionary[i]["useDate"].double ?? 0) / 1000
                         }
                     }
                     completionHandler(useDate ,restaurantArray ,couponBarcode ,.success(codeDataDictionary))
