@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="474" height="163"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CD8-4y-133" id="lsa-3S-PHc">
-                <rect key="frame" x="0.0" y="0.0" width="474" height="162"/>
+                <rect key="frame" x="0.0" y="0.0" width="474" height="163"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MRW-fU-7JV">
@@ -25,8 +25,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="hgp-Sc-dbA" userLabel="Data Stack View">
                                 <rect key="frame" x="0.0" y="0.0" width="352" height="80"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="55555999997777722222" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRO-24-Q87">
-                                        <rect key="frame" x="0.0" y="0.0" width="324" height="33.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="ABDSEFGUFDVGJINH" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRO-24-Q87">
+                                        <rect key="frame" x="0.0" y="0.0" width="268.5" height="33.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <color key="textColor" red="0.17254902420000001" green="0.24313725529999999" blue="0.31372550129999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -98,7 +98,7 @@
                 <outlet property="qrImage" destination="ftf-47-mTg" id="Eqc-aX-Sel"/>
                 <outlet property="reservationDate" destination="so5-R9-8fF" id="6PC-hy-3M6"/>
             </connections>
-            <point key="canvasLocation" x="-1339" y="-687"/>
+            <point key="canvasLocation" x="-1339" y="-687.5"/>
         </tableViewCell>
     </objects>
 </document>

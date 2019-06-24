@@ -109,12 +109,16 @@ class ATableViewController: UITableViewController {
             cell1.couponValue.text = String(describing:listReservedCoupon[indexPath.row].couponValue!).appending(" LE")
             cell1.couponBarCode.text = listReservedCoupon[indexPath.row].couponBarcode
             cell1.reservationDate.text = "Reserved "+String(describing: listReservedCoupon[indexPath.row].reservationDate!)
-            //cell.qrImage.image = generateQRCOde(barCode: listReservedCoupon[indexPath.row].couponBarcode)
+//            cell1.qrImage.image = generateQRCOde(barCode: listReservedCoupon[indexPath.row].couponBarcode)
             return cell1
         case .used:
             let cell2 = tableView.dequeueReusableCell(withIdentifier: "UsedViewCell", for: indexPath) as! UsedViewCell
-            cell2.couponBarCode.text = listCoupons[indexPath.row].barCode
-            cell2.usedDate.text = "Used at "+String(describing:listCoupons[indexPath.row].creationDate)
+            cell2.couponBarCode.text = listUsedCoupon[indexPath.row].couponId
+            cell2.usedDate.text = "Used at "+String(describing:listUsedCoupon[indexPath.row].useDate!)
+            cell2.priceMeal.text = "Value "+String(describing: listUsedCoupon[indexPath.row].price!).appending(" LE")
+            cell2.restaurantAddress.text = "Address "+String(describing:listUsedCoupon[indexPath.row].restaurantAddress)
+            cell2.restaurantName.text = "Restaurant "+String(describing:listUsedCoupon[indexPath.row].restaurantName)
+            cell2.usedBy.text = listUsedCoupon[indexPath.row].userName
             return cell2
         }
     }
@@ -162,7 +166,7 @@ class ATableViewController: UITableViewController {
             
         case .reserved:
             print("reserved")
-            self.couponSevices.getAllReservedCoupon(userId:"1d4abf9c-16ae-4853-9216-3a055f1db6ee" , couponReservedHandler:{ listCouponReserved in
+            self.couponSevices.getAllReservedCoupon(userId:UserDao.shared.user.userID! , couponReservedHandler:{ listCouponReserved in
                 self.valuee = .reserved
                 self.listCoupons.removeAll()
                 self.listUsedCoupon.removeAll()
