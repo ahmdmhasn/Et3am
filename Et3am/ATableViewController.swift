@@ -97,6 +97,8 @@ class ATableViewController: UITableViewController {
         case SwitchTitle.reserved:
             print("r")
             let cell1 = tableView.dequeueReusableCell(withIdentifier: "ReservedViewCell", for: indexPath) as! ReservedViewCell
+            cell1.delegate = self
+            cell1.indexPath = indexPath
             cell1.couponBarCode.text = listReservedCoupon[indexPath.row].couponQrCode
             cell1.couponValue.text = String(describing:listReservedCoupon[indexPath.row].couponValue!).appending(" LE")
             cell1.couponBarCode.text = listReservedCoupon[indexPath.row].couponBarcode
@@ -182,13 +184,8 @@ class ATableViewController: UITableViewController {
 }
 
 
-func actionSwitch(action:String) -> String{
-    print(action)
-    return action
-}
-
 // MARK: Extension UICollectionViewDelegate
-extension ATableViewController : ATableViewCellDelegate,MFMessageComposeViewControllerDelegate{
+extension ATableViewController : ATableViewCellDelegate,ReservedCellDelegate,MFMessageComposeViewControllerDelegate{
     func didPressPost(cellIndex:IndexPath){
         print("Post \(cellIndex)")
         self.couponSevices.publishCoupon(couponId: self.listCoupons[cellIndex.row].couponID!,completedHandler: { (result) in
@@ -232,6 +229,28 @@ extension ATableViewController : ATableViewCellDelegate,MFMessageComposeViewCont
         //share(data: snapshotrow(sender: cellIndex))
         share(data:tableView.snapshotRows(at: Set([cellIndex])) ?? 0)
 //        share(data: snapshotrow(sender: cellIndex))
+    }
+    
+    func didPressCancel(cellIndex:IndexPath){
+        print("Post \(cellIndex)")
+        self.couponSevices.cancelReservation(couponId: self.listReservedCoupon[cellIndex.row].couponId!,cancelHandler: { (result) in
+            switch result {
+            case true :
+                self.listReservedCoupon.remove(at: cellIndex.row)
+                self.tableView.deleteRows(at: [cellIndex], with: .automatic)
+                self.tableView.reloadData()
+                SVProgressHUD.showSuccess(withStatus: "Cancel successfully!")
+            case false:
+                SVProgressHUD.showSuccess(withStatus: "Cancel unSuccessfully!")
+            }
+        })
+        
+        if listReservedCoupon.count == 0 {
+            self.tableView.backgroundView = self.message
+        } else {
+            self.message.isHidden = false
+            self.tableView.reloadData()
+        }
     }
     
     func share(data:Any){
