@@ -19,6 +19,8 @@ enum UserURLQueries: String {
     case verify = "/update/verification"
     case getUser = "/u"
     case resetPassword = "/password-reset-request"
+    case summary = "/summary"
+    
     func getUrl() -> String {
         
         let baseUrl = "https://et3am.herokuapp.com"
