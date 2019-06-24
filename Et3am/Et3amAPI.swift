@@ -19,6 +19,8 @@ enum UserURLQueries: String {
     case verify = "/update/verification"
     case getUser = "/u"
     case resetPassword = "/password-reset-request"
+    case summary = "/summary"
+    
     func getUrl() -> String {
         
         let baseUrl = "https://et3am.herokuapp.com"
@@ -62,11 +64,7 @@ enum CouponURLQueries:String {
         var baseUrl: String {
             return Et3amAPI.baseCouponUrlString
         }
-        
-        
-        
-        
-        
+ 
         guard let userID = UserDao.shared.user.userID else {
             fatalError("User ID cannot be nil")
         }

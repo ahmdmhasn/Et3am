@@ -122,6 +122,9 @@ class CouponDao {
         var listCoupon = [Coupon]()
         var arrRes = [[String:AnyObject]]() //Array of dictionary
         Alamofire.request("https://et3am.herokuapp.com/coupon/get_inBalance_coupon", method: .get, parameters:["user_id": userId]).validate().responseJSON{ (response) in
+            
+            print(userId)
+            
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -153,9 +156,15 @@ class CouponDao {
         var listUsedCoupon = [UsedCoupon]()
         var arrRes = [[String:AnyObject]]() //Array of dictionary
         Alamofire.request("https://et3am.herokuapp.com/coupon/get_all_used_coupon", method: .get, parameters:["user_id": userId]).validate().responseJSON{ (response) in
+            
+            print(response.result.value)
+            
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
+                
+                print(json)
+                
                 let code  = json["code"]
                 if code == 1 {
                     guard let coupons = json["Coupons"].arrayObject else  {return}
@@ -180,8 +189,9 @@ class CouponDao {
                         usedCoupon.restaurantAddress = item["restaurantAddress"] as? String
                         usedCoupon.price = item["price"] as? Float
                         usedCoupon.useDate = self.getCreationDate(milisecond: (item["useDate"] as? Double)!)
-                        
+                        print(usedCoupon.couponId ?? "66666666")
                         listUsedCoupon.append(usedCoupon)
+                        print("listUsedCoupon \(listUsedCoupon.count)")
                     }
                     couponUsedHandler(listUsedCoupon)
                 }
@@ -199,9 +209,13 @@ class CouponDao {
         var listResCoupon = [ReservedCoupon]()
         var arrRes = [[String:AnyObject]]() //Array of dictionary
         Alamofire.request("https://et3am.herokuapp.com/coupon/get_all_reserved_coupon", method: .get, parameters:["user_id": userId]).validate().responseJSON{ (response) in
+            
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
+                
+                print(json)
+                
                 let code  = json["code"]
                 if code == 1 {
                     guard let coupons = json["Coupons"].arrayObject else  {return}
@@ -221,7 +235,7 @@ class CouponDao {
                         rCoupon.userId = item["userId"] as? String
                         rCoupon.couponId = item["couponId"] as? String
                         rCoupon.couponBarcode = item["couponBarcode"] as? String
-                        rCoupon.couponQrCode = item["couponQrCode"] as? String
+//                        rCoupon.couponQrCode = item["couponQrCode"] as? String
                         rCoupon.couponValue = item["couponValue"] as? Float
                         rCoupon.reservationDate = self.getCreationDate(milisecond: (item["reservationDate"] as? Double)!)
                         listResCoupon.append(rCoupon)
