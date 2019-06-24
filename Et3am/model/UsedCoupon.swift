@@ -22,6 +22,7 @@ class UsedCoupon{
     
     var couponId:String?
     var userId:String?
+    var barCode:String?
     var userName:String?
     var restaurantName:String?
     var restaurantAddress:String?
