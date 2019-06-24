@@ -73,24 +73,16 @@ class ATableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         switch valuee {
         case .inBalance:
-        //return 5
-        return listCoupons.count
+            return listCoupons.count
         case .reserved:
-        //return 5
-        return listReservedCoupon.count
+            return listReservedCoupon.count
         case .used:
-            //return 5
             return listUsedCoupon.count
         }
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //var cell: UITableViewCell
-//         var cell = tableView.dequeueReusableCell(withIdentifier: "ATableViewCell", for: indexPath) as! ATableViewCell
-//        var cell1 = tableView.dequeueReusableCell(withIdentifier: "ReservedViewCell", for: indexPath) as! ReservedViewCell
-//        var cell2 = tableView.dequeueReusableCell(withIdentifier: "UsedViewCell", for: indexPath) as! UsedViewCell
-
         switch valuee {
         case SwitchTitle.inBalance:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ATableViewCell", for: indexPath) as! ATableViewCell
@@ -98,7 +90,7 @@ class ATableViewController: UITableViewController {
             cell.indexPath = indexPath
             cell.couponValue.text = String(describing:listCoupons[indexPath.row].couponValue!).appending(" LE")
             cell.barCode.text = listCoupons[indexPath.row].barCode
-            cell.creationDate.text = "Created "+String(describing: listCoupons[indexPath.row].creationDate!)
+            cell.creationDate.text = "Created: "+String(describing: listCoupons[indexPath.row].creationDate!)
             cell.imageQR.image = generateQRCOde(barCode: listCoupons[indexPath.row].barCode)
             print("i")
             return cell
@@ -108,16 +100,16 @@ class ATableViewController: UITableViewController {
             cell1.couponBarCode.text = listReservedCoupon[indexPath.row].couponQrCode
             cell1.couponValue.text = String(describing:listReservedCoupon[indexPath.row].couponValue!).appending(" LE")
             cell1.couponBarCode.text = listReservedCoupon[indexPath.row].couponBarcode
-            cell1.reservationDate.text = "Reserved "+String(describing: listReservedCoupon[indexPath.row].reservationDate!)
-//            cell1.qrImage.image = generateQRCOde(barCode: listReservedCoupon[indexPath.row].couponBarcode)
+            cell1.reservationDate.text = "Reserved: "+String(describing: listReservedCoupon[indexPath.row].reservationDate!)
+            cell1.qrImage.image = generateQRCOde(barCode: listReservedCoupon[indexPath.row].couponBarcode)
             return cell1
         case .used:
             let cell2 = tableView.dequeueReusableCell(withIdentifier: "UsedViewCell", for: indexPath) as! UsedViewCell
-            cell2.couponBarCode.text = listUsedCoupon[indexPath.row].couponId
-            cell2.usedDate.text = "Used at "+String(describing:listUsedCoupon[indexPath.row].useDate!)
-            cell2.priceMeal.text = "Value "+String(describing: listUsedCoupon[indexPath.row].price!).appending(" LE")
-            cell2.restaurantAddress.text = "Address "+String(describing:listUsedCoupon[indexPath.row].restaurantAddress)
-            cell2.restaurantName.text = "Restaurant "+String(describing:listUsedCoupon[indexPath.row].restaurantName)
+            cell2.couponBarCode.text = listUsedCoupon[indexPath.row].barCode
+            cell2.usedDate.text = "Used at: "+String(describing:listUsedCoupon[indexPath.row].useDate!)
+            cell2.priceMeal.text = "Value: "+String(describing: listUsedCoupon[indexPath.row].price!).appending(" LE")
+            cell2.restaurantAddress.text = "Address: "+String(describing:listUsedCoupon[indexPath.row].restaurantAddress!)
+            cell2.restaurantName.text = "Restaurant: "+String(describing:listUsedCoupon[indexPath.row].restaurantName!)
             cell2.usedBy.text = listUsedCoupon[indexPath.row].userName
             return cell2
         }
