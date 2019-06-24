@@ -47,15 +47,13 @@ class RestaurantDetailsViewController: UIViewController {
             if let mealsList = fetchedArray {
                 DispatchQueue.main.async {
                     self.mealsArray = mealsList
-                    if self.mealsArray.isEmpty
-                    {
-                        self.noList.center = self.view.center
+                        self.noList.center = self.restuarantAndMealsTableView.center
                         self.noList.text = "No Meals Exist"
+                        self.noList.textColor = UIColor.black
                         self.noList.textAlignment = .center
-                        self.noList.textColor = #colorLiteral(red: 0.4078193307, green: 0.4078193307, blue: 0.4078193307, alpha: 1)
-                        self.view.addSubview(self.noList)
+                        self.restuarantAndMealsTableView.addSubview(self.noList)
                     
-                    }
+                    
                     self.restuarantAndMealsTableView.reloadData()
                 }
             }
