@@ -186,6 +186,7 @@ class CouponDao {
                          */
                         usedCoupon.couponId = item["couponId"] as? String
                         usedCoupon.userId = item["userId"] as? String
+                        usedCoupon.barCode = item["barCode"] as? String
                         usedCoupon.userName = item["userName"] as? String
                         usedCoupon.restaurantName = item["restaurantName"] as? String
                         usedCoupon.restaurantAddress = item["restaurantAddress"] as? String
@@ -238,7 +239,7 @@ class CouponDao {
                         rCoupon.userId = item["userId"] as? String
                         rCoupon.couponId = item["couponId"] as? String
                         rCoupon.couponBarcode = item["couponBarcode"] as? String
-//                        rCoupon.couponQrCode = item["couponQrCode"] as? String
+                        rCoupon.couponQrCode = item["couponQrCode"] as? String
                         rCoupon.couponValue = item["couponValue"] as? Float
                         rCoupon.reservationDate = self.getCreationDate(milisecond: (item["reservationDate"] as? Double)!)
                         listResCoupon.append(rCoupon)
