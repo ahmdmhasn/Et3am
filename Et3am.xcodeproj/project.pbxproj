@@ -67,6 +67,7 @@
 		E2F11BA02288D49D0031ABCC /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11B9A2288D49C0031ABCC /* Meal.swift */; };
 		E2F11BA12288D49D0031ABCC /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11B9B2288D49C0031ABCC /* Restaurant.swift */; };
 		E2F11BA22288D49D0031ABCC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11B9C2288D49D0031ABCC /* User.swift */; };
+		F11A6EE922C029D6008FE559 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11A6EE822C029D6008FE559 /* UITableView.swift */; };
 		F1261FC4229EA607005CB7AD /* ExtensionRestaurantListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1261FC3229EA607005CB7AD /* ExtensionRestaurantListVC.swift */; };
 		F13F051322B68DCB000F090A /* PublishCouponViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F051122B68DCB000F090A /* PublishCouponViewCell.swift */; };
 		F13F051422B68DCB000F090A /* PublishCouponViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F13F051222B68DCB000F090A /* PublishCouponViewCell.xib */; };
@@ -169,6 +170,7 @@
 		E2F11B9A2288D49C0031ABCC /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Meal.swift; path = model/Meal.swift; sourceTree = "<group>"; };
 		E2F11B9B2288D49C0031ABCC /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Restaurant.swift; path = model/Restaurant.swift; sourceTree = "<group>"; };
 		E2F11B9C2288D49D0031ABCC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = model/User.swift; sourceTree = "<group>"; };
+		F11A6EE822C029D6008FE559 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		F1261FC3229EA607005CB7AD /* ExtensionRestaurantListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtensionRestaurantListVC.swift; path = controller/ExtensionRestaurantListVC.swift; sourceTree = "<group>"; };
 		F13F051122B68DCB000F090A /* PublishCouponViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishCouponViewCell.swift; path = view/PublishCouponViewCell.swift; sourceTree = "<group>"; };
 		F13F051222B68DCB000F090A /* PublishCouponViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PublishCouponViewCell.xib; path = view/PublishCouponViewCell.xib; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				E207D8CE22BB9F320014ECC6 /* UILabel.swift */,
 				E2D6DE0522BD1B330042AD22 /* RoundedButton.swift */,
 				E210689522BEBD6D00A9AD4F /* RoundedImageView.swift */,
+				F11A6EE822C029D6008FE559 /* UITableView.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -384,11 +387,11 @@
 				211378A62284F16A0056E5C7 /* AllCouponTableViewCell.swift */,
 				F1A7CE4322BE477400491C58 /* ATableViewController.swift */,
 				F1A7CE4722BE47E100491C58 /* ATableViewCell.swift */,
+				021A0A3522C00C0100479AFC /* ReservedViewCell.swift */,
+				021A0A3722C00D1700479AFC /* UsedViewCell.swift */,
 				21110BCA2288444500D982E5 /* CouponsDonated.storyboard */,
 				F13F051222B68DCB000F090A /* PublishCouponViewCell.xib */,
 				F1A7CE4822BE47E100491C58 /* ATableViewCell.xib */,
-				021A0A3522C00C0100479AFC /* ReservedViewCell.swift */,
-				021A0A3722C00D1700479AFC /* UsedViewCell.swift */,
 				021A0A3922C0119E00479AFC /* UsedViewCell.xib */,
 				021A0A3B22C011D200479AFC /* ReservedViewCell.xib */,
 			);
@@ -739,6 +742,7 @@
 				211378A72284F16A0056E5C7 /* AllCouponTableViewCell.swift in Sources */,
 				F13F051322B68DCB000F090A /* PublishCouponViewCell.swift in Sources */,
 				E2F11BA12288D49D0031ABCC /* Restaurant.swift in Sources */,
+				F11A6EE922C029D6008FE559 /* UITableView.swift in Sources */,
 				2189265C22A00FCA00BD7404 /* CuoponsTabBarController.swift in Sources */,
 				E2029CE822836B6D007BA6A1 /* AppDelegate.swift in Sources */,
 				F17C3FD5229D45CE005A449E /* RestaurantCell.swift in Sources */,
