@@ -64,11 +64,7 @@ enum CouponURLQueries:String {
         var baseUrl: String {
             return Et3amAPI.baseCouponUrlString
         }
-        
-        
-        
-        
-        
+ 
         guard let userID = UserDao.shared.user.userID else {
             fatalError("User ID cannot be nil")
         }
