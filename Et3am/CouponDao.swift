@@ -125,6 +125,8 @@ class CouponDao {
             
             print(userId)
             
+            print(response.result.value)
+
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -209,7 +211,8 @@ class CouponDao {
         var listResCoupon = [ReservedCoupon]()
         var arrRes = [[String:AnyObject]]() //Array of dictionary
         Alamofire.request("https://et3am.herokuapp.com/coupon/get_all_reserved_coupon", method: .get, parameters:["user_id": userId]).validate().responseJSON{ (response) in
-            
+            print(response.result.value)
+
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
