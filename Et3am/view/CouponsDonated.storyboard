@@ -73,6 +73,11 @@
                             <inset key="sectionInset" minX="0.0" minY="5" maxX="0.0" maxY="60"/>
                         </collectionViewFlowLayout>
                         <cells/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.396078431372549" green="0.070588235294117646" blue="0.019607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="dataSource" destination="vCT-Nc-uTS" id="uG8-Rg-IMv"/>
                             <outlet property="delegate" destination="vCT-Nc-uTS" id="Zhw-iQ-tFW"/>
