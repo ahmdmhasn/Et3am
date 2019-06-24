@@ -105,9 +105,10 @@ class ATableViewController: UITableViewController {
         case SwitchTitle.reserved:
             print("r")
             let cell1 = tableView.dequeueReusableCell(withIdentifier: "ReservedViewCell", for: indexPath) as! ReservedViewCell
-            cell1.couponValue.text = String(describing:listReservedCoupon[indexPath.row].couponValue).appending(" LE")
+            cell1.couponBarCode.text = listReservedCoupon[indexPath.row].couponQrCode
+            cell1.couponValue.text = String(describing:listReservedCoupon[indexPath.row].couponValue!).appending(" LE")
             cell1.couponBarCode.text = listReservedCoupon[indexPath.row].couponBarcode
-            cell1.reservationDate.text = "Reserved "+String(describing: listReservedCoupon[indexPath.row].reservationDate)
+            cell1.reservationDate.text = "Reserved "+String(describing: listReservedCoupon[indexPath.row].reservationDate!)
             //cell.qrImage.image = generateQRCOde(barCode: listReservedCoupon[indexPath.row].couponBarcode)
             return cell1
         case .used:
