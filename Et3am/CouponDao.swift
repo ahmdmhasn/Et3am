@@ -277,6 +277,29 @@ class CouponDao {
         }
     }
     
+    
+    //cancel_reservation
+    func cancelReservation(couponId:String, cancelHandler:@escaping (Bool) -> Void) {
+        Alamofire.request("https://et3am.herokuapp.com/coupon/cancel_reservation", method: .get, parameters: ["coupon_id":couponId]).validate().responseJSON{
+            (response) in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                let status  = json["status"]
+                if status == 1 {
+                    print("true")
+                    cancelHandler(true)
+                }else{
+                    print("false")
+                    cancelHandler(false)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
+    
     func getCreationDate(milisecond: Double) -> String {
         let dateVar = Date(timeIntervalSince1970: (milisecond / 1000.0))
         let dateFormatter = DateFormatter()
