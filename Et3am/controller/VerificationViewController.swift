@@ -118,6 +118,7 @@ class VerificationViewController: UIViewController {
                     SVProgressHUD.showSuccess(withStatus: "Successfully updated.")
                     
                     let _ = self.navigationController?.popViewController(animated: true)
+                    
                 } else {
                     SVProgressHUD.showError(withStatus: "Something went wrong!")
                 }

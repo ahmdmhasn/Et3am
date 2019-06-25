@@ -139,9 +139,8 @@ class UserDao{
                           UserProperties.profileImage.rawValue: user.profileImage ?? ""/*,
                           UserProperties.birthdate.rawValue: user.birthdate ?? Date()*/]
         
-        Alamofire.request(url!, method: .put, parameters: parameters, encoding: JSONEncoding.default,
-                          headers: nil).responseJSON { (response) in
-            
+        Alamofire.request(url!, method: .put, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
+                                        
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
