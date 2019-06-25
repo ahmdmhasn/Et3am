@@ -72,7 +72,7 @@ extension RecievedViewController : UICollectionViewDataSource {
         let localDate = dateFormatter.string(from: NSDate(timeIntervalSince1970:self.usedDateArray[indexPath.row] as! TimeInterval) as Date)
         
         cell.useDate.text! = String(describing: localDate)
-        cell.couponBarCode.text! =  String(describing: self.barCodeArray[indexPath.row])+"*******"
+        cell.couponBarCode.text! =  "*******\(self.barCodeArray[indexPath.row])"
         let currentRestaurant = self.restaurantArray[indexPath.row]
         cell.restaurantName.text! = currentRestaurant.restaurantName!
         let path = "https://maps.googleapis.com/maps/api/staticmap?size=500x250"+"&markers=color:red%7C"+"\(currentRestaurant.latitude!),\(currentRestaurant.longitude!)&key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM"

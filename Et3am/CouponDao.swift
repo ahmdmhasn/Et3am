@@ -32,7 +32,6 @@ class CouponDao {
                     }
                     let json = JSON(responseValue)
                     
-                    print(json)
                     let codeDataDictionary:Int =  json["code"].int ?? 0
                     if(codeDataDictionary == 1)
                     {
@@ -46,8 +45,11 @@ class CouponDao {
                             restaurantObject.latitude = restaurantsJson["latitude"].double
                             restaurantObject.longitude = restaurantsJson["longitude"].double
                             restaurantArray.append(restaurantObject)
+                            
                             let barcode = couponDataDictionary[i]["userReserveCoupon"]["coupons"]["couponBarcode"].string
-                            couponBarcode[i] = barcode?.substring(to:(barcode?.index((barcode?.startIndex)!, offsetBy: 3))!) ?? 0
+                            
+                            couponBarcode[i] = barcode?.substring(from:(barcode?.index((barcode?.endIndex)!, offsetBy: -3))!) ?? 0
+                            
                             useDate[i] =  (couponDataDictionary[i]["useDate"].double ?? 0) / 1000
                         }
                     }
