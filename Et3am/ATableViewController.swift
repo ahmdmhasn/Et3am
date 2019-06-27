@@ -86,10 +86,6 @@ class ATableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //var cell: UITableViewCell
-//         var cell = tableView.dequeueReusableCell(withIdentifier: "ATableViewCell", for: indexPath) as! ATableViewCell
-//        var cell1 = tableView.dequeueReusableCell(withIdentifier: "ReservedViewCell", for: indexPath) as! ReservedViewCell
-//        var cell2 = tableView.dequeueReusableCell(withIdentifier: "UsedViewCell", for: indexPath) as! UsedViewCell
 
         switch valuee {
         case SwitchTitle.inBalance:
@@ -154,7 +150,7 @@ class ATableViewController: UITableViewController {
     func selectTitle(selectedTitle:SwitchTitle){
         switch selectedTitle {
         case .inBalance:
-            print("inBalance")
+            print("inBalance \(UserDao.shared.user.userID)")
             self.couponSevices.getInBalanceCoupon(userId:UserDao.shared.user.userID! , inBalanceHandler:{ listCoupon in
                 self.valuee = .inBalance
                 self.listReservedCoupon.removeAll()
