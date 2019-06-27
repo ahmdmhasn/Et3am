@@ -10,12 +10,14 @@ import UIKit
 
 class ReservedViewCell: UITableViewCell {
 
+    weak var delegate: ATableViewController?
+    var indexPath:IndexPath!
+    
     @IBOutlet weak var couponBarCode: UILabel!
     @IBOutlet weak var reservationDate: UILabel!
     @IBOutlet weak var couponValue: UILabel!
     @IBOutlet weak var qrImage: UIImageView!
-    @IBAction func didCancelSelected(_ sender: UIButton) {
-    }
+    @IBAction func didCancelSelected(_ sender: UIButton) {delegate?.didPressCancel(cellIndex:indexPath)}
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,4 +29,7 @@ class ReservedViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+}
+protocol ReservedCellDelegate: class {
+    func didPressCancel(cellIndex:IndexPath)
 }

@@ -32,7 +32,6 @@ class CouponDao {
                     }
                     let json = JSON(responseValue)
                     
-                    print(json)
                     let codeDataDictionary:Int =  json["code"].int ?? 0
                     if(codeDataDictionary == 1)
                     {
@@ -46,8 +45,11 @@ class CouponDao {
                             restaurantObject.latitude = restaurantsJson["latitude"].double
                             restaurantObject.longitude = restaurantsJson["longitude"].double
                             restaurantArray.append(restaurantObject)
+                            
                             let barcode = couponDataDictionary[i]["userReserveCoupon"]["coupons"]["couponBarcode"].string
-                            couponBarcode[i] = barcode?.substring(to:(barcode?.index((barcode?.startIndex)!, offsetBy: 3))!) ?? 0
+                            
+                            couponBarcode[i] = barcode?.substring(from:(barcode?.index((barcode?.endIndex)!, offsetBy: -3))!) ?? 0
+                            
                             useDate[i] =  (couponDataDictionary[i]["useDate"].double ?? 0) / 1000
                         }
                     }
@@ -186,6 +188,7 @@ class CouponDao {
                          */
                         usedCoupon.couponId = item["couponId"] as? String
                         usedCoupon.userId = item["userId"] as? String
+                        usedCoupon.barCode = item["barCode"] as? String
                         usedCoupon.userName = item["userName"] as? String
                         usedCoupon.restaurantName = item["restaurantName"] as? String
                         usedCoupon.restaurantAddress = item["restaurantAddress"] as? String
@@ -238,7 +241,7 @@ class CouponDao {
                         rCoupon.userId = item["userId"] as? String
                         rCoupon.couponId = item["couponId"] as? String
                         rCoupon.couponBarcode = item["couponBarcode"] as? String
-//                        rCoupon.couponQrCode = item["couponQrCode"] as? String
+                        rCoupon.couponQrCode = item["couponQrCode"] as? String
                         rCoupon.couponValue = item["couponValue"] as? Float
                         rCoupon.reservationDate = self.getCreationDate(milisecond: (item["reservationDate"] as? Double)!)
                         listResCoupon.append(rCoupon)
@@ -275,6 +278,29 @@ class CouponDao {
             }
         }
     }
+    
+    
+    //cancel_reservation
+    func cancelReservation(couponId:String, cancelHandler:@escaping (Bool) -> Void) {
+        Alamofire.request("https://et3am.herokuapp.com/coupon/cancel_reservation", method: .get, parameters: ["coupon_id":couponId]).validate().responseJSON{
+            (response) in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                let status  = json["status"]
+                if status == 1 {
+                    print("true")
+                    cancelHandler(true)
+                }else{
+                    print("false")
+                    cancelHandler(false)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
     
     func getCreationDate(milisecond: Double) -> String {
         let dateVar = Date(timeIntervalSince1970: (milisecond / 1000.0))

@@ -73,13 +73,10 @@ class ATableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         switch valuee {
         case .inBalance:
-        //return 5
-        return listCoupons.count
+            return listCoupons.count
         case .reserved:
-        //return 5
-        return listReservedCoupon.count
+            return listReservedCoupon.count
         case .used:
-            //return 5
             return listUsedCoupon.count
         }
     }
@@ -94,26 +91,28 @@ class ATableViewController: UITableViewController {
             cell.indexPath = indexPath
             cell.couponValue.text = String(describing:listCoupons[indexPath.row].couponValue!).appending(" LE")
             cell.barCode.text = listCoupons[indexPath.row].barCode
-            cell.creationDate.text = "Created "+String(describing: listCoupons[indexPath.row].creationDate!)
+            cell.creationDate.text = "Created: "+String(describing: listCoupons[indexPath.row].creationDate!)
             cell.imageQR.image = generateQRCOde(barCode: listCoupons[indexPath.row].barCode)
             print("i")
             return cell
         case SwitchTitle.reserved:
             print("r")
             let cell1 = tableView.dequeueReusableCell(withIdentifier: "ReservedViewCell", for: indexPath) as! ReservedViewCell
+            cell1.delegate = self
+            cell1.indexPath = indexPath
             cell1.couponBarCode.text = listReservedCoupon[indexPath.row].couponQrCode
             cell1.couponValue.text = String(describing:listReservedCoupon[indexPath.row].couponValue!).appending(" LE")
             cell1.couponBarCode.text = listReservedCoupon[indexPath.row].couponBarcode
-            cell1.reservationDate.text = "Reserved "+String(describing: listReservedCoupon[indexPath.row].reservationDate!)
-//            cell1.qrImage.image = generateQRCOde(barCode: listReservedCoupon[indexPath.row].couponBarcode)
+            cell1.reservationDate.text = "Reserved: "+String(describing: listReservedCoupon[indexPath.row].reservationDate!)
+            cell1.qrImage.image = generateQRCOde(barCode: listReservedCoupon[indexPath.row].couponBarcode)
             return cell1
         case .used:
             let cell2 = tableView.dequeueReusableCell(withIdentifier: "UsedViewCell", for: indexPath) as! UsedViewCell
-            cell2.couponBarCode.text = listUsedCoupon[indexPath.row].couponId
-            cell2.usedDate.text = "Used at "+String(describing:listUsedCoupon[indexPath.row].useDate!)
-            cell2.priceMeal.text = "Value "+String(describing: listUsedCoupon[indexPath.row].price!).appending(" LE")
-            cell2.restaurantAddress.text = "Address "+String(describing:listUsedCoupon[indexPath.row].restaurantAddress)
-            cell2.restaurantName.text = "Restaurant "+String(describing:listUsedCoupon[indexPath.row].restaurantName)
+            cell2.couponBarCode.text = listUsedCoupon[indexPath.row].barCode
+            cell2.usedDate.text = "Used at: "+String(describing:listUsedCoupon[indexPath.row].useDate!)
+            cell2.priceMeal.text = "Value: "+String(describing: listUsedCoupon[indexPath.row].price!).appending(" LE")
+            cell2.restaurantAddress.text = "Address: "+String(describing:listUsedCoupon[indexPath.row].restaurantAddress!)
+            cell2.restaurantName.text = "Restaurant: "+String(describing:listUsedCoupon[indexPath.row].restaurantName!)
             cell2.usedBy.text = listUsedCoupon[indexPath.row].userName
             return cell2
         }
@@ -186,13 +185,8 @@ class ATableViewController: UITableViewController {
 }
 
 
-func actionSwitch(action:String) -> String{
-    print(action)
-    return action
-}
-
 // MARK: Extension UICollectionViewDelegate
-extension ATableViewController : ATableViewCellDelegate,MFMessageComposeViewControllerDelegate{
+extension ATableViewController : ATableViewCellDelegate,ReservedCellDelegate,MFMessageComposeViewControllerDelegate{
     func didPressPost(cellIndex:IndexPath){
         print("Post \(cellIndex)")
         self.couponSevices.publishCoupon(couponId: self.listCoupons[cellIndex.row].couponID!,completedHandler: { (result) in
@@ -236,6 +230,28 @@ extension ATableViewController : ATableViewCellDelegate,MFMessageComposeViewCont
         //share(data: snapshotrow(sender: cellIndex))
         share(data:tableView.snapshotRows(at: Set([cellIndex])) ?? 0)
 //        share(data: snapshotrow(sender: cellIndex))
+    }
+    
+    func didPressCancel(cellIndex:IndexPath){
+        print("Post \(cellIndex)")
+        self.couponSevices.cancelReservation(couponId: self.listReservedCoupon[cellIndex.row].couponId!,cancelHandler: { (result) in
+            switch result {
+            case true :
+                self.listReservedCoupon.remove(at: cellIndex.row)
+                self.tableView.deleteRows(at: [cellIndex], with: .automatic)
+                self.tableView.reloadData()
+                SVProgressHUD.showSuccess(withStatus: "Cancel successfully!")
+            case false:
+                SVProgressHUD.showSuccess(withStatus: "Cancel unSuccessfully!")
+            }
+        })
+        
+        if listReservedCoupon.count == 0 {
+            self.tableView.backgroundView = self.message
+        } else {
+            self.message.isHidden = false
+            self.tableView.reloadData()
+        }
     }
     
     func share(data:Any){

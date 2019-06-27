@@ -98,7 +98,7 @@ extension RestaurantDetailsViewController:UITableViewDelegate,UITableViewDataSou
             
             let meal = mealsArray[indexPath.row]
             cell.mealName.text = meal.mealName ?? ""
-            cell.mealValue.text = String(describing: meal.mealValue!)+" €"
+            cell.mealValue.text = String(describing: meal.mealValue!)+" LE"
             let imageURL = ImageAPI.getImage(type: .width150, publicId: meal.mealImage ?? "")
             cell.mealImage.sd_setShowActivityIndicatorView(true)
             cell.mealImage.sd_setImage(with: URL(string: imageURL), placeholderImage: placeholderImage, options: [], completed: nil)
