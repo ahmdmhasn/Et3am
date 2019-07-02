@@ -19,9 +19,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="find your favorite restaurant" id="fKp-IK-fyw">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="RestaurantCell" rowHeight="130" id="8CS-ty-qvM" customClass="RestaurantCell" customModule="Et3am" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="130"/>
+                                <rect key="frame" x="0.0" y="72" width="414" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8CS-ty-qvM" id="BCV-2P-Ada">
                                     <rect key="frame" x="0.0" y="0.0" width="381" height="130"/>
@@ -74,12 +79,20 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.63347355769230762" green="0.63347355769230762" blue="0.63347355769230762" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="dataSource" destination="Cjv-Ey-5RJ" id="f8y-sJ-OEn"/>
                             <outlet property="delegate" destination="Cjv-Ey-5RJ" id="iyh-ha-UuI"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Restaurants" id="Cka-Mo-2Bn"/>
+                    <connections>
+                        <outlet property="SearchBarInTable" destination="fKp-IK-fyw" id="hKG-S1-V8q"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lF7-Ga-KSI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
