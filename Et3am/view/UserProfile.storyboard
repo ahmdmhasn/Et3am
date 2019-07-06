@@ -189,7 +189,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="436"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3qH-sm-Ehx">
-                                                <rect key="frame" x="16" y="32" width="342" height="373.33333333333331"/>
+                                                <rect key="frame" x="16" y="32" width="342" height="411.33333333333331"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kindly upload your front and back images of National ID in addition to ID number. We will verify it within 5 business days." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRj-GO-lm9">
                                                         <rect key="frame" x="0.0" y="0.0" width="342" height="61"/>
@@ -240,7 +240,7 @@
                                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Yb0-cg-q7Y">
-                                                        <rect key="frame" x="0.0" y="274" width="342" height="99.333333333333314"/>
+                                                        <rect key="frame" x="0.0" y="274" width="342" height="137.33333333333331"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="National ID" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eXJ-Eu-nTR">
                                                                 <rect key="frame" x="0.0" y="0.0" width="342" height="30"/>
@@ -248,14 +248,20 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                             </textField>
+                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number Ex. 01xx xxx xxxx" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yhz-rH-gHT">
+                                                                <rect key="frame" x="0.0" y="38" width="342" height="30"/>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWO-mR-tZW">
-                                                                <rect key="frame" x="0.0" y="38" width="342" height="20.333333333333314"/>
+                                                                <rect key="frame" x="0.0" y="76" width="342" height="20.333333333333314"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQK-4p-m0R" customClass="RoundedButton" customModule="Et3am" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="66.333333333333314" width="342" height="33"/>
+                                                                <rect key="frame" x="0.0" y="104.33333333333331" width="342" height="33"/>
                                                                 <color key="backgroundColor" red="0.90588235859999999" green="0.29803922770000002" blue="0.23529411850000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                 <state key="normal" title="SUBMIT">
@@ -269,6 +275,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="eXJ-Eu-nTR" secondAttribute="trailing" id="Bo8-mt-koR"/>
                                                             <constraint firstAttribute="trailing" secondItem="QQK-4p-m0R" secondAttribute="trailing" id="Dn3-Jx-OOh"/>
+                                                            <constraint firstItem="yhz-rH-gHT" firstAttribute="width" secondItem="eXJ-Eu-nTR" secondAttribute="width" id="Hk7-6H-2C4"/>
                                                             <constraint firstItem="eXJ-Eu-nTR" firstAttribute="leading" secondItem="Yb0-cg-q7Y" secondAttribute="leading" id="X73-97-oY8"/>
                                                             <constraint firstItem="YWO-mR-tZW" firstAttribute="leading" secondItem="Yb0-cg-q7Y" secondAttribute="leading" id="cpz-nU-FGV"/>
                                                             <constraint firstAttribute="trailing" secondItem="YWO-mR-tZW" secondAttribute="trailing" id="lSo-2O-68O"/>
@@ -324,6 +331,7 @@
                         <outlet property="imageActivityIndicaator1" destination="CbK-SM-Uin" id="YTd-76-PZe"/>
                         <outlet property="imageActivityIndicaator2" destination="8AG-hg-ObB" id="8ir-hn-Dyq"/>
                         <outlet property="infoLabel" destination="YWO-mR-tZW" id="F2t-Av-Xo4"/>
+                        <outlet property="phoneNumberTextField" destination="yhz-rH-gHT" id="ZEC-5P-upQ"/>
                         <outlet property="submitButton" destination="QQK-4p-m0R" id="Yt5-nI-lLu"/>
                     </connections>
                 </viewController>
@@ -528,20 +536,11 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSV-mC-8Qv">
-                                                            <rect key="frame" x="45.000000000000007" y="0.0" width="48.666666666666679" height="28"/>
+                                                            <rect key="frame" x="45" y="0.0" width="337" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="01xx xxx xxxx" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FdB-1N-Db9">
-                                                            <rect key="frame" x="109.66666666666666" y="0.0" width="272.33333333333337" height="28"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                            <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
-                                                            <connections>
-                                                                <action selector="editPhoneNumber:" destination="Zxw-Tr-Frp" eventType="editingDidEnd" id="es6-Z7-rGm"/>
-                                                            </connections>
-                                                        </textField>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
@@ -724,10 +723,10 @@
                         <outlet property="imageActivityIndicator" destination="HQy-el-ImR" id="Sgc-KF-AOb"/>
                         <outlet property="isVerifiedLabel" destination="oMA-QY-S1i" id="lE3-DM-Xys"/>
                         <outlet property="jobTextField" destination="0Ii-Je-eZW" id="S53-he-0iS"/>
-                        <outlet property="phoneNumberTextField" destination="FdB-1N-Db9" id="yJt-GI-YfE"/>
                         <outlet property="userEmailLabel" destination="KVS-51-aJW" id="swq-d5-2Iz"/>
                         <outlet property="userIDLabel" destination="Lc0-jl-Qyv" id="ksa-o3-PJB"/>
                         <outlet property="userImageView" destination="Qbc-sF-kbL" id="Lrn-WV-CLu"/>
+                        <outlet property="userPhoneNumberLabel" destination="gSV-mC-8Qv" id="OD5-Va-l4y"/>
                         <outlet property="usernameLabel" destination="W38-Fr-2p5" id="whR-SU-HUI"/>
                         <segue destination="S0f-BA-vqk" kind="presentation" identifier="showChangePassword" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="EkN-6O-NdY"/>
                         <segue destination="2e1-ZA-pce" kind="show" identifier="showVerification" id="wIt-0b-0FN"/>
@@ -763,7 +762,7 @@
         <image name="exit-1" width="512" height="512"/>
         <image name="file-2" width="512" height="512"/>
         <image name="phone-call" width="512" height="512"/>
-        <image name="placeholder" width="1280" height="960"/>
+        <image name="placeholder" width="960" height="960"/>
         <image name="settings-1" width="512" height="512"/>
         <image name="shopping-bag" width="512" height="512"/>
         <image name="upload-1" width="512" height="512"/>
