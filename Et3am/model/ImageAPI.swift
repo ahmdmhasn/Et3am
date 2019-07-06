@@ -27,7 +27,28 @@ class ImageAPI {
         
     }
     
+    // Upload image using data regardless of its compression ratio
     static func uploadImage(imgData: Data, completionHandler: @escaping (Int?, String?) -> Void) {
+        executeImageUpload(imgData: imgData) { (code, publicId) in
+            completionHandler(code, publicId)
+        }
+    }
+    
+    // Upload image with different compression ratio
+    static func uploadImage(_ image: UIImage, ratio: CGFloat = 0.2, completionHandler: @escaping (Int?, String?) -> Void) {
+        
+        guard let imgData: Data = UIImageJPEGRepresentation(image, ratio) else {
+            print("cannot convert UIImage to Data!")
+            return
+        }
+        
+        executeImageUpload(imgData: imgData) { (code, publicId) in
+            completionHandler(code, publicId)
+        }
+        
+    }
+    
+    private static func executeImageUpload(imgData: Data, completionHandler: @escaping (Int?, String?) -> Void) {
         
         let url = "https://et3am.herokuapp.com/image/fileupload"
         

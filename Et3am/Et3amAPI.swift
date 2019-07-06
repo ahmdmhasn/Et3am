@@ -85,8 +85,22 @@ enum RestaurantQueries:String {
     case list = "/list"
 }
 
+// New Implementation
+enum Services: String {
+    case user = "/user"
+    case inquiry = "/inquiry"
+}
+
+enum InquiryServices: String {
+    case submit = "/submit"
+    
+    func url() -> String {
+        return Et3amAPI.baseUrlString + Services.inquiry.rawValue + self.rawValue
+    }
+}
+
 struct Et3amAPI {
-    private static let baseUrlString = "https://et3am.herokuapp.com"
+    fileprivate static let baseUrlString = "https://et3am.herokuapp.com"
     static let baseUserUrlString = "\(baseUrlString)/user"
     static let baseCouponUrlString = "\(baseUrlString)/coupon"
     static let baseRestaurantUrlString = "\(baseUrlString)/restaurant/"

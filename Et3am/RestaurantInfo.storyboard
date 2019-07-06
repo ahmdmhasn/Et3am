@@ -18,7 +18,7 @@
                 <viewControllerPlaceholder storyboardName="CouponsDonated" id="zwi-46-SWO" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JOx-1y-u5z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2998" y="-954"/>
+            <point key="canvasLocation" x="-2146" y="-528"/>
         </scene>
         <!--Restaurant Details View Controller-->
         <scene sceneID="zIe-FD-kMe">
@@ -40,7 +40,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="275"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m3R-iL-glW" id="OHz-Jw-bne">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="275"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="274"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ry0-Ga-Ead">
@@ -110,7 +110,7 @@
                                         <rect key="frame" x="0.0" y="303" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Nb-1q-6oz" id="0sK-Q8-11A">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1qS-Ao-TH9">
@@ -222,7 +222,7 @@
         <!--Get Coupon View Controller-->
         <scene sceneID="DnV-Fy-V6W">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="currentContext" id="bXy-0p-Q0T" customClass="GetCouponViewController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GetCouponVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="currentContext" id="bXy-0p-Q0T" customClass="GetCouponViewController" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="elk-j3-W31"/>
                         <viewControllerLayoutGuide type="bottom" id="RO0-Nv-oTQ"/>

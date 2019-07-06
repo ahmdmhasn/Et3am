@@ -189,7 +189,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="436"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3qH-sm-Ehx">
-                                                <rect key="frame" x="16" y="32" width="342" height="374"/>
+                                                <rect key="frame" x="16" y="32" width="342" height="373.33333333333331"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kindly upload your front and back images of National ID in addition to ID number. We will verify it within 5 business days." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRj-GO-lm9">
                                                         <rect key="frame" x="0.0" y="0.0" width="342" height="61"/>
@@ -210,7 +210,7 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ub-9W-ycO">
-                                                                        <rect key="frame" x="66" y="167" width="36" height="30"/>
+                                                                        <rect key="frame" x="65.666666666666657" y="167" width="35.999999999999986" height="30"/>
                                                                         <state key="normal" title="Front"/>
                                                                         <connections>
                                                                             <action selector="imageChooser:" destination="2e1-ZA-pce" eventType="touchUpInside" id="qtX-qv-EBi"/>
@@ -228,7 +228,7 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dnp-cR-Ehw">
-                                                                        <rect key="frame" x="67" y="167" width="34" height="30"/>
+                                                                        <rect key="frame" x="66.666666666666686" y="167" width="34" height="30"/>
                                                                         <state key="normal" title="Back"/>
                                                                         <connections>
                                                                             <action selector="imageChooser:" destination="2e1-ZA-pce" eventType="touchUpInside" id="sHd-PE-IMD"/>
@@ -240,7 +240,7 @@
                                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Yb0-cg-q7Y">
-                                                        <rect key="frame" x="0.0" y="274" width="342" height="100"/>
+                                                        <rect key="frame" x="0.0" y="274" width="342" height="99.333333333333314"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="National ID" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eXJ-Eu-nTR">
                                                                 <rect key="frame" x="0.0" y="0.0" width="342" height="30"/>
@@ -249,13 +249,13 @@
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWO-mR-tZW">
-                                                                <rect key="frame" x="0.0" y="38" width="342" height="21"/>
+                                                                <rect key="frame" x="0.0" y="38" width="342" height="20.333333333333314"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQK-4p-m0R" customClass="RoundedButton" customModule="Et3am" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="67" width="342" height="33"/>
+                                                                <rect key="frame" x="0.0" y="66.333333333333314" width="342" height="33"/>
                                                                 <color key="backgroundColor" red="0.90588235859999999" green="0.29803922770000002" blue="0.23529411850000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                 <state key="normal" title="SUBMIT">

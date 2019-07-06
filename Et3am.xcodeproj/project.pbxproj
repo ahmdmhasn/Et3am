@@ -56,10 +56,15 @@
 		E210689B22BEC6AD00A9AD4F /* Landing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E210689A22BEC6AD00A9AD4F /* Landing.storyboard */; };
 		E21A104022BA8B6500824B50 /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21A103F22BA8B6500824B50 /* VerificationViewController.swift */; };
 		E2512CC62285DAD900D8E0F7 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */; };
+		E25C3FBE22CB6405004DB1E0 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25C3FBD22CB6404004DB1E0 /* UIColor.swift */; };
+		E2603FF422D0D7AC00CC9E08 /* InquiryLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2603FF322D0D7AC00CC9E08 /* InquiryLayer.swift */; };
 		E280CC4C22B81C7D00E32CE1 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280CC4822B81C7D00E32CE1 /* SignInView.swift */; };
 		E280CC4D22B81C7D00E32CE1 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280CC4922B81C7D00E32CE1 /* SignUpView.swift */; };
 		E280CC4F22B8215600E32CE1 /* Donate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E280CC4E22B8215600E32CE1 /* Donate.storyboard */; };
 		E280CC5122B83FC600E32CE1 /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280CC5022B83FC600E32CE1 /* ImageAPI.swift */; };
+		E286CF0B22CCEFD300C2C024 /* SendFeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E286CF0A22CCEFD300C2C024 /* SendFeedbackVC.swift */; };
+		E28FFCAA22D00A1600DD9C96 /* FeedbackSuccess.xib in Resources */ = {isa = PBXBuildFile; fileRef = E28FFCA922D00A1500DD9C96 /* FeedbackSuccess.xib */; };
+		E28FFCAC22D0101D00DD9C96 /* FeedbackSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28FFCAB22D0101D00DD9C96 /* FeedbackSuccessView.swift */; };
 		E2D6DE0622BD1B330042AD22 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D6DE0522BD1B330042AD22 /* RoundedButton.swift */; };
 		E2D9A7EC22BFAE5500132C09 /* UserSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D9A7EB22BFAE5500132C09 /* UserSummary.swift */; };
 		E2F11B9D2288D49D0031ABCC /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F11B972288D49C0031ABCC /* Admin.swift */; };
@@ -158,10 +163,15 @@
 		E210689A22BEC6AD00A9AD4F /* Landing.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Landing.storyboard; path = view/Landing.storyboard; sourceTree = "<group>"; };
 		E21A103F22BA8B6500824B50 /* VerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerificationViewController.swift; path = controller/VerificationViewController.swift; sourceTree = "<group>"; };
 		E2512CC32285DAD900D8E0F7 /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UserProfile.storyboard; path = view/UserProfile.storyboard; sourceTree = "<group>"; };
+		E25C3FBD22CB6404004DB1E0 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = Extension/UIColor.swift; sourceTree = "<group>"; };
+		E2603FF322D0D7AC00CC9E08 /* InquiryLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InquiryLayer.swift; sourceTree = "<group>"; };
 		E280CC4822B81C7D00E32CE1 /* SignInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		E280CC4922B81C7D00E32CE1 /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		E280CC4E22B8215600E32CE1 /* Donate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Donate.storyboard; sourceTree = "<group>"; };
 		E280CC5022B83FC600E32CE1 /* ImageAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageAPI.swift; path = model/ImageAPI.swift; sourceTree = "<group>"; };
+		E286CF0A22CCEFD300C2C024 /* SendFeedbackVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SendFeedbackVC.swift; path = controller/SendFeedbackVC.swift; sourceTree = "<group>"; };
+		E28FFCA922D00A1500DD9C96 /* FeedbackSuccess.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FeedbackSuccess.xib; path = view/FeedbackSuccess.xib; sourceTree = "<group>"; };
+		E28FFCAB22D0101D00DD9C96 /* FeedbackSuccessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedbackSuccessView.swift; path = view/FeedbackSuccessView.swift; sourceTree = "<group>"; };
 		E2D6DE0522BD1B330042AD22 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		E2D9A7EB22BFAE5500132C09 /* UserSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserSummary.swift; path = model/UserSummary.swift; sourceTree = "<group>"; };
 		E2F11B972288D49C0031ABCC /* Admin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Admin.swift; path = model/Admin.swift; sourceTree = "<group>"; };
@@ -221,6 +231,7 @@
 				21B6E8F5229C1D350067C5F4 /* CouponDao.swift */,
 				2117FBDE229CC03F0099DE05 /* UserHelper.swift */,
 				E280CC5022B83FC600E32CE1 /* ImageAPI.swift */,
+				E2603FF322D0D7AC00CC9E08 /* InquiryLayer.swift */,
 			);
 			name = "Network Layer";
 			sourceTree = "<group>";
@@ -235,6 +246,7 @@
 				E2D6DE0522BD1B330042AD22 /* RoundedButton.swift */,
 				E210689522BEBD6D00A9AD4F /* RoundedImageView.swift */,
 				F11A6EE822C029D6008FE559 /* UITableView.swift */,
+				E25C3FBD22CB6404004DB1E0 /* UIColor.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -332,8 +344,8 @@
 		E2029D1822837503007BA6A1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E210689722BEC64400A9AD4F /* Landing */,
 				2117FBE0229D48B80099DE05 /* Extension */,
+				E210689722BEC64400A9AD4F /* Landing */,
 				E21DAF9F229BEBFE00129F7D /* LaunchScreen */,
 				E21DAF9E229BEA1000129F7D /* RestaurantList */,
 				E2680028229AB8A2003EF0CC /* RegisterLoginScreen */,
@@ -403,6 +415,9 @@
 			children = (
 				E210689822BEC67000A9AD4F /* LandingViewController.swift */,
 				E210689A22BEC6AD00A9AD4F /* Landing.storyboard */,
+				E286CF0A22CCEFD300C2C024 /* SendFeedbackVC.swift */,
+				E28FFCA922D00A1500DD9C96 /* FeedbackSuccess.xib */,
+				E28FFCAB22D0101D00DD9C96 /* FeedbackSuccessView.swift */,
 			);
 			name = Landing;
 			sourceTree = "<group>";
@@ -591,6 +606,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2029CF522836B6D007BA6A1 /* LaunchScreen.storyboard in Resources */,
+				E28FFCAA22D00A1600DD9C96 /* FeedbackSuccess.xib in Resources */,
 				E2029CF222836B6D007BA6A1 /* Assets.xcassets in Resources */,
 				2160DCF722BF9CA20079CF55 /* ResetPassword.storyboard in Resources */,
 				21110BCB2288444500D982E5 /* CouponsDonated.storyboard in Resources */,
@@ -728,6 +744,8 @@
 				830BE78D22BA4D2000F50699 /* MealCell.swift in Sources */,
 				E2D6DE0622BD1B330042AD22 /* RoundedButton.swift in Sources */,
 				2117FBE4229D5D150099DE05 /* UIView.swift in Sources */,
+				E2603FF422D0D7AC00CC9E08 /* InquiryLayer.swift in Sources */,
+				E25C3FBE22CB6405004DB1E0 /* UIColor.swift in Sources */,
 				E21A104022BA8B6500824B50 /* VerificationViewController.swift in Sources */,
 				E210689922BEC67000A9AD4F /* LandingViewController.swift in Sources */,
 				211644AB228C4A6C009AA2BB /* Et3amAPI.swift in Sources */,
@@ -737,6 +755,7 @@
 				E2029CF022836B6D007BA6A1 /* Et3am.xcdatamodeld in Sources */,
 				21DC260B22BFEC5800D55C62 /* GenerationNewPasswordViewController.swift in Sources */,
 				E280CC4D22B81C7D00E32CE1 /* SignUpView.swift in Sources */,
+				E286CF0B22CCEFD300C2C024 /* SendFeedbackVC.swift in Sources */,
 				E207D8CF22BB9F320014ECC6 /* UILabel.swift in Sources */,
 				F17C3FD3229D44CD005A449E /* RestaurantsListVC.swift in Sources */,
 				211378A72284F16A0056E5C7 /* AllCouponTableViewCell.swift in Sources */,
@@ -749,6 +768,7 @@
 				830BE78F22BA4D2000F50699 /* RestaurantDetailsViewController.swift in Sources */,
 				21B6E8F6229C1D350067C5F4 /* CouponDao.swift in Sources */,
 				F1A7CE4922BE47E100491C58 /* ATableViewCell.swift in Sources */,
+				E28FFCAC22D0101D00DD9C96 /* FeedbackSuccessView.swift in Sources */,
 				E280CC5122B83FC600E32CE1 /* ImageAPI.swift in Sources */,
 				E280CC4C22B81C7D00E32CE1 /* SignInView.swift in Sources */,
 				021A0A3422BFF73D00479AFC /* UsedCoupon.swift in Sources */,
