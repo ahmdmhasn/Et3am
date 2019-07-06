@@ -21,7 +21,7 @@ class RestaurantDao
     func fetchAllRestaurants(latitude:Double ,longitude:Double ,completionHandler: @escaping (Array<Restaurant>) -> Void) {
         var restaurantsList = [Restaurant]()
         //DispatchQueue.global(qos: .userInteractive).async {
-            Alamofire.request("https://et3am.herokuapp.com/restaurant/list", method: .get, parameters: ["latitude": latitude,"longitude":longitude])
+            Alamofire.request("https://et3am.herokuapp.com/restaurant/list", method: .get, parameters: ["latitude": latitude,"longitude":longitude,"page":1])
                 .validate()
                 //.validate(statusCode: 200..<500)
                 .responseJSON { response in
@@ -30,14 +30,22 @@ class RestaurantDao
                         return
                     }
                     
-                    guard let values = response.result.value as? [Dictionary<String, Any>] else{
+                    guard let values = response.result.value as? Dictionary<String, Any> else{
                         print("Malformed data received from service")
                         return
                     }
-                                        
-                    for value in values{
+                    guard let fetchedValues = values["results"] as? [Dictionary<String, Any>] else{
+                    
+                    print("faild")
+                        return
+                    }
+                    
+                    for value in fetchedValues{
                         let restaurant:Restaurant! = Restaurant()
-                        restaurant.restaurantID = value["restaurantId"] as? Int
+                        restaurant.restaurantID = value["restaurantID"] as? Int
+//                        print("\(value["restaurantID"])   hello from id")
+//                        print("\(value["restaurantName"])   hello from name")
+                        
                         restaurant.restaurantName = value["restaurantName"] as? String
                         restaurant.city = value["city"] as? String
                         restaurant.country = value["country"] as? String
@@ -78,12 +86,17 @@ class RestaurantDao
         
         Alamofire.request(typeURL).responseJSON { (response) in
             
-            guard let responseValue = response.result.value as? [Dictionary<String, Any>] else {
+            guard let responseValue = response.result.value as? Dictionary<String, Any> else {
                 handler(nil)
                 return
             }
+            guard let fetchedValues = responseValue["results"] as? [Dictionary<String, Any>] else{
+                
+                print("faild")
+                return
+            }
             
-                for item in responseValue{
+                for item in fetchedValues{
                     let meal = Meal()
                     meal.mealName = item["mealName"] as? String
                     meal.mealID = item["mealId"] as? String

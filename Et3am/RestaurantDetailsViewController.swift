@@ -31,7 +31,7 @@ class RestaurantDetailsViewController: UIViewController {
         restuarantAndMealsTableView.dataSource = self
         restuarantAndMealsTableView.delegate = self
         
-        
+        print(restuarantObj.restaurantID  ?? "hhhhsahhsadhashdaskfljasfjadsf;kjasf;laksf;laksf")
         fetchRestarurantMeals()
         
         restuarantAndMealsTableView.rowHeight = UITableViewAutomaticDimension
@@ -40,7 +40,7 @@ class RestaurantDetailsViewController: UIViewController {
     
     func fetchRestarurantMeals() {
         let restaurantDao:RestaurantDao = RestaurantDao.sharedRestaurantObject
-        let mealsUrl:String  = "\(Et3amAPI.baseRestaurantUrlString)\(restuarantObj.restaurantID!)/\(RestaurantQueries.meals)"
+        let mealsUrl:String  = "\(Et3amAPI.baseRestaurantUrlString)\(restuarantObj.restaurantID!)/\(RestaurantQueries.meals)?page=1"
         SVProgressHUD.show(withStatus: "loading Meals")
         restaurantDao.fetchJsonForMeals(typeURL: mealsUrl) { fetchedArray in
             SVProgressHUD.dismiss()
