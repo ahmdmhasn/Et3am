@@ -16,8 +16,8 @@ class LandingViewController: UIViewController {
     @IBOutlet weak var donatedCouponsLabel: UILabel!
     @IBOutlet weak var receivedCouponsLabel: UILabel!
     
+    @IBOutlet weak var noReservedCouponLabel: UILabel!
     @IBOutlet weak var moreInfoLabel: UILabel!
-    @IBOutlet weak var moreInfoBackground: UIView!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var moreInfoStackView: UIStackView!
     
@@ -36,10 +36,9 @@ class LandingViewController: UIViewController {
                 UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
                     self.moreInfoStackView
                         .alpha = display ? 1 : 0
-                    self.moreInfoBackground.alpha = display ? 1 : 0
+                    self.noReservedCouponLabel.alpha = display ? 0 : 1
                 }, completion: { (done) in
                     self.moreInfoStackView.isHidden = !display
-                    self.moreInfoBackground.isHidden = !display
                 })
             }
             
@@ -63,12 +62,6 @@ class LandingViewController: UIViewController {
         moreInfoText = ""
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        timer.invalidate()
-    }
-    
     private func getUserSummary() {
         
         SVProgressHUD.show()
@@ -87,7 +80,7 @@ class LandingViewController: UIViewController {
     }
     
     private func updateUI() {
-        
+                
         usernameLabel.text = userDao.user.userName ?? ""
         donatedCouponsLabel.text = "\(userSummary?.donatedCoupons ?? 0)"
         receivedCouponsLabel.text = "\(userSummary?.usedCoupons ?? 0)"
@@ -166,6 +159,7 @@ class LandingViewController: UIViewController {
 // MARK: - Timer Methods
 extension LandingViewController {
     fileprivate func runTimer() {
+        timer.invalidate()
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(self.updateTimer)), userInfo: nil, repeats: true)
         }

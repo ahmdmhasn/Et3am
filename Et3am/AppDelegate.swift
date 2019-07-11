@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Disable user interactions in SVProgressHUD
 //        SVProgressHUD.setDefaultMaskType(.clear)
         
+        // Change default tint color
+        self.window?.tintColor = UIColor.primaryEt3am()
+        
         // Get user defaults path
         print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true))
         
