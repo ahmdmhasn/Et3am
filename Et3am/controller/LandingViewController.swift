@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import PullToRefreshKit
 
 class LandingViewController: UIViewController {
     
@@ -20,6 +21,7 @@ class LandingViewController: UIViewController {
     @IBOutlet weak var moreInfoLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var moreInfoStackView: UIStackView!
+    @IBOutlet weak var mainScrollView: UIScrollView!
     
     var userSummary: UserSummary?
     let userDao = UserDao.shared
@@ -58,17 +60,22 @@ class LandingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mainScrollView.setUpHeaderRefresh {
+            self.getUserSummary()
+        }
+        
+        SVProgressHUD.show()
         getUserSummary()
+        
         moreInfoText = ""
     }
     
     private func getUserSummary() {
         
-        SVProgressHUD.show()
-        
         userDao.getUserSummaryData { (result) in
             
             SVProgressHUD.dismiss()
+            self.mainScrollView.endHeaderRefreshing()
             
             if let summary = result {
                 self.userSummary = summary
@@ -122,12 +129,6 @@ class LandingViewController: UIViewController {
     }
     
     //MARK: IBActions
-    
-    @IBAction func refresh(_ sender: UIBarButtonItem) {
-        getUserSummary()
-    }
-    
-    
     @IBAction func showLandingActions(_ sender: UIBarButtonItem) {
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)

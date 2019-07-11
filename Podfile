@@ -22,5 +22,7 @@ pod "SVProgressHUD", '~> 1.1.2'
 pod 'ChameleonFramework'
 pod 'SwiftyJSON', '~> 3.0’
 pod 'SDWebImage', '~> 4.0’
+pod "PullToRefreshKit" , "~> 0.6.0"
+
 
 end

@@ -270,21 +270,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Et3amApp" id="nFk-TI-cLm">
-                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="KVg-xn-729">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="KVg-xn-729">
                             <color key="tintColor" red="0.17254902420000001" green="0.24313725529999999" blue="0.31372550129999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="showLandingActions:" destination="VaX-Tk-ec7" id="M7r-RJ-zhE"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="RYE-eq-frc">
-                            <color key="tintColor" red="0.17254902420000001" green="0.24313725529999999" blue="0.31372550129999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="refresh:" destination="VaX-Tk-ec7" id="kHy-RC-AqJ"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="donatedCouponsLabel" destination="Wee-h9-1H4" id="vle-b1-Gmo"/>
+                        <outlet property="mainScrollView" destination="KOm-Xt-QWJ" id="gFk-ad-cYw"/>
                         <outlet property="moreInfoLabel" destination="3sI-zY-1FZ" id="fcq-Bu-7tU"/>
                         <outlet property="moreInfoStackView" destination="P78-hM-It7" id="y3e-jf-TI0"/>
                         <outlet property="noReservedCouponLabel" destination="uKT-5E-umu" id="t5g-qy-seY"/>
