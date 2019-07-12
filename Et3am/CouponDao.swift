@@ -119,16 +119,16 @@ class CouponDao {
         }
     }
     
-    func getInBalanceCoupon(userId:String, inBalanceHandler:@escaping ([Coupon]) -> Void){
+    func getInBalanceCoupon(userId:String, page:Int = 1, inBalanceHandler:@escaping ([Coupon]) -> Void){
         
         var listCoupon = [Coupon]()
         var arrRes = [[String:AnyObject]]() //Array of dictionary
-        Alamofire.request("https://et3am.herokuapp.com/coupon/get_inBalance_coupon", method: .get, parameters:["user_id": userId]).validate().responseJSON{ (response) in
+        Alamofire.request("https://et3am.herokuapp.com/coupon/get_inBalance_coupon", method: .get, parameters:["user_id": userId,"page":page]).validate().responseJSON{ (response) in
             
             print(userId)
             
             print(response.result.value)
-
+            print(response.result)
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
@@ -155,11 +155,11 @@ class CouponDao {
         }
     }
     
-    func getAllUsedCoupon(userId:String, couponUsedHandler:@escaping ([UsedCoupon]) -> Void){
+    func getAllUsedCoupon(userId:String, page:Int = 1, couponUsedHandler:@escaping ([UsedCoupon]) -> Void){
         
         var listUsedCoupon = [UsedCoupon]()
         var arrRes = [[String:AnyObject]]() //Array of dictionary
-        Alamofire.request("https://et3am.herokuapp.com/coupon/get_all_used_coupon", method: .get, parameters:["user_id": userId]).validate().responseJSON{ (response) in
+        Alamofire.request("https://et3am.herokuapp.com/coupon/get_all_used_coupon", method: .get, parameters:["user_id": userId,"page":page]).validate().responseJSON{ (response) in
             
             print(response.result.value)
             
@@ -194,9 +194,7 @@ class CouponDao {
                         usedCoupon.restaurantAddress = item["restaurantAddress"] as? String
                         usedCoupon.price = item["price"] as? Float
                         usedCoupon.useDate = self.getCreationDate(milisecond: (item["useDate"] as? Double)!)
-                        print(usedCoupon.couponId ?? "66666666")
                         listUsedCoupon.append(usedCoupon)
-                        print("listUsedCoupon \(listUsedCoupon.count)")
                     }
                     couponUsedHandler(listUsedCoupon)
                 }
@@ -209,11 +207,11 @@ class CouponDao {
         }
     }
     
-    func getAllReservedCoupon(userId:String, couponReservedHandler:@escaping ([ReservedCoupon]) -> Void){
+    func getAllReservedCoupon(userId:String, page:Int = 1, couponReservedHandler:@escaping ([ReservedCoupon]) -> Void){
         
         var listResCoupon = [ReservedCoupon]()
         var arrRes = [[String:AnyObject]]() //Array of dictionary
-        Alamofire.request("https://et3am.herokuapp.com/coupon/get_all_reserved_coupon", method: .get, parameters:["user_id": userId]).validate().responseJSON{ (response) in
+        Alamofire.request("https://et3am.herokuapp.com/coupon/get_all_reserved_coupon", method: .get, parameters:["user_id": userId,"page":page]).validate().responseJSON{ (response) in
             print(response.result.value)
 
             switch response.result {
@@ -232,7 +230,7 @@ class CouponDao {
                          {
                          "userId": "3ae825e4-a646-4c12-b4b7-66eb2ff6d67c",
                          "couponId": "5c1fb624-b74d-4141-902f-b687d29ea325",
-                         "couponBarcode": null,
+                         "couponBarcode": 229F8D1F8E7A,
                          "couponQrCode": "229F8D1F8E7A",
                          "couponValue": 50,
                          "reservationDate": 1561296942000
