@@ -19,4 +19,5 @@ class Restaurant{
     var distance:Double?
     var travelTime:Double?
     var image:String?
+    var page:Int?
 }
