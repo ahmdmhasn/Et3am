@@ -150,10 +150,6 @@ class RegisterandLoginViewController: UIViewController {
         }
     }
     
-    @IBAction func signUpWithFacebookButton(_ sender: Any) {
-        
-    }
-    
     @IBAction func forgetUserPassword(_ sender: Any) {
           }
     

@@ -16,8 +16,8 @@ class RestaurantsListVC: UITableViewController ,UISearchBarDelegate{
     @IBOutlet weak var SearchBarInTable: UISearchBar!
     var filteredData = [Restaurant]()
     var inSearchMode = false
-    
-
+    var shared : RestaurantDao = RestaurantDao.sharedRestaurantObject
+    var currentUser = UserDao.shared.user
     var restaurantsList = [Restaurant]()
     var locationManager:CLLocationManager!
     var currentLocation:CLLocation?
@@ -61,7 +61,7 @@ class RestaurantsListVC: UITableViewController ,UISearchBarDelegate{
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print("numberOfRowsInSection \(restaurantsList.count)")
+//        print("numberOfRowsInSection \(restaurantsList.count)")
         if inSearchMode {
             
             return filteredData.count
@@ -115,6 +115,26 @@ class RestaurantsListVC: UITableViewController ,UISearchBarDelegate{
 }
 extension RestaurantsListVC {
 
+    
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
+        if searchBar.text! == "" {
+            
+                       filteredData = restaurantsList
+                      inSearchMode = false
+                      tableView.reloadData()
+            
+            }
+
+        shared.searchAboutRestaurants(latitude: currentUser.lat!, longitude: currentUser.longt!, query: searchBar.text!, page: 1) { (fetchedRestaurantList, totalPages) in
+            self.filteredData = fetchedRestaurantList
+            self.inSearchMode = true
+            self.tableView.reloadData()
+            
+        }
+    }
+
+
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
@@ -125,18 +145,23 @@ extension RestaurantsListVC {
             
         }
             
-        else {
-            
-            filteredData = restaurantsList.filter({($0.restaurantName?.lowercased().contains(searchText.lowercased()))! })
-            inSearchMode = true
-            tableView.reloadData()
-        }
-    }
+//        else {
+//            
+//            
+//            
+//            filteredData = restaurantsList.filter({($0.restaurantName?.lowercased().contains(searchText.lowercased()))! })
+//            print("Searccing now ...... ")
+//            inSearchMode = true
+//            tableView.reloadData()
+//        }
+   }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        inSearchMode = false
+        filteredData = restaurantsList
         searchBar.text = ""
-        tableView.reloadData()
+        
+       self.tableView.reloadData()
+        inSearchMode = false
     }
 
 

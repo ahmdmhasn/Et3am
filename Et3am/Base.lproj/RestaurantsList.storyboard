@@ -134,6 +134,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="placeholder" width="1280" height="960"/>
+        <image name="placeholder" width="960" height="960"/>
     </resources>
 </document>

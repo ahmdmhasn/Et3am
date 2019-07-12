@@ -3,6 +3,7 @@ PODS:
   - ChameleonFramework (2.1.0):
     - ChameleonFramework/Default (= 2.1.0)
   - ChameleonFramework/Default (2.1.0)
+  - PullToRefreshKit (0.6.0)
   - SDWebImage (4.4.6):
     - SDWebImage/Core (= 4.4.6)
   - SDWebImage/Core (4.4.6)
@@ -12,6 +13,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.0)
   - ChameleonFramework
+  - PullToRefreshKit (~> 0.6.0)
   - SDWebImage (~> 4.0)
   - SVProgressHUD (~> 1.1.2)
   - SwiftyJSON (~> 3.0)
@@ -20,6 +22,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - ChameleonFramework
+    - PullToRefreshKit
     - SDWebImage
     - SVProgressHUD
     - SwiftyJSON
@@ -27,10 +30,11 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  PullToRefreshKit: 49f63861030a78eeab18d3fb8d338da845e6bc57
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: ba72560a47231573ab8c8a8b94ebfcfb9b24cded
+PODFILE CHECKSUM: 1e23786ebe72b5386920a37b59bde6e5a9ed61b0
 
 COCOAPODS: 1.6.1

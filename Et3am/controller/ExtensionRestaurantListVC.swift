@@ -27,6 +27,8 @@ extension UITableView{
 }
 extension RestaurantsListVC : CLLocationManagerDelegate{
     
+    
+
     // MARK: - Core Location
     func setupLocationManager(){
         locationManager = CLLocationManager()
@@ -47,6 +49,8 @@ extension RestaurantsListVC : CLLocationManagerDelegate{
             let locationValue:CLLocationCoordinate2D = manager.location!.coordinate
             let restaurantDao = RestaurantDao.sharedRestaurantObject
             print("locations = \(locationValue)")
+            self.currentUser.lat = locationValue.latitude
+            self.currentUser.longt = locationValue.longitude
             restaurantDao.fetchAllRestaurants(latitude: locationValue.latitude, longitude: locationValue.longitude, completionHandler: {restaurantList in
                 print("\(restaurantList[0].restaurantName,restaurantList[0].distance)")
                 print(restaurantList.count)

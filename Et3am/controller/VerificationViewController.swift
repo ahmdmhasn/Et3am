@@ -25,6 +25,7 @@ class VerificationViewController: UIViewController {
     @IBOutlet weak var imageActivityIndicaator2: UIActivityIndicatorView!
     
     @IBOutlet weak var idTextField: UITextField!
+    @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var submitButton: UIButton!
     
@@ -57,7 +58,7 @@ class VerificationViewController: UIViewController {
             infoLabel.isHidden = true
         }
         
-        if let frontImage = user.nationalID_Front, let backImage = user.nationalID_Back, let id = user.nationalID {
+        if let frontImage = user.nationalID_Front, let backImage = user.nationalID_Back, let id = user.nationalID, let mobileNumber = user.mobileNumber {
             
             let placeholder = UIImage(named: "placeholder")
             
@@ -71,7 +72,10 @@ class VerificationViewController: UIViewController {
             image2.sd_setIndicatorStyle(.whiteLarge)
             image2.sd_setImage(with: urlBack, placeholderImage: placeholder, options: [], completed: nil)
             
+            firstImageId = frontImage
+            secondImageId = backImage
             idTextField.text = id
+            phoneNumberTextField.text = mobileNumber
         }
         
         submitButton.layer.cornerRadius = submitButton.frame.height / 2
@@ -97,14 +101,13 @@ class VerificationViewController: UIViewController {
     
     @IBAction func submitAction(_ sender: UIButton) {
         
-        if let img1 = firstImageId, let img2 = secondImageId, let idText = idTextField.text, !idText.isEmpty {
+        if let img1 = firstImageId, let img2 = secondImageId, let idText = idTextField.text, !idText.isEmpty, let phoneNumber = phoneNumberTextField.text, !phoneNumber.isEmpty {
             
             sender.isEnabled = false
             SVProgressHUD.show()
             
             userDao.updateUserDetails(type: .verify, completionHandler: { (code) in
                 
-//                SVProgressHUD.dismiss()
                 sender.isEnabled = true
                 
                 if code == 1 {
@@ -112,6 +115,7 @@ class VerificationViewController: UIViewController {
                     userTemp.nationalID = idText
                     userTemp.nationalID_Front = img1
                     userTemp.nationalID_Back = img2
+                    userTemp.mobileNumber = phoneNumber
                     
                     self.userDao.user = userTemp
                     

@@ -29,6 +29,8 @@ struct User: Equatable {
     var nationalID_Front: String?
     var nationalID_Back: String?
     var birthdate: Date?
+    var lat: Double?
+    var longt: Double?
     
     static func == (lhs: User, rhs: User) -> Bool {
         return lhs.userID == rhs.userID
@@ -42,6 +44,10 @@ struct User: Equatable {
                 && lhs.job == rhs.job
                 && lhs.nationalID_Front == rhs.nationalID_Front
                 && lhs.nationalID_Back == rhs.nationalID_Back
+                && lhs.lat  == rhs.lat
+                && lhs.longt == rhs.longt
+
+
         //TODO: Add birthdate to compare
     }
 }

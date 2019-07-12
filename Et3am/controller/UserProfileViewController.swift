@@ -36,8 +36,8 @@ class UserProfileViewController: UITableViewController {
     @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var changeImageButton: UIButton!
     @IBOutlet weak var imageActivityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var jobTextField: UITextField!
+    @IBOutlet weak var userPhoneNumberLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +55,7 @@ class UserProfileViewController: UITableViewController {
         usernameLabel.text = userDao.user.userName ?? ""
         userIDLabel.text = userDao.user.nationalID ?? ""
         userEmailLabel.text = userDao.user.email ?? ""
-        phoneNumberTextField.text = userDao.user.mobileNumber ?? ""
+        userPhoneNumberLabel.text = userDao.user.mobileNumber ?? ""
         jobTextField.text = userDao.user.job ?? ""
         
         userImageView.layer.cornerRadius = userImageView.frame.width / 2
@@ -119,13 +119,6 @@ class UserProfileViewController: UITableViewController {
         }
     }
     
-    @IBAction func editPhoneNumber(_ sender: UITextField) {
-        
-        if let text = sender.text {
-            userDao.user.mobileNumber = text
-        }
-        
-    }
     
     @IBAction func editJob(_ sender: UITextField) {
 

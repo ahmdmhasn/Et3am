@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import PullToRefreshKit
 
 class LandingViewController: UIViewController {
     
@@ -16,10 +17,11 @@ class LandingViewController: UIViewController {
     @IBOutlet weak var donatedCouponsLabel: UILabel!
     @IBOutlet weak var receivedCouponsLabel: UILabel!
     
+    @IBOutlet weak var noReservedCouponLabel: UILabel!
     @IBOutlet weak var moreInfoLabel: UILabel!
-    @IBOutlet weak var moreInfoBackground: UIView!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var moreInfoStackView: UIStackView!
+    @IBOutlet weak var mainScrollView: UIScrollView!
     
     var userSummary: UserSummary?
     let userDao = UserDao.shared
@@ -36,10 +38,9 @@ class LandingViewController: UIViewController {
                 UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
                     self.moreInfoStackView
                         .alpha = display ? 1 : 0
-                    self.moreInfoBackground.alpha = display ? 1 : 0
+                    self.noReservedCouponLabel.alpha = display ? 0 : 1
                 }, completion: { (done) in
                     self.moreInfoStackView.isHidden = !display
-                    self.moreInfoBackground.isHidden = !display
                 })
             }
             
@@ -59,25 +60,22 @@ class LandingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        getUserSummary()
+        mainScrollView.setUpHeaderRefresh {
+            self.getUserSummary()
+        }
+        
+        SVProgressHUD.show()
+        getUserSummary()
+        
         moreInfoText = ""
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // TODO: Remove this and add refresh button
-        getUserSummary()
-    }
-    
-    
     private func getUserSummary() {
-        
-//        SVProgressHUD.show()
         
         userDao.getUserSummaryData { (result) in
             
-//            SVProgressHUD.dismiss()
+            SVProgressHUD.dismiss()
+            self.mainScrollView.endHeaderRefreshing()
             
             if let summary = result {
                 self.userSummary = summary
@@ -89,7 +87,7 @@ class LandingViewController: UIViewController {
     }
     
     private func updateUI() {
-        
+                
         usernameLabel.text = userDao.user.userName ?? ""
         donatedCouponsLabel.text = "\(userSummary?.donatedCoupons ?? 0)"
         receivedCouponsLabel.text = "\(userSummary?.usedCoupons ?? 0)"
@@ -109,35 +107,8 @@ class LandingViewController: UIViewController {
         
     }
     
-    // MARK: - Timer Methods
-    func runTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(self.updateTimer)), userInfo: nil, repeats: true)
-    }
     
-    func timeString(time:TimeInterval) -> String {
-        let hours = Int(time) / 3600
-        let minutes = Int(time) / 60 % 60
-        let seconds = Int(time) % 60
-        return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
-    }
-    
-    func updateTimer() {
-        if seconds < 1 {
-            timer.invalidate()
-            //Send alert to indicate "time's up!"
-        } else {
-            seconds -= 1
-            timerLabel.text = timeString(time: TimeInterval(seconds))
-        }
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        timer.invalidate()
-    }
-    
-    // MARK: - Segure Methods
+    // MARK: - Segue Methods
     @IBAction func showRestaurantList(_ sender: Any) {
         performSegue(withIdentifier: "showRestaurantList", sender: self)
     }
@@ -146,13 +117,70 @@ class LandingViewController: UIViewController {
         performSegue(withIdentifier: "showUserProfile", sender: self)
     }
     
+    @IBAction func showGetFreeCoupon(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: "getFreeCoupon", sender: self)
+        
+    }
+
+    
     @IBAction func showDonate(_ sender: UIButton) {
         performSegue(withIdentifier: "showDonate", sender: self)
     }
     
-    @IBAction func logoutUser(_ sender: UIBarButtonItem) {
-        UserHelper.logoutUser()
+    //MARK: IBActions
+    @IBAction func showLandingActions(_ sender: UIBarButtonItem) {
+        
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Have an Inquiry?", style: .default, handler: { (action) in
+            self.performSegue(withIdentifier: "showSendFeedback", sender: self)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Logout", style: .destructive, handler: { (action) in
+            UserHelper.logoutUser()
+        }))
+        
+        alert.view.tintColor = UIColor.primaryEt3am()
+        
+        // Present alert and add gesture to dismiss the view for interactions outside it
+        self.present(alert, animated: true) {
+            alert.view.superview?.subviews[0].isUserInteractionEnabled = true
+            alert.view.superview?.subviews[0].addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.alertControllerBackgroundTapped)))
+        }
+    }
+    
+    @objc func alertControllerBackgroundTapped() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     
 }
+
+// MARK: - Timer Methods
+extension LandingViewController {
+    fileprivate func runTimer() {
+        timer.invalidate()
+        DispatchQueue.main.async {
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(self.updateTimer)), userInfo: nil, repeats: true)
+        }
+    }
+    
+    fileprivate func timeString(time:TimeInterval) -> String {
+        let hours = Int(time) / 3600
+        let minutes = Int(time) / 60 % 60
+        let seconds = Int(time) % 60
+        return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
+    }
+    
+    @objc fileprivate func updateTimer() {
+        if seconds < 1 {
+            timer.invalidate()
+            //Send alert to indicate "time's up!"
+        } else {
+            seconds -= 1
+            timerLabel.text = timeString(time: TimeInterval(seconds))
+        }
+    }
+}
+
