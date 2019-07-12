@@ -84,7 +84,7 @@
                 <outlet property="usedBy" destination="jr7-CZ-Siy" id="jdd-wJ-mN2"/>
                 <outlet property="usedDate" destination="8Q3-iR-qaP" id="u5n-5y-4kn"/>
             </connections>
-            <point key="canvasLocation" x="-1339" y="-466.5"/>
+            <point key="canvasLocation" x="-1063" y="-454"/>
         </tableViewCell>
     </objects>
 </document>
