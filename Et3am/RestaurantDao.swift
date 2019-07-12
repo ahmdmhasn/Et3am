@@ -110,6 +110,49 @@ class RestaurantDao
                 
             }
         }
+    
+    
+    //Search in Database by Restaurant Name or by City Name
+    func searchAboutRestaurants(latitude:Double ,longitude:Double ,query:String ,page:Int,completionHandler: @escaping ([Restaurant], _ pages:Int) -> Void) {
+        var restaurantsList = [Restaurant]()
+        Alamofire.request("https://et3am.herokuapp.com/restaurant/searchList", method: .get, parameters: ["latitude": latitude,"longitude":longitude,"query":query,"page":page])
+            .validate(statusCode: 200..<500)
+            .responseJSON { response in
+                guard response.result.isSuccess else {
+                    print("Error while fetching remote restaurants: \(response.result.error)")
+                    return
+                }
+                guard let values = response.result.value as? Dictionary<String, Any> else{
+                    print("Malformed data received from service")
+                    return
+                }
+                guard let fetchedValues = values["results"] as? [Dictionary<String, Any>] else{
+                    print("Results Faild")
+                    return
+                }
+                print(values)
+                guard let totalPages = values["total_results"] as? Int else{
+                    print("Total Pages Faild")
+                    return
+                }
+                
+                for value in fetchedValues{
+                    let restaurant:Restaurant! = Restaurant()
+                    restaurant.restaurantID = value["restaurantID"] as? Int
+                    restaurant.restaurantName = value["restaurantName"] as? String
+                    restaurant.city = value["city"] as? String
+                    restaurant.country = value["country"] as? String
+                    restaurant.image = value["restaurantImage"] as? String
+                    restaurant.latitude = value["latitude"] as? Double
+                    restaurant.longitude = value["longitude"] as? Double
+                    restaurant.distance = value["distance"] as? Double
+                    restaurant.travelTime = value["travelTime"] as? Double
+                    restaurantsList.append(restaurant)
+                }
+                completionHandler(restaurantsList,totalPages)
+        }
+    }
+    
     }
     
 

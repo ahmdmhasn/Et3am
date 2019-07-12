@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="find your favorite restaurant" id="fKp-IK-fyw">
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="City Name or Restaurant Name" id="fKp-IK-fyw">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
@@ -130,6 +130,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="placeholder" width="1280" height="960"/>
+        <image name="placeholder" width="960" height="960"/>
     </resources>
 </document>
