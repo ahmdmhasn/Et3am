@@ -119,20 +119,19 @@ class CouponDao {
         }
     }
     
-    func getInBalanceCoupon(userId:String, page:Int = 1, inBalanceHandler:@escaping ([Coupon]) -> Void){
+    func getInBalanceCoupon(userId:String, page:Int = 1, inBalanceHandler:@escaping ([Coupon],_ totalResults:Int) -> Void){
         
         var listCoupon = [Coupon]()
         var arrRes = [[String:AnyObject]]() //Array of dictionary
         Alamofire.request("https://et3am.herokuapp.com/coupon/get_inBalance_coupon", method: .get, parameters:["user_id": userId,"page":page]).validate().responseJSON{ (response) in
             
-            print(userId)
-            
-            print(response.result.value)
             print(response.result)
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
                 let code  = json["code"]
+                let totalResults  = json["total_results"].int
+                print("totalResults .. \(totalResults)")
                 if code == 1 {
                     guard let coupons = json["Coupons"].arrayObject else  {return}
                     arrRes = coupons as! [[String:AnyObject]]
@@ -144,10 +143,10 @@ class CouponDao {
                         coupon.creationDate = self.getCreationDate(milisecond: (item["creationDate"] as? Double)!)
                         listCoupon.append(coupon)
                     }
-                    inBalanceHandler(listCoupon)
+                    inBalanceHandler(listCoupon,totalResults!)
                 }
                 else {
-                    inBalanceHandler([])
+                    inBalanceHandler([],totalResults!)
                 }
             case .failure(let error):
                 print(error)
@@ -155,20 +154,17 @@ class CouponDao {
         }
     }
     
-    func getAllUsedCoupon(userId:String, page:Int = 1, couponUsedHandler:@escaping ([UsedCoupon]) -> Void){
+    func getAllUsedCoupon(userId:String, page:Int = 1, couponUsedHandler:@escaping ([UsedCoupon],_ totalResults:Int) -> Void){
         
         var listUsedCoupon = [UsedCoupon]()
         var arrRes = [[String:AnyObject]]() //Array of dictionary
         Alamofire.request("https://et3am.herokuapp.com/coupon/get_all_used_coupon", method: .get, parameters:["user_id": userId,"page":page]).validate().responseJSON{ (response) in
             
-            print(response.result.value)
-            
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                
-                print(json)
-                
+                let totalResults  = json["total_results"].int
+                print("totalResults .. \(totalResults)")
                 let code  = json["code"]
                 if code == 1 {
                     guard let coupons = json["Coupons"].arrayObject else  {return}
@@ -196,10 +192,10 @@ class CouponDao {
                         usedCoupon.useDate = self.getCreationDate(milisecond: (item["useDate"] as? Double)!)
                         listUsedCoupon.append(usedCoupon)
                     }
-                    couponUsedHandler(listUsedCoupon)
+                    couponUsedHandler(listUsedCoupon,totalResults!)
                 }
                 else {
-                    couponUsedHandler([])
+                    couponUsedHandler([],totalResults!)
                 }
             case .failure(let error):
                 print(error)
@@ -207,19 +203,16 @@ class CouponDao {
         }
     }
     
-    func getAllReservedCoupon(userId:String, page:Int = 1, couponReservedHandler:@escaping ([ReservedCoupon]) -> Void){
+    func getAllReservedCoupon(userId:String, page:Int = 1, couponReservedHandler:@escaping ([ReservedCoupon],_ totalResults:Int) -> Void){
         
         var listResCoupon = [ReservedCoupon]()
         var arrRes = [[String:AnyObject]]() //Array of dictionary
         Alamofire.request("https://et3am.herokuapp.com/coupon/get_all_reserved_coupon", method: .get, parameters:["user_id": userId,"page":page]).validate().responseJSON{ (response) in
-            print(response.result.value)
-
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                
-                print(json)
-                
+                let totalResults  = json["total_results"].int
+                print("totalResults .. \(totalResults)")
                 let code  = json["code"]
                 if code == 1 {
                     guard let coupons = json["Coupons"].arrayObject else  {return}
@@ -244,10 +237,10 @@ class CouponDao {
                         rCoupon.reservationDate = self.getCreationDate(milisecond: (item["reservationDate"] as? Double)!)
                         listResCoupon.append(rCoupon)
                     }
-                    couponReservedHandler(listResCoupon)
+                    couponReservedHandler(listResCoupon,totalResults!)
                 }
                 else {
-                    couponReservedHandler([])
+                    couponReservedHandler([],totalResults!)
                 }
             case .failure(let error):
                 print(error)
