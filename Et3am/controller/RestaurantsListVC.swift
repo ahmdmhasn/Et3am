@@ -11,35 +11,32 @@ import CoreLocation
 import SVProgressHUD
 import SDWebImage
 
-class RestaurantsListVC: UITableViewController ,UISearchBarDelegate{
+class RestaurantsListVC: UITableViewController ,UISearchBarDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var SearchBarInTable: UISearchBar!
     var filteredData = [Restaurant]()
     var inSearchMode = false
+    
     var shared : RestaurantDao = RestaurantDao.sharedRestaurantObject
     var currentUser = UserDao.shared.user
+    
     var restaurantsList = [Restaurant]()
-    var locationManager:CLLocationManager!
+    
+    var locationManager = CLLocationManager()
     var currentLocation:CLLocation?
+    var latitude : Double = 0
+    var longitude : Double = 0
+    
+    var currentPage = 1
+    var totalPages = 0
+    
     let noList = UILabel()
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewDidLoad()
-        setupLocationManager()
-        self.tableView.reloadData()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-         SVProgressHUD.dismiss()
-    }
     
     override func viewDidLoad() {
         SearchBarInTable.delegate = self
 
         super.viewDidLoad()
         noList.center = view.center
-        //noList.text = "You don't have any used coupon."
         noList.text = "No Restaurant Found"
         noList.textAlignment = .center
         noList.textColor = #colorLiteral(red: 0.4078193307, green: 0.4078193307, blue: 0.4078193307, alpha: 1)
@@ -51,6 +48,41 @@ class RestaurantsListVC: UITableViewController ,UISearchBarDelegate{
             self.noList.isHidden = false
             self.tableView.reloadData()
         }
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            self.locationManager.requestWhenInUseAuthorization()
+            locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    // MARK: - Core Location
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if currentLocation == nil {
+            currentLocation = locations.last
+            guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+            latitude = locValue.latitude
+            longitude = locValue.longitude
+            manager.stopUpdatingLocation()
+            print("locations = \(locValue.latitude) \(locValue.longitude)")
+        }else{
+            latitude = (currentLocation?.coordinate.latitude)!
+            longitude = (currentLocation?.coordinate.longitude)!
+            manager.stopUpdatingLocation()
+        }
+        loadMoreData()
+    }
+    
+    // Below Mehtod will print error if not able to update location.
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
+        print("Error while Update location")
+    }
+    
+    //MARK: - viewWillDisapper
+    override func viewWillDisappear(_ animated: Bool) {
+        SVProgressHUD.dismiss()
     }
     
     // MARK: - Table view data source
@@ -61,33 +93,34 @@ class RestaurantsListVC: UITableViewController ,UISearchBarDelegate{
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-//        print("numberOfRowsInSection \(restaurantsList.count)")
-        if inSearchMode {
-            
-            return filteredData.count
-        }
-        else{
-            
-            return restaurantsList.count;}
+        print("numberOfRowsInSection \(restaurantsList.count)")
+        return inSearchMode ? filteredData.count : restaurantsList.count
     }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell() as RestaurantCell
         if inSearchMode {
-            
             drawCell(cell: cell, selectedList: filteredData, indexPath: indexPath)
-        
-            
-        }
-            
-            
-        else{
-        
+        }else{
             drawCell(cell: cell, selectedList: restaurantsList, indexPath: indexPath)
-        
         }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        print("Display........")
+        if indexPath.row == restaurantsList.count - 1 {
+            print(totalPages)
+            if restaurantsList.count < totalPages {
+                fetchNextPage()
+            }
+        }
+        
+    }
+    
+    private func fetchNextPage() {
+        currentPage += 1
+        loadMoreData()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -95,13 +128,14 @@ class RestaurantsListVC: UITableViewController ,UISearchBarDelegate{
         
         
         if inSearchMode{
-        detailsView.restuarantObj = self.filteredData[indexPath.row]
+            detailsView.restuarantObj = self.filteredData[indexPath.row]
         }
         else{
-        detailsView.restuarantObj = self.restaurantsList[indexPath.row]
+            detailsView.restuarantObj = self.restaurantsList[indexPath.row]
         }
         self.navigationController?.pushViewController(detailsView, animated: true);
     }
+    
     func drawCell(cell:RestaurantCell ,selectedList:Array<Restaurant> , indexPath: IndexPath)  {
         let placeholderImage = UIImage(named: "placeholder")!
         let imageURL = ImageAPI.getImage(type: .width150, publicId: selectedList[indexPath.row].image ?? "")
@@ -115,54 +149,41 @@ class RestaurantsListVC: UITableViewController ,UISearchBarDelegate{
 }
 extension RestaurantsListVC {
 
-    
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
         if searchBar.text! == "" {
-            
-                       filteredData = restaurantsList
-                      inSearchMode = false
-                      tableView.reloadData()
-            
-            }
-
+            filteredData = restaurantsList
+            inSearchMode = false
+            tableView.reloadData()
+        }
         shared.searchAboutRestaurants(latitude: currentUser.lat!, longitude: currentUser.longt!, query: searchBar.text!, page: 1) { (fetchedRestaurantList, totalPages) in
             self.filteredData = fetchedRestaurantList
             self.inSearchMode = true
             self.tableView.reloadData()
-            
         }
     }
-
-
-
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
-            
             filteredData = restaurantsList
             inSearchMode = false
             tableView.reloadData()
-            
         }
-            
-//        else {
-//            
-//            
-//            
-//            filteredData = restaurantsList.filter({($0.restaurantName?.lowercased().contains(searchText.lowercased()))! })
-//            print("Searccing now ...... ")
-//            inSearchMode = true
-//            tableView.reloadData()
-//        }
-   }
+        
+        //        else {
+        //
+        //
+        //
+        //            filteredData = restaurantsList.filter({($0.restaurantName?.lowercased().contains(searchText.lowercased()))! })
+        //            print("Searccing now ...... ")
+        //            inSearchMode = true
+        //            tableView.reloadData()
+        //        }
+    }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         filteredData = restaurantsList
         searchBar.text = ""
-        
-       self.tableView.reloadData()
+        self.tableView.reloadData()
         inSearchMode = false
     }
-
-
 }

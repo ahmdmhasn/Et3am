@@ -25,52 +25,47 @@ extension UITableView{
         return cell;
     }
 }
-extension RestaurantsListVC : CLLocationManagerDelegate{
+extension RestaurantsListVC {
     
-    
-
-    // MARK: - Core Location
-    func setupLocationManager(){
-        locationManager = CLLocationManager()
-        locationManager?.delegate = self
-        self.locationManager?.requestWhenInUseAuthorization()
-        locationManager?.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-        locationManager?.startUpdatingLocation()
-        
-    }
-    
-    
-    // Below method will provide you current location.
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        if currentLocation == nil {
-            currentLocation = locations.last
-            locationManager?.stopMonitoringSignificantLocationChanges()
-            let locationValue:CLLocationCoordinate2D = manager.location!.coordinate
-            print("locations = \(locationValue)")
-            self.currentUser.lat = locationValue.latitude
-            self.currentUser.longt = locationValue.longitude
-            RestaurantDao.sharedRestaurantObject.fetchAllRestaurants(latitude: locationValue.latitude, longitude: locationValue.longitude,page:1, completionHandler: {(restaurantList,page) in
-                print("\(restaurantList[0].restaurantName,restaurantList[0].distance)")
-                print(restaurantList.count)
+    func loadMoreData(){
+        //DispatchQueue.main.async {
+            RestaurantDao.sharedRestaurantObject.fetchAllRestaurants(latitude: self.latitude, longitude: self.longitude,page: currentPage, completionHandler: {[unowned self] (restaurantList,pages) in
+                print("fetchAllRestaurants .. \(self.currentPage)")
                 if restaurantList.count == 0 {
                     SVProgressHUD.dismiss()
                     self.tableView.backgroundView = self.noList
                     self.noList.text = "No Restaurant Found"
                 }else{
                     SVProgressHUD.dismiss()
-                    self.restaurantsList = restaurantList
+                    self.restaurantsList.append(contentsOf: restaurantList)
+                    self.totalPages = pages
+                    print("listt.... \(self.restaurantsList.count,self.totalPages)")
+                    self.noList.isHidden = false
+                }
+                self.tableView.reloadData()
+            })
+       // }
+    }
+    
+    func searchMoreData(query queryText:String){
+        DispatchQueue.main.async {
+            RestaurantDao.sharedRestaurantObject.searchAboutRestaurants(latitude: self.latitude, longitude: self.longitude,query:queryText,page: self.currentPage, completionHandler: {[unowned self] (restaurantList,pages) in
+                print("fetchAllRestaurants .. \(self.currentPage)")
+                //print("\(restaurantList[0].restaurantName!,restaurantList[0].distance!)")
+                if restaurantList.count == 0 {
+                    SVProgressHUD.dismiss()
+                    self.tableView.backgroundView = self.noList
+                    self.noList.text = "No Restaurant Found"
+                }else{
+                    SVProgressHUD.dismiss()
+                    self.restaurantsList.append(contentsOf: restaurantList)
+                    self.totalPages = pages
+                    print("listt.... \(self.restaurantsList.count,pages,self.totalPages)")
                     self.noList.isHidden = false
                     self.tableView.reloadData()
                 }
             })
-            
-            locationManager?.stopUpdatingLocation()
         }
     }
-    
-    // Below Mehtod will print error if not able to update location.
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Error")
-    }
 }
+
