@@ -413,10 +413,10 @@
 		E21DAF9E229BEA1000129F7D /* RestaurantList */ = {
 			isa = PBXGroup;
 			children = (
-				E2029CEB22836B6D007BA6A1 /* RestaurantsList.storyboard */,
 				F17C3FD2229D44CD005A449E /* RestaurantsListVC.swift */,
-				F17C3FD4229D45CE005A449E /* RestaurantCell.swift */,
 				F1261FC3229EA607005CB7AD /* ExtensionRestaurantListVC.swift */,
+				F17C3FD4229D45CE005A449E /* RestaurantCell.swift */,
+				E2029CEB22836B6D007BA6A1 /* RestaurantsList.storyboard */,
 			);
 			name = RestaurantList;
 			sourceTree = "<group>";
