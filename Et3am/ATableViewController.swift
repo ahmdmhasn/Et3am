@@ -25,18 +25,11 @@ class ATableViewController: UITableViewController {
     var listCoupons = [Coupon]()
     var listUsedCoupon = [UsedCoupon]()
     var listReservedCoupon = [ReservedCoupon]()
-    
+    var currentPage = 1
+    var totalResults = 0
     var message = UILabel()
     let couponSevices = CouponDao.shared
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-//        couponSevices.getInBalanceCoupon(userId:UserDao.shared.user.userID! , inBalanceHandler:{ listCoupon in
-//            self.listCoupons = listCoupon
-//            self.commonList = listCoupon
-//            self.tableView.reloadData()
-//        })
-    }
 
     var valuee = SwitchTitle.inBalance
     
@@ -117,7 +110,21 @@ class ATableViewController: UITableViewController {
             return cell2
         }
     }
- 
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == listCoupons.count - 1 {
+            if listCoupons.count < totalResults {
+                loadMoreData()
+            }
+        }
+    }
+
+    func loadMoreData(){
+        currentPage += 1
+        print("currentPage: \(currentPage)")
+        self.selectTitle(selectedTitle: .inBalance)
+    }
+    
 
     // MARK: - Navigation
     @IBAction func displayListAs(_ sender: Any) {
@@ -127,14 +134,18 @@ class ATableViewController: UITableViewController {
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         let inBalance = UIAlertAction(title: "In Balance", style: .default) { action in
+            self.listCoupons.removeAll()
             self.selectTitle(selectedTitle: .inBalance)
         }
 
         let reserved = UIAlertAction(title: "Reserved", style: .default) { action in
+            self.listReservedCoupon.removeAll()
             self.selectTitle(selectedTitle: .reserved)
+            
         }
         
         let consumed = UIAlertAction(title: "Consumed", style: .default) { action in
+            self.listUsedCoupon.removeAll()
             self.selectTitle(selectedTitle: .used)
         }
         
@@ -149,37 +160,37 @@ class ATableViewController: UITableViewController {
     func selectTitle(selectedTitle:SwitchTitle){
         switch selectedTitle {
         case .inBalance:
-            print("inBalance \(UserDao.shared.user.userID)")
-            self.couponSevices.getInBalanceCoupon(userId:UserDao.shared.user.userID! , inBalanceHandler:{ listCoupon in
+            print("inBalance")
+            self.couponSevices.getInBalanceCoupon(userId:UserDao.shared.user.userID! , inBalanceHandler:{ (listCoupon,totalResult) in
                 self.valuee = .inBalance
                 self.listReservedCoupon.removeAll()
                 self.listUsedCoupon.removeAll()
-                self.listCoupons = listCoupon
+                self.totalResults = totalResult
+                self.listCoupons.append(contentsOf:listCoupon)
                 self.tableView.reloadData()
             })
-            print(listCoupons.count)
             
         case .reserved:
             print("reserved")
-            self.couponSevices.getAllReservedCoupon(userId:UserDao.shared.user.userID! , couponReservedHandler:{ listCouponReserved in
+            self.couponSevices.getAllReservedCoupon(userId:UserDao.shared.user.userID! , couponReservedHandler:{ (listCouponReserved,totalResult) in
                 self.valuee = .reserved
                 self.listCoupons.removeAll()
                 self.listUsedCoupon.removeAll()
-                self.listReservedCoupon = listCouponReserved
+                self.totalResults = totalResult
+                self.listReservedCoupon.append(contentsOf:listCouponReserved)
                 self.tableView.reloadData()
             })
-            print(listReservedCoupon.count)
             
         case .used:
             print("used")
-            self.couponSevices.getAllUsedCoupon(userId:UserDao.shared.user.userID! , couponUsedHandler:{ listCouponConsumed in
+            self.couponSevices.getAllUsedCoupon(userId:UserDao.shared.user.userID! , couponUsedHandler:{ (listCouponConsumed,totalResult) in
                 self.valuee = .used
                 self.listCoupons.removeAll()
                 self.listReservedCoupon.removeAll()
-                self.listUsedCoupon = listCouponConsumed
+                self.totalResults = totalResult
+                self.listUsedCoupon.append(contentsOf:listCouponConsumed)
                 self.tableView.reloadData()
             })
-            print(listUsedCoupon.count)
         }
     }
 }
