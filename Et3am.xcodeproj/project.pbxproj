@@ -217,7 +217,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		211644A7228C490C009AA2BB /* Network Layer */ = {
+		211644A7228C490C009AA2BB /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
 				F17619BD22DD107F008B6759 /* CouponDao.swift */,
@@ -228,7 +228,7 @@
 				F17619C222DD107F008B6759 /* UserHelper.swift */,
 				F17619BB22DD0F77008B6759 /* ImageAPI.swift */,
 			);
-			name = "Network Layer";
+			name = NetworkLayer;
 			sourceTree = "<group>";
 		};
 		2117FBE0229D48B80099DE05 /* Extension */ = {
@@ -354,7 +354,7 @@
 		E2029D192283750C007BA6A1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				211644A7228C490C009AA2BB /* Network Layer */,
+				211644A7228C490C009AA2BB /* NetworkLayer */,
 				A24FE2AB2287691B00E7C03A /* Pojo */,
 			);
 			name = Model;
