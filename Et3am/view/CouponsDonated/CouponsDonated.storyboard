@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G22010" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="t3k-9Y-flA">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Donated Coupons-->
+        <scene sceneID="3Eh-8A-Tnv">
+            <objects>
+                <tableViewController id="H6v-bs-eps" customClass="CouponsDonatedVC" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="160" sectionHeaderHeight="28" sectionFooterHeight="28" id="dXU-rE-7fY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="H6v-bs-eps" id="3IX-x6-8fZ"/>
+                            <outlet property="delegate" destination="H6v-bs-eps" id="UOY-Wd-EKR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Donated Coupons" id="0lE-UP-Wv9">
+                        <barButtonItem key="leftBarButtonItem" title="Profile" id="OMH-Ny-b2O">
+                            <connections>
+                                <action selector="back:" destination="H6v-bs-eps" id="xpM-Ca-NuX"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Display" id="ewa-kZ-ytN">
+                            <connections>
+                                <action selector="displayListAs:" destination="H6v-bs-eps" id="7d7-Ct-kr8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8qO-Jy-VfQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-109" y="-82"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Pns-oz-1Dz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t3k-9Y-flA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lyy-FU-74c">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="H6v-bs-eps" kind="relationship" relationship="rootViewController" id="BnJ-so-uMv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3RN-kx-6tH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1016" y="-82"/>
+        </scene>
+    </scenes>
+</document>
