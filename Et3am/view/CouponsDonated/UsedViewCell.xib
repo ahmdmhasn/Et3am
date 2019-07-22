@@ -20,10 +20,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ms9-pH-zuc">
-                        <rect key="frame" x="16" y="16.5" width="442" height="128.5"/>
+                        <rect key="frame" x="16" y="16" width="442" height="131"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nhd-qe-Pgd" userLabel="Data Stack View">
-                                <rect key="frame" x="0.0" y="0.0" width="442" height="128.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="442" height="131"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="55555999997777722222" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COT-Qx-OkW">
                                         <rect key="frame" x="0.0" y="0.0" width="324" height="33.5"/>
@@ -32,25 +32,25 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="uesd at: 5/6/2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Q3-iR-qaP">
-                                        <rect key="frame" x="0.0" y="38.5" width="93.5" height="13.5"/>
+                                        <rect key="frame" x="0.0" y="39" width="93.5" height="13.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 LE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Drn-4r-zrw">
-                                        <rect key="frame" x="0.0" y="57" width="45.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="58.5" width="45.5" height="20.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <color key="textColor" red="0.90588235859999999" green="0.29803922770000002" blue="0.23529411850000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YuN-fO-vY1">
-                                        <rect key="frame" x="0.0" y="82.5" width="132.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="84.5" width="132.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPm-OX-2pH">
-                                        <rect key="frame" x="0.0" y="108" width="150.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="110.5" width="150.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -59,23 +59,47 @@
                             </stackView>
                         </subviews>
                     </stackView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Used By: Ahmed***" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jr7-CZ-Siy">
-                        <rect key="frame" x="305.5" y="16" width="152.5" height="130.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Used By: Ahmed***" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jr7-CZ-Siy">
+                        <rect key="frame" x="284" y="16" width="174" height="130"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                        <color key="textColor" red="0.86666667460000002" green="0.41568627949999998" blue="0.10588235410000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clipart.png" translatesAutoresizingMaskIntoConstraints="NO" id="W7M-Y4-cLj">
+                        <rect key="frame" x="284" y="8" width="174" height="147"/>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="ms9-pH-zuc" firstAttribute="top" secondItem="Txw-e6-k80" secondAttribute="topMargin" constant="8" id="BL1-Rd-3Ub"/>
+                    <constraint firstItem="W7M-Y4-cLj" firstAttribute="trailing" secondItem="nhd-qe-Pgd" secondAttribute="trailing" id="MMI-kR-uTU"/>
                     <constraint firstItem="jr7-CZ-Siy" firstAttribute="trailing" secondItem="nhd-qe-Pgd" secondAttribute="trailing" id="NAa-iP-Zcc"/>
+                    <constraint firstAttribute="bottom" secondItem="W7M-Y4-cLj" secondAttribute="bottom" constant="8" id="Pzz-Nj-lNn"/>
                     <constraint firstAttribute="bottomMargin" secondItem="jr7-CZ-Siy" secondAttribute="bottom" constant="8" id="Qrf-5i-is8"/>
+                    <constraint firstItem="W7M-Y4-cLj" firstAttribute="width" secondItem="jr7-CZ-Siy" secondAttribute="width" id="RUB-SU-v1I"/>
                     <constraint firstItem="jr7-CZ-Siy" firstAttribute="top" secondItem="Txw-e6-k80" secondAttribute="topMargin" constant="8" id="TFQ-5R-vnt"/>
+                    <constraint firstItem="W7M-Y4-cLj" firstAttribute="top" secondItem="Txw-e6-k80" secondAttribute="top" constant="8" id="VSo-0L-gMb"/>
                     <constraint firstItem="ms9-pH-zuc" firstAttribute="leading" secondItem="Txw-e6-k80" secondAttribute="leadingMargin" constant="8" id="emh-nK-I2F"/>
                     <constraint firstAttribute="trailingMargin" secondItem="jr7-CZ-Siy" secondAttribute="trailing" constant="8" id="olG-yE-2nG"/>
+                    <constraint firstItem="W7M-Y4-cLj" firstAttribute="centerY" secondItem="ms9-pH-zuc" secondAttribute="centerY" id="p2h-et-CvW"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ms9-pH-zuc" secondAttribute="trailing" constant="8" id="pRx-Zi-Gv5"/>
                 </constraints>
             </tableViewCellContentView>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="5"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                    <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                    <real key="value" value="5"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="couponBarCode" destination="COT-Qx-OkW" id="oQc-XH-SfZ"/>
                 <outlet property="priceMeal" destination="Drn-4r-zrw" id="ZLK-UT-bm0"/>
@@ -84,7 +108,10 @@
                 <outlet property="usedBy" destination="jr7-CZ-Siy" id="jdd-wJ-mN2"/>
                 <outlet property="usedDate" destination="8Q3-iR-qaP" id="u5n-5y-4kn"/>
             </connections>
-            <point key="canvasLocation" x="-1063" y="-454"/>
+            <point key="canvasLocation" x="-1063" y="-454.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="clipart.png" width="174" height="130"/>
+    </resources>
 </document>

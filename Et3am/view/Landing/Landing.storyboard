@@ -288,7 +288,7 @@
                         <outlet property="usernameLabel" destination="rBK-nU-P5N" id="QaU-6J-FaI"/>
                         <segue destination="x3b-f5-2TT" kind="show" identifier="showRestaurantList" id="U5b-YI-Bhy"/>
                         <segue destination="mAI-6S-l51" kind="show" identifier="showUserProfile" id="GRh-bh-fTm"/>
-                        <segue destination="DLW-AL-sSc" kind="push" identifier="showDonate" id="Yap-WL-HjJ"/>
+                        <segue destination="DLW-AL-sSc" kind="show" identifier="showDonate" id="Yap-WL-HjJ"/>
                         <segue destination="gz1-b7-dxc" kind="presentation" identifier="getFreeCoupon" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="36p-ut-Q7s"/>
                         <segue destination="idN-2W-owX" kind="show" identifier="showSendFeedback" id="uYE-jY-xar"/>
                     </connections>
@@ -471,7 +471,7 @@
             <objects>
                 <navigationController storyboardIdentifier="LandingNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="bh3-yh-yHI" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="cza-li-Si5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cza-li-Si5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.17254902420000001" green="0.24313725529999999" blue="0.31372550129999999" alpha="1" colorSpace="calibratedRGB"/>

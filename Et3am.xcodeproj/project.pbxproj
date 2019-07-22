@@ -14,6 +14,7 @@
 		E2029D0022836B6E007BA6A1 /* Et3amTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029CFF22836B6E007BA6A1 /* Et3amTests.swift */; };
 		E2029D0B22836B6E007BA6A1 /* Et3amUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029D0A22836B6E007BA6A1 /* Et3amUITests.swift */; };
 		E25C3FBE22CB6405004DB1E0 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25C3FBD22CB6404004DB1E0 /* UIColor.swift */; };
+		F11B127E22E6216D002A9B75 /* clipart.png in Resources */ = {isa = PBXBuildFile; fileRef = F11B127D22E6216D002A9B75 /* clipart.png */; };
 		F176199D22DCF0E0008B6759 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176199C22DCF0E0008B6759 /* Helper.swift */; };
 		F176199F22DCF62B008B6759 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176199E22DCF62B008B6759 /* AppDelegate.swift */; };
 		F17619A322DCF657008B6759 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F17619A222DCF657008B6759 /* Info.plist */; };
@@ -119,9 +120,10 @@
 		E2029D0A22836B6E007BA6A1 /* Et3amUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Et3amUITests.swift; sourceTree = "<group>"; };
 		E2029D0C22836B6E007BA6A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E25C3FBD22CB6404004DB1E0 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = Extension/UIColor.swift; sourceTree = "<group>"; };
+		F11B127D22E6216D002A9B75 /* clipart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clipart.png; sourceTree = "<group>"; };
 		F176199C22DCF0E0008B6759 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helper.swift; path = SupportingFiles/Helper.swift; sourceTree = "<group>"; };
 		F176199E22DCF62B008B6759 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SupportingFiles/AppDelegate.swift; sourceTree = "<group>"; };
-		F17619A222DCF657008B6759 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SupportingFiles/Info.plist; sourceTree = "<group>"; };
+		F17619A222DCF657008B6759 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Et3am/SupportingFiles/Info.plist; sourceTree = SOURCE_ROOT; };
 		F17619A422DCF673008B6759 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = SupportingFiles/Assets.xcassets; sourceTree = "<group>"; };
 		F17619A622DCF673008B6759 /* Et3am.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Et3am.xcdatamodel; sourceTree = "<group>"; };
 		F17619A922DD0F5F008B6759 /* Admin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Admin.swift; path = model/Pojo/Admin.swift; sourceTree = "<group>"; };
@@ -399,8 +401,8 @@
 		E21DAF9E229BEA1000129F7D /* RestaurantList */ = {
 			isa = PBXGroup;
 			children = (
-				F17619CF22DD1126008B6759 /* ExtensionRestaurantListVC.swift */,
 				F17619D022DD1126008B6759 /* RestaurantsListVC.swift */,
+				F17619CF22DD1126008B6759 /* ExtensionRestaurantListVC.swift */,
 			);
 			name = RestaurantList;
 			sourceTree = "<group>";
@@ -447,6 +449,7 @@
 				F17619A522DCF673008B6759 /* Et3am.xcdatamodeld */,
 				F17619A222DCF657008B6759 /* Info.plist */,
 				F17619A422DCF673008B6759 /* Assets.xcassets */,
+				F11B127D22E6216D002A9B75 /* clipart.png */,
 			);
 			name = SupportingFiles;
 			sourceTree = "<group>";
@@ -676,6 +679,7 @@
 				F1761A2222DD19EA008B6759 /* CopounsRecieved.storyboard in Resources */,
 				F17619FD22DD1754008B6759 /* RegisterAndLogin.storyboard in Resources */,
 				F17619A722DCF673008B6759 /* Assets.xcassets in Resources */,
+				F11B127E22E6216D002A9B75 /* clipart.png in Resources */,
 				F1761A1022DD18DF008B6759 /* CouponsDonated.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1020,7 +1024,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = Et3amTests/Info.plist;
+				INFOPLIST_FILE = Et3am/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eg.com.iti.Et3amTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1035,7 +1039,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = Et3amTests/Info.plist;
+				INFOPLIST_FILE = Et3am/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eg.com.iti.Et3amTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

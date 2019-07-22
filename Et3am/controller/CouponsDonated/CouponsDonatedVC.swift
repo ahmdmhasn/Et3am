@@ -22,7 +22,6 @@ class CouponsDonatedVC: UITableViewController {
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    var commonList = [Any]()
     var listCoupons = [Coupon]()
     var listUsedCoupon = [UsedCoupon]()
     var listReservedCoupon = [ReservedCoupon]()
@@ -90,7 +89,7 @@ class CouponsDonatedVC: UITableViewController {
             print("i")
             return cell
         case SwitchTitle.reserved:
-            print("r")
+            print("reserved")
             let cell1 = tableView.dequeueReusableCell(withIdentifier: "ReservedViewCell", for: indexPath) as! ReservedViewCell
             cell1.delegate = self
             cell1.indexPath = indexPath
@@ -162,7 +161,7 @@ class CouponsDonatedVC: UITableViewController {
         switch selectedTitle {
         case .inBalance:
             print("inBalance")
-            self.couponSevices.getInBalanceCoupon(userId:UserDao.shared.user.userID! , inBalanceHandler:{ (listCoupon,totalResult) in
+            self.couponSevices.getInBalanceCoupon(userId:UserDao.shared.user.userID! , inBalanceHandler:{ [unowned self](listCoupon,totalResult) in
                 self.valuee = .inBalance
                 self.listReservedCoupon.removeAll()
                 self.listUsedCoupon.removeAll()
@@ -170,10 +169,17 @@ class CouponsDonatedVC: UITableViewController {
                 self.listCoupons.append(contentsOf:listCoupon)
                 self.tableView.reloadData()
             })
+            if self.listCoupons.count == 0 {
+                self.tableView.backgroundView = self.message
+                self.message.text = "No Coupon in your balance"
+            }else {
+                self.message.isHidden = false
+                self.tableView.reloadData()
+            }
             
         case .reserved:
             print("reserved")
-            self.couponSevices.getAllReservedCoupon(userId:UserDao.shared.user.userID! , couponReservedHandler:{ (listCouponReserved,totalResult) in
+            self.couponSevices.getAllReservedCoupon(userId:UserDao.shared.user.userID! , couponReservedHandler:{ [unowned self](listCouponReserved,totalResult) in
                 self.valuee = .reserved
                 self.listCoupons.removeAll()
                 self.listUsedCoupon.removeAll()
@@ -181,10 +187,17 @@ class CouponsDonatedVC: UITableViewController {
                 self.listReservedCoupon.append(contentsOf:listCouponReserved)
                 self.tableView.reloadData()
             })
+            if self.listReservedCoupon.count == 0 {
+                self.tableView.backgroundView = self.message
+                self.message.text = "No Coupon reserved from your balance yet"
+            }else {
+                self.message.isHidden = false
+                self.tableView.reloadData()
+            }
             
         case .used:
             print("used")
-            self.couponSevices.getAllUsedCoupon(userId:UserDao.shared.user.userID! , couponUsedHandler:{ (listCouponConsumed,totalResult) in
+            self.couponSevices.getAllUsedCoupon(userId:UserDao.shared.user.userID! , couponUsedHandler:{ [unowned self](listCouponConsumed,totalResult) in
                 self.valuee = .used
                 self.listCoupons.removeAll()
                 self.listReservedCoupon.removeAll()
@@ -192,6 +205,13 @@ class CouponsDonatedVC: UITableViewController {
                 self.listUsedCoupon.append(contentsOf:listCouponConsumed)
                 self.tableView.reloadData()
             })
+            if self.listUsedCoupon.count == 0 {
+                self.tableView.backgroundView = self.message
+                self.message.text = "No Coupon used from your balance yet"
+            }else {
+                self.message.isHidden = false
+                self.tableView.reloadData()
+            }
         }
     }
 }
@@ -201,7 +221,7 @@ class CouponsDonatedVC: UITableViewController {
 extension CouponsDonatedVC : ATableViewCellDelegate,ReservedCellDelegate,MFMessageComposeViewControllerDelegate{
     func didPressPost(cellIndex:IndexPath){
         print("Post \(cellIndex)")
-        self.couponSevices.publishCoupon(couponId: self.listCoupons[cellIndex.row].couponID!,completedHandler: { (result) in
+        self.couponSevices.publishCoupon(couponId: self.listCoupons[cellIndex.row].couponID!,completedHandler: { [unowned self](result) in
             switch result {
             case true :
                 self.listCoupons.remove(at: cellIndex.row)
