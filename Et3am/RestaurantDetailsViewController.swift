@@ -169,10 +169,15 @@ extension RestaurantDetailsViewController : RestaursntCellDelegate {
         let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
         let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
         let options = [MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center), MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)]
-        let placemark = MKPlacemark(coordinate: coordinates)
-        let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = restaurantName
-        mapItem.openInMaps(launchOptions: options)
+        if #available(iOS 10.0, *) {
+            let placemark = MKPlacemark(coordinate: coordinates)
+            let mapItem = MKMapItem(placemark: placemark)
+            mapItem.name = restaurantName
+            mapItem.openInMaps(launchOptions: options)
+        } else {
+            // Fallback on earlier versions
+        }
+        
     }
 
 }

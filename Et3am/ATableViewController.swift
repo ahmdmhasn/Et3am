@@ -265,15 +265,6 @@ extension ATableViewController : ATableViewCellDelegate,ReservedCellDelegate,MFM
     func snapshotrow(sender: IndexPath) -> UIImage {
             let rectOfCellInTableView = tableView.rectForRow(at: IndexPath(row: sender.row, section: sender.section))
             let rectOfCellInSuperview = tableView.convert(rectOfCellInTableView, to: tableView.superview)
-            // @IBOutlet var snapImageView: UIImageView!
-            // snapImageView.image = self.view.snapshot(of: rectOfCellInSuperview)
-            print(self.view.snapshot(of: rectOfCellInSuperview))
-            
-            //let finalImage = saveImage(rowImage: snapImageView.image)
-            //test final image
-            //snapViewImage.image = finalImage
-            //return self.view.snapshot(of: rectOfCellInSuperview)
-        //}
         return saveImage(rowImage:self.view.snapshot(of: rectOfCellInSuperview))
     }
     

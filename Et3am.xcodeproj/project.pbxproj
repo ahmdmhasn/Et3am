@@ -941,6 +941,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Et3am/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eg.com.iti.Et3am;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -960,6 +961,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Et3am/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eg.com.iti.Et3am;
 				PRODUCT_NAME = "$(TARGET_NAME)";
