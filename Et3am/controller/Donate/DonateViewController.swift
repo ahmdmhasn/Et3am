@@ -48,7 +48,7 @@ class DonateViewController: UITableViewController {
     
     @IBAction func DonateButton(_ sender: UIBarButtonItem) {
         
-        let alert = UIAlertController(title: "Are you sure you want to donate '\(totalCoupons)' coupons with a total value of \(totalValues) EGP?", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Are you sure you want to pay for '\(totalCoupons)' coupons with a total value of \(totalValues) EGP?", message: "", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
             self.donateCoupons()

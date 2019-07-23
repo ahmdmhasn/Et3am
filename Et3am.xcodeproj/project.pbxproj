@@ -13,6 +13,8 @@
 		E2029CF522836B6D007BA6A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2029CF322836B6D007BA6A1 /* LaunchScreen.storyboard */; };
 		E2029D0022836B6E007BA6A1 /* Et3amTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029CFF22836B6E007BA6A1 /* Et3amTests.swift */; };
 		E2029D0B22836B6E007BA6A1 /* Et3amUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2029D0A22836B6E007BA6A1 /* Et3amUITests.swift */; };
+		E216FBCC22E7649100526A26 /* CouponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216FBCB22E7649100526A26 /* CouponView.swift */; };
+		E23ECD6D22E7149600F2B6F0 /* CouponView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E23ECD6C22E7149600F2B6F0 /* CouponView.xib */; };
 		E25C3FBE22CB6405004DB1E0 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25C3FBD22CB6404004DB1E0 /* UIColor.swift */; };
 		F11B127E22E6216D002A9B75 /* clipart.png in Resources */ = {isa = PBXBuildFile; fileRef = F11B127D22E6216D002A9B75 /* clipart.png */; };
 		F176199D22DCF0E0008B6759 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176199C22DCF0E0008B6759 /* Helper.swift */; };
@@ -119,6 +121,8 @@
 		E2029D0622836B6E007BA6A1 /* Et3amUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Et3amUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2029D0A22836B6E007BA6A1 /* Et3amUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Et3amUITests.swift; sourceTree = "<group>"; };
 		E2029D0C22836B6E007BA6A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E216FBCB22E7649100526A26 /* CouponView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CouponView.swift; path = view/RequestFreeCoupon/CouponView.swift; sourceTree = "<group>"; };
+		E23ECD6C22E7149600F2B6F0 /* CouponView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CouponView.xib; path = view/RequestFreeCoupon/CouponView.xib; sourceTree = "<group>"; };
 		E25C3FBD22CB6404004DB1E0 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = Extension/UIColor.swift; sourceTree = "<group>"; };
 		F11B127D22E6216D002A9B75 /* clipart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clipart.png; sourceTree = "<group>"; };
 		F176199C22DCF0E0008B6759 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helper.swift; path = SupportingFiles/Helper.swift; sourceTree = "<group>"; };
@@ -341,6 +345,7 @@
 		E2029D1822837503007BA6A1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E23ECD6B22E7142600F2B6F0 /* Request Free Coupon */,
 				E210689722BEC64400A9AD4F /* Landing */,
 				E21DAF9E229BEA1000129F7D /* RestaurantList */,
 				E2680028229AB8A2003EF0CC /* RegisterLoginScreen */,
@@ -376,7 +381,6 @@
 			isa = PBXGroup;
 			children = (
 				F17619E122DD13B3008B6759 /* RestaurantDetailsViewController.swift */,
-				F17619DF22DD1391008B6759 /* GetCouponViewController.swift */,
 			);
 			name = RestaurantDetails;
 			sourceTree = "<group>";
@@ -398,6 +402,15 @@
 			name = Landing;
 			sourceTree = "<group>";
 		};
+		E216FBCA22E7647A00526A26 /* Request Free Coupon */ = {
+			isa = PBXGroup;
+			children = (
+				E23ECD6C22E7149600F2B6F0 /* CouponView.xib */,
+				E216FBCB22E7649100526A26 /* CouponView.swift */,
+			);
+			name = "Request Free Coupon";
+			sourceTree = "<group>";
+		};
 		E21DAF9E229BEA1000129F7D /* RestaurantList */ = {
 			isa = PBXGroup;
 			children = (
@@ -413,6 +426,14 @@
 				E2029CF322836B6D007BA6A1 /* LaunchScreen.storyboard */,
 			);
 			name = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		E23ECD6B22E7142600F2B6F0 /* Request Free Coupon */ = {
+			isa = PBXGroup;
+			children = (
+				F17619DF22DD1391008B6759 /* GetCouponViewController.swift */,
+			);
+			name = "Request Free Coupon";
 			sourceTree = "<group>";
 		};
 		E2680028229AB8A2003EF0CC /* RegisterLoginScreen */ = {
@@ -457,6 +478,7 @@
 		F176199322DCEE8D008B6759 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E216FBCA22E7647A00526A26 /* Request Free Coupon */,
 				F176199B22DCF047008B6759 /* Landing */,
 				E21DAF9F229BEBFE00129F7D /* LaunchScreen */,
 				F176199A22DCF018008B6759 /* RestaurantList */,
@@ -666,6 +688,7 @@
 				F1761A1222DD18DF008B6759 /* ReservedViewCell.xib in Resources */,
 				F1761A2822DD1B12008B6759 /* RestaurantsList.storyboard in Resources */,
 				E2029CF522836B6D007BA6A1 /* LaunchScreen.storyboard in Resources */,
+				E23ECD6D22E7149600F2B6F0 /* CouponView.xib in Resources */,
 				F1761A1422DD18DF008B6759 /* UsedViewCell.xib in Resources */,
 				F17619F622DD1568008B6759 /* Landing.storyboard in Resources */,
 				F1761A0F22DD18DF008B6759 /* ATableViewCell.xib in Resources */,
@@ -792,6 +815,7 @@
 			files = (
 				F1761A1C22DD19C9008B6759 /* DesignableFile.swift in Sources */,
 				F17619E822DD14AB008B6759 /* RecievedViewController.swift in Sources */,
+				E216FBCC22E7649100526A26 /* CouponView.swift in Sources */,
 				F1761A0E22DD18DF008B6759 /* ATableViewCell.swift in Sources */,
 				F17619B722DD0F5F008B6759 /* Restaurant.swift in Sources */,
 				F1761A1822DD1933008B6759 /* MealCell.swift in Sources */,
@@ -990,9 +1014,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = Et3am/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				INFOPLIST_FILE = Et3am/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eg.com.iti.Et3am;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1011,9 +1034,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = Et3am/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				INFOPLIST_FILE = Et3am/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eg.com.iti.Et3am;
 				PRODUCT_NAME = "$(TARGET_NAME)";

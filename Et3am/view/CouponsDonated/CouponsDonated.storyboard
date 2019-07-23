@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Donated Coupons-->
+        <!--Hosted Meals-->
         <scene sceneID="3Eh-8A-Tnv">
             <objects>
                 <tableViewController id="H6v-bs-eps" customClass="CouponsDonatedVC" customModule="Et3am" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,7 +22,7 @@
                             <outlet property="delegate" destination="H6v-bs-eps" id="UOY-Wd-EKR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Donated Coupons" id="0lE-UP-Wv9">
+                    <navigationItem key="navigationItem" title="Hosted Meals" id="0lE-UP-Wv9">
                         <barButtonItem key="leftBarButtonItem" title="Profile" id="OMH-Ny-b2O">
                             <connections>
                                 <action selector="back:" destination="H6v-bs-eps" id="xpM-Ca-NuX"/>

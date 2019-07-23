@@ -17,6 +17,13 @@ extension UIView {
         indicator.startAnimating()
         self.addSubview(indicator)
     }
+    
+    func fadeTo(alpha: CGFloat, duration: Double) {
+        UIView.animate(withDuration: duration) {
+            self.alpha = alpha
+        }
+    }
+    
 }
 
 extension UIView {
@@ -41,5 +48,37 @@ extension UIView {
             return img
         }
     }
+}
+
+extension UIView {
+    
+    func bindToKeyboard(withTapGesture: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(_:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+        
+        if withTapGesture {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleScreenTap(sender:)))
+            self.addGestureRecognizer(tapGesture)
+        }
+    }
+    
+    @objc private func keyboardWillChange(_ notification: Notification) {
+        
+        let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? Double
+        let curve = notification.userInfo?[UIKeyboardAnimationCurveUserInfoKey] as! UInt
+        let cutFrame = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue
+        let targetFrame = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue
+        let deltaY = ((targetFrame?.cgRectValue.origin.y)! - (cutFrame?.cgRectValue.origin.y)!)
+        
+        UIView.animateKeyframes(withDuration: duration!, delay: 0, options: UIViewKeyframeAnimationOptions(rawValue: curve), animations: {
+            
+            self.frame.size.height += deltaY
+            
+        }, completion: nil)
+    }
+    
+    @objc private func handleScreenTap (sender: UITapGestureRecognizer) {
+        self.endEditing(true)
+    }
+    
 }
 

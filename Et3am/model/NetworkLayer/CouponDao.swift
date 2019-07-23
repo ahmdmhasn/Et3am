@@ -15,13 +15,16 @@ class CouponDao {
     public static let shared = CouponDao()
     private init() {}
     
-    public func getReceivedCoupons(completionHandler:@escaping (NSMutableArray, [Restaurant], NSMutableArray,APIResponse) -> Void) {
-        let couponBarcode:NSMutableArray = []
-        let useDate:NSMutableArray = []
+    public func getReceivedCoupons(currentPage: Int, completionHandler:@escaping ([Double], [Restaurant], [String], APIResponse) -> Void) {
+        var couponBarcode = [String]()
+        var useDate = [Double]()
         let restaurantObject = Restaurant()
         var restaurantArray = [Restaurant]()
         var urlComponents = URLComponents(string: Et3amAPI.baseCouponUrlString+CouponURLQueries.used_coupon.rawValue)
-        urlComponents?.queryItems = [URLQueryItem(name: "userId", value:UserDao.shared.userDefaults.string(forKey: "userId"))]
+        
+        let userQueryItem = URLQueryItem(name: "userId", value:UserDao.shared.userDefaults.string(forKey: "userId"))
+        let pageQueryItem = URLQueryItem(name: "page", value: "\(currentPage)")
+        urlComponents?.queryItems = [userQueryItem, pageQueryItem]
         print(urlComponents!)
         Alamofire.request(urlComponents!).validate(statusCode: 200..<500).responseJSON
             { response in
@@ -33,11 +36,14 @@ class CouponDao {
                     let json = JSON(responseValue)
                     
                     let codeDataDictionary:Int =  json["code"].int ?? 0
-                    if(codeDataDictionary == 1)
-                    {
+                    
+                    if(codeDataDictionary == 1) {
+                        
                         guard let couponDataDictionary = json["Coupons"].array else {
                             return
                         }
+                        
+                        print(couponDataDictionary)
                         
                         for i in 0 ..< couponDataDictionary.count {
                             let restaurantsJson = couponDataDictionary[i]["restaurants"]
@@ -48,9 +54,10 @@ class CouponDao {
                             
                             let barcode = couponDataDictionary[i]["userReserveCoupon"]["coupons"]["couponBarcode"].string
                             
-                            couponBarcode[i] = barcode?.substring(from:(barcode?.index((barcode?.endIndex)!, offsetBy: -3))!) ?? 0
+                            couponBarcode.append(barcode?.substring(from:(barcode?.index((barcode?.endIndex)!, offsetBy: -3))!) ?? "")
+
                             
-                            useDate[i] =  (couponDataDictionary[i]["useDate"].double ?? 0) / 1000
+                            useDate.append((couponDataDictionary[i]["useDate"].double ?? 0) / 1000)
                         }
                     }
                     completionHandler(useDate ,restaurantArray ,couponBarcode ,.success(codeDataDictionary))
@@ -105,15 +112,18 @@ class CouponDao {
                 if status == 1  {
                     let barCode = json["coupon"]["coupons"]["couponBarcode"].string
                     let couopnValue = json["coupon"]["coupons"]["couponValue"].float
+                    let creationDate = json["coupon"]["coupons"]["creationDate"].double
                     couponObj.barCode = barCode
                     couponObj.couponValue = couopnValue
+                    if let creationDate = creationDate {
+                        couponObj.creationDate = Coupon.getCreationDate(milisecond: creationDate)
+                    }
                     handler(couponObj)
                 }
                 else {
                     handler(nil)
                 }
             case .failure(let error):
-                
                 print(error)
             }
         }

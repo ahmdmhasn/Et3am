@@ -76,9 +76,7 @@ class RegisterandLoginViewController: UIViewController {
         signUpButton.layer.masksToBounds = true
         
         // Dismiss keyboard 
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
-        tap.cancelsTouchesInView = false
-        self.view.addGestureRecognizer(tap)
+        self.view.bindToKeyboard(withTapGesture: true)
 
     }
     

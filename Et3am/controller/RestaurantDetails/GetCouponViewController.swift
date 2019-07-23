@@ -7,34 +7,33 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class GetCouponViewController: UIViewController {
 
     private let couponDao = CouponDao.shared
     private let currentUser = UserDao.shared.user
     private let getFreeCouponURL: String = CouponURLQueries.getFreeCoupon.getUrl()
-    private var capturedScreenShotView:UIView!
     
+    @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var screenshotView: UIView!
-    @IBOutlet var outerContainerView: UIView!
+    @IBOutlet weak var outerContainerView: UIView!
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var barCodeLable: UILabel!
     @IBOutlet weak var errorMsgLable: UILabel!
-    @IBOutlet weak var imageViewQR: UIImageView!
-    @IBOutlet weak var requestButton: UIBarButtonItem!
-    @IBOutlet weak var btnScreenshotOutlet: UIButton!
+    @IBOutlet weak var btnScreenshotOutlet: RoundedButton!
+    @IBOutlet weak var generatedCouponView: CouponView!
 
+    @IBOutlet weak var requestButton: RoundedButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         containerView.layer.cornerRadius = 15
         containerView.layer.masksToBounds = true
-        capturedScreenShotView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
-        capturedScreenShotView.backgroundColor = UIColor.black
-       view.addSubview(capturedScreenShotView)
-        capturedScreenShotView.isHidden = true
-        print(currentUser.userID ?? 0)
+        
+        // Setup view
+        self.errorMsgLable.isHidden = true
+        self.generatedCouponView.isHidden = true
     }
     
     @IBAction func cancelProcess(_ sender: Any) {
@@ -45,48 +44,78 @@ class GetCouponViewController: UIViewController {
         captureScreenshot()
     }
     
-    @IBAction func requestCouponButton(_ sender: Any) {
+    
+    @IBAction func requestCouponPressed(_ sender: Any) {
         getFreeCoupon(URL: getFreeCouponURL)
+        
         requestButton.isEnabled = false
     }
 
     
     func getFreeCoupon(URL: String) -> Void {
-        couponDao.getFreeCoupon(typeURL: URL, handler: {result in
-            DispatchQueue.main.async {
-                if let coupon = result {
-                    self.barCodeLable.text = coupon.barCode
-                    self.imageViewQR.image = Helper.generateQRCOde(barCode: coupon.barCode)
-                    self.errorMsgLable.isHidden = true
-                    self.btnScreenshotOutlet.isHidden = false
-                } else {
-                    DispatchQueue.main.async {
-                        self.barCodeLable.isHidden = true
-                        self.imageViewQR.isHidden = true
-                        self.errorMsgLable.text = "User is not verified or no coupon exists at the moment"
-                    }
-                }
-            }})
+        SVProgressHUD.show()
+        couponDao.getFreeCoupon(typeURL: URL, handler: { [weak self] result in
+            SVProgressHUD.dismiss()
+            self?.handleResult(result)
+        })
     }
 
+    private func handleResult(_ result: Coupon?) {
+        if let coupon = result {
+            generatedCouponView.coupon = coupon
+            
+            generatedCouponView.isHidden = false
+            btnScreenshotOutlet.isHidden = false
+            generatedCouponView.alpha = 0
+            btnScreenshotOutlet.alpha = 0
+            UIView.animate(withDuration: 0.3, animations: { [weak self] in
+                self?.headerLabel.text = "Congratulations!"
+                self?.generatedCouponView.alpha = 100
+                self?.btnScreenshotOutlet.alpha = 100
+                self?.requestButton.alpha = 0
+            }, completion: { [weak self] done in
+                self?.requestButton.isHidden = true
+            })
+            
+        } else {
+            if UserDao.shared.user.verified! != .verified {
+                errorMsgLable.text = "Your account is not verified! Please verify your account then try again."
+            } else {
+                errorMsgLable.text = "Something went wrong. Please try again later."
+            }
+            errorMsgLable.isHidden = false
+            errorMsgLable.alpha = 0
+            errorMsgLable.fadeTo(alpha: 1, duration: 0.3)
+            
+            requestButton.isEnabled = true
+        }
+    }
     
     func captureScreenshot(){
-        let layer = UIApplication.shared.keyWindow!.layer
+        // Setup Capture screenshot view
+        let capturedScreenShotView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
+        capturedScreenShotView.backgroundColor = UIColor.black
+        view.addSubview(capturedScreenShotView)
+        
+//        let layer = UIApplication.shared.keyWindow!.layer
+        let layer = self.generatedCouponView.layer
         let scale = UIScreen.main.scale
+        
         // Creates UIImage of same size as view
         UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
         layer.render(in: UIGraphicsGetCurrentContext()!)
         let screenshot = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        
         // THIS IS TO SAVE SCREENSHOT TO PHOTOS
         notifyUser(data: screenshot ?? 0)
         
         capturedScreenShotView.isHidden = false
-        self.capturedScreenShotView.alpha = 1
+        capturedScreenShotView.alpha = 1
         UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
-            self.capturedScreenShotView.alpha = 0
+            capturedScreenShotView.alpha = 0
         }) { (completed) in
-            self.capturedScreenShotView.isHidden = true
+            capturedScreenShotView.isHidden = true
         }
     }
     

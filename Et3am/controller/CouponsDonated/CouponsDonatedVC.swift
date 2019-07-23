@@ -14,7 +14,7 @@ import SVProgressHUD
 enum SwitchTitle: String {
     case inBalance = "InBalance"
     case reserved = "Reserved"
-    case used = "Used"
+    case used = "Used Coupons"
 }
 
 class CouponsDonatedVC: UITableViewController {
@@ -346,22 +346,20 @@ extension CouponsDonatedVC : ATableViewCellDelegate,ReservedCellDelegate,MFMessa
     }
 
 
-extension UITableView
-{
+extension UITableView {
+    
     func snapshotRows(at indexPaths: Set<IndexPath>) -> UIImage?
     {
         guard !indexPaths.isEmpty else { return nil }
         var rect = self.rectForRow(at: indexPaths.first!)
-        for indexPath in indexPaths
-        {
+        for indexPath in indexPaths {
             let cellRect = self.rectForRow(at: indexPath)
             rect = rect.union(cellRect)
         }
         
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
         guard let context = UIGraphicsGetCurrentContext() else { return nil }
-        for indexPath in indexPaths
-        {
+        for indexPath in indexPaths {
             let cell = self.cellForRow(at: indexPath)
             cell?.layer.bounds.origin.y = self.rectForRow(at: indexPath).origin.y - rect.minY
             cell?.layer.render(in: context)

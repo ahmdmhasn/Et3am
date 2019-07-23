@@ -8,7 +8,6 @@
 
 import UIKit
 
-@IBDesignable
 class RoundedImageView: UIImageView {
 
     override init(image: UIImage?) {

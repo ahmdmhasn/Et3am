@@ -15,8 +15,11 @@ class Helper {
         let data = myString.data(using: .ascii, allowLossyConversion: false)
         let filter = CIFilter(name: "CIQRCodeGenerator")
         filter?.setValue(data, forKey: "inputMessage")
-        let img = UIImage(ciImage: (filter?.outputImage)!)
-        return img
+        let transform = CGAffineTransform(scaleX: 3, y: 3)
+        if let image = filter?.outputImage?.applying(transform) {
+            return UIImage(ciImage: image)
+        }
+        return UIImage()
     }
 
     

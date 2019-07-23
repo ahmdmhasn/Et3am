@@ -15,9 +15,8 @@ class RestaurantDetailsCell: UITableViewCell {
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var restaurantCountyCity: UILabel!
     @IBOutlet weak var mapImageView: UIImageView!
-    
-    
 }
+
 protocol RestaursntCellDelegate: class {
     func tapedImage()
 }

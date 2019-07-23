@@ -49,6 +49,9 @@ class UserProfileViewController: UITableViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.didTapOnImageSection()
         }
+        
+        // Dismiss keyboard
+        self.view.bindToKeyboard(withTapGesture: true)
     }
     
     func updateUI() {

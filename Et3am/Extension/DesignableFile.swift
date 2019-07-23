@@ -8,22 +8,6 @@
 
 import UIKit
 
-@IBDesignable
-class DesignableView: UIView {
-}
-
-@IBDesignable
-class DesignableButton: UIButton {
-}
-
-@IBDesignable
-class DesignableLabel: UILabel {
-}
-
-@IBDesignable
-class DesignableImage: UIImageView {
-}
-
 extension UIView {
     
     @IBInspectable

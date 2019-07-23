@@ -11,8 +11,12 @@ import UIKit
 //@IBDesignable
 class RoundedButton: UIButton {
     
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
         
         let cornerRadius = self.bounds.height / 2
         self.layer.cornerRadius = cornerRadius
