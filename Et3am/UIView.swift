@@ -12,7 +12,7 @@ import UIKit
 extension UIView {
     
     func setnetworkIndicator() {
-        var indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         indicator.center = self.center
         indicator.startAnimating()
         self.addSubview(indicator)
@@ -34,9 +34,9 @@ extension UIView {
             
             window?.layer.render(in: UIGraphicsGetCurrentContext()!)
             
-            let img: UIImage = UIGraphicsGetImageFromCurrentImageContext()!;
+            let img: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
             
-            UIGraphicsEndImageContext();
+            UIGraphicsEndImageContext()
             
             return img
         }
