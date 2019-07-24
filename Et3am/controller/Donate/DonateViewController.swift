@@ -51,7 +51,16 @@ class DonateViewController: UITableViewController {
         let alert = UIAlertController(title: "Are you sure you want to pay for '\(totalCoupons)' coupons with a total value of \(totalValues) EGP?", message: "", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
-            self.donateCoupons()
+            
+            Authentication.authenticateUser(completionHandler: { [weak self] (success) in
+                if success {
+                    // Async after to allow the window view to return and to prevent any error 
+                    // caused by SVProgressSUV
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                        self?.donateCoupons()
+                    })
+                }
+            })
         }))
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
         

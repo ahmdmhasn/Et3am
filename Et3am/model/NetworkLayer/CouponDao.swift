@@ -101,6 +101,10 @@ class CouponDao {
     func getFreeCoupon(typeURL:String, handler:@escaping (Coupon?) -> Void)    {
         
         let couponObj:Coupon! = Coupon()
+        /*couponObj.barCode = "LNDU37RYDHFS"
+        couponObj.couponValue = 200
+        couponObj.creationDate = Coupon.getCreationDate(milisecond: 135132151613)
+        handler(couponObj)*/
         
         Alamofire.request(typeURL).responseJSON { (response) in
             

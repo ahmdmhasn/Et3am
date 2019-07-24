@@ -248,8 +248,8 @@ extension CouponsDonatedVC : ATableViewCellDelegate,ReservedCellDelegate,MFMessa
             let composeVC = MFMessageComposeViewController()
             composeVC.messageComposeDelegate = self
             // Configure the fields of the interface.
-            //composeVC.recipients = ["3142026521"]
-            composeVC.body = listCoupons[cellIndex.row].couponID
+            let coupon = listCoupons[cellIndex.row]
+            composeVC.body = "Hi! I'm inviting you on a meal with coupon code \(coupon.barCode!). It's valid within 48 hours from now at any of the restaurants supported by Et3am. Happy Meal!"
             self.present(composeVC, animated: true, completion: nil)
         } else {
             print("Can't send messages.")

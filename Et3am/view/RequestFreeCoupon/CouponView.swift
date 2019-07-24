@@ -22,7 +22,7 @@ class CouponView: UIView {
             codeLabel.text = coupon.barCode
             qrCodeImageView.image = Helper.generateQRCOde(barCode: coupon.barCode)
             valueLabel.text = "\(coupon.couponValue!)"
-            dateLabel.text = coupon.creationDate
+            dateLabel.text = "*Valid within 48 hours from \(coupon.creationDate!)"
         }
     }
     

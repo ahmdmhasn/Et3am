@@ -51,7 +51,7 @@ class UserProfileViewController: UITableViewController {
         }
         
         // Dismiss keyboard
-        self.view.bindToKeyboard(withTapGesture: true)
+        self.view.bindToKeyboard(withTapGesture: false)
     }
     
     func updateUI() {

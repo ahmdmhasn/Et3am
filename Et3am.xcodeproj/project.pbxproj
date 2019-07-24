@@ -16,6 +16,8 @@
 		E216FBCC22E7649100526A26 /* CouponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E216FBCB22E7649100526A26 /* CouponView.swift */; };
 		E23ECD6D22E7149600F2B6F0 /* CouponView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E23ECD6C22E7149600F2B6F0 /* CouponView.xib */; };
 		E25C3FBE22CB6405004DB1E0 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25C3FBD22CB6404004DB1E0 /* UIColor.swift */; };
+		E27BF9F922E8880000CA4E91 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27BF9F822E8880000CA4E91 /* LocalAuthentication.framework */; };
+		E27BF9FB22E8887100CA4E91 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27BF9FA22E8887100CA4E91 /* Authentication.swift */; };
 		F11B127E22E6216D002A9B75 /* clipart.png in Resources */ = {isa = PBXBuildFile; fileRef = F11B127D22E6216D002A9B75 /* clipart.png */; };
 		F176199D22DCF0E0008B6759 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176199C22DCF0E0008B6759 /* Helper.swift */; };
 		F176199F22DCF62B008B6759 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176199E22DCF62B008B6759 /* AppDelegate.swift */; };
@@ -124,6 +126,8 @@
 		E216FBCB22E7649100526A26 /* CouponView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CouponView.swift; path = view/RequestFreeCoupon/CouponView.swift; sourceTree = "<group>"; };
 		E23ECD6C22E7149600F2B6F0 /* CouponView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CouponView.xib; path = view/RequestFreeCoupon/CouponView.xib; sourceTree = "<group>"; };
 		E25C3FBD22CB6404004DB1E0 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = Extension/UIColor.swift; sourceTree = "<group>"; };
+		E27BF9F822E8880000CA4E91 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		E27BF9FA22E8887100CA4E91 /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Authentication.swift; path = SupportingFiles/Authentication.swift; sourceTree = "<group>"; };
 		F11B127D22E6216D002A9B75 /* clipart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clipart.png; sourceTree = "<group>"; };
 		F176199C22DCF0E0008B6759 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helper.swift; path = SupportingFiles/Helper.swift; sourceTree = "<group>"; };
 		F176199E22DCF62B008B6759 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SupportingFiles/AppDelegate.swift; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E27BF9F922E8880000CA4E91 /* LocalAuthentication.framework in Frameworks */,
 				F17C3FD1229D3850005A449E /* CoreLocation.framework in Frameworks */,
 				C7EE519B2AC1E41C3A64F79D /* Pods_Et3am.framework in Frameworks */,
 			);
@@ -267,6 +272,7 @@
 		72E0C1BC5518452B36546A4B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E27BF9F822E8880000CA4E91 /* LocalAuthentication.framework */,
 				F17C3FD0229D3850005A449E /* CoreLocation.framework */,
 				693E598950506D287CF64D8D /* Pods_Et3am.framework */,
 				5B2B04E14B268BE19AA18B5F /* Pods_Et3amTests.framework */,
@@ -471,6 +477,7 @@
 				F17619A222DCF657008B6759 /* Info.plist */,
 				F17619A422DCF673008B6759 /* Assets.xcassets */,
 				F11B127D22E6216D002A9B75 /* clipart.png */,
+				E27BF9FA22E8887100CA4E91 /* Authentication.swift */,
 			);
 			name = SupportingFiles;
 			sourceTree = "<group>";
@@ -849,6 +856,7 @@
 				F17619C422DD107F008B6759 /* Et3amAPI.swift in Sources */,
 				F17619E522DD1411008B6759 /* RoundedButton.swift in Sources */,
 				F17619C522DD107F008B6759 /* InquiryLayer.swift in Sources */,
+				E27BF9FB22E8887100CA4E91 /* Authentication.swift in Sources */,
 				F17619CC22DD10B6008B6759 /* UILabel.swift in Sources */,
 				F17619B422DD0F5F008B6759 /* Fakka.swift in Sources */,
 				F17619C722DD107F008B6759 /* UserDao.swift in Sources */,
