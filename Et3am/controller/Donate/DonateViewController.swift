@@ -31,7 +31,6 @@ class DonateViewController: UITableViewController {
         countOfValue_50Label.text = String(Int(sender.value))
         TotalCouponLabel.text = totalCoupons
         TotalValueLabel.text = totalValues
-        
     }
     
     @IBAction func value_100Stepper(_ sender: UIStepper) {
